@@ -14,6 +14,7 @@ import type {
   AppTab,
   ChatMessage,
   CorrectionSceneData,
+  DiscussionSummary,
   DocumentManifest,
   DocumentProcessingStatus,
   ExamMode,
@@ -49,9 +50,12 @@ type UnfoldStore = {
   // Discussion chat state
   chatMessages: ChatMessage[];
   chatLoading: boolean;
+  chatSummary?: DiscussionSummary;
+  chatSubmitting: boolean;
   sendChatMessage: (message: string, chapterContext: string, activityPrompt: string) => void;
   appendChatMessage: (msg: ChatMessage) => void;
   setChatLoading: (loading: boolean) => void;
+  endActivity: (activityPrompt: string) => void;
   clearChat: () => void;
   setDocumentStatus: (documentStatus: DocumentProcessingStatus) => void;
   setDocumentReady: (documentManifest: DocumentManifest) => void;
@@ -117,7 +121,9 @@ const initialState = {
   movieStartedAt: undefined,
   moviePrompt: undefined,
   chatMessages: [] as ChatMessage[],
-  chatLoading: false
+  chatLoading: false,
+  chatSummary: undefined,
+  chatSubmitting: false
 };
 
 export const useUnfoldStore = create<UnfoldStore>()(
@@ -288,7 +294,26 @@ export const useUnfoldStore = create<UnfoldStore>()(
       appendChatMessage: (msg) =>
         set((state) => ({ chatMessages: [...state.chatMessages, msg] })),
       setChatLoading: (chatLoading) => set({ chatLoading }),
-      clearChat: () => set({ chatMessages: [], chatLoading: false }),
+      clearChat: () => set({ chatMessages: [], chatLoading: false, chatSummary: undefined, chatSubmitting: false }),
+      endActivity: async (activityPrompt) => {
+        const { chatMessages } = get();
+        if (chatMessages.length === 0) return;
+        set({ chatSubmitting: true });
+        try {
+          const res = await fetch("/api/end-activity", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ messages: chatMessages, activityPrompt }),
+          });
+          if (!res.ok) throw new Error("End activity request failed");
+          const data = await res.json();
+          set({ chatSummary: data.summary });
+        } catch (err) {
+          console.error("End activity error:", err);
+        } finally {
+          set({ chatSubmitting: false });
+        }
+      },
       sendChatMessage: async (message, chapterContext, activityPrompt) => {
         const { appendChatMessage, setChatLoading, chatMessages } = get();
         const userMsg: ChatMessage = { role: "user", content: message };

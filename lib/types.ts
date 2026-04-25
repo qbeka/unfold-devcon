@@ -125,3 +125,8 @@ export type ChatMessage = {
 };
 
 export type AgentKey = "riya" | "val" | "ben" | "dana";
+
+export type DiscussionSummary = {
+  covered: { topic: string; highlights: string[] }[];
+  missed: { topic: string; detail: string; sectionId: string; sectionTitle: string }[];
+};
