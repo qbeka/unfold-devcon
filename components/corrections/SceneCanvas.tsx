@@ -1,202 +1,284 @@
 "use client";
 
-import { OrbitControls, Text } from "@react-three/drei";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { createElement, useRef } from "react";
-import type { Group } from "three";
+import { Suspense, useEffect, useMemo, useRef } from "react";
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import { ContactShadows, Environment, Html, useGLTF } from "@react-three/drei";
+import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import type { CorrectionSceneData } from "@/lib/types";
 
-export function SceneCanvas({ playing, scene }: { playing: boolean; scene: CorrectionSceneData }) {
+useGLTF.preload("/models/officer.glb");
+useGLTF.preload("/models/citizen.glb");
+
+export function SceneCanvas({
+  playing,
+  scene,
+  height = 480,
+  caption
+}: {
+  playing: boolean;
+  scene: CorrectionSceneData;
+  height?: number;
+  caption?: string;
+}) {
   return (
-    <div className="h-[420px] overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-950">
-      <Canvas camera={{ position: [0, 2.1, 7.4], fov: 42 }}>
-        {three("color", { attach: "background", args: ["#0f172a"] })}
-        {three("ambientLight", { intensity: 0.85 })}
-        {three("directionalLight", { intensity: 1.4, position: [2, 5, 4] })}
-        <OutcomeScene correct playing={playing} position={[-2.85, 0, 0]} text={scene.correctChoice.text} />
-        <OutcomeScene playing={playing} position={[2.85, 0, 0]} text={scene.wrongChoice.text} />
-        <Divider />
-        <SceneTitle position={[-2.85, 1.95, 0]} title="Correct outcome" tone="#dcfce7" />
-        <SceneTitle position={[2.85, 1.95, 0]} title="Wrong outcome" tone="#fee2e2" />
-        <OrbitControls enablePan={false} enableZoom={false} maxPolarAngle={1.55} minPolarAngle={1.05} />
+    <div
+      className="relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-gradient-to-b from-[#cfe2f3] via-[#a7c4e1] to-[#7d9fc6]"
+      style={{ height }}
+    >
+      <Canvas shadows camera={{ position: [0, 1.6, 7.4], fov: 36 }}>
+        <Suspense fallback={null}>
+          <SceneLighting />
+          <Environment preset="city" />
+          <Diorama
+            position={[-2.6, 0, 0]}
+            tone="correct"
+            playing={playing}
+            text={scene.correctChoice.text}
+            label={scene.correctChoice.label}
+          />
+          <Diorama
+            position={[2.6, 0, 0]}
+            tone="wrong"
+            playing={playing}
+            text={scene.wrongChoice.text}
+            label={scene.wrongChoice.label}
+          />
+          <Divider />
+          <ContactShadows
+            position={[0, -0.65, 0]}
+            opacity={0.45}
+            scale={11}
+            blur={2.4}
+            far={2}
+          />
+        </Suspense>
       </Canvas>
+
+      {caption && (
+        <div className="pointer-events-none absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-[0_4px_18px_rgba(15,23,42,0.18)]">
+          {caption}
+        </div>
+      )}
     </div>
   );
 }
 
-function OutcomeScene({
-  correct = false,
-  playing,
+function SceneLighting() {
+  return (
+    <>
+      <ambientLight intensity={0.55} />
+      <directionalLight
+        intensity={1.4}
+        position={[5, 7, 5]}
+        castShadow
+        shadow-mapSize={[1024, 1024]}
+      />
+      <directionalLight intensity={0.4} position={[-6, 4, -3]} />
+    </>
+  );
+}
+
+function Diorama({
   position,
-  text
+  tone,
+  playing,
+  text,
+  label
 }: {
-  correct?: boolean;
-  playing: boolean;
   position: [number, number, number];
+  tone: "correct" | "wrong";
+  playing: boolean;
   text: string;
+  label: string;
 }) {
-  const officer = useRef<Group>(null);
-  const subject = useRef<Group>(null);
-  const report = useRef<Group>(null);
+  const isCorrect = tone === "correct";
+  const groundTint = isCorrect ? "#d8e7d2" : "#e7d4cc";
+  const accent = isCorrect ? "#15803d" : "#b91c1c";
+
+  return (
+    <group position={position}>
+      <Stage tint={groundTint} />
+      <CharacterStage playing={playing} tone={tone} />
+      <TimedCallout playing={playing} tone={tone} text={text} label={label} accent={accent} />
+    </group>
+  );
+}
+
+function Stage({ tint }: { tint: string }) {
+  return (
+    <group>
+      {/* Ground plate */}
+      <mesh receiveShadow position={[0, -0.65, 0]}>
+        <cylinderGeometry args={[2.1, 2.1, 0.18, 48]} />
+        <meshStandardMaterial color={tint} roughness={0.85} />
+      </mesh>
+      {/* Sidewalk */}
+      <mesh position={[0, -0.55, 0.55]}>
+        <boxGeometry args={[3.6, 0.05, 1.0]} />
+        <meshStandardMaterial color="#cccccc" roughness={0.95} />
+      </mesh>
+      {/* Curb */}
+      <mesh position={[0, -0.49, 1.1]}>
+        <boxGeometry args={[3.6, 0.06, 0.12]} />
+        <meshStandardMaterial color="#9ba3ad" roughness={0.9} />
+      </mesh>
+      {/* Storefront wall */}
+      <mesh position={[0, 0.95, -0.95]} castShadow>
+        <boxGeometry args={[3.6, 2.4, 0.18]} />
+        <meshStandardMaterial color="#f5efe5" roughness={0.7} />
+      </mesh>
+      {/* Window */}
+      <mesh position={[0, 1.05, -0.85]}>
+        <boxGeometry args={[2.4, 1.1, 0.06]} />
+        <meshStandardMaterial color="#9bbfd6" emissive="#1d3a52" emissiveIntensity={0.18} roughness={0.4} metalness={0.4} />
+      </mesh>
+      {/* Door */}
+      <mesh position={[1.4, 0.4, -0.85]}>
+        <boxGeometry args={[0.5, 1.1, 0.06]} />
+        <meshStandardMaterial color="#5b3a29" roughness={0.6} />
+      </mesh>
+      {/* Streetlight */}
+      <mesh position={[-1.5, 0.4, 0.95]} castShadow>
+        <cylinderGeometry args={[0.04, 0.04, 2.2, 12]} />
+        <meshStandardMaterial color="#2b2b2b" />
+      </mesh>
+      <mesh position={[-1.5, 1.55, 0.95]}>
+        <sphereGeometry args={[0.12, 16, 16]} />
+        <meshStandardMaterial color="#fff8d6" emissive="#ffe58a" emissiveIntensity={0.6} />
+      </mesh>
+    </group>
+  );
+}
+
+function CharacterStage({ playing, tone }: { playing: boolean; tone: "correct" | "wrong" }) {
+  const officerRef = useRef<THREE.Group>(null);
+  const citizenRef = useRef<THREE.Group>(null);
+  const baseY = -0.55;
 
   useFrame(({ clock }) => {
     const t = playing ? clock.getElapsedTime() : 0;
-
-    if (officer.current) {
-      officer.current.position.x = correct ? -0.9 + Math.min(0.55, t * 0.18) : -0.8;
-      officer.current.rotation.y = correct ? -0.15 : 0.15;
+    if (officerRef.current) {
+      officerRef.current.position.y = baseY + (playing ? Math.sin(t * 1.6) * 0.015 : 0);
+      officerRef.current.rotation.y = tone === "correct" ? -0.22 : 0.22;
     }
-
-    if (subject.current) {
-      subject.current.position.x = correct ? 0.65 : 0.75 + Math.sin(t * 5) * 0.03;
-      subject.current.rotation.z = correct ? 0 : Math.sin(t * 4) * 0.06;
-    }
-
-    if (report.current) {
-      report.current.position.y = -0.02 + (playing ? Math.sin(t * 2) * 0.04 : 0);
+    if (citizenRef.current) {
+      citizenRef.current.position.y = baseY + (playing ? Math.sin(t * 1.6 + 0.6) * 0.015 : 0);
+      citizenRef.current.rotation.y =
+        tone === "correct" ? 0.22 : 0.22 + (playing ? Math.sin(t * 4.2) * 0.05 : 0);
     }
   });
 
-  return three(
-    "group",
-    { position },
-    <Floor key="floor" correct={correct} />,
-    three(
-      "group",
-      { ref: officer, position: [-0.9, -0.2, 0] },
-      <Person key="officer" uniform correct={correct} />,
-      <SpeechBubble key="speech" correct={correct} text={correct ? "Facts only. Include the time and source." : "That wording is opinion-based."} />
-    ),
-    three("group", { ref: subject, position: [0.75, -0.2, 0] }, <Person key="subject" correct={correct} />),
-    three("group", { ref: report, position: [0, -1.1, 0.2] }, <ReportCard key="report" correct={correct} text={text} />)
+  return (
+    <>
+      <group ref={officerRef} position={[-0.65, baseY, 0.1]}>
+        <CharacterModel kind="officer" />
+      </group>
+      <group ref={citizenRef} position={[0.7, baseY, 0.05]}>
+        <CharacterModel kind="citizen" />
+      </group>
+    </>
   );
 }
 
-function Floor({ correct }: { correct: boolean }) {
-  return three(
-    "mesh",
-    { position: [0, -1.35, 0], rotation: [-Math.PI / 2, 0, 0] },
-    three("planeGeometry", { args: [4.8, 3.2] }),
-    three("meshStandardMaterial", { color: correct ? "#13291f" : "#2d1414", roughness: 0.8 })
-  );
+function CharacterModel({ kind }: { kind: "officer" | "citizen" }) {
+  const url = kind === "officer" ? "/models/officer.glb" : "/models/citizen.glb";
+  const gltf = useLoader(GLTFLoader, url);
+  const cloned = useMemo(() => gltf.scene.clone(true), [gltf.scene]);
+
+  useEffect(() => {
+    cloned.traverse((node) => {
+      if ((node as THREE.Mesh).isMesh) {
+        const mesh = node as THREE.Mesh;
+        mesh.castShadow = true;
+        mesh.receiveShadow = false;
+      }
+    });
+
+    const box = new THREE.Box3().setFromObject(cloned);
+    const size = box.getSize(new THREE.Vector3());
+    const center = box.getCenter(new THREE.Vector3());
+    const targetHeight = 1.55;
+    const scale = size.y > 0 ? targetHeight / size.y : 1;
+    cloned.scale.setScalar(scale);
+
+    // Recompute bounds after scaling so we sit the model on the ground.
+    cloned.updateMatrixWorld(true);
+    const scaledBox = new THREE.Box3().setFromObject(cloned);
+    const scaledCenter = scaledBox.getCenter(new THREE.Vector3());
+    cloned.position.x -= scaledCenter.x;
+    cloned.position.z -= scaledCenter.z;
+    cloned.position.y -= scaledBox.min.y;
+  }, [cloned]);
+
+  return <primitive object={cloned} />;
 }
 
-function Person({ correct, uniform = false }: { correct: boolean; uniform?: boolean }) {
-  const bodyColor = uniform ? "#1e3a8a" : correct ? "#64748b" : "#92400e";
+function TimedCallout({
+  playing,
+  tone,
+  text,
+  label,
+  accent
+}: {
+  playing: boolean;
+  tone: "correct" | "wrong";
+  text: string;
+  label: string;
+  accent: string;
+}) {
+  const ref = useRef<THREE.Group>(null);
 
-  return three(
-    "group",
-    {},
-    three(
-      "mesh",
-      { position: [0, 0.45, 0] },
-      three("capsuleGeometry", { args: [0.22, 0.72, 8, 16] }),
-      three("meshStandardMaterial", { color: bodyColor, roughness: 0.55 })
-    ),
-    three(
-      "mesh",
-      { position: [0, 1.05, 0] },
-      three("sphereGeometry", { args: [0.2, 24, 24] }),
-      three("meshStandardMaterial", { color: "#f3c7a6", roughness: 0.5 })
-    ),
-    uniform
-      ? three(
-          "mesh",
-          { position: [0, 1.25, 0] },
-          three("boxGeometry", { args: [0.48, 0.08, 0.38] }),
-          three("meshStandardMaterial", { color: "#0f172a" })
-        )
-      : null,
-    !correct && !uniform
-      ? createElement(
-          Text,
-          {
-            anchorX: "center",
-            color: "#fecaca",
-            fontSize: 0.17,
-            position: [0, 1.42, 0]
-          },
-          "?"
-        )
-      : null
-  );
-}
+  useFrame(({ clock }) => {
+    if (!ref.current) return;
+    const t = playing ? clock.getElapsedTime() : 0;
+    ref.current.position.y = 1.55 + (playing ? Math.sin(t * 1.4) * 0.02 : 0);
+  });
 
-function SpeechBubble({ correct, text }: { correct: boolean; text: string }) {
-  return three(
-    "group",
-    { position: [0.45, 1.55, 0] },
-    three(
-      "mesh",
-      {},
-      three("boxGeometry", { args: [1.75, 0.48, 0.04] }),
-      three("meshStandardMaterial", { color: correct ? "#f8fafc" : "#fee2e2", roughness: 0.6 })
-    ),
-    createElement(
-      Text,
-      {
-        anchorX: "center",
-        anchorY: "middle",
-        color: "#0f172a",
-        fontSize: 0.09,
-        lineHeight: 1.15,
-        maxWidth: 1.45,
-        position: [0, 0, 0.04]
-      },
-      text
-    )
-  );
-}
-
-function ReportCard({ correct, text }: { correct: boolean; text: string }) {
-  return three(
-    "group",
-    {},
-    three(
-      "mesh",
-      {},
-      three("boxGeometry", { args: [2.2, 0.72, 0.08] }),
-      three("meshStandardMaterial", { color: correct ? "#dcfce7" : "#fee2e2", roughness: 0.7 })
-    ),
-    createElement(
-      Text,
-      {
-        anchorX: "center",
-        anchorY: "middle",
-        color: "#0f172a",
-        fontSize: 0.105,
-        lineHeight: 1.18,
-        maxWidth: 1.85,
-        position: [0, 0, 0.08]
-      },
-      text
-    )
-  );
-}
-
-function SceneTitle({ position, title, tone }: { position: [number, number, number]; title: string; tone: string }) {
-  return createElement(
-    Text,
-    {
-      anchorX: "center",
-      color: tone,
-      fontSize: 0.2,
-      fontWeight: 700,
-      position
-    },
-    title
+  return (
+    <group ref={ref} position={[0, 1.55, 0.6]}>
+      <Html
+        transform
+        occlude={false}
+        distanceFactor={3.6}
+        position={[0, 0, 0]}
+        style={{ pointerEvents: "none" }}
+      >
+        <div
+          style={{
+            width: 220,
+            background: "white",
+            borderRadius: 14,
+            padding: "10px 14px",
+            boxShadow: "0 10px 30px rgba(15,23,42,0.18)",
+            border: "1px solid rgba(15,23,42,0.06)",
+            fontFamily: "ui-sans-serif, system-ui, -apple-system",
+            color: "#0f172a"
+          }}
+        >
+          <div
+            style={{
+              fontSize: 9,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: accent,
+              fontWeight: 600
+            }}
+          >
+            {label}
+          </div>
+          <div style={{ marginTop: 6, fontSize: 11, lineHeight: 1.4, fontWeight: 500 }}>{text}</div>
+        </div>
+      </Html>
+    </group>
   );
 }
 
 function Divider() {
-  return three(
-    "mesh",
-    { position: [0, 0.1, 0], scale: [0.02, 3.2, 0.02] },
-    three("boxGeometry", { args: [1, 1, 1] }),
-    three("meshStandardMaterial", { color: "#ffffff", emissive: "#ffffff", emissiveIntensity: 0.3 })
+  return (
+    <mesh position={[0, 0.4, 0]}>
+      <boxGeometry args={[0.02, 3.2, 0.02]} />
+      <meshStandardMaterial color="#ffffff" emissive="#ffffff" emissiveIntensity={0.4} />
+    </mesh>
   );
-}
-
-function three(type: string, props: Record<string, unknown>, ...children: React.ReactNode[]) {
-  return createElement(type as keyof JSX.IntrinsicElements, props, ...children);
 }

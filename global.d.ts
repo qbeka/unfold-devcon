@@ -1,16 +1,9 @@
 declare module "*.css" {}
 
-declare global {
+import type { ThreeElements } from "@react-three/fiber";
+
+declare module "react" {
   namespace JSX {
-    interface IntrinsicElements {
-      ambientLight: any;
-      directionalLight: any;
-      mesh: any;
-      boxGeometry: any;
-      meshStandardMaterial: any;
-      group: any;
-    }
+    interface IntrinsicElements extends ThreeElements {}
   }
 }
-
-export {};

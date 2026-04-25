@@ -10,86 +10,68 @@ export function CorrectionScene({ scene }: { scene: CorrectionSceneData }) {
   const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
-    if (!playing || typeof window === "undefined" || !("speechSynthesis" in window)) {
-      return;
-    }
-
+    if (!playing || typeof window === "undefined" || !("speechSynthesis" in window)) return;
     window.speechSynthesis.cancel();
     const narration = new SpeechSynthesisUtterance(
-      `Correct outcome. The officer explains that the report must use facts, include the source, and include the time. Better sentence: ${scene.correctChoice.text}. Wrong outcome. The sentence ${scene.wrongChoice.text} uses personal opinion and unprofessional wording, so it weakens the report.`
+      `Compare the two outcomes. On the left, the officer keeps the report objective and writes: ${scene.correctChoice.text}. On the right, the officer used personal opinion and wrote: ${scene.wrongChoice.text}. The professional choice is always to record facts only.`
     );
-    narration.rate = 0.92;
+    narration.rate = 0.95;
     narration.pitch = 0.95;
     narration.onend = () => setPlaying(false);
     window.speechSynthesis.speak(narration);
-
     return () => window.speechSynthesis.cancel();
   }, [playing, scene.correctChoice.text, scene.wrongChoice.text]);
 
   return (
-    <div className="space-y-4">
-      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-        <div>
-          <p className="text-sm font-semibold text-slate-700">
-            Press play to hear the correction and watch the two outcomes.
-          </p>
-          <p className="mt-1 text-sm text-slate-500">
-            Left side shows the professional outcome. Right side shows the user&apos;s wrong choice.
-          </p>
-        </div>
+    <div className="space-y-5">
+      <div className="flex items-center justify-between gap-4">
+        <p className="max-w-md text-sm leading-6 text-slate-500">
+          Press play to hear the officer narrate both outcomes. Left side is the professional report.
+          Right side is the wrong choice that was selected on the exam.
+        </p>
         <button
           className={playing ? buttonSecondary : buttonPrimary}
-          onClick={() => setPlaying((value) => !value)}
+          onClick={() => setPlaying((v) => !v)}
           type="button"
         >
-          {playing ? <Pause className="mr-2 h-4 w-4" /> : <Play className="mr-2 h-4 w-4" />}
-          {playing ? "Pause Scene" : "Play Scene"}
+          {playing ? <Pause className="mr-1.5 h-3.5 w-3.5" /> : <Play className="mr-1.5 h-3.5 w-3.5" />}
+          {playing ? "Pause" : "Play scene"}
         </button>
       </div>
 
       <SceneCanvas playing={playing} scene={scene} />
-      <div className="grid gap-4 lg:grid-cols-2">
-        <ChoicePanel
-          label={scene.correctChoice.label}
-          tone="correct"
-          text={scene.correctChoice.text}
-          tags={scene.correctChoice.tags}
-        />
-        <ChoicePanel
-          label={scene.wrongChoice.label}
-          tone="wrong"
-          text={scene.wrongChoice.text}
-          tags={scene.wrongChoice.tags}
-        />
+
+      <div className="grid gap-3 sm:grid-cols-2">
+        <ChoiceCard tone="correct" label={scene.correctChoice.label} text={scene.correctChoice.text} tags={scene.correctChoice.tags} />
+        <ChoiceCard tone="wrong" label={scene.wrongChoice.label} text={scene.wrongChoice.text} tags={scene.wrongChoice.tags} />
       </div>
     </div>
   );
 }
 
-function ChoicePanel({
+function ChoiceCard({
+  tone,
   label,
-  tags,
   text,
-  tone
+  tags
 }: {
+  tone: "correct" | "wrong";
   label: string;
-  tags: string[];
   text: string;
-  tone: "wrong" | "correct";
+  tags: string[];
 }) {
-  const styles =
-    tone === "wrong"
-      ? "border-red-200 bg-red-50 text-red-950"
-      : "border-emerald-200 bg-emerald-50 text-emerald-950";
-
+  const accent =
+    tone === "correct"
+      ? "border-emerald-200 bg-emerald-50/70 text-emerald-900"
+      : "border-amber-200 bg-amber-50/70 text-amber-900";
   return (
-    <div className={`rounded-3xl border p-4 ${styles}`}>
-      <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] opacity-70">{label}</p>
-      <p className="mt-2 text-base font-semibold leading-6">{text}</p>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {tags.map((tag) => (
-          <span key={tag} className="rounded-full bg-white/70 px-3 py-1 text-xs font-semibold">
-            {tag}
+    <div className={`rounded-2xl border p-4 ${accent}`}>
+      <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] opacity-70">{label}</p>
+      <p className="mt-2 text-sm font-medium leading-6">{text}</p>
+      <div className="mt-3 flex flex-wrap gap-1.5">
+        {tags.map((t) => (
+          <span key={t} className="rounded-full bg-white/70 px-2 py-0.5 text-[0.65rem] font-medium">
+            {t}
           </span>
         ))}
       </div>

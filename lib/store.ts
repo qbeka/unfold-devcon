@@ -6,6 +6,8 @@ import { demoQuestions, sceneQuestionId } from "@/lib/data/demoQuestions";
 import { demoCorrectionScene } from "@/lib/data/demoScene";
 import { gradeAnswer } from "@/lib/exam";
 import { addWeakArea, completePracticeProgress } from "@/lib/progress";
+import { demoManifest } from "@/lib/data/demoManifest";
+import type { LanguageCode } from "@/lib/data/moduleFiveContent";
 import type {
   AnswerAttempt,
   AppTab,
@@ -13,10 +15,9 @@ import type {
   DocumentManifest,
   DocumentProcessingStatus,
   ExamMode,
-  LanguageMode,
+  ExamQuestion,
   ProgressState
 } from "@/lib/types";
-import { demoManifest } from "@/lib/data/demoManifest";
 
 type UnfoldStore = {
   activeTab: AppTab;
@@ -25,9 +26,11 @@ type UnfoldStore = {
   processingError?: string;
   selectedModuleId: string;
   selectedSectionId: string;
-  languageMode: LanguageMode;
+  language: LanguageCode;
+  needsLanguageChoice: boolean;
   examMode: ExamMode;
   questionCount: number;
+  examQuestions: ExamQuestion[];
   currentQuestionIndex: number;
   selectedAnswer?: string;
   submittedQuestionIds: string[];
@@ -40,7 +43,8 @@ type UnfoldStore = {
   setProcessingError: (processingError: string) => void;
   setActiveTab: (tab: AppTab) => void;
   setSelectedModuleId: (moduleId: string) => void;
-  setLanguageMode: (languageMode: LanguageMode) => void;
+  setLanguage: (language: LanguageCode) => void;
+  confirmLanguage: () => void;
   setExamMode: (examMode: ExamMode) => void;
   setQuestionCount: (questionCount: number) => void;
   setCurrentQuestionIndex: (index: number) => void;
@@ -53,6 +57,21 @@ type UnfoldStore = {
 
 const skipUpload = process.env.NEXT_PUBLIC_SKIP_UPLOAD === "true";
 
+function shuffleQuestions(count: number): ExamQuestion[] {
+  const sceneQuestion = demoQuestions.find((q) => q.id === sceneQuestionId);
+  const others = demoQuestions.filter((q) => q.id !== sceneQuestionId);
+  const shuffled = [...others].sort(() => Math.random() - 0.5);
+  const slot = sceneQuestion ? Math.max(1, count - 1) : count;
+  const picked = shuffled.slice(0, slot);
+  if (sceneQuestion) {
+    const insertAt = Math.floor(Math.random() * (picked.length + 1));
+    picked.splice(insertAt, 0, sceneQuestion);
+  }
+  return picked.slice(0, count);
+}
+
+const initialQuestionCount = 5;
+
 const initialState = {
   activeTab: "read" as AppTab,
   documentStatus: (skipUpload ? "ready" : "empty") as DocumentProcessingStatus,
@@ -60,9 +79,11 @@ const initialState = {
   processingError: undefined,
   selectedModuleId: "module-five",
   selectedSectionId: "report-writing-guidelines",
-  languageMode: "original" as LanguageMode,
+  language: "en" as LanguageCode,
+  needsLanguageChoice: false,
   examMode: "focused" as ExamMode,
-  questionCount: 5,
+  questionCount: initialQuestionCount,
+  examQuestions: shuffleQuestions(initialQuestionCount),
   currentQuestionIndex: 0,
   selectedAnswer: undefined,
   submittedQuestionIds: [],
@@ -81,7 +102,8 @@ export const useUnfoldStore = create<UnfoldStore>((set, get) => ({
       documentStatus: "ready",
       selectedModuleId: documentManifest.modules[0]?.id ?? "module-five",
       activeTab: "read",
-      processingError: undefined
+      processingError: undefined,
+      needsLanguageChoice: true
     }),
   setProcessingError: (processingError) => set({ processingError, documentStatus: "error" }),
   setActiveTab: (activeTab) => set({ activeTab }),
@@ -92,28 +114,26 @@ export const useUnfoldStore = create<UnfoldStore>((set, get) => ({
         selectedModuleId === "module-five" ? "report-writing-guidelines" : "module-overview",
       activeTab: "read"
     }),
-  setLanguageMode: (languageMode) => set({ languageMode }),
+  setLanguage: (language) => set({ language }),
+  confirmLanguage: () => set({ needsLanguageChoice: false }),
   setExamMode: (examMode) => set({ examMode }),
   setQuestionCount: (questionCount) =>
     set({
       questionCount,
+      examQuestions: shuffleQuestions(questionCount),
       currentQuestionIndex: 0,
       selectedAnswer: undefined,
       submittedQuestionIds: [],
-      attempts: [],
-      latestWrongQuestionId: undefined,
-      activeCorrectionScene: undefined
+      attempts: []
     }),
   setCurrentQuestionIndex: (currentQuestionIndex) =>
     set({ currentQuestionIndex, selectedAnswer: undefined }),
   selectAnswer: (selectedAnswer) => set({ selectedAnswer }),
   submitAnswer: () => {
     const state = get();
-    const question = demoQuestions[state.currentQuestionIndex];
+    const question = state.examQuestions[state.currentQuestionIndex];
 
-    if (!question || !state.selectedAnswer) {
-      return;
-    }
+    if (!question || !state.selectedAnswer) return;
 
     const correct = gradeAnswer(question, state.selectedAnswer);
     const attempt: AnswerAttempt = {
@@ -139,12 +159,10 @@ export const useUnfoldStore = create<UnfoldStore>((set, get) => ({
   },
   openCorrectionScene: () => {
     const state = get();
-
     if (state.latestWrongQuestionId === sceneQuestionId) {
       set({ activeCorrectionScene: demoCorrectionScene, activeTab: "corrections" });
       return;
     }
-
     set({ activeTab: "corrections" });
   },
   completePractice: (testedConcept) =>
@@ -155,8 +173,10 @@ export const useUnfoldStore = create<UnfoldStore>((set, get) => ({
   resetDemo: () =>
     set({
       ...initialState,
-      documentManifest: process.env.NEXT_PUBLIC_SKIP_UPLOAD === "true" ? demoManifest : undefined,
-      documentStatus: process.env.NEXT_PUBLIC_SKIP_UPLOAD === "true" ? "ready" : "empty",
+      examQuestions: shuffleQuestions(initialQuestionCount),
+      documentManifest: skipUpload ? demoManifest : undefined,
+      documentStatus: skipUpload ? "ready" : "empty",
+      needsLanguageChoice: false,
       progress: { ...defaultProgress }
     })
 }));

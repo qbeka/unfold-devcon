@@ -1,69 +1,67 @@
 "use client";
 
-import { AlertTriangle, CheckCircle2, Cuboid } from "lucide-react";
+import { ArrowRight, Check, X } from "lucide-react";
 import { useUnfoldStore } from "@/lib/store";
-import { buttonPrimary, buttonSecondary } from "@/lib/ui";
+import { buttonPrimary } from "@/lib/ui";
 import type { AnswerAttempt, ExamQuestion } from "@/lib/types";
 
 export function AnswerFeedback({
-  question,
-  attempt
+  attempt,
+  question
 }: {
-  question: ExamQuestion;
   attempt: AnswerAttempt;
+  question: ExamQuestion;
 }) {
   const openCorrectionScene = useUnfoldStore((state) => state.openCorrectionScene);
 
   return (
-    <div
-      className={`rounded-3xl border p-6 ${
-        attempt.correct ? "border-emerald-200 bg-emerald-50" : "border-amber-200 bg-amber-50"
-      }`}
-    >
-      <div className="flex items-start gap-3">
-        {attempt.correct ? (
-          <CheckCircle2 className="mt-1 h-5 w-5 text-emerald-700" />
-        ) : (
-          <AlertTriangle className="mt-1 h-5 w-5 text-amber-700" />
-        )}
+    <section className="space-y-4 rounded-[1.25rem] border border-slate-200 bg-white p-6">
+      <div className="flex items-center gap-2.5">
+        <span
+          className={`grid h-7 w-7 place-items-center rounded-full ${
+            attempt.correct ? "bg-emerald-100 text-emerald-700" : "bg-amber-100 text-amber-800"
+          }`}
+        >
+          {attempt.correct ? <Check className="h-4 w-4" /> : <X className="h-4 w-4" />}
+        </span>
+        <p className="text-sm font-semibold text-slate-950">
+          {attempt.correct ? "Correct" : "Review this concept"}
+        </p>
+      </div>
+
+      <p className="text-[0.95rem] leading-7 text-slate-700">{question.explanation}</p>
+
+      <dl className="grid gap-3 sm:grid-cols-3">
         <div>
-          <h3 className="text-lg font-bold text-slate-950">
-            {attempt.correct ? "Correct" : "Review this concept"}
-          </h3>
-          <p className="mt-2 leading-7 text-slate-700">{question.explanation}</p>
+          <dt className="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-slate-400">
+            Correct answer
+          </dt>
+          <dd className="mt-1.5 text-sm font-medium text-slate-900">{question.correctAnswer}</dd>
         </div>
-      </div>
+        <div>
+          <dt className="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-slate-400">
+            Tested concept
+          </dt>
+          <dd className="mt-1.5 text-sm font-medium text-slate-900">{question.testedConcept}</dd>
+        </div>
+        <div>
+          <dt className="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-slate-400">
+            Common mistake
+          </dt>
+          <dd className="mt-1.5 text-sm font-medium text-slate-900">{question.commonMistake}</dd>
+        </div>
+      </dl>
 
-      <div className="mt-5 grid gap-3 md:grid-cols-3">
-        <Info label="Correct answer" value={question.correctAnswer} />
-        <Info label="Tested concept" value={question.testedConcept} />
-        <Info label="Common mistake" value={question.commonMistake} />
-      </div>
-
-      <p className="mt-5 rounded-2xl bg-white/70 px-4 py-3 text-sm font-medium text-slate-700">
-        Source reference: {question.sourceReference}
-      </p>
+      <p className="text-xs text-slate-500">Source: {question.sourceReference}</p>
 
       {!attempt.correct && question.sceneCandidate && (
-        <div className="mt-5 flex flex-wrap gap-3">
+        <div className="pt-1">
           <button className={buttonPrimary} onClick={openCorrectionScene} type="button">
-            <Cuboid className="mr-2 h-4 w-4" />
-            View 3D Correction
-          </button>
-          <button className={buttonSecondary} onClick={openCorrectionScene} type="button">
-            Open Practice Activity
+            View 3D correction
+            <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
           </button>
         </div>
       )}
-    </div>
-  );
-}
-
-function Info({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-2xl bg-white/70 p-4">
-      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">{label}</p>
-      <p className="mt-2 text-sm font-semibold leading-6 text-slate-900">{value}</p>
-    </div>
+    </section>
   );
 }

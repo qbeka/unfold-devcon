@@ -5,45 +5,45 @@ import { AnswerFeedback } from "@/components/exam/AnswerFeedback";
 import { ExamModeSelector } from "@/components/exam/ExamModeSelector";
 import { OpenBookPanel } from "@/components/exam/OpenBookPanel";
 import { QuestionCard } from "@/components/exam/QuestionCard";
-import { getDemoExamQuestions } from "@/lib/exam";
 import { useUnfoldStore } from "@/lib/store";
-import { buttonPrimary, buttonSecondary, card, label } from "@/lib/ui";
+import { buttonPrimary, buttonGhost, label, sectionHeading, helperText } from "@/lib/ui";
 
 export function ExamTab() {
   const examMode = useUnfoldStore((state) => state.examMode);
-  const questionCount = useUnfoldStore((state) => state.questionCount);
+  const examQuestions = useUnfoldStore((state) => state.examQuestions);
   const currentQuestionIndex = useUnfoldStore((state) => state.currentQuestionIndex);
   const selectedAnswer = useUnfoldStore((state) => state.selectedAnswer);
   const attempts = useUnfoldStore((state) => state.attempts);
   const submitAnswer = useUnfoldStore((state) => state.submitAnswer);
   const setCurrentQuestionIndex = useUnfoldStore((state) => state.setCurrentQuestionIndex);
 
-  const questions = getDemoExamQuestions(questionCount);
-  const question = questions[currentQuestionIndex] ?? questions[0];
-  const attempt = attempts.find((item) => item.questionId === question.id);
+  const question = examQuestions[currentQuestionIndex] ?? examQuestions[0];
+  const attempt = attempts.find((item) => item.questionId === question?.id);
+
+  if (!question) {
+    return <p className={helperText}>No questions ready.</p>;
+  }
 
   const questionPanel = (
-    <div className="space-y-4">
+    <div className="space-y-5">
       <QuestionCard question={question} />
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex gap-2">
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-1">
           <button
-            className={buttonSecondary}
+            className={buttonGhost}
             disabled={currentQuestionIndex === 0}
             onClick={() => setCurrentQuestionIndex(currentQuestionIndex - 1)}
             type="button"
           >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Previous
+            <ArrowLeft className="mr-1 h-3.5 w-3.5" /> Previous
           </button>
           <button
-            className={buttonSecondary}
-            disabled={currentQuestionIndex === questions.length - 1}
+            className={buttonGhost}
+            disabled={currentQuestionIndex === examQuestions.length - 1}
             onClick={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
             type="button"
           >
-            Next
-            <ArrowRight className="ml-2 h-4 w-4" />
+            Next <ArrowRight className="ml-1 h-3.5 w-3.5" />
           </button>
         </div>
         <button
@@ -60,24 +60,18 @@ export function ExamTab() {
   );
 
   return (
-    <div className={`${card} p-5 lg:p-6`}>
-      <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-        <div>
-          <p className={label}>Module Five exam</p>
-          <h2 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
-            Focused certification practice
-          </h2>
-          <p className="mt-1 text-sm text-slate-500">
-            Question {currentQuestionIndex + 1} of {questions.length}
-          </p>
-        </div>
-      </div>
-
-      <div className="mt-5">
+    <div className="space-y-8">
+      <header className="space-y-3">
+        <p className={label}>Exam</p>
+        <h1 className={sectionHeading}>Module Five practice</h1>
+        <p className={helperText}>
+          Question {currentQuestionIndex + 1} of {examQuestions.length}. Choose an answer, then
+          submit. Wrong answers route through a 3D correction.
+        </p>
         <ExamModeSelector />
-      </div>
+      </header>
 
-      <div className={examMode === "open_book" ? "mt-5 grid gap-5 xl:grid-cols-[1fr_22rem]" : "mt-5"}>
+      <div className={examMode === "open_book" ? "grid gap-6 lg:grid-cols-[1fr_22rem]" : ""}>
         {questionPanel}
         {examMode === "open_book" && <OpenBookPanel />}
       </div>
