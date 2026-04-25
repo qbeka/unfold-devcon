@@ -20,7 +20,8 @@ export function CorrectionScene({ scene }: { scene: CorrectionSceneData }) {
 
     void speak({
       text: `Same incident. The officer observes a woman slip on a wet area in the lobby at fourteen thirty. The factual report says: ${scene.correctChoice.text} The opinion-based report says: ${scene.wrongChoice.text} The professional choice is always the factual one.`,
-      rate: 0.96,
+      rate: 0.88,
+      pitch: 0.96,
       onEnd: () => setPlaying(false)
     });
 

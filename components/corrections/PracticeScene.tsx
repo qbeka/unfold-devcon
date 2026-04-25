@@ -73,9 +73,9 @@ export function PracticeScene() {
   // Narrate feedback
   useEffect(() => {
     if (stage === "wrong") {
-      void speak({ text: wrongAdvice, rate: 0.95 });
+      void speak({ text: wrongAdvice, rate: 0.88, pitch: 0.96 });
     } else if (stage === "correct") {
-      void speak({ text: correctMessage, rate: 0.95 });
+      void speak({ text: correctMessage, rate: 0.88, pitch: 0.96 });
     }
     return () => cancelSpeech();
   }, [stage]);

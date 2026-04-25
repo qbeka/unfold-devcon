@@ -6,9 +6,12 @@ export async function uploadPdfToS3(input: {
   fileName: string;
   contentType: string;
   body: Buffer;
+  documentHash?: string;
 }) {
   const bucket = process.env.S3_BUCKET_NAME;
-  const key = `uploads/${Date.now()}-${input.fileName.replace(/[^a-zA-Z0-9._-]/g, "-")}`;
+  const safeName = input.fileName.replace(/[^a-zA-Z0-9._-]/g, "-");
+  const hashPrefix = input.documentHash ? `${input.documentHash.slice(0, 16)}-` : "";
+  const key = `uploads/${hashPrefix}${Date.now()}-${safeName}`;
 
   if (!bucket || !hasAwsCredentials()) {
     return {
@@ -23,7 +26,11 @@ export async function uploadPdfToS3(input: {
       Bucket: bucket,
       Key: key,
       Body: input.body,
-      ContentType: input.contentType
+      ContentType: input.contentType,
+      Metadata: {
+        ...(input.documentHash ? { "document-sha256": input.documentHash } : {}),
+        "original-filename": safeName
+      }
     })
   );
 

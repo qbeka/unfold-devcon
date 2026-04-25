@@ -2,12 +2,12 @@
 
 Upload the manual. Learn in your language. Pass the exam.
 
-Unfold is a source-grounded, multilingual exam coach for Alberta Basic Security Training students. It uploads the course manual, processes it on AWS, lets the student read it in their language, practice exam questions, and reinforce wrong answers in an animated 3D officer-and-citizen scene with voice-controlled practice.
+Unfold is a source-grounded, multilingual exam coach for Alberta Basic Security Training students. It uploads the course manual to S3, recognizes the official demo PDF by SHA-256, then opens a curated exam practice path with translations, 3D correction scenes, voice practice, discussion, movie generation, and progress tracking.
 
 ## Demo Path
 
 1. Open the app. Upload the Alberta Basic Security Training PDF.
-2. Watch the four steps: S3 upload, Textract extraction, Bedrock parsing, ready.
+2. Watch the upload flow: S3 upload, source verification, workspace loading, ready.
 3. Pick your native language (German is the deterministic translation that ships in the demo).
 4. Read tab opens. Module Five is fully rendered with translations, callouts, sample reports.
 5. Toggle "Original PDF" to view the underlying manual pages 107–129.
@@ -59,21 +59,15 @@ AWS_REGION=us-west-2
 AWS_ACCESS_KEY_ID=
 AWS_SECRET_ACCESS_KEY=
 S3_BUCKET_NAME=
-DYNAMODB_TABLE_NAME=
-BEDROCK_MODEL_ID=
-BEDROCK_IMAGE_MODEL_ID=
-POLLY_VOICE_ID=Joanna
-TEXTRACT_POLL_INTERVAL_MS=2500
-TEXTRACT_MAX_POLL_ATTEMPTS=24
+DETERMINISTIC_DOCUMENT_HASH=3cc730708278558b93aa77ad0a161a66ef280ea44ea15cd2db7e199e23e9c12b
+DETERMINISTIC_DOCUMENT_ID=alberta-basic-security-training
 ```
 
 ## AWS Resources Expected
 
-- S3 bucket for uploaded PDFs and generated assets
-- DynamoDB table with `pk` + `sk` keys
-- Bedrock model access for `BEDROCK_MODEL_ID`
-- Textract access in the configured region
-- Polly access for narration
+- S3 bucket for uploaded PDFs
+- IAM user with `s3:PutObject`, `s3:GetObject`, and `s3:ListBucket`
+- The broader AWS setup guide is kept in `docs/AWS_SETUP.md`, but the current runtime implementation only requires S3.
 
 ## Deployment
 
@@ -87,7 +81,7 @@ Recommended host: AWS Amplify Hosting.
 
 ## Repo Map
 
-- `app/api/process-document/` — PDF upload, S3, Textract, Bedrock parse, DynamoDB save
+- `app/api/process-document/` — PDF upload to S3 and SHA-256 recognition for the deterministic manual
 - `components/layout/` — upload screen, top bar, tabs, app shell
 - `components/read/` — Module Five reader and original PDF viewer
 - `components/exam/` — focused/open-book exam, 3 or 5 questions, scene-trigger always included
@@ -95,7 +89,7 @@ Recommended host: AWS Amplify Hosting.
 - `components/discussion/` — Lawrence's class-discussion surface
 - `components/movie/` — prompt + style + storyboard fallback
 - `components/progress/` — readiness, weak areas, recommendations
-- `lib/aws/` — S3, Textract, Bedrock, DynamoDB, Polly with deterministic fallback
+- `lib/aws/` — AWS service boundaries; S3 is the only live runtime dependency for the demo
 - `lib/data/moduleFiveContent.ts` — curated Module Five with translations
 - `lib/store.ts` — global state and exam shuffle
 - `public/models/` — `officer.glb`, `citizen.glb`
@@ -105,7 +99,7 @@ Recommended host: AWS Amplify Hosting.
 ## Known Limits
 
 - Module Five is the curated learning path. Other modules show recognized activities/concepts only.
-- The exam pool is curated; Bedrock-driven generation is wired and disabled while `NEXT_PUBLIC_DEMO_MODE=true`.
+- The official manual is recognized by SHA-256 and mapped to curated content after S3 upload.
 - The Movie tab uses the local video at `public/videos/demo-report-writing.mp4` if present, otherwise storyboard cards.
 - Voice practice is deterministic: first attempt → "Try again", second attempt → pass. Real speech recognition is used when supported; a simulated fallback runs otherwise.
 - Next.js 14 retained per project spec.

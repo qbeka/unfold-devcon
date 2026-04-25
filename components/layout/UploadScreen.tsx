@@ -12,8 +12,8 @@ import type { DocumentManifest, DocumentProcessingStatus } from "@/lib/types";
 const STATUS_LABEL: Record<DocumentProcessingStatus, string> = {
   empty: "",
   uploading: "Uploading the document",
-  extracting: "Reading the pages",
-  parsing: "Identifying the modules",
+  extracting: "Verifying the source",
+  parsing: "Loading the study workspace",
   ready: "Ready",
   error: "Something went wrong"
 };
@@ -52,7 +52,7 @@ export function UploadScreen() {
   async function processFile(file: File) {
     setFileName(file.name);
     setDocumentStatus("uploading");
-    // Drawn-out timers so the demo "feels" real, even if Textract returns instantly.
+    // Drawn-out timers so the S3 upload and source recognition feel like real processing.
     const t1 = window.setTimeout(() => setDocumentStatus("extracting"), 2200);
     const t2 = window.setTimeout(() => setDocumentStatus("parsing"), 5400);
     const minimumDelay = new Promise<void>((resolve) => window.setTimeout(resolve, 8200));
