@@ -115,12 +115,10 @@ export function UploadScreen() {
           <h1 className="mt-6 text-[44px] font-semibold leading-[1.04] tracking-tighter2 text-neutral-950 md:text-[60px]">
             Upload the manual.
             <br />
-            Learn in your language.
-            <br />
             Pass the exam.
           </h1>
           <p className="mt-6 max-w-lg text-[16px] leading-7 text-neutral-500">
-            Unfold turns any certification PDF into a translated, exam-focused study coach — built
+            Unfold turns any certification PDF into a translated, exam-focused study coach. It's built
             for students who think in a language other than English.
           </p>
 
