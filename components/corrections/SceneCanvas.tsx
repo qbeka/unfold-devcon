@@ -124,7 +124,7 @@ function MarbleFloor() {
       {Array.from({ length: 9 }).map((_, i) => (
         <mesh
           key={`v-${i}`}
-          position={[-7.2 + i * 1.8, 0.003, 0]}
+          position={[i * 1.8, 0.003, 0]}
           rotation={[-Math.PI / 2, 0, 0]}
         >
           <planeGeometry args={[0.014, 14]} />
@@ -134,7 +134,7 @@ function MarbleFloor() {
       {Array.from({ length: 7 }).map((_, i) => (
         <mesh
           key={`h-${i}`}
-          position={[0, 0.004, -5.4 + i * 1.8]}
+          position={[0, 0.004, i * 1.8]}
           rotation={[-Math.PI / 2, 0, Math.PI / 2]}
         >
           <planeGeometry args={[0.014, 20]} />
@@ -272,28 +272,31 @@ function Officer() {
   useFrame(({ clock }) => {
     if (!ref.current) return;
     const t = clock.getElapsedTime();
-    ref.current.position.y = Math.sin(t * 1.3) * 0.005; // soft breathing
+    ref.current.position.y = 0.95; // soft breathing
   });
   return (
-    <group ref={ref} position={[-2.4, 0, ACTION_Z]} rotation={[0, 0.95, 0]}>
+    <group ref={ref} position={[-2.4, 0, ACTION_Z-2]} rotation={[0, 0.95, 0]}>
       <CharacterModel kind="officer" />
     </group>
   );
 }
 
 function Victim({ playing }: { playing: boolean }) {
-  // GLB walks toward the puddle, then tilts back during the slip and lies.
-  // The static GLB pose (arms slightly out) actually reads well during the slip
-  // because real slips include arms thrown out for balance.
+  // Outer group handles world position + facing (Y only).
+  // Inner tiltRef handles the fall (X only, in the already-turned local frame),
+  // so the tilt axis is the character's own left-right axis and the pivot stays
+  // at her feet — preventing her from rotating through the floor.
   const ref = useRef<THREE.Group>(null);
+  const tiltRef = useRef<THREE.Group>(null);
   const playStartedAt = useRef(0);
   const wasPlaying = useRef(false);
-  const startX = 2.8; // close enough to always be in frame next to the puddle
+  const startX = 5;
   const slipTargetX = PUDDLE_X;
-  const finalRestX = PUDDLE_X - 0.7;
+  const finalRestX = PUDDLE_X;
+  const facing = -1.55;
 
   useFrame(({ clock }) => {
-    if (!ref.current) return;
+    if (!ref.current || !tiltRef.current) return;
     const elapsed = clock.getElapsedTime();
 
     if (playing && !wasPlaying.current) {
@@ -304,30 +307,23 @@ function Victim({ playing }: { playing: boolean }) {
     const t = playing ? (elapsed - playStartedAt.current) % T_TOTAL : 0;
 
     let x = startX;
-    let y = 0;
     let bodyTilt = 0;
     let bob = 0;
-    const facing = -1.55;
 
     if (!playing) {
       x = startX;
     } else if (t < T_WALK) {
       const p = t / T_WALK;
       x = THREE.MathUtils.lerp(startX, slipTargetX, easeInOutSine(p));
-      // Bigger bounce while walking — visible without leg bones.
       bob = Math.abs(Math.sin(t * 7)) * 0.06;
     } else if (t < T_WALK + T_SLIP) {
       const p = (t - T_WALK) / T_SLIP;
       const ease = p * p;
-      x = THREE.MathUtils.lerp(slipTargetX, finalRestX, ease);
+      x = finalRestX;
       bodyTilt = -ease * 1.4;
-      y = ease * 0.05;
     } else if (t < T_WALK + T_SLIP + T_LIE) {
       x = finalRestX;
       bodyTilt = -1.4;
-      y = 0;
-      const sub = (t - T_WALK - T_SLIP) % 0.8;
-      bob = Math.sin(sub * 8) * 0.005;
     } else {
       const p = (t - T_WALK - T_SLIP - T_LIE) / T_RESET;
       const ease = easeInOutSine(p);
@@ -335,13 +331,16 @@ function Victim({ playing }: { playing: boolean }) {
       bodyTilt = THREE.MathUtils.lerp(-1.4, 0, Math.min(1, p * 2));
     }
 
-    ref.current.position.set(x, y + bob, ACTION_Z);
-    ref.current.rotation.set(bodyTilt, facing, 0);
+    ref.current.position.set(x, bob, 0);
+    ref.current.rotation.y = facing;
+    tiltRef.current.rotation.x = bodyTilt;
   });
 
   return (
-    <group ref={ref} position={[startX, 0, ACTION_Z]} rotation={[0, -1.55, 0]}>
-      <CharacterModel kind="citizen" />
+    <group ref={ref} position={[startX, 0, ACTION_Z]} rotation={[0, facing, 0]}>
+      <group ref={tiltRef}>
+        <CharacterModel kind="citizen" />
+      </group>
     </group>
   );
 }
@@ -372,9 +371,6 @@ function CharacterModel({ kind }: { kind: "officer" | "citizen" }) {
     cloned.updateMatrixWorld(true);
     const scaledBox = new THREE.Box3().setFromObject(cloned);
     const scaledCenter = scaledBox.getCenter(new THREE.Vector3());
-    cloned.position.x -= scaledCenter.x;
-    cloned.position.z -= scaledCenter.z;
-    cloned.position.y -= scaledBox.min.y; // sit on the ground
   }, [cloned]);
 
   return <primitive object={cloned} />;
@@ -388,7 +384,7 @@ function ReportOverlay({
   highlight: "correct" | "wrong" | null;
 }) {
   return (
-    <div className="pointer-events-none absolute inset-x-3 top-3 z-10 flex justify-between gap-3">
+    <div className="pointer-events-none absolute inset-x-3 top-10 z-10 flex justify-between gap-3">
       <OverlayCard
         side="correct"
         accent="#15803d"
@@ -431,7 +427,7 @@ function OverlayCard({
         transform: side === "correct" ? "rotate(-1deg)" : "rotate(1deg)",
         boxShadow: highlight
           ? `0 0 0 2px ${accent}, 0 14px 40px -16px rgba(15,23,42,0.30)`
-          : "0 14px 40px -16px rgba(15,23,42,0.20)"
+          : "0 14px 40px -16px rgba(15,23,42,0.20)",
       }}
     >
       <div className="flex items-center gap-1.5">

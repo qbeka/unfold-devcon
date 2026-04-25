@@ -213,7 +213,7 @@ export function PracticeScene() {
         </p>
 
         {stage === "wrong" && (
-          <div className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-[13px] text-amber-900">
+          <div className="mt-3 rounded-lg bg-amber-50 px-3 py-10 text-[13px] text-amber-900">
             <p className="font-medium">Try again — wrong.</p>
             <p>Don&apos;t use opinions. State only what you observed: time, location, description.</p>
           </div>
