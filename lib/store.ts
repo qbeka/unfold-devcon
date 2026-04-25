@@ -12,6 +12,7 @@ import type { LanguageCode } from "@/lib/data/moduleFiveContent";
 import type {
   AnswerAttempt,
   AppTab,
+  ChatMessage,
   CorrectionSceneData,
   DocumentManifest,
   DocumentProcessingStatus,
@@ -45,6 +46,13 @@ type UnfoldStore = {
   // Movie generation state — persisted so it survives tab switches.
   movieStartedAt?: number;
   moviePrompt?: string;
+  // Discussion chat state
+  chatMessages: ChatMessage[];
+  chatLoading: boolean;
+  sendChatMessage: (message: string, chapterContext: string, activityPrompt: string) => void;
+  appendChatMessage: (msg: ChatMessage) => void;
+  setChatLoading: (loading: boolean) => void;
+  clearChat: () => void;
   setDocumentStatus: (documentStatus: DocumentProcessingStatus) => void;
   setDocumentReady: (documentManifest: DocumentManifest) => void;
   setProcessingError: (processingError: string) => void;
@@ -107,7 +115,9 @@ const initialState = {
   pendingCorrectionScene: undefined,
   progress: defaultProgress,
   movieStartedAt: undefined,
-  moviePrompt: undefined
+  moviePrompt: undefined,
+  chatMessages: [] as ChatMessage[],
+  chatLoading: false
 };
 
 export const useUnfoldStore = create<UnfoldStore>()(
@@ -275,6 +285,64 @@ export const useUnfoldStore = create<UnfoldStore>()(
       startMovieGeneration: (prompt) =>
         set({ movieStartedAt: Date.now(), moviePrompt: prompt }),
       resetMovie: () => set({ movieStartedAt: undefined, moviePrompt: undefined }),
+      appendChatMessage: (msg) =>
+        set((state) => ({ chatMessages: [...state.chatMessages, msg] })),
+      setChatLoading: (chatLoading) => set({ chatLoading }),
+      clearChat: () => set({ chatMessages: [], chatLoading: false }),
+      sendChatMessage: async (message, chapterContext, activityPrompt) => {
+        const { appendChatMessage, setChatLoading, chatMessages } = get();
+        const userMsg: ChatMessage = { role: "user", content: message };
+        appendChatMessage(userMsg);
+        setChatLoading(true);
+
+        try {
+          const res = await fetch("/api/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              message,
+              history: chatMessages,
+              chapterContext,
+              activityPrompt,
+            }),
+          });
+
+          if (!res.ok || !res.body) throw new Error("Chat request failed");
+
+          const reader = res.body.getReader();
+          const decoder = new TextDecoder();
+          let buffer = "";
+
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            buffer += decoder.decode(value, { stream: true });
+
+            // Process complete SSE events from the buffer
+            const lines = buffer.split("\n\n");
+            buffer = lines.pop() ?? "";
+
+            for (const line of lines) {
+              const data = line.replace(/^data: /, "").trim();
+              if (!data || data === "[DONE]") continue;
+              try {
+                const parsed = JSON.parse(data);
+                appendChatMessage({
+                  role: "agent",
+                  agent: parsed.agent,
+                  content: parsed.message,
+                });
+              } catch {
+                // skip malformed events
+              }
+            }
+          }
+        } catch (err) {
+          console.error("Chat error:", err);
+        } finally {
+          setChatLoading(false);
+        }
+      },
       resetDemo: () =>
         set({
           ...initialState,
