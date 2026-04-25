@@ -115,3 +115,13 @@ export type ExamConfig = {
 };
 
 export type MovieStyle = "whiteboard" | "scenario" | "exam_review";
+
+// ── Discussion Chat ──────────────────────────────────────────────────
+
+export type ChatMessage = {
+  role: "user" | "agent";
+  agent?: string;
+  content: string;
+};
+
+export type AgentKey = "riya" | "val" | "ben" | "dana";
