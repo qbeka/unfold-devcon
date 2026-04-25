@@ -4,14 +4,6 @@ Upload the manual. Practice with source-grounded tools. Pass the exam.
 
 Unfold is a source-grounded exam coach for Alberta Basic Security Training students. It uploads the course manual to S3, recognizes the official demo PDF by SHA-256, then opens a curated exam practice path with 3D correction scenes, voice practice, discussion, movie generation, and progress tracking.
 
-## Team 11
-1. Qendrim Beka
-2. Lawrence Velilla
-3. Layne Pitman
-4. Ilya Sukhanov
-5. Humza Aziz
-6. Jordan Antonio
-
 ## Demo Path
 
 1. Open the app. Upload the Alberta Basic Security Training PDF. 
