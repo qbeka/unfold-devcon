@@ -14,8 +14,7 @@ const styles: { id: MovieStyle; label: string }[] = [
 
 const DEFAULT_PROMPT = "Teach me about objective report writing in module 5.";
 
-// Total generation time in ms — long enough that switching tabs feels real.
-const MOVIE_DURATION_MS = 50_000;
+const MOVIE_DURATION_MS = 2_000;
 
 const LOADING_STEPS = [
   { label: "Reading Module Five", at: 0 },

@@ -7,7 +7,7 @@ import { PracticeScene } from "@/components/corrections/PracticeScene";
 import { useUnfoldStore } from "@/lib/store";
 import { buttonPrimary, eyebrow, helperText, sectionTitle } from "@/lib/ui";
 
-const SCENE_DURATION_MS = 14_000;
+const SCENE_DURATION_MS = 2_000;
 
 export function CorrectionsTab() {
   const [showPractice, setShowPractice] = useState(false);

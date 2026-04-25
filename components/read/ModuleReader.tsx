@@ -1,25 +1,12 @@
 "use client";
 
-import { useMemo } from "react";
-import { useUnfoldStore } from "@/lib/store";
-import {
-  moduleFiveContent,
-  translateBlock,
-  translateSection
-} from "@/lib/data/moduleFiveContent";
+import { moduleFiveContent } from "@/lib/data/moduleFiveContent";
 import type { ContentBlock } from "@/lib/data/moduleFiveContent";
 
 export function ModuleReader() {
-  const language = useUnfoldStore((state) => state.language);
-
-  const sections = useMemo(
-    () => moduleFiveContent.sections.map((section) => translateSection(section, language)),
-    [language]
-  );
-
   return (
     <article className="space-y-14 pb-16">
-      {sections.map((section) => (
+      {moduleFiveContent.sections.map((section) => (
         <section key={section.id} className="space-y-5">
           <header className="space-y-1">
             <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-400">
@@ -103,5 +90,3 @@ function BlockRenderer({ block }: { block: ContentBlock }) {
 
   return null;
 }
-
-export { translateBlock };

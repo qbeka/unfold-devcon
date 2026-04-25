@@ -13,9 +13,8 @@ import { useUnfoldStore } from "@/lib/store";
 export function AppShell() {
   const activeTab = useUnfoldStore((state) => state.activeTab);
   const documentStatus = useUnfoldStore((state) => state.documentStatus);
-  const needsLanguageChoice = useUnfoldStore((state) => state.needsLanguageChoice);
 
-  if (documentStatus !== "ready" || needsLanguageChoice) {
+  if (documentStatus !== "ready") {
     return <UploadScreen />;
   }
 

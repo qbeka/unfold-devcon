@@ -5,7 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Unfold",
-  description: "Source-grounded multilingual exam coaching for certification students."
+  description: "Source-grounded exam coaching for certification students."
 };
 
 export default function RootLayout({

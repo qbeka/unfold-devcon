@@ -13,7 +13,7 @@ const tabs: { id: AppTab; label: string }[] = [
   { id: "progress", label: "Progress" }
 ];
 
-const MOVIE_DURATION_MS = 50_000;
+const MOVIE_DURATION_MS = 2_000;
 
 export function TabNav() {
   const activeTab = useUnfoldStore((state) => state.activeTab);

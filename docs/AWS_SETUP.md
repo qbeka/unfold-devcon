@@ -18,7 +18,7 @@ DETERMINISTIC_DOCUMENT_ID=alberta-basic-security-training
 | IAM user | API credentials with least-privilege access | yes |
 | S3 bucket | Stores uploaded PDFs | yes |
 | Textract | Extracts text from PDFs | later |
-| Bedrock (Anthropic Claude) | Parses, simplifies, translates, generates exams + scenes | later |
+| Bedrock (Anthropic Claude) | Parses documents and generates exams + scenes | later |
 | Polly | Narrates the correction scene and movie | later |
 | DynamoDB table | Stores manifests, attempts, weak areas | later |
 | Bedrock image model | Optional. Generates movie/storyboard images | optional |
@@ -287,10 +287,9 @@ Whenever you change the Alberta manual or want to refresh the curated content:
 
 ```bash
 node scripts/extract-all-modules.mjs        # re-extract every module's text
-TARGET_LANG=de node scripts/translate-modules.mjs  # re-translate to German
 ```
 
-The generated `lib/data/moduleSnippets.ts` and `lib/data/moduleSnippetsTranslated.ts` are committed; both run offline (no AWS).
+The generated `lib/data/moduleSnippets.ts` file is committed and runs offline (no AWS).
 
 ---
 

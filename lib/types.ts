@@ -1,7 +1,5 @@
 export type AppTab = "read" | "exam" | "corrections" | "discussion" | "movie" | "progress";
 
-export type LanguageMode = "original" | "simple" | "spanish" | "side_by_side";
-
 export type DocumentSection = {
   id: string;
   moduleId: string;
@@ -10,7 +8,6 @@ export type DocumentSection = {
   sourceReference: string;
   originalText: string;
   simplifiedText: string;
-  translatedText: string;
   keyTerms: string[];
   examConcepts: string[];
 };

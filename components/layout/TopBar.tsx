@@ -4,38 +4,30 @@ import { useState } from "react";
 import { ChevronDown, FileUp, RotateCcw } from "lucide-react";
 import { TabNav } from "@/components/layout/TabNav";
 import { useUnfoldStore } from "@/lib/store";
-import { supportedLanguages } from "@/lib/data/moduleFiveContent";
-import type { LanguageCode } from "@/lib/data/moduleFiveContent";
 
 export function TopBar() {
   const resetDemo = useUnfoldStore((state) => state.resetDemo);
   const returnToUpload = useUnfoldStore((state) => state.returnToUpload);
   const manifest = useUnfoldStore((state) => state.documentManifest);
-  const language = useUnfoldStore((state) => state.language);
-  const setLanguage = useUnfoldStore((state) => state.setLanguage);
   const selectedModuleId = useUnfoldStore((state) => state.selectedModuleId);
   const setSelectedModuleId = useUnfoldStore((state) => state.setSelectedModuleId);
   const [moduleOpen, setModuleOpen] = useState(false);
-  const [langOpen, setLangOpen] = useState(false);
 
   const currentModule = manifest?.modules.find((m) => m.id === selectedModuleId) ?? manifest?.modules[0];
-  const currentLanguage = supportedLanguages.find((l) => l.code === language) ?? supportedLanguages[0];
 
   return (
     <header className="sticky top-0 z-30 border-b border-black/5 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-3 px-6 py-3">
         <div className="flex min-w-0 items-center gap-2.5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/unfold-logo.png" alt="Unfold" className="h-7 w-7" />
+          <img src="/unfold-logo.png" alt="Unfold" className="h-14 w-14" />
           <p className="hidden truncate text-[13px] font-medium text-neutral-500 sm:block">
-            <span className="font-semibold text-neutral-900">Unfold</span>
-            <span className="px-1.5 text-neutral-300">/</span>
             <span className="text-neutral-500">{manifest?.fileName ?? "manual.pdf"}</span>
           </p>
         </div>
 
         <div className="flex items-center gap-1.5">
-          <Pill open={moduleOpen} setOpen={setModuleOpen} closeOther={() => setLangOpen(false)} label={shortenModule(currentModule?.title)}>
+          <Pill open={moduleOpen} setOpen={setModuleOpen} label={shortenModule(currentModule?.title)}>
             <div className="max-h-80 overflow-y-auto py-1">
               {manifest?.modules.map((m) => (
                 <button
@@ -57,29 +49,6 @@ export function TopBar() {
                       Pages {m.pageStart}–{m.pageEnd}
                     </span>
                   )}
-                </button>
-              ))}
-            </div>
-          </Pill>
-
-          <Pill open={langOpen} setOpen={setLangOpen} closeOther={() => setModuleOpen(false)} label={currentLanguage.label}>
-            <div className="py-1">
-              {supportedLanguages.map((l) => (
-                <button
-                  key={l.code}
-                  className={`flex w-full items-center justify-between gap-3 px-3 py-1.5 text-left text-[12px] ${
-                    l.code === language
-                      ? "bg-black/5 font-medium text-neutral-950"
-                      : "text-neutral-700 hover:bg-black/5"
-                  }`}
-                  onClick={() => {
-                    setLanguage(l.code as LanguageCode);
-                    setLangOpen(false);
-                  }}
-                  type="button"
-                >
-                  <span>{l.label}</span>
-                  <span className="text-[10px] text-neutral-400">{l.nativeLabel}</span>
                 </button>
               ))}
             </div>
@@ -131,13 +100,11 @@ function wordToNum(w: string) {
 function Pill({
   open,
   setOpen,
-  closeOther,
   label,
   children
 }: {
   open: boolean;
   setOpen: (v: boolean) => void;
-  closeOther: () => void;
   label: string;
   children: React.ReactNode;
 }) {
@@ -146,7 +113,6 @@ function Pill({
       <button
         className="flex items-center gap-1.5 rounded-full border border-black/10 bg-white px-3 py-1.5 text-[12px] font-medium text-neutral-700 hover:border-black/20"
         onClick={() => {
-          closeOther();
           setOpen(!open);
         }}
         type="button"

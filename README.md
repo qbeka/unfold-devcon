@@ -1,24 +1,23 @@
 # Unfold
 
-Upload the manual. Learn in your language. Pass the exam.
+Upload the manual. Practice with source-grounded tools. Pass the exam.
 
-Unfold is a source-grounded, multilingual exam coach for Alberta Basic Security Training students. It uploads the course manual to S3, recognizes the official demo PDF by SHA-256, then opens a curated exam practice path with translations, 3D correction scenes, voice practice, discussion, movie generation, and progress tracking.
+Unfold is a source-grounded exam coach for Alberta Basic Security Training students. It uploads the course manual to S3, recognizes the official demo PDF by SHA-256, then opens a curated exam practice path with 3D correction scenes, voice practice, discussion, movie generation, and progress tracking.
 
 ## Demo Path
 
 1. Open the app. Upload the Alberta Basic Security Training PDF.
 2. Watch the upload flow: S3 upload, source verification, workspace loading, ready.
-3. Pick your native language (German is the deterministic translation that ships in the demo).
-4. Read tab opens. Module Five is fully rendered with translations, callouts, sample reports.
-5. Toggle "Original PDF" to view the underlying manual pages 107–129.
-6. Start a focused exam. Pick 3 or 5 questions. The scene-trigger question is always included.
-7. Answer the kooky-victim question incorrectly, submit, click View 3D Correction.
-8. The 3D scene shows two side-by-side dioramas with the officer and citizen GLB models.
-9. Press Play to hear narration and watch subtle motion.
-10. Click Practice It. Speak your incident-report sentence into the mic.
-11. The first attempt always returns "Try again: Reports cannot include guesses." The second is correct.
-12. Complete practice — Progress shows Objective report writing as improved.
-13. Discussion and Movie tabs round out the surfaces.
+3. Read tab opens. Module Five is fully rendered with callouts and sample reports.
+4. Toggle "Original PDF" to view the underlying manual pages 107–129.
+5. Start a focused exam. Pick 3 or 5 questions. The scene-trigger question is always included.
+6. Answer the kooky-victim question incorrectly, submit, click View 3D Correction.
+7. The 3D scene shows two side-by-side dioramas with the officer and citizen GLB models.
+8. Press Play to hear narration and watch subtle motion.
+9. Click Practice It. Speak your incident-report sentence into the mic.
+10. The first attempt always returns "Try again: Reports cannot include guesses." The second is correct.
+11. Complete practice — Progress shows Objective report writing as improved.
+12. Discussion and Movie tabs round out the surfaces.
 
 ## Quick Start
 
@@ -43,7 +42,7 @@ To bypass the upload screen for development, set `NEXT_PUBLIC_SKIP_UPLOAD=true`.
 node scripts/extract-module-five.mjs
 ```
 
-Re-runs PDF extraction over `public/manual/abst-manual.pdf` and rewrites `lib/data/moduleFiveContent.ts`. The shipped file is hand-cleaned for demo readability with German translations.
+Re-runs PDF extraction over `public/manual/abst-manual.pdf` and rewrites `lib/data/moduleFiveContent.ts`. The shipped file is hand-cleaned for demo readability.
 
 ## Environment
 
@@ -93,7 +92,7 @@ Recommended host: AWS Amplify Hosting.
 - `components/movie/` — prompt + style + storyboard fallback
 - `components/progress/` — readiness, weak areas, recommendations
 - `lib/aws/` — AWS service boundaries; S3 is the only live runtime dependency for the demo
-- `lib/data/moduleFiveContent.ts` — curated Module Five with translations
+- `lib/data/moduleFiveContent.ts` — curated Module Five source content
 - `lib/store.ts` — global state and exam shuffle
 - `public/models/` — `officer.glb`, `citizen.glb`
 - `public/manual/abst-manual.pdf` — original manual

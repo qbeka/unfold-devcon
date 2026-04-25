@@ -8,7 +8,6 @@ import { demoCorrectionScene } from "@/lib/data/demoScene";
 import { gradeAnswer } from "@/lib/exam";
 import { applyExamUpdate, computeWeakAreas } from "@/lib/progress";
 import { demoManifest } from "@/lib/data/demoManifest";
-import type { LanguageCode } from "@/lib/data/moduleFiveContent";
 import type {
   AnswerAttempt,
   AppTab,
@@ -29,8 +28,6 @@ type UnfoldStore = {
   processingError?: string;
   selectedModuleId: string;
   selectedSectionId: string;
-  language: LanguageCode;
-  needsLanguageChoice: boolean;
   examMode: ExamMode;
   questionCount: number;
   examQuestions: ExamQuestion[];
@@ -62,8 +59,6 @@ type UnfoldStore = {
   setProcessingError: (processingError: string) => void;
   setActiveTab: (tab: AppTab) => void;
   setSelectedModuleId: (moduleId: string) => void;
-  setLanguage: (language: LanguageCode) => void;
-  confirmLanguage: () => void;
   returnToUpload: () => void;
   setExamMode: (examMode: ExamMode) => void;
   setQuestionCount: (questionCount: number) => void;
@@ -105,8 +100,6 @@ const initialState = {
   processingError: undefined,
   selectedModuleId: "module-five",
   selectedSectionId: "report-writing-guidelines",
-  language: "en" as LanguageCode,
-  needsLanguageChoice: false,
   examMode: "focused" as ExamMode,
   questionCount: initialQuestionCount,
   examQuestions: shuffleQuestions(initialQuestionCount),
@@ -126,6 +119,35 @@ const initialState = {
   chatSubmitting: false
 };
 
+function freshLaunchState() {
+  return {
+    ...initialState,
+    activeTab: "read" as AppTab,
+    documentStatus: "empty" as DocumentProcessingStatus,
+    documentManifest: undefined,
+    processingError: undefined,
+    selectedModuleId: "module-five",
+    selectedSectionId: "report-writing-guidelines",
+    examMode: "focused" as ExamMode,
+    questionCount: initialQuestionCount,
+    examQuestions: shuffleQuestions(initialQuestionCount),
+    currentQuestionIndex: 0,
+    selections: {} as Record<string, string>,
+    attempts: [] as AnswerAttempt[],
+    latestWrongQuestionId: undefined,
+    activeCorrectionScene: undefined,
+    sceneGenerationStartedAt: undefined,
+    pendingCorrectionScene: undefined,
+    progress: { ...defaultProgress },
+    movieStartedAt: undefined,
+    moviePrompt: undefined,
+    chatMessages: [] as ChatMessage[],
+    chatLoading: false,
+    chatSummary: undefined,
+    chatSubmitting: false
+  };
+}
+
 export const useUnfoldStore = create<UnfoldStore>()(
   persist(
     (set, get) => ({
@@ -137,12 +159,7 @@ export const useUnfoldStore = create<UnfoldStore>()(
           documentStatus: "ready",
           selectedModuleId: documentManifest.modules[0]?.id ?? "module-five",
           activeTab: "read",
-          processingError: undefined,
-          // Always require language confirmation after a fresh upload.
-          needsLanguageChoice:
-            state.documentManifest?.documentId !== documentManifest.documentId
-              ? true
-              : state.needsLanguageChoice
+          processingError: undefined
         })),
       setProcessingError: (processingError) => set({ processingError, documentStatus: "error" }),
       setActiveTab: (activeTab) => set({ activeTab }),
@@ -153,16 +170,8 @@ export const useUnfoldStore = create<UnfoldStore>()(
             selectedModuleId === "module-five" ? "report-writing-guidelines" : "module-overview",
           activeTab: "read"
         }),
-      setLanguage: (language) => set({ language }),
-      confirmLanguage: () => set({ needsLanguageChoice: false }),
       returnToUpload: () =>
-        set({
-          documentStatus: "empty",
-          documentManifest: undefined,
-          processingError: undefined,
-          needsLanguageChoice: false,
-          activeTab: "read"
-        }),
+        set(freshLaunchState()),
       setExamMode: (examMode) => set({ examMode }),
       setQuestionCount: (questionCount) =>
         set({
@@ -369,17 +378,7 @@ export const useUnfoldStore = create<UnfoldStore>()(
         }
       },
       resetDemo: () =>
-        set({
-          ...initialState,
-          examQuestions: shuffleQuestions(initialQuestionCount),
-          documentManifest: skipUpload ? demoManifest : undefined,
-          documentStatus: skipUpload ? "ready" : "empty",
-          needsLanguageChoice: false,
-          activeCorrectionScene: undefined,
-          sceneGenerationStartedAt: undefined,
-          pendingCorrectionScene: undefined,
-          progress: { ...defaultProgress }
-        })
+        set(freshLaunchState())
     }),
     {
       name: "unfold-state-v2",
@@ -391,8 +390,6 @@ export const useUnfoldStore = create<UnfoldStore>()(
         documentManifest: state.documentManifest,
         selectedModuleId: state.selectedModuleId,
         selectedSectionId: state.selectedSectionId,
-        language: state.language,
-        needsLanguageChoice: state.needsLanguageChoice,
         progress: state.progress,
         attempts: state.attempts,
         latestWrongQuestionId: state.latestWrongQuestionId,

@@ -1,17 +1,16 @@
 import { DynamoDBDocumentClient, GetCommand, PutCommand } from "@aws-sdk/lib-dynamodb";
 import { getDynamoClient, hasAwsCredentials } from "@/lib/aws/config";
 import { defaultProgress } from "@/lib/data/demoProgress";
-import type { AnswerAttempt, ProgressState, TrainingDocument } from "@/lib/types";
-import type { DocumentManifest } from "@/lib/types";
+import type { AnswerAttempt, DocumentManifest, ProgressState } from "@/lib/types";
 
 const tableName = process.env.DYNAMODB_TABLE_NAME;
 
-export async function saveDocumentManifest(document: TrainingDocument | DocumentManifest) {
+export async function saveDocumentManifest(document: DocumentManifest) {
   if (!tableName || !hasAwsCredentials()) {
-    return { status: "deterministic", documentId: "id" in document ? document.id : document.documentId };
+    return { status: "deterministic", documentId: document.documentId };
   }
 
-  const documentId = "id" in document ? document.id : document.documentId;
+  const documentId = document.documentId;
 
   await docClient().send(
     new PutCommand({

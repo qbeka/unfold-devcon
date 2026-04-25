@@ -1,7 +1,6 @@
 import { InvokeModelCommand } from "@aws-sdk/client-bedrock-runtime";
 import { demoQuestions } from "@/lib/data/demoQuestions";
 import { demoCorrectionScene } from "@/lib/data/demoScene";
-import { demoSection } from "@/lib/data/demoDocument";
 import { demoManifest } from "@/lib/data/demoManifest";
 import { getBedrockClient, hasAwsCredentials } from "@/lib/aws/config";
 import type { CorrectionSceneData, DocumentManifest, ExamMode, ExamQuestion } from "@/lib/types";
@@ -109,30 +108,6 @@ Return only JSON matching CorrectionSceneData.`
   }
 
   return demoCorrectionScene;
-}
-
-export async function simplifyAndTranslateWithBedrock(_input: {
-  sectionId: string;
-  targetLanguage: string;
-}) {
-  if (canUseBedrock() && process.env.NEXT_PUBLIC_DEMO_MODE !== "true") {
-    return invokeClaudeJson<{
-      originalText: string;
-      simplifiedText: string;
-      translatedText: string;
-    }>(
-      `Simplify and translate this source section for a certification student.
-Target language: ${_input.targetLanguage}
-Original source: ${demoSection.originalText}
-Return only JSON with originalText, simplifiedText, translatedText.`
-    );
-  }
-
-  return {
-    originalText: demoSection.originalText,
-    simplifiedText: demoSection.simplifiedText,
-    translatedText: demoSection.translatedText
-  };
 }
 
 function canUseBedrock() {
