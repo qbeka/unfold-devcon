@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Send, Sparkles, Loader2 } from "lucide-react";
+import { Send, Sparkles, Loader2, CheckCircle2, AlertTriangle, RotateCcw } from "lucide-react";
 import { useUnfoldStore } from "@/lib/store";
 import { moduleFiveContent } from "@/lib/data/moduleFiveContent";
 import { ScrollablePdf } from "@/components/read/PdfViewer";
 import { eyebrow, helperText, sectionTitle } from "@/lib/ui";
-import type { AgentKey } from "@/lib/types";
+import { buttonPrimary, buttonSecondary } from "@/lib/ui";
+import type { AgentKey, DiscussionSummary } from "@/lib/types";
 
 // ── Agent display config ─────────────────────────────────────────────
 
@@ -64,7 +65,11 @@ export function DiscussionTab() {
   const [view, setView] = useState<DiscussionView>("discussion");
   const chatMessages = useUnfoldStore((s) => s.chatMessages);
   const chatLoading = useUnfoldStore((s) => s.chatLoading);
+  const chatSummary = useUnfoldStore((s) => s.chatSummary);
+  const chatSubmitting = useUnfoldStore((s) => s.chatSubmitting);
   const sendChatMessage = useUnfoldStore((s) => s.sendChatMessage);
+  const endActivity = useUnfoldStore((s) => s.endActivity);
+  const clearChat = useUnfoldStore((s) => s.clearChat);
   const scrollRef = useRef<HTMLDivElement>(null);
   const { chapterContext, activityPrompt } = useMemo(() => getModuleContext(), []);
 
@@ -98,7 +103,15 @@ export function DiscussionTab() {
         <ViewToggle active={view} onChange={setView} />
       </header>
 
-      {view === "discussion" ? (
+      {view === "open_book" ? (
+        <ScrollablePdf
+          startPage={moduleFiveContent.pageRange.start}
+          endPage={moduleFiveContent.pageRange.end}
+          height="70vh"
+        />
+      ) : chatSummary ? (
+        <SummaryScreen summary={chatSummary} onRetry={clearChat} />
+      ) : (
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
           <section className="space-y-3">
             <ActivityCard />
@@ -156,23 +169,37 @@ export function DiscussionTab() {
               )}
             </div>
 
-            {/* Input */}
-            <div className="flex items-center gap-1 rounded-full border border-black/10 bg-white px-2 py-1">
-              <input
-                className="min-w-0 flex-1 bg-transparent px-3 py-1.5 text-[13px] outline-none placeholder:text-neutral-400"
-                placeholder={chatLoading ? "Wait for classmates…" : "Add to the discussion…"}
-                value={draft}
-                onChange={(e) => setDraft(e.target.value)}
-                onKeyDown={handleKeyDown}
-                disabled={chatLoading}
-              />
+            {/* Input + Submit */}
+            <div className="flex items-center gap-2">
+              <div className="flex flex-1 items-center gap-1 rounded-full border border-black/10 bg-white px-2 py-1">
+                <input
+                  className="min-w-0 flex-1 bg-transparent px-3 py-1.5 text-[13px] outline-none placeholder:text-neutral-400"
+                  placeholder={chatLoading ? "Wait for classmates…" : "Add to the discussion…"}
+                  value={draft}
+                  onChange={(e) => setDraft(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  disabled={chatLoading || chatSubmitting}
+                />
+                <button
+                  className="grid h-7 w-7 place-items-center rounded-full bg-neutral-950 text-white disabled:opacity-30"
+                  type="button"
+                  onClick={handleSend}
+                  disabled={!draft.trim() || chatLoading || chatSubmitting}
+                >
+                  <Send className="h-3 w-3" />
+                </button>
+              </div>
               <button
-                className="grid h-7 w-7 place-items-center rounded-full bg-neutral-950 text-white disabled:opacity-30"
+                className={buttonPrimary}
                 type="button"
-                onClick={handleSend}
-                disabled={!draft.trim() || chatLoading}
+                onClick={() => endActivity(activityPrompt)}
+                disabled={chatMessages.length === 0 || chatLoading || chatSubmitting}
               >
-                <Send className="h-3 w-3" />
+                {chatSubmitting ? (
+                  <><Loader2 className="h-3.5 w-3.5 animate-spin" /> Grading…</>
+                ) : (
+                  "Submit"
+                )}
               </button>
             </div>
           </section>
@@ -181,12 +208,6 @@ export function DiscussionTab() {
             <SidebarBox title="Discussion goals" items={goals} />
           </aside>
         </div>
-      ) : (
-        <ScrollablePdf
-          startPage={moduleFiveContent.pageRange.start}
-          endPage={moduleFiveContent.pageRange.end}
-          height="70vh"
-        />
       )}
     </div>
   );
@@ -239,6 +260,69 @@ function SidebarBox({ items, title }: { items: string[]; title: string }) {
           <li key={item}>· {item}</li>
         ))}
       </ul>
+    </div>
+  );
+}
+
+function SummaryScreen({ summary, onRetry }: { summary: DiscussionSummary; onRetry: () => void }) {
+  return (
+    <div className="mx-auto max-w-2xl space-y-6">
+      {/* What you covered well */}
+      {summary.covered.length > 0 && (
+        <div className="rounded-2xl border border-black/10 bg-white p-5">
+          <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-emerald-600">What your group covered well</p>
+          <div className="mt-4 space-y-4">
+            {summary.covered.map((item, i) => (
+              <div key={i}>
+                <p className="flex items-center gap-2 text-[13px] font-semibold text-neutral-900">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-500" />
+                  {item.topic}
+                </p>
+                <ul className="mt-1.5 ml-6 space-y-1">
+                  {item.highlights.map((h, j) => (
+                    <li key={j} className="text-[13px] leading-6 text-neutral-600">· {h}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* What you missed */}
+      {summary.missed.length > 0 && (
+        <div className="rounded-2xl border border-black/10 bg-white p-5">
+          <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-amber-600">Topics to revisit</p>
+          <div className="mt-4 space-y-4">
+            {summary.missed.map((item, i) => (
+              <div key={i}>
+                <p className="flex items-center gap-2 text-[13px] font-semibold text-neutral-900">
+                  <AlertTriangle className="h-4 w-4 shrink-0 text-amber-500" />
+                  {item.topic}
+                </p>
+                <p className="mt-1 ml-6 text-[13px] leading-6 text-neutral-600">{item.detail}</p>
+                <button
+                  className="mt-1.5 ml-6 text-[12px] font-medium text-sky-600 hover:text-sky-800 transition"
+                  type="button"
+                  onClick={() => {
+                    useUnfoldStore.setState({ selectedSectionId: item.sectionId, activeTab: "read" });
+                  }}
+                >
+                  Review: {item.sectionTitle}
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Retry */}
+      <div className="flex justify-center">
+        <button className={buttonSecondary} type="button" onClick={onRetry}>
+          <RotateCcw className="h-3.5 w-3.5" />
+          Start new discussion
+        </button>
+      </div>
     </div>
   );
 }
