@@ -126,20 +126,20 @@ export function UploadScreen() {
 
           <ul className="mt-10 grid max-w-lg gap-5 text-[14.5px] leading-6 text-neutral-700 sm:grid-cols-2">
             <Bullet
-              title="Source-grounded"
-              body="Every exam question, scene, and discussion cites the exact section of the manual."
+              title="Unfold documents into a 3D world"
+              body="Turn source material into visual scenes that make mistakes easier to understand."
             />
             <Bullet
-              title="Translated"
-              body="Read the original next to the version in your native language."
+              title="Engage in live discussion with Agentic Classmates"
+              body="Study source activities with AI classmates who ask, challenge, and summarize."
             />
             <Bullet
-              title="3D corrections"
-              body="See and practice the right answer in an animated scene."
+              title="Create informational movies"
+              body="Generate short source-grounded lessons from the manual."
             />
             <Bullet
-              title="Tracked"
-              body="Weak areas, readiness, and next-best-action — all live."
+              title="Write personalized quizzes and track how you improve"
+              body="Practice targeted exam questions and see weak areas improve over time."
             />
           </ul>
         </div>

@@ -286,13 +286,22 @@ function Victim({ playing }: { playing: boolean }) {
   // The static GLB pose (arms slightly out) actually reads well during the slip
   // because real slips include arms thrown out for balance.
   const ref = useRef<THREE.Group>(null);
+  const playStartedAt = useRef(0);
+  const wasPlaying = useRef(false);
   const startX = 2.8; // close enough to always be in frame next to the puddle
   const slipTargetX = PUDDLE_X;
   const finalRestX = PUDDLE_X - 0.7;
 
   useFrame(({ clock }) => {
     if (!ref.current) return;
-    const t = playing ? clock.getElapsedTime() % T_TOTAL : 0;
+    const elapsed = clock.getElapsedTime();
+
+    if (playing && !wasPlaying.current) {
+      playStartedAt.current = elapsed;
+    }
+    wasPlaying.current = playing;
+
+    const t = playing ? (elapsed - playStartedAt.current) % T_TOTAL : 0;
 
     let x = startX;
     let y = 0;

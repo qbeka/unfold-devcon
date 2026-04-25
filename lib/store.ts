@@ -39,6 +39,8 @@ type UnfoldStore = {
   attempts: AnswerAttempt[];
   latestWrongQuestionId?: string;
   activeCorrectionScene?: CorrectionSceneData;
+  sceneGenerationStartedAt?: number;
+  pendingCorrectionScene?: CorrectionSceneData;
   progress: ProgressState;
   // Movie generation state — persisted so it survives tab switches.
   movieStartedAt?: number;
@@ -60,6 +62,7 @@ type UnfoldStore = {
   retakeExam: () => void;
   goToTriggerQuestion: () => void;
   openCorrectionScene: () => void;
+  finishSceneGeneration: () => void;
   completePractice: () => void;
   startMovieGeneration: (prompt: string) => void;
   resetMovie: () => void;
@@ -100,6 +103,8 @@ const initialState = {
   attempts: [] as AnswerAttempt[],
   latestWrongQuestionId: undefined,
   activeCorrectionScene: undefined,
+  sceneGenerationStartedAt: undefined,
+  pendingCorrectionScene: undefined,
   progress: defaultProgress,
   movieStartedAt: undefined,
   moviePrompt: undefined
@@ -152,6 +157,8 @@ export const useUnfoldStore = create<UnfoldStore>()(
           attempts: [],
           latestWrongQuestionId: undefined,
           activeCorrectionScene: undefined,
+          sceneGenerationStartedAt: undefined,
+          pendingCorrectionScene: undefined,
           progress: { ...defaultProgress }
         }),
       setCurrentQuestionIndex: (currentQuestionIndex) => set({ currentQuestionIndex }),
@@ -215,6 +222,8 @@ export const useUnfoldStore = create<UnfoldStore>()(
           attempts: [],
           latestWrongQuestionId: undefined,
           activeCorrectionScene: undefined,
+          sceneGenerationStartedAt: undefined,
+          pendingCorrectionScene: undefined,
           activeTab: "exam",
           progress: { ...defaultProgress }
         }),
@@ -241,10 +250,23 @@ export const useUnfoldStore = create<UnfoldStore>()(
       openCorrectionScene: () => {
         const state = get();
         if (state.latestWrongQuestionId === sceneQuestionId) {
-          set({ activeCorrectionScene: demoCorrectionScene, activeTab: "corrections" });
+          set({
+            activeTab: "corrections",
+            pendingCorrectionScene: demoCorrectionScene,
+            sceneGenerationStartedAt: Date.now()
+          });
           return;
         }
         set({ activeTab: "corrections" });
+      },
+      finishSceneGeneration: () => {
+        const state = get();
+        if (!state.pendingCorrectionScene) return;
+        set({
+          activeCorrectionScene: state.pendingCorrectionScene,
+          pendingCorrectionScene: undefined,
+          sceneGenerationStartedAt: undefined
+        });
       },
       completePractice: () => {
         // Just navigates to Progress. The user retries the original question from there.
@@ -260,6 +282,9 @@ export const useUnfoldStore = create<UnfoldStore>()(
           documentManifest: skipUpload ? demoManifest : undefined,
           documentStatus: skipUpload ? "ready" : "empty",
           needsLanguageChoice: false,
+          activeCorrectionScene: undefined,
+          sceneGenerationStartedAt: undefined,
+          pendingCorrectionScene: undefined,
           progress: { ...defaultProgress }
         })
     }),
@@ -283,6 +308,8 @@ export const useUnfoldStore = create<UnfoldStore>()(
         examMode: state.examMode,
         currentQuestionIndex: state.currentQuestionIndex,
         selections: state.selections,
+        sceneGenerationStartedAt: state.sceneGenerationStartedAt,
+        pendingCorrectionScene: state.pendingCorrectionScene,
         movieStartedAt: state.movieStartedAt,
         moviePrompt: state.moviePrompt
       })
