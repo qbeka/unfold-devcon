@@ -61,6 +61,9 @@ AWS_SECRET_ACCESS_KEY=
 S3_BUCKET_NAME=
 DETERMINISTIC_DOCUMENT_HASH=3cc730708278558b93aa77ad0a161a66ef280ea44ea15cd2db7e199e23e9c12b
 DETERMINISTIC_DOCUMENT_ID=alberta-basic-security-training
+ELEVENLABS_API_KEY=
+ELEVENLABS_VOICE_ID=
+ELEVENLABS_MODEL_ID=eleven_multilingual_v2
 ```
 
 ## AWS Resources Expected
@@ -101,5 +104,5 @@ Recommended host: AWS Amplify Hosting.
 - Module Five is the curated learning path. Other modules show recognized activities/concepts only.
 - The official manual is recognized by SHA-256 and mapped to curated content after S3 upload.
 - The Movie tab uses the local video at `public/videos/demo-report-writing.mp4` if present, otherwise storyboard cards.
-- Voice practice is deterministic: first attempt → "Try again", second attempt → pass. Real speech recognition is used when supported; a simulated fallback runs otherwise.
+- Voice practice is deterministic: first attempt → "Try again", second attempt → pass. ElevenLabs narrates scene playback when configured; browser speech synthesis remains the fallback.
 - Next.js 14 retained per project spec.

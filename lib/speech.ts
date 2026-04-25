@@ -2,6 +2,8 @@
 
 let cachedVoice: SpeechSynthesisVoice | null = null;
 let voicesLoadedPromise: Promise<void> | null = null;
+let currentAudio: HTMLAudioElement | null = null;
+let currentAudioUrl: string | null = null;
 
 const PREFERRED_VOICE_ORDER = [
   "Microsoft Ava Online (Natural)",
@@ -109,10 +111,20 @@ export async function speak({
   volume = 1.0,
   onEnd,
   onError
-}: SpeakOptions): Promise<SpeechSynthesisUtterance | null> {
-  if (typeof window === "undefined" || !("speechSynthesis" in window)) return null;
+}: SpeakOptions): Promise<HTMLAudioElement | SpeechSynthesisUtterance | null> {
+  if (typeof window === "undefined") return null;
+
+  cancelSpeech();
+
+  const elevenLabsAudio = await speakWithElevenLabs({ text, volume, onEnd });
+  if (elevenLabsAudio) return elevenLabsAudio;
+
+  if (!("speechSynthesis" in window)) {
+    onError?.();
+    return null;
+  }
+
   await ensureVoicesLoaded();
-  window.speechSynthesis.cancel();
 
   const utterance = new SpeechSynthesisUtterance(text);
   const voice = pickBestVoice();
@@ -132,6 +144,77 @@ export async function speak({
 }
 
 export function cancelSpeech() {
+  if (currentAudio) {
+    currentAudio.onended = null;
+    currentAudio.onerror = null;
+    currentAudio.pause();
+    currentAudio.removeAttribute("src");
+    currentAudio.load();
+    currentAudio = null;
+  }
+
+  if (currentAudioUrl) {
+    URL.revokeObjectURL(currentAudioUrl);
+    currentAudioUrl = null;
+  }
+
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
   window.speechSynthesis.cancel();
+}
+
+async function speakWithElevenLabs({
+  text,
+  volume,
+  onEnd
+}: {
+  text: string;
+  volume: number;
+  onEnd?: () => void;
+}) {
+  try {
+    const response = await fetch("/api/narration", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text })
+    });
+
+    if (!response.ok) {
+      try {
+        const errBody = await response.text();
+        console.warn("[speech] ElevenLabs narration unavailable", response.status, errBody);
+      } catch {
+        console.warn("[speech] ElevenLabs narration unavailable", response.status);
+      }
+      return null;
+    }
+
+    const audioBlob = await response.blob();
+    const audioUrl = URL.createObjectURL(audioBlob);
+    const audio = new Audio(audioUrl);
+    audio.volume = volume;
+    currentAudio = audio;
+    currentAudioUrl = audioUrl;
+
+    audio.onended = () => {
+      if (currentAudioUrl === audioUrl) {
+        URL.revokeObjectURL(audioUrl);
+        currentAudioUrl = null;
+        currentAudio = null;
+      }
+      onEnd?.();
+    };
+    audio.onerror = () => {
+      if (currentAudioUrl === audioUrl) {
+        URL.revokeObjectURL(audioUrl);
+        currentAudioUrl = null;
+        currentAudio = null;
+      }
+    };
+
+    await audio.play();
+    return audio;
+  } catch (error) {
+    console.warn("[speech] ElevenLabs playback failed", error);
+    return null;
+  }
 }

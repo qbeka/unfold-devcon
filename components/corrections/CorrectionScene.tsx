@@ -1,41 +1,75 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Pause, Play } from "lucide-react";
+import { Loader2, Pause, Play } from "lucide-react";
 import { SceneCanvas } from "@/components/corrections/SceneCanvas";
 import { buttonPrimary, buttonSecondary } from "@/lib/ui";
 import { cancelSpeech, speak } from "@/lib/speech";
 import type { CorrectionSceneData } from "@/lib/types";
 
 export function CorrectionScene({ scene }: { scene: CorrectionSceneData }) {
-  const [playing, setPlaying] = useState(false);
+  const [playState, setPlayState] = useState<"idle" | "loading" | "playing">("idle");
   const [highlight, setHighlight] = useState<"correct" | "wrong" | null>(null);
+  const isPlaying = playState === "playing";
+  const isLoading = playState === "loading";
 
   useEffect(() => {
-    if (!playing) {
+    if (!isLoading) return;
+
+    let cancelled = false;
+
+    async function prepareNarration() {
       setHighlight(null);
-      cancelSpeech();
-      return;
+      const narration = await speak({
+        text: `Same incident. The officer observes a woman slip on a wet area in the lobby at fourteen thirty. The factual report says: ${scene.correctChoice.text} The opinion-based report says: ${scene.wrongChoice.text} The professional choice is always the factual one.`,
+        rate: 0.88,
+        pitch: 0.96,
+        onEnd: () => setPlayState("idle")
+      });
+
+      if (cancelled) {
+        cancelSpeech();
+        return;
+      }
+
+      setPlayState(narration ? "playing" : "idle");
     }
 
-    void speak({
-      text: `Same incident. The officer observes a woman slip on a wet area in the lobby at fourteen thirty. The factual report says: ${scene.correctChoice.text} The opinion-based report says: ${scene.wrongChoice.text} The professional choice is always the factual one.`,
-      rate: 0.88,
-      pitch: 0.96,
-      onEnd: () => setPlaying(false)
-    });
+    void prepareNarration();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isLoading, scene.correctChoice.text, scene.wrongChoice.text]);
+
+  useEffect(() => {
+    if (!isPlaying) {
+      setHighlight(null);
+      return;
+    }
 
     const t1 = window.setTimeout(() => setHighlight("correct"), 800);
     const t2 = window.setTimeout(() => setHighlight("wrong"), 6500);
     const t3 = window.setTimeout(() => setHighlight(null), 12000);
 
     return () => {
-      cancelSpeech();
       window.clearTimeout(t1);
       window.clearTimeout(t2);
       window.clearTimeout(t3);
     };
-  }, [playing, scene.correctChoice.text, scene.wrongChoice.text]);
+  }, [isPlaying]);
+
+  useEffect(() => () => cancelSpeech(), []);
+
+  function togglePlayback() {
+    if (isLoading || isPlaying) {
+      cancelSpeech();
+      setPlayState("idle");
+      return;
+    }
+
+    setPlayState("loading");
+  }
 
   return (
     <div className="space-y-4">
@@ -45,16 +79,22 @@ export function CorrectionScene({ scene }: { scene: CorrectionSceneData }) {
           one is factual, one is opinion. Press play to hear which is correct.
         </p>
         <button
-          className={playing ? buttonSecondary : buttonPrimary}
-          onClick={() => setPlaying((v) => !v)}
+          className={isLoading || isPlaying ? buttonSecondary : buttonPrimary}
+          onClick={togglePlayback}
           type="button"
         >
-          {playing ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
-          {playing ? "Pause" : "Play scene"}
+          {isLoading ? (
+            <Loader2 className="h-3.5 w-3.5 animate-spin" />
+          ) : isPlaying ? (
+            <Pause className="h-3.5 w-3.5" />
+          ) : (
+            <Play className="h-3.5 w-3.5" />
+          )}
+          {isLoading ? "Preparing voice" : isPlaying ? "Pause" : "Play scene"}
         </button>
       </div>
 
-      <SceneCanvas playing={playing} scene={scene} highlightSide={highlight} height={520} />
+      <SceneCanvas playing={isPlaying} scene={scene} highlightSide={highlight} height={520} />
 
       <div className="grid gap-3 sm:grid-cols-2">
         <ChoiceCard tone="correct" label={scene.correctChoice.label} text={scene.correctChoice.text} tags={scene.correctChoice.tags} />

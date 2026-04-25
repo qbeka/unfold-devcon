@@ -403,6 +403,7 @@ export const useUnfoldStore = create<UnfoldStore>()(
         selections: state.selections,
         sceneGenerationStartedAt: state.sceneGenerationStartedAt,
         pendingCorrectionScene: state.pendingCorrectionScene,
+        activeCorrectionScene: state.activeCorrectionScene,
         movieStartedAt: state.movieStartedAt,
         moviePrompt: state.moviePrompt
       })
