@@ -6,7 +6,7 @@ import { defaultProgress } from "@/lib/data/demoProgress";
 import { demoQuestions, sceneQuestionId } from "@/lib/data/demoQuestions";
 import { demoCorrectionScene } from "@/lib/data/demoScene";
 import { gradeAnswer } from "@/lib/exam";
-import { addWeakArea, completePracticeProgress } from "@/lib/progress";
+import { applyExamUpdate, computeWeakAreas } from "@/lib/progress";
 import { demoManifest } from "@/lib/data/demoManifest";
 import type { LanguageCode } from "@/lib/data/moduleFiveContent";
 import type {
@@ -33,12 +33,16 @@ type UnfoldStore = {
   questionCount: number;
   examQuestions: ExamQuestion[];
   currentQuestionIndex: number;
-  selectedAnswer?: string;
-  submittedQuestionIds: string[];
+  // Per-question UI selection (before submit). Cleared when the question is
+  // submitted (the attempt becomes the source of truth) and on retry.
+  selections: Record<string, string>;
   attempts: AnswerAttempt[];
   latestWrongQuestionId?: string;
   activeCorrectionScene?: CorrectionSceneData;
   progress: ProgressState;
+  // Movie generation state — persisted so it survives tab switches.
+  movieStartedAt?: number;
+  moviePrompt?: string;
   setDocumentStatus: (documentStatus: DocumentProcessingStatus) => void;
   setDocumentReady: (documentManifest: DocumentManifest) => void;
   setProcessingError: (processingError: string) => void;
@@ -50,10 +54,15 @@ type UnfoldStore = {
   setExamMode: (examMode: ExamMode) => void;
   setQuestionCount: (questionCount: number) => void;
   setCurrentQuestionIndex: (index: number) => void;
-  selectAnswer: (selectedAnswer: string) => void;
+  selectAnswerFor: (questionId: string, answer: string) => void;
   submitAnswer: () => void;
+  retryQuestion: (questionId: string) => void;
+  retakeExam: () => void;
+  goToTriggerQuestion: () => void;
   openCorrectionScene: () => void;
-  completePractice: (testedConcept: string) => void;
+  completePractice: () => void;
+  startMovieGeneration: (prompt: string) => void;
+  resetMovie: () => void;
   resetDemo: () => void;
 };
 
@@ -87,12 +96,13 @@ const initialState = {
   questionCount: initialQuestionCount,
   examQuestions: shuffleQuestions(initialQuestionCount),
   currentQuestionIndex: 0,
-  selectedAnswer: undefined,
-  submittedQuestionIds: [],
-  attempts: [],
+  selections: {} as Record<string, string>,
+  attempts: [] as AnswerAttempt[],
   latestWrongQuestionId: undefined,
   activeCorrectionScene: undefined,
-  progress: defaultProgress
+  progress: defaultProgress,
+  movieStartedAt: undefined,
+  moviePrompt: undefined
 };
 
 export const useUnfoldStore = create<UnfoldStore>()(
@@ -107,9 +117,11 @@ export const useUnfoldStore = create<UnfoldStore>()(
           selectedModuleId: documentManifest.modules[0]?.id ?? "module-five",
           activeTab: "read",
           processingError: undefined,
-          needsLanguageChoice: state.documentManifest?.documentId !== documentManifest.documentId
-            ? true
-            : state.needsLanguageChoice
+          // Always require language confirmation after a fresh upload.
+          needsLanguageChoice:
+            state.documentManifest?.documentId !== documentManifest.documentId
+              ? true
+              : state.needsLanguageChoice
         })),
       setProcessingError: (processingError) => set({ processingError, documentStatus: "error" }),
       setActiveTab: (activeTab) => set({ activeTab }),
@@ -136,39 +148,94 @@ export const useUnfoldStore = create<UnfoldStore>()(
           questionCount,
           examQuestions: shuffleQuestions(questionCount),
           currentQuestionIndex: 0,
-          selectedAnswer: undefined,
-          submittedQuestionIds: [],
-          attempts: []
+          selections: {},
+          attempts: [],
+          latestWrongQuestionId: undefined,
+          activeCorrectionScene: undefined,
+          progress: { ...defaultProgress }
         }),
-      setCurrentQuestionIndex: (currentQuestionIndex) =>
-        set({ currentQuestionIndex, selectedAnswer: undefined }),
-      selectAnswer: (selectedAnswer) => set({ selectedAnswer }),
+      setCurrentQuestionIndex: (currentQuestionIndex) => set({ currentQuestionIndex }),
+      selectAnswerFor: (questionId, answer) => {
+        const state = get();
+        // If already submitted, ignore.
+        if (state.attempts.some((a) => a.questionId === questionId)) return;
+        set({ selections: { ...state.selections, [questionId]: answer } });
+      },
       submitAnswer: () => {
         const state = get();
         const question = state.examQuestions[state.currentQuestionIndex];
+        if (!question) return;
+        if (state.attempts.some((a) => a.questionId === question.id)) return;
+        const selected = state.selections[question.id];
+        if (!selected) return;
 
-        if (!question || !state.selectedAnswer) return;
-
-        const correct = gradeAnswer(question, state.selectedAnswer);
+        const correct = gradeAnswer(question, selected);
         const attempt: AnswerAttempt = {
           questionId: question.id,
-          selectedAnswer: state.selectedAnswer,
+          selectedAnswer: selected,
           correct,
           weakConcept: correct ? undefined : question.testedConcept
         };
+        const nextAttempts = [...state.attempts, attempt];
 
         set({
-          attempts: [...state.attempts, attempt],
-          submittedQuestionIds: Array.from(new Set([...state.submittedQuestionIds, question.id])),
-          latestWrongQuestionId: correct ? state.latestWrongQuestionId : question.id,
+          attempts: nextAttempts,
+          latestWrongQuestionId: !correct ? question.id : state.latestWrongQuestionId,
           activeCorrectionScene:
-            !correct && question.id === sceneQuestionId ? demoCorrectionScene : state.activeCorrectionScene,
-          progress: correct
-            ? {
-                ...state.progress,
-                readinessScore: Math.min(100, state.progress.readinessScore + 1)
-              }
-            : addWeakArea(state.progress, question.testedConcept)
+            !correct && question.id === sceneQuestionId
+              ? demoCorrectionScene
+              : state.activeCorrectionScene,
+          progress: applyExamUpdate(state.progress, nextAttempts, state.examQuestions)
+        });
+      },
+      retryQuestion: (questionId) => {
+        const state = get();
+        const filtered = state.attempts.filter((a) => a.questionId !== questionId);
+        const nextSelections = { ...state.selections };
+        delete nextSelections[questionId];
+        const idx = state.examQuestions.findIndex((q) => q.id === questionId);
+        const updates = computeWeakAreas(filtered, state.examQuestions);
+        set({
+          attempts: filtered,
+          selections: nextSelections,
+          currentQuestionIndex: idx >= 0 ? idx : state.currentQuestionIndex,
+          activeTab: "exam",
+          progress: {
+            ...applyExamUpdate(state.progress, filtered, state.examQuestions),
+            weakAreas: updates.weakAreas,
+            improvedAreas: updates.improvedAreas
+          }
+        });
+      },
+      retakeExam: () =>
+        set({
+          examQuestions: shuffleQuestions(get().questionCount),
+          currentQuestionIndex: 0,
+          selections: {},
+          attempts: [],
+          latestWrongQuestionId: undefined,
+          activeCorrectionScene: undefined,
+          activeTab: "exam",
+          progress: { ...defaultProgress }
+        }),
+      goToTriggerQuestion: () => {
+        const state = get();
+        const id = state.latestWrongQuestionId ?? sceneQuestionId;
+        const idx = state.examQuestions.findIndex((q) => q.id === id);
+        if (idx < 0) {
+          set({ activeTab: "exam" });
+          return;
+        }
+        // Clear that attempt so they can re-answer it.
+        const filtered = state.attempts.filter((a) => a.questionId !== id);
+        const nextSelections = { ...state.selections };
+        delete nextSelections[id];
+        set({
+          attempts: filtered,
+          selections: nextSelections,
+          currentQuestionIndex: idx,
+          activeTab: "exam",
+          progress: applyExamUpdate(state.progress, filtered, state.examQuestions)
         });
       },
       openCorrectionScene: () => {
@@ -179,11 +246,13 @@ export const useUnfoldStore = create<UnfoldStore>()(
         }
         set({ activeTab: "corrections" });
       },
-      completePractice: (testedConcept) =>
-        set((state) => ({
-          progress: completePracticeProgress(state.progress, testedConcept),
-          activeTab: "progress"
-        })),
+      completePractice: () => {
+        // Just navigates to Progress. The user retries the original question from there.
+        set({ activeTab: "progress" });
+      },
+      startMovieGeneration: (prompt) =>
+        set({ movieStartedAt: Date.now(), moviePrompt: prompt }),
+      resetMovie: () => set({ movieStartedAt: undefined, moviePrompt: undefined }),
       resetDemo: () =>
         set({
           ...initialState,
@@ -195,9 +264,10 @@ export const useUnfoldStore = create<UnfoldStore>()(
         })
     }),
     {
-      name: "unfold-state-v1",
-      storage: createJSONStorage(() => (typeof window !== "undefined" ? window.localStorage : ({} as Storage))),
-      // Only persist what we need to restore the upload + language state.
+      name: "unfold-state-v2",
+      storage: createJSONStorage(() =>
+        typeof window !== "undefined" ? window.localStorage : ({} as Storage)
+      ),
       partialize: (state) => ({
         documentStatus: state.documentStatus,
         documentManifest: state.documentManifest,
@@ -207,7 +277,14 @@ export const useUnfoldStore = create<UnfoldStore>()(
         needsLanguageChoice: state.needsLanguageChoice,
         progress: state.progress,
         attempts: state.attempts,
-        submittedQuestionIds: state.submittedQuestionIds
+        latestWrongQuestionId: state.latestWrongQuestionId,
+        examQuestions: state.examQuestions,
+        questionCount: state.questionCount,
+        examMode: state.examMode,
+        currentQuestionIndex: state.currentQuestionIndex,
+        selections: state.selections,
+        movieStartedAt: state.movieStartedAt,
+        moviePrompt: state.moviePrompt
       })
     }
   )

@@ -1,17 +1,13 @@
 import type { ProgressState } from "@/lib/types";
 
 export const defaultProgress: ProgressState = {
-  readinessScore: 68,
-  completedSections: ["Report Writing Guidelines"],
-  weakAreas: [
-    "Objective report writing",
-    "Removing personal opinion from reports",
-    "Identifying relevant details"
-  ],
+  readinessScore: 0,
+  completedSections: [],
+  weakAreas: [],
   improvedAreas: [],
   recommendations: [
-    "Review Module Five report-writing guidelines.",
-    "Take a focused exam on objective reporting.",
-    "Practice the 3D correction scene."
+    "Read Module Five: report-writing guidelines.",
+    "Take the focused exam.",
+    "Open any 3D correction that unlocks."
   ]
 };

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Check, FileUp, Languages, Loader2, ScanText, Sparkles, UploadCloud } from "lucide-react";
+import { ArrowRight, Check, Loader2 } from "lucide-react";
 import { useUnfoldStore } from "@/lib/store";
 import { buttonPrimary } from "@/lib/ui";
 import { demoManifest } from "@/lib/data/demoManifest";
@@ -9,16 +9,19 @@ import { supportedLanguages } from "@/lib/data/moduleFiveContent";
 import type { LanguageCode } from "@/lib/data/moduleFiveContent";
 import type { DocumentManifest, DocumentProcessingStatus } from "@/lib/types";
 
-const steps: { id: DocumentProcessingStatus; label: string; sub: string; icon: React.ComponentType<{ className?: string }> }[] = [
-  { id: "uploading", label: "Upload", sub: "Stored to Amazon S3", icon: UploadCloud },
-  { id: "extracting", label: "Extract", sub: "Textract reads pages and tables", icon: ScanText },
-  { id: "parsing", label: "Parse", sub: "Bedrock identifies modules", icon: Sparkles },
-  { id: "ready", label: "Ready", sub: "Choose your study language", icon: Check }
-];
+const STATUS_LABEL: Record<DocumentProcessingStatus, string> = {
+  empty: "",
+  uploading: "Uploading the document",
+  extracting: "Reading the pages",
+  parsing: "Identifying the modules",
+  ready: "Ready",
+  error: "Something went wrong"
+};
 
 export function UploadScreen() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState<string>();
+  const [pseudoProgress, setPseudoProgress] = useState(0);
   const documentStatus = useUnfoldStore((state) => state.documentStatus);
   const processingError = useUnfoldStore((state) => state.processingError);
   const setDocumentStatus = useUnfoldStore((state) => state.setDocumentStatus);
@@ -29,11 +32,30 @@ export function UploadScreen() {
   const setLanguage = useUnfoldStore((state) => state.setLanguage);
   const confirmLanguage = useUnfoldStore((state) => state.confirmLanguage);
 
+  // Smooth percentage that climbs slowly while processing.
+  useEffect(() => {
+    if (documentStatus === "empty" || documentStatus === "ready" || documentStatus === "error") {
+      setPseudoProgress(documentStatus === "ready" ? 100 : 0);
+      return;
+    }
+    setPseudoProgress(6);
+    const id = window.setInterval(() => {
+      setPseudoProgress((p) => {
+        if (p >= 92) return p;
+        const inc = p < 30 ? 2.6 : p < 65 ? 1.4 : 0.6;
+        return Math.min(p + inc, 92);
+      });
+    }, 280);
+    return () => window.clearInterval(id);
+  }, [documentStatus]);
+
   async function processFile(file: File) {
     setFileName(file.name);
     setDocumentStatus("uploading");
-    const extractionTimer = window.setTimeout(() => setDocumentStatus("extracting"), 700);
-    const parsingTimer = window.setTimeout(() => setDocumentStatus("parsing"), 2000);
+    // Drawn-out timers so the demo "feels" real, even if Textract returns instantly.
+    const t1 = window.setTimeout(() => setDocumentStatus("extracting"), 2200);
+    const t2 = window.setTimeout(() => setDocumentStatus("parsing"), 5400);
+    const minimumDelay = new Promise<void>((resolve) => window.setTimeout(resolve, 8200));
     try {
       const formData = new FormData();
       formData.append("file", file);
@@ -49,14 +71,16 @@ export function UploadScreen() {
       if (!response.ok || !data.manifest) {
         throw new Error(data.error ?? "Document processing failed.");
       }
-      window.clearTimeout(extractionTimer);
-      window.clearTimeout(parsingTimer);
+      // Wait for the minimum delay so the staged progress reads correctly.
+      await minimumDelay;
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+      setPseudoProgress(100);
       setDocumentStatus("ready");
-      // Immediately move to the language picker — no flash to the main app.
       setDocumentReady(data.manifest ?? demoManifest);
     } catch (error) {
-      window.clearTimeout(extractionTimer);
-      window.clearTimeout(parsingTimer);
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
       setProcessingError(error instanceof Error ? error.message : "Document processing failed.");
     }
   }
@@ -72,23 +96,23 @@ export function UploadScreen() {
       <BackgroundDecor />
 
       <header className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-8 py-6">
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-3">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/unfold-logo.png" alt="Unfold" className="h-8 w-8" />
-          <span className="text-[15px] font-semibold tracking-tight text-neutral-950">Unfold</span>
+          <img src="/unfold-logo.png" alt="Unfold" className="h-9 w-9" />
+          <span className="text-[16px] font-semibold tracking-tight text-neutral-950">Unfold</span>
         </div>
         <p className="hidden text-[12px] font-medium text-neutral-500 sm:block">
           Source-grounded multilingual exam coach
         </p>
       </header>
 
-      <section className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-8 pb-16 pt-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] lg:items-center">
+      <section className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-8 pb-20 pt-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)]">
         <div>
-          <p className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-white px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-neutral-600">
+          <p className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-white px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-neutral-600">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500" />
-            Hackathon build · Module Five demo
+            For certification students
           </p>
-          <h1 className="mt-6 text-[44px] font-semibold leading-[1.04] tracking-tighter2 text-neutral-950 md:text-[56px]">
+          <h1 className="mt-6 text-[44px] font-semibold leading-[1.04] tracking-tighter2 text-neutral-950 md:text-[60px]">
             Upload the manual.
             <br />
             Learn in your language.
@@ -96,29 +120,24 @@ export function UploadScreen() {
             Pass the exam.
           </h1>
           <p className="mt-6 max-w-lg text-[16px] leading-7 text-neutral-500">
-            Unfold turns any certification PDF into a translated, exam-focused study coach. Drop the
-            Alberta Basic Security Training manual on the right and we’ll process it end-to-end on
-            AWS.
+            Unfold turns any certification PDF into a translated, exam-focused study coach — built
+            for students who think in a language other than English.
           </p>
 
-          <ul className="mt-8 grid max-w-lg gap-4 text-[14px] leading-6 text-neutral-700 sm:grid-cols-2">
+          <ul className="mt-10 grid max-w-lg gap-5 text-[14.5px] leading-6 text-neutral-700 sm:grid-cols-2">
             <Bullet
-              icon={ScanText}
               title="Source-grounded"
-              body="Every exam question, scene, and discussion cites the manual."
+              body="Every exam question, scene, and discussion cites the exact section of the manual."
             />
             <Bullet
-              icon={Languages}
               title="Translated"
-              body="Read the source in your native language, side by side."
+              body="Read the original next to the version in your native language."
             />
             <Bullet
-              icon={Sparkles}
               title="3D corrections"
               body="See and practice the right answer in an animated scene."
             />
             <Bullet
-              icon={Check}
               title="Tracked"
               body="Weak areas, readiness, and next-best-action — all live."
             />
@@ -126,7 +145,7 @@ export function UploadScreen() {
         </div>
 
         <div className="relative">
-          <div className="rounded-[20px] border border-black/10 bg-white p-6 shadow-[0_18px_60px_-30px_rgba(15,23,42,0.18)]">
+          <div className="rounded-[20px] border border-black/10 bg-white p-7 shadow-[0_18px_60px_-30px_rgba(15,23,42,0.18)]">
             <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-neutral-400">
               Upload manual
             </p>
@@ -143,65 +162,49 @@ export function UploadScreen() {
             />
 
             <button
-              className="group relative mt-3 flex w-full flex-col items-center gap-3 rounded-xl border border-dashed border-black/15 bg-neutral-50 px-6 py-9 text-center transition hover:border-black/30 hover:bg-white disabled:cursor-not-allowed"
+              className="mt-3 flex w-full flex-col items-center gap-2.5 rounded-xl border border-dashed border-black/15 bg-neutral-50 px-6 py-10 text-center transition hover:border-black/30 hover:bg-white disabled:cursor-not-allowed"
               disabled={isProcessing}
               onClick={() => inputRef.current?.click()}
               type="button"
             >
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-neutral-950 text-white transition group-hover:scale-105">
-                {isProcessing ? <Loader2 className="h-5 w-5 animate-spin" /> : <FileUp className="h-5 w-5" />}
-              </div>
-              <div>
-                <p className="text-[13px] font-medium text-neutral-950">
-                  {fileName ?? "Choose a PDF"}
-                </p>
-                <p className="mt-0.5 text-[11px] text-neutral-500">PDF only · processed on AWS</p>
-              </div>
+              <p className="text-[14px] font-semibold text-neutral-950">
+                {fileName ?? "Choose a PDF"}
+              </p>
+              <p className="text-[12px] text-neutral-500">PDF only · processed for you</p>
             </button>
 
-            <ol className="mt-5 space-y-2.5">
-              {steps.map((step) => {
-                const currentIndex = steps.findIndex((item) => item.id === documentStatus);
-                const stepIndex = steps.findIndex((item) => item.id === step.id);
-                const isActive = documentStatus !== "empty" && stepIndex <= currentIndex;
-                const isComplete = documentStatus !== "empty" && stepIndex < currentIndex;
-                const Icon = step.icon;
-                return (
-                  <li key={step.id} className="flex items-start gap-3">
-                    <span
-                      className={`mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full transition ${
-                        isComplete
-                          ? "bg-neutral-950 text-white"
-                          : isActive
-                          ? "border border-black/15 bg-white text-neutral-700 shadow-[0_0_0_4px_rgba(0,0,0,0.04)]"
-                          : "border border-black/10 bg-white text-neutral-300"
-                      }`}
-                    >
-                      {isComplete ? <Check className="h-3 w-3" /> : <Icon className="h-3 w-3" />}
-                    </span>
-                    <div className="flex-1">
-                      <p
-                        className={`text-[12.5px] font-medium ${
-                          isActive ? "text-neutral-950" : "text-neutral-500"
-                        }`}
-                      >
-                        {step.label}
-                      </p>
-                      <p className="text-[11px] text-neutral-400">{step.sub}</p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
+            {documentStatus !== "empty" && (
+              <div className="mt-6 space-y-2">
+                <div className="flex items-center justify-between text-[12px]">
+                  <span className="flex items-center gap-2 font-medium text-neutral-700">
+                    {documentStatus === "ready" ? (
+                      <Check className="h-3.5 w-3.5" />
+                    ) : (
+                      <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                    )}
+                    {STATUS_LABEL[documentStatus]}
+                  </span>
+                  <span className="font-mono text-[11px] text-neutral-400">
+                    {Math.round(pseudoProgress)}%
+                  </span>
+                </div>
+                <div className="h-1 overflow-hidden rounded-full bg-black/5">
+                  <div
+                    className="h-full rounded-full bg-neutral-950 transition-[width] duration-500"
+                    style={{ width: `${pseudoProgress}%` }}
+                  />
+                </div>
+              </div>
+            )}
 
             {processingError && (
-              <div className="mt-4 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-[12px] font-medium text-red-900">
+              <div className="mt-5 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-[13px] font-medium text-red-900">
                 {processingError}
               </div>
             )}
           </div>
 
-          <p className="mt-4 text-center text-[11px] text-neutral-400">
+          <p className="mt-3 text-center text-[11px] text-neutral-400">
             Your PDF stays in your AWS account. We never share it.
           </p>
         </div>
@@ -214,31 +217,16 @@ function BackgroundDecor() {
   return (
     <>
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_-10%,rgba(15,23,42,0.05),transparent_55%),radial-gradient(circle_at_90%_120%,rgba(15,23,42,0.04),transparent_55%)]" />
-      <div
-        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.035] [background-image:linear-gradient(to_right,rgba(0,0,0,0.6)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.6)_1px,transparent_1px)] [background-size:48px_48px]"
-      />
+      <div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.035] [background-image:linear-gradient(to_right,rgba(0,0,0,0.6)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.6)_1px,transparent_1px)] [background-size:48px_48px]" />
     </>
   );
 }
 
-function Bullet({
-  icon: Icon,
-  title,
-  body
-}: {
-  icon: React.ComponentType<{ className?: string }>;
-  title: string;
-  body: string;
-}) {
+function Bullet({ title, body }: { title: string; body: string }) {
   return (
-    <li className="flex items-start gap-3">
-      <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg border border-black/10 bg-white text-neutral-700">
-        <Icon className="h-3.5 w-3.5" />
-      </span>
-      <div>
-        <p className="text-[13px] font-semibold text-neutral-950">{title}</p>
-        <p className="text-[12.5px] leading-5 text-neutral-500">{body}</p>
-      </div>
+    <li>
+      <p className="text-[13px] font-semibold text-neutral-950">{title}</p>
+      <p className="mt-1 text-[13px] leading-6 text-neutral-500">{body}</p>
     </li>
   );
 }
@@ -252,39 +240,28 @@ function LanguagePicker({
   setLanguage: (lang: LanguageCode) => void;
   confirmLanguage: () => void;
 }) {
-  const [highlight, setHighlight] = useState(false);
-  useEffect(() => {
-    setHighlight(true);
-    const t = window.setTimeout(() => setHighlight(false), 600);
-    return () => window.clearTimeout(t);
-  }, []);
-
   return (
     <main className="relative min-h-screen overflow-hidden text-neutral-950">
       <BackgroundDecor />
 
       <header className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-8 py-6">
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-3">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/unfold-logo.png" alt="Unfold" className="h-8 w-8" />
-          <span className="text-[15px] font-semibold tracking-tight text-neutral-950">Unfold</span>
+          <img src="/unfold-logo.png" alt="Unfold" className="h-9 w-9" />
+          <span className="text-[16px] font-semibold tracking-tight text-neutral-950">Unfold</span>
         </div>
-        <p
-          className={`inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-white px-2.5 py-1 text-[11px] font-medium text-neutral-600 transition ${
-            highlight ? "shadow-[0_0_0_6px_rgba(16,185,129,0.15)]" : ""
-          }`}
-        >
+        <p className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-white px-2.5 py-1 text-[11px] font-medium text-neutral-600">
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500" />
           Document ready
         </p>
       </header>
 
-      <section className="relative z-10 mx-auto flex min-h-[calc(100vh-6rem)] w-full max-w-3xl flex-col justify-center px-8 pb-16">
+      <section className="relative z-10 mx-auto flex min-h-[calc(100vh-7rem)] w-full max-w-3xl flex-col justify-center px-8 pb-20">
         <div>
           <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-neutral-400">
             Step 2 of 2
           </p>
-          <h1 className="mt-3 text-[36px] font-semibold leading-[1.06] tracking-tighter2 text-neutral-950 md:text-[44px]">
+          <h1 className="mt-3 text-[40px] font-semibold leading-[1.04] tracking-tighter2 text-neutral-950 md:text-[52px]">
             What is your native language?
           </h1>
           <p className="mt-4 max-w-lg text-[15px] leading-7 text-neutral-500">

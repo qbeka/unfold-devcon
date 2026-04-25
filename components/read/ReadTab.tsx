@@ -8,6 +8,7 @@ import { useUnfoldStore } from "@/lib/store";
 import { moduleFiveContent, supportedLanguages, translateModuleTitle } from "@/lib/data/moduleFiveContent";
 import { moduleSnippets } from "@/lib/data/moduleSnippets";
 import type { ModuleSnippetBlock } from "@/lib/data/moduleSnippets";
+import { getModuleOverview } from "@/lib/data/moduleTranslations";
 import { buttonPrimary, eyebrow, helperText, sectionTitle } from "@/lib/ui";
 
 type ReaderView = "manual" | "pdf";
@@ -22,10 +23,14 @@ export function ReadTab() {
   const isModuleFive = selectedModuleId === "module-five";
   const [view, setView] = useState<ReaderView>("manual");
 
-  const title = useMemo(
-    () => (isModuleFive ? translateModuleTitle(moduleFiveContent, language) : selectedModule?.title ?? ""),
-    [isModuleFive, language, selectedModule]
-  );
+  const title = useMemo(() => {
+    if (isModuleFive) return translateModuleTitle(moduleFiveContent, language);
+    if (language !== "en") {
+      const overview = getModuleOverview(selectedModuleId, language);
+      if (overview) return overview.title;
+    }
+    return selectedModule?.title ?? "";
+  }, [isModuleFive, language, selectedModule, selectedModuleId]);
 
   function startFocusedExam() {
     setExamMode("focused");
@@ -82,7 +87,14 @@ export function ReadTab() {
       ) : isModuleFive ? (
         <ModuleReader />
       ) : snippet ? (
-        <ExtractedReader snippet={snippet} languageName={langName} pageStart={pageStart} pageEnd={pageEnd} />
+        <ExtractedReader
+          snippet={snippet}
+          languageName={langName}
+          languageCode={language}
+          moduleId={selectedModuleId}
+          pageStart={pageStart}
+          pageEnd={pageEnd}
+        />
       ) : (
         <p className={helperText}>No content extracted for this module yet.</p>
       )}
@@ -93,21 +105,26 @@ export function ReadTab() {
 function ExtractedReader({
   snippet,
   languageName,
+  languageCode,
+  moduleId,
   pageStart,
   pageEnd
 }: {
   snippet: { sections: { heading: string; body: ModuleSnippetBlock[] }[] };
   languageName: string;
+  languageCode: string;
+  moduleId: string;
   pageStart: number;
   pageEnd: number;
 }) {
-  // Subtle "translating" shimmer to hide deterministic content swap.
   const [translating, setTranslating] = useState(false);
   useEffect(() => {
     setTranslating(true);
-    const t = window.setTimeout(() => setTranslating(false), 650);
+    const t = window.setTimeout(() => setTranslating(false), 600);
     return () => window.clearTimeout(t);
-  }, [languageName]);
+  }, [languageName, moduleId]);
+
+  const overview = languageCode !== "en" ? getModuleOverview(moduleId, languageCode as any) : undefined;
 
   return (
     <article className="space-y-12 pb-16">
@@ -122,29 +139,53 @@ function ExtractedReader({
         )}
       </div>
 
+      {overview && (
+        <section className={`rounded-2xl border border-black/10 bg-white p-6 transition ${translating ? "opacity-50" : "opacity-100"}`}>
+          <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-400">
+            {languageName} overview
+          </p>
+          <h2 className="mt-2 text-[22px] font-semibold tracking-tighter2 text-neutral-950">
+            {overview.title}
+          </h2>
+          <p className="mt-3 text-[15px] leading-7 text-neutral-700">{overview.intro}</p>
+          <ul className="mt-4 space-y-1.5 pl-5 text-[14.5px] leading-7 text-neutral-700 marker:text-neutral-300">
+            {overview.bullets.map((b) => (
+              <li key={b} className="list-disc">
+                {b}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       <div className={translating ? "opacity-60 transition" : "opacity-100 transition"}>
-        {snippet.sections.map((section, idx) => (
-          <section key={idx} className="space-y-5 pb-12">
-            <header className="space-y-1">
-              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-neutral-400">
-                Section {idx + 1}
-              </p>
-              <h2 className="text-[22px] font-semibold tracking-tighter2 text-neutral-950">
-                {section.heading}
-              </h2>
-            </header>
-            <div className="space-y-4">
-              {section.body.map((block, j) => (
-                <BlockView key={j} block={block} />
-              ))}
-            </div>
-          </section>
-        ))}
+        <p className={`text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-400 ${overview ? "mt-2" : ""}`}>
+          {overview ? "Original passages from the manual" : "Extracted content"}
+        </p>
+        <div className="mt-2 space-y-12">
+          {snippet.sections.map((section, idx) => (
+            <section key={idx} className="space-y-4">
+              <header className="space-y-1">
+                <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-400">
+                  Section {idx + 1}
+                </p>
+                <h3 className="text-[20px] font-semibold tracking-tighter2 text-neutral-950">
+                  {section.heading}
+                </h3>
+              </header>
+              <div className="space-y-4">
+                {section.body.map((block, j) => (
+                  <BlockView key={j} block={block} />
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
       </div>
 
       <p className="border-t border-black/5 pt-6 text-[12px] text-neutral-400">
-        Extracted from the manual via Textract and prepared by Bedrock. Module Five is the fully
-        curated, translatable version used by the exam flow.
+        Module Five is the fully curated, translatable version used by the exam flow. Other modules
+        show extracted content from the manual.
       </p>
     </article>
   );

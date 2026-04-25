@@ -21,14 +21,15 @@ export type SceneProps = {
   highlightSide?: "correct" | "wrong" | null;
 };
 
-// World coordinates of the puddle (front-desk side)
-const PUDDLE_X = 1.4;
-const PUDDLE_Z = 0.7;
+// World coordinates of the puddle
+const PUDDLE_X = 1.2;
+const PUDDLE_Z = 0.4;
+const ACTION_Z = PUDDLE_Z; // characters walk along this z line
 
 // Animation timeline (seconds)
 const T_WALK = 3.4;
 const T_SLIP = 0.9;
-const T_LIE = 3.2;
+const T_LIE = 3.0;
 const T_RESET = 0.6;
 const T_TOTAL = T_WALK + T_SLIP + T_LIE + T_RESET;
 
@@ -49,7 +50,7 @@ export function SceneCanvas({
         shadows
         dpr={[1, 2]}
         gl={{ antialias: true, powerPreference: "high-performance" }}
-        camera={{ position: [5.4, 3.1, 5.6], fov: 38, near: 0.1, far: 80 }}
+        camera={{ position: [4.8, 2.7, 5.2], fov: 38, near: 0.1, far: 80 }}
       >
         <Suspense fallback={null}>
           <color attach="background" args={["#eef2f8"]} />
@@ -82,7 +83,7 @@ export function SceneCanvas({
             maxDistance={10}
             minPolarAngle={0.85}
             maxPolarAngle={1.4}
-            target={[0, 1, 0]}
+            target={[0.2, 1, ACTION_Z]}
           />
         </Suspense>
       </Canvas>
@@ -120,7 +121,6 @@ function MarbleFloor() {
         <planeGeometry args={[20, 14]} />
         <meshStandardMaterial color="#e8dfd0" roughness={0.32} metalness={0.12} />
       </mesh>
-      {/* Vertical tile lines */}
       {Array.from({ length: 9 }).map((_, i) => (
         <mesh
           key={`v-${i}`}
@@ -131,7 +131,6 @@ function MarbleFloor() {
           <meshBasicMaterial color="#c5b8a3" transparent opacity={0.45} />
         </mesh>
       ))}
-      {/* Horizontal tile lines */}
       {Array.from({ length: 7 }).map((_, i) => (
         <mesh
           key={`h-${i}`}
@@ -148,27 +147,16 @@ function MarbleFloor() {
 
 function FrontDesk() {
   return (
-    <group position={[0, 0, -3.4]}>
+    <group position={[0, 0, -3.6]}>
       <RoundedBox args={[7.2, 1.2, 0.7]} radius={0.06} smoothness={3} position={[0, 0.6, 0]} castShadow receiveShadow>
         <meshStandardMaterial color="#d7c6ad" roughness={0.45} />
       </RoundedBox>
       <RoundedBox args={[7.5, 0.18, 0.82]} radius={0.04} smoothness={3} position={[0, 1.28, 0]} castShadow>
         <meshStandardMaterial color="#1f2125" roughness={0.3} />
       </RoundedBox>
-      <Text position={[0, 1.55, 0.42]} fontSize={0.2} color="#f8fafc" letterSpacing={0.18}>
+      <Text position={[0, 1.55, 0.42]} fontSize={0.18} color="#f8fafc" letterSpacing={0.18}>
         FRONT DESK
       </Text>
-      {/* Receptionist (simple stand-in) */}
-      <group position={[1.0, 1.44, -0.05]}>
-        <mesh position={[0, 0.42, 0]} castShadow>
-          <sphereGeometry args={[0.16, 24, 24]} />
-          <meshStandardMaterial color="#d7b99b" />
-        </mesh>
-        <mesh position={[0, 0.06, 0]} castShadow>
-          <boxGeometry args={[0.36, 0.5, 0.18]} />
-          <meshStandardMaterial color="#1f2937" />
-        </mesh>
-      </group>
       {/* Lamp */}
       <group position={[-2.2, 1.36, 0.08]}>
         <mesh>
@@ -197,7 +185,7 @@ function FrontDesk() {
 
 function TimePlaque() {
   return (
-    <group position={[-5.6, 2.7, -3.55]}>
+    <group position={[-5.6, 2.7, -3.78]}>
       <RoundedBox args={[1.1, 0.42, 0.05]} radius={0.04} smoothness={3}>
         <meshStandardMaterial color="#0a0a0a" />
       </RoundedBox>
@@ -209,10 +197,8 @@ function TimePlaque() {
 }
 
 function Puddle() {
-  // Better water: layered discs with shimmer + ripples
   const surfaceRef = useRef<THREE.Mesh>(null);
   const ringRef = useRef<THREE.Mesh>(null);
-  const innerRef = useRef<THREE.Mesh>(null);
   const ripple1Ref = useRef<THREE.Mesh>(null);
   const ripple2Ref = useRef<THREE.Mesh>(null);
 
@@ -222,18 +208,14 @@ function Puddle() {
       const mat = surfaceRef.current.material as THREE.MeshPhysicalMaterial;
       mat.opacity = 0.62 + Math.sin(t * 1.4) * 0.05;
     }
-    // Animated ripples expanding & fading
     [ripple1Ref, ripple2Ref].forEach((ref, i) => {
       if (!ref.current) return;
-      const phase = (t * 0.5 + i * 0.5) % 1; // 0..1
+      const phase = (t * 0.5 + i * 0.5) % 1;
       const scale = 0.4 + phase * 1.1;
       ref.current.scale.set(scale, scale, 1);
       const mat = ref.current.material as THREE.MeshBasicMaterial;
       mat.opacity = (1 - phase) * 0.35;
     });
-    if (innerRef.current) {
-      innerRef.current.rotation.z = t * 0.05;
-    }
     if (ringRef.current) {
       const mat = ringRef.current.material as THREE.MeshBasicMaterial;
       mat.opacity = 0.5 + Math.sin(t * 1.8) * 0.08;
@@ -242,9 +224,8 @@ function Puddle() {
 
   return (
     <group position={[PUDDLE_X, 0.012, PUDDLE_Z]}>
-      {/* Reflective water surface */}
       <mesh ref={surfaceRef} rotation={[-Math.PI / 2, 0, 0]}>
-        <circleGeometry args={[1.05, 64]} />
+        <circleGeometry args={[0.95, 64]} />
         <meshPhysicalMaterial
           color="#7e9cb8"
           transparent
@@ -258,17 +239,10 @@ function Puddle() {
           side={THREE.DoubleSide}
         />
       </mesh>
-      {/* Darker stain ring */}
       <mesh ref={ringRef} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.001, 0]}>
-        <ringGeometry args={[0.95, 1.08, 64]} />
+        <ringGeometry args={[0.85, 0.98, 64]} />
         <meshBasicMaterial color="#5b7794" transparent opacity={0.55} side={THREE.DoubleSide} />
       </mesh>
-      {/* Inner subtle pattern */}
-      <mesh ref={innerRef} rotation={[-Math.PI / 2, 0, 0]} position={[0.04, 0.002, -0.05]}>
-        <ringGeometry args={[0.18, 0.55, 48]} />
-        <meshBasicMaterial color="#6f8aa8" transparent opacity={0.32} side={THREE.DoubleSide} />
-      </mesh>
-      {/* Ripples */}
       <mesh ref={ripple1Ref} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.003, 0]}>
         <ringGeometry args={[0.5, 0.55, 64]} />
         <meshBasicMaterial color="#ffffff" transparent opacity={0.3} side={THREE.DoubleSide} />
@@ -277,11 +251,10 @@ function Puddle() {
         <ringGeometry args={[0.5, 0.55, 64]} />
         <meshBasicMaterial color="#ffffff" transparent opacity={0.3} side={THREE.DoubleSide} />
       </mesh>
-      {/* "Wet area" label */}
       <Text
-        position={[0, 0.06, 1.42]}
+        position={[0, 0.06, 1.32]}
         rotation={[-Math.PI / 2, 0, 0]}
-        fontSize={0.16}
+        fontSize={0.15}
         color="#7f1d1d"
         anchorX="center"
       >
@@ -291,27 +264,31 @@ function Puddle() {
   );
 }
 
+// ---- Characters (using user-provided GLB models) -------------------------------
+
 function Officer() {
-  // Officer GLB stands left near the lobby, slightly turned toward the action.
+  // Stationary observer on the left, slightly turned toward the action.
   const ref = useRef<THREE.Group>(null);
   useFrame(({ clock }) => {
     if (!ref.current) return;
     const t = clock.getElapsedTime();
-    ref.current.position.y = Math.sin(t * 1.3) * 0.005;
-    ref.current.rotation.y = 1.05; // facing right toward woman
+    ref.current.position.y = Math.sin(t * 1.3) * 0.005; // soft breathing
   });
   return (
-    <group ref={ref} position={[-2.4, 0, 0.6]}>
+    <group ref={ref} position={[-2.4, 0, ACTION_Z]} rotation={[0, 0.95, 0]}>
       <CharacterModel kind="officer" />
     </group>
   );
 }
 
 function Victim({ playing }: { playing: boolean }) {
-  // Citizen GLB walks from right, slips on the puddle, falls and lies.
+  // GLB walks toward the puddle, then tilts back during the slip and lies.
+  // The static GLB pose (arms slightly out) actually reads well during the slip
+  // because real slips include arms thrown out for balance.
   const ref = useRef<THREE.Group>(null);
-  const startX = 4.0;
-  const slipX = PUDDLE_X + 0.2;
+  const startX = 2.8; // close enough to always be in frame next to the puddle
+  const slipTargetX = PUDDLE_X;
+  const finalRestX = PUDDLE_X - 0.7;
 
   useFrame(({ clock }) => {
     if (!ref.current) return;
@@ -319,42 +296,42 @@ function Victim({ playing }: { playing: boolean }) {
 
     let x = startX;
     let y = 0;
-    let rotX = 0;
+    let bodyTilt = 0;
     let bob = 0;
-    const facing = -1.55; // facing left (toward officer)
+    const facing = -1.55;
 
-    if (t < T_WALK) {
+    if (!playing) {
+      x = startX;
+    } else if (t < T_WALK) {
       const p = t / T_WALK;
-      x = THREE.MathUtils.lerp(startX, slipX, easeInOutSine(p));
-      bob = Math.abs(Math.sin(t * 9)) * 0.04;
+      x = THREE.MathUtils.lerp(startX, slipTargetX, easeInOutSine(p));
+      // Bigger bounce while walking — visible without leg bones.
+      bob = Math.abs(Math.sin(t * 7)) * 0.06;
     } else if (t < T_WALK + T_SLIP) {
       const p = (t - T_WALK) / T_SLIP;
       const ease = p * p;
-      x = THREE.MathUtils.lerp(slipX, slipX - 0.55, ease);
-      rotX = -ease * 1.45;
-      y = ease * 0.06;
-      bob = 0;
+      x = THREE.MathUtils.lerp(slipTargetX, finalRestX, ease);
+      bodyTilt = -ease * 1.4;
+      y = ease * 0.05;
     } else if (t < T_WALK + T_SLIP + T_LIE) {
-      x = slipX - 0.55;
-      rotX = -1.45;
+      x = finalRestX;
+      bodyTilt = -1.4;
       y = 0;
       const sub = (t - T_WALK - T_SLIP) % 0.8;
       bob = Math.sin(sub * 8) * 0.005;
     } else {
       const p = (t - T_WALK - T_SLIP - T_LIE) / T_RESET;
       const ease = easeInOutSine(p);
-      x = THREE.MathUtils.lerp(slipX - 0.55, startX, ease);
-      rotX = THREE.MathUtils.lerp(-1.45, 0, Math.min(1, p * 2));
-      y = 0;
-      bob = 0;
+      x = THREE.MathUtils.lerp(finalRestX, startX, ease);
+      bodyTilt = THREE.MathUtils.lerp(-1.4, 0, Math.min(1, p * 2));
     }
 
-    ref.current.position.set(x, y + bob, PUDDLE_Z + 0.05);
-    ref.current.rotation.set(rotX, facing, 0);
+    ref.current.position.set(x, y + bob, ACTION_Z);
+    ref.current.rotation.set(bodyTilt, facing, 0);
   });
 
   return (
-    <group ref={ref} position={[startX, 0, PUDDLE_Z + 0.05]} rotation={[0, -1.55, 0]}>
+    <group ref={ref} position={[startX, 0, ACTION_Z]} rotation={[0, -1.55, 0]}>
       <CharacterModel kind="citizen" />
     </group>
   );
@@ -388,7 +365,7 @@ function CharacterModel({ kind }: { kind: "officer" | "citizen" }) {
     const scaledCenter = scaledBox.getCenter(new THREE.Vector3());
     cloned.position.x -= scaledCenter.x;
     cloned.position.z -= scaledCenter.z;
-    cloned.position.y -= scaledBox.min.y;
+    cloned.position.y -= scaledBox.min.y; // sit on the ground
   }, [cloned]);
 
   return <primitive object={cloned} />;

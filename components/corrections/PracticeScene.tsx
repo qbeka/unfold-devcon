@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Mic, MicOff, RotateCcw, Sparkles } from "lucide-react";
+import { Check, Mic, RotateCcw, Square } from "lucide-react";
 import { SceneCanvas } from "@/components/corrections/SceneCanvas";
 import { useUnfoldStore } from "@/lib/store";
 import { buttonPrimary, buttonSecondary } from "@/lib/ui";
 import { cancelSpeech, speak } from "@/lib/speech";
-import { demoCorrectionScene, demoPracticePrompt, factualReport, opinionReport } from "@/lib/data/demoScene";
+import { demoCorrectionScene, demoPracticePrompt, factualReport } from "@/lib/data/demoScene";
 
 type SpeechRecognitionLike = {
   start: () => void;
@@ -21,7 +21,8 @@ type SpeechRecognitionLike = {
 
 type Stage = "idle" | "listening" | "wrong" | "correct";
 
-const wrongAdvice = "Try again: reports cannot include guesses. State only what you observed.";
+const wrongAdvice = "Try again. Your sentence used opinion or guesses. Stick to what you observed.";
+const correctMessage = "Correct. Now reread Module Five and retake the exam.";
 
 export function PracticeScene() {
   const completePractice = useUnfoldStore((state) => state.completePractice);
@@ -31,19 +32,14 @@ export function PracticeScene() {
   const [error, setError] = useState<string | null>(null);
   const [listeningElapsed, setListeningElapsed] = useState(0);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
-  const supportsSpeech = useRef<boolean>(false);
   const transcriptRef = useRef("");
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     const Ctor = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-    if (!Ctor) {
-      supportsSpeech.current = false;
-      return;
-    }
-    supportsSpeech.current = true;
+    if (!Ctor) return;
     const rec: SpeechRecognitionLike = new Ctor();
-    rec.continuous = false;
+    rec.continuous = true;
     rec.interimResults = true;
     rec.lang = "en-US";
     recognitionRef.current = rec;
@@ -74,37 +70,27 @@ export function PracticeScene() {
     return () => window.clearInterval(id);
   }, [stage]);
 
-  // Narrate the prompt and feedback at the right moments.
+  // Narrate feedback
   useEffect(() => {
     if (stage === "wrong") {
       void speak({ text: wrongAdvice, rate: 0.95 });
     } else if (stage === "correct") {
-      void speak({ text: `Excellent. ${demoPracticePrompt.feedback}`, rate: 0.95 });
+      void speak({ text: correctMessage, rate: 0.95 });
     }
     return () => cancelSpeech();
   }, [stage]);
-
-  function runSimulated() {
-    setStage("listening");
-    setTranscript("Simulating voice input…");
-    window.setTimeout(() => {
-      const sample = attemptCount === 0 ? opinionReport : factualReport;
-      setTranscript(sample);
-      completeAttempt(sample);
-    }, 1700);
-  }
 
   function startListening() {
     setError(null);
     setTranscript("");
     cancelSpeech();
 
-    if (!supportsSpeech.current || !recognitionRef.current) {
-      runSimulated();
+    const rec = recognitionRef.current;
+    if (!rec) {
+      setError("Voice input is not available in this browser. Use Chrome or Edge.");
       return;
     }
 
-    const rec = recognitionRef.current;
     rec.onresult = (event) => {
       let text = "";
       for (let i = 0; i < event.results.length; i += 1) {
@@ -113,13 +99,14 @@ export function PracticeScene() {
       setTranscript(text);
     };
     rec.onerror = (event) => {
-      setError(`Mic unavailable (${event.error}). Using simulated voice input.`);
-      runSimulated();
+      setError(`Microphone error: ${event.error}.`);
+      setStage("idle");
     };
     rec.onend = () => {
+      // We control end via Stop button, but if it ends naturally just settle current attempt.
       setStage((current) => {
         if (current === "listening") {
-          completeAttempt(transcriptRef.current || "(no speech detected)");
+          completeAttempt();
         }
         return current;
       });
@@ -127,8 +114,9 @@ export function PracticeScene() {
     setStage("listening");
     try {
       rec.start();
-    } catch {
-      runSimulated();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not start microphone.");
+      setStage("idle");
     }
   }
 
@@ -140,35 +128,36 @@ export function PracticeScene() {
         /* ignore */
       }
     }
-    completeAttempt(transcript);
+    completeAttempt();
   }
 
-  function completeAttempt(spoken: string) {
+  function completeAttempt() {
     setAttemptCount((count) => {
       const next = count + 1;
       setStage(next === 1 ? "wrong" : "correct");
-      if (!spoken) setTranscript("(no speech detected)");
+      if (!transcriptRef.current.trim()) setTranscript("(no speech detected)");
       return next;
     });
   }
 
   function tryAgain() {
+    cancelSpeech();
     setStage("idle");
     setTranscript("");
   }
 
   function finish() {
-    completePractice(demoPracticePrompt.testedConcept);
+    completePractice();
   }
 
   const seconds = (listeningElapsed / 1000).toFixed(1);
   const caption =
     stage === "listening"
-      ? `Listening · ${seconds}s — speak the line you would put in your incident report.`
+      ? `Recording · ${seconds}s — speak the line you would put in your incident report.`
       : stage === "wrong"
       ? wrongAdvice
       : stage === "correct"
-      ? "Excellent. Objective, time-stamped, and factual."
+      ? correctMessage
       : "Press the microphone, then describe what you would write.";
 
   return (
@@ -181,22 +170,28 @@ export function PracticeScene() {
       </div>
 
       <div className="flex flex-wrap items-center justify-end gap-2">
-        {stage !== "listening" && stage !== "correct" && (
+        {stage === "idle" && (
           <button className={buttonPrimary} onClick={startListening} type="button">
             <Mic className="h-3.5 w-3.5" />
-            {attemptCount === 0 ? "Speak your sentence" : "Try again"}
+            {attemptCount === 0 ? "Start recording" : "Record again"}
           </button>
         )}
         {stage === "listening" && (
           <button className={buttonSecondary} onClick={stopListening} type="button">
-            <MicOff className="h-3.5 w-3.5" />
-            Stop
+            <Square className="h-3.5 w-3.5" />
+            Finish recording
+          </button>
+        )}
+        {stage === "wrong" && (
+          <button className={buttonPrimary} onClick={tryAgain} type="button">
+            <RotateCcw className="h-3.5 w-3.5" />
+            Try again
           </button>
         )}
         {stage === "correct" && (
           <button className={buttonPrimary} onClick={finish} type="button">
-            <Sparkles className="h-3.5 w-3.5" />
-            Complete practice
+            <Check className="h-3.5 w-3.5" />
+            Continue
           </button>
         )}
       </div>
@@ -218,30 +213,22 @@ export function PracticeScene() {
         </p>
 
         {stage === "wrong" && (
-          <div className="mt-3 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-amber-50 px-3 py-2 text-[13px] text-amber-900">
-            <span>{wrongAdvice}</span>
-            <button className={buttonSecondary} onClick={tryAgain} type="button">
-              <RotateCcw className="h-3.5 w-3.5" />
-              Try again
-            </button>
+          <div className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-[13px] text-amber-900">
+            <p className="font-medium">Try again — wrong.</p>
+            <p>Don&apos;t use opinions. State only what you observed: time, location, description.</p>
           </div>
         )}
 
         {stage === "correct" && (
           <div className="mt-3 rounded-lg bg-emerald-50 px-3 py-2 text-[13px] text-emerald-900">
-            Suggested sentence: “{factualReport}”
+            <p className="font-medium">Correct.</p>
+            <p>Reread Module Five if anything still feels uncertain, then retake the exam.</p>
+            <p className="mt-2 text-emerald-700">Suggested sentence: “{factualReport}”</p>
           </div>
         )}
 
         {error && (
           <div className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-[13px] text-red-900">{error}</div>
-        )}
-
-        {!supportsSpeech.current && (
-          <p className="mt-3 text-[11px] text-neutral-400">
-            This browser does not support speech recognition. Voice input falls back to a simulated
-            transcript for the demo.
-          </p>
         )}
       </div>
     </div>

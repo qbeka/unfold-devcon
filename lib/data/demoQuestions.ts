@@ -7,20 +7,22 @@ export const demoQuestions: ExamQuestion[] = [
     sectionId: "report-writing-guidelines",
     type: "multiple_choice",
     difficulty: "medium",
-    question: "Which sentence should not appear in a professional incident report?",
+    question:
+      "You are writing an incident report about a slip in the hotel lobby. Which sentence should NOT appear in the report?",
     options: [
-      "A. Mrs. Meredith reported her purse was stolen.",
-      "B. Police arrived at 1151.",
-      "C. The victim looked kooky and might cry.",
-      "D. The incident occurred at Prairie Mall."
+      "A. Some clumsy lady fell in the lobby. She was probably trying to get attention so she would not have to pay her bill.",
+      "B. At 14:30, an adult woman wearing a blue jacket slipped on a wet area near the front desk.",
+      "C. Housekeeping had not placed a wet-floor sign at the time of the incident.",
+      "D. The woman stated that her right ankle hurt."
     ],
-    correctAnswer: "C. The victim looked kooky and might cry.",
+    correctAnswer:
+      "A. Some clumsy lady fell in the lobby. She was probably trying to get attention so she would not have to pay her bill.",
     explanation:
-      "This sentence includes personal opinion and irrelevant detail. A professional incident report should include objective facts, not judgments about how someone looks or behaves.",
+      "This sentence is opinion-based and includes a guess about motive. A professional report should record observed facts only — time, location, description, and what the person said.",
     sourceReference: "Module Five: Documentation and Evidence, Report Writing Guidelines.",
     testedConcept: "Objective report writing",
     commonMistake:
-      "Thinking that extra personal description makes a report better, even when the detail is opinion-based or irrelevant.",
+      "Adding personal judgement or guessed motive to the report instead of describing what was observed.",
     sceneCandidate: true
   },
   {
