@@ -24,11 +24,11 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
     "end": 25,
     "sections": [
       {
-        "heading": "Overview",
+        "heading": "Security Industry",
         "body": [
           {
             "kind": "paragraph",
-            "text": "Module One: Introduction to the Security Industry When you decided to enroll in this course, you presumably did so because you have a desire or need to work in the security industry in Alberta. You may already be familiar with the roles of security professionals, or you may be new to the field altogether."
+            "text": "When you decided to enroll in this course, you presumably did so because you have a desire or need to work in the security industry in Alberta. You may already be familiar with the roles of security professionals, or you may be new to the field altogether."
           },
           {
             "kind": "paragraph",
@@ -58,29 +58,43 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
               "State the main provisions of the Security Services and Investigators Act",
               "Describe the main provisions of the Security Services and Investigators"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Regulations",
+        "body": [
           {
             "kind": "list",
             "items": [
               "State the responsibilities and restrictions of a security professional under the Act",
               "Describe the complaints process as identified under the Security Services and"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Investigators Act",
+        "body": [
           {
             "kind": "list",
             "items": [
               "Define and demonstrate professional conduct for security professionals",
               "Define and demonstrate professional appearance and deportment for security"
             ]
+          },
+          {
+            "kind": "paragraph",
+            "text": "Roles and Responsibilities of Security Professionals ....................................................... 3 Legislation and the Licensing of Security Professionals in Alberta ................................... 5 Appearance and Conduct for Security Professionals...................................................... 12 Conclusion ...................................................................................................................... 17 References ...................................................................................................................... 17 Jan-14 Module One: Introduction to the Security Industry, Page 1"
           }
         ]
       },
       {
-        "heading": "Topics",
+        "heading": "Check Yoour Knowledge",
         "body": [
           {
             "kind": "paragraph",
-            "text": "Roles and Responsibilities of Security Professionals ....................................................... 3 Legislation and the Licensing of Security Professionals in Alberta ................................... 5 Appearance and Conduct for Security Professionals...................................................... 12 Conclusion ...................................................................................................................... 17 References ...................................................................................................................... 17 Jan-14 Module One: Introduction to the Security Industry, Page 1 Check Yoour Knowledge Testyour knowleedge of the toopic before sstarting thismodule."
+            "text": "Testyour knowleedge of the toopic before sstarting thismodule."
           },
           {
             "kind": "list",
@@ -120,31 +134,59 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "a. True b. False Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Jan-14Modulee One: Introductioon to the Securitty Industry, Pagee 2 Roles and Responsibilities of Security Professionals The Security Services and Investigators Act defines a security guard as an individual who will “protect an organization's property, personnel and information against fire, theft, vandalism and illegal entry.” You will notice we use the broader term “security professional” throughout this course; in doing so, we are acknowledging the wide variety of duties and responsibilities associated with security work; however, the definition provided above is appropriate to the audience and content served by this course. Other terms you might see that are closely related include security guard, loss prevention, executive security, private investigator, in-house investigator, locksmiths and many others. Regardless of industry sector, the Act is designed to ensure minimum standards of training, accountability, and professionalism."
+            "text": "a. True b. False Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Jan-14Modulee One: Introductioon to the Securitty Industry, Pagee 2"
+          }
+        ]
+      },
+      {
+        "heading": "Roles and Responsibilities of Security Professionals",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "The Security Services and Investigators Act defines a security guard as an individual who will “protect an organization's property, personnel and information against fire, theft, vandalism and illegal entry.” You will notice we use the broader term “security professional” throughout this course; in doing so, we are acknowledging the wide variety of duties and responsibilities associated with security work; however, the definition provided above is appropriate to the audience and content served by this course. Other terms you might see that are closely related include security guard, loss prevention, executive security, private investigator, in-house investigator, locksmiths and many others. Regardless of industry sector, the Act is designed to ensure minimum standards of training, accountability, and professionalism."
           },
           {
             "kind": "paragraph",
             "text": "Regardless of job title, all security professionals perform similar kinds of tasks. Some of the activities you will be expected to do in the course of your duties are  Patrolling of premises and/or grounds  Monitoring alarm systems and responding when appropriate  Limiting access to individuals or locations  Observing and reporting criminal activity or signs of a crime  Directing traffic  Responding to emergencies  Documenting interactions and events  Presenting a professional image  Arresting those found committing a crime The primary role of a security professional is to:"
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Protection of Persons",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "OBSERVE – DETER - REPORT Protection of Persons Being responsible for the safety and well- being of individuals may involve physically protecting the person, such as serving as a bodyguard, or looking out for hazards when a group of people are present, for example at a large concert."
+            "text": "Being responsible for the safety and well- being of individuals may involve physically protecting the person, such as serving as a bodyguard, or looking out for hazards when a group of people are present, for example at a large concert."
           },
           {
             "kind": "paragraph",
             "text": "iStockphoto®. All rights reserved."
+          }
+        ]
+      },
+      {
+        "heading": "Protection of Property",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "When you are responsible for protecting property, you are primarily concerned with the actions of individuals or of nature. Examples of behaviours you will guard against include criminal acts such as vandalism, theft, disturbances and fights. Natural phenomenon you may need to respond to are events such as flooding or fire."
           },
           {
             "kind": "paragraph",
-            "text": "Protection of Property When you are responsible for protecting property, you are primarily concerned with the actions of individuals or of nature. Examples of behaviours you will guard against include criminal acts such as vandalism, theft, disturbances and fights. Natural phenomenon you may need to respond to are events such as flooding or fire."
+            "text": "Jan-14 Module One: Introduction to the Security Industry, Page 3"
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module One: Introduction to the Security Industry, Page 3 Discussioon Activityy As aclass, comee up with exaamples wherre security ppersonnel aree called upoon to protect persoons, propertyy, or both. RRecord your aanswers in tthe table below."
-          },
+            "text": "As aclass, comee up with exaamples wherre security ppersonnel aree called upoon to protect persoons, propertyy, or both. RRecord your aanswers in tthe table below."
+          }
+        ]
+      },
+      {
+        "heading": "Prottection of Informaation",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "PersonnsPropertyPBooth Prottection of Informaation It may be the casse where youu are calledupon to phyysically guarrd a locationwhere informmation, suchh as computeer data, is sttored. Morelikely, the kind of informmation you wwill needto safeguarrd falls into the categoryof confidenttial. You maay have knowwledge as too the wwhereaboutsof a person, an item, orr event, andyour role isto withholdthat informmation you hhave been entrusted withh."
+            "text": "It may be the casse where youu are calledupon to phyysically guarrd a locationwhere informmation, suchh as computeer data, is sttored. Morelikely, the kind of informmation you wwill needto safeguarrd falls into the categoryof confidenttial. You maay have knowwledge as too the wwhereaboutsof a person, an item, orr event, andyour role isto withholdthat informmation you hhave been entrusted withh."
           },
           {
             "kind": "paragraph",
@@ -152,7 +194,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Jan-14Modulee One: Introductioon to the Securitty Industry, Pagee 4 Legislation and the Licensing of Security Professionals in Alberta Alberta introduced the Security Services and Investigators Act (SSIA) on June 1, 2010 to reflect changes in the security industry in recent years, and to provide an industry-wide standard across the province. The Act is the law which is to be followed by individuals and businesses working in the security industry. The Security Services and Investigators Regulation and Security Services and Investigators (Ministerial) Regulation are the accompanying documents which prescribe how the law will be administered and enforced."
+            "text": "Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Jan-14Modulee One: Introductioon to the Securitty Industry, Pagee 4"
+          }
+        ]
+      },
+      {
+        "heading": "Legislation and the Licensing of Security Professionals",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "in Alberta Alberta introduced the Security Services and Investigators Act (SSIA) on June 1, 2010 to reflect changes in the security industry in recent years, and to provide an industry-wide standard across the province. The Act is the law which is to be followed by individuals and businesses working in the security industry. The Security Services and Investigators Regulation and Security Services and Investigators (Ministerial) Regulation are the accompanying documents which prescribe how the law will be administered and enforced."
           },
           {
             "kind": "paragraph",
@@ -181,10 +232,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "(2) No person may advertise, hold out or offer to provide a service or to perform an activity described in subsection (1) unless the person has a licence to provide the service or to perform the activity."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Executive Security",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Executive Security Executive security refers to individuals who guard or provide protection to a specific individual requiring personal protection. This licence class is exempt from wearing a uniform if desired. If a uniform is worn, it must be compliant with legislation."
+            "text": "Executive security refers to individuals who guard or provide protection to a specific individual requiring personal protection. This licence class is exempt from wearing a uniform if desired. If a uniform is worn, it must be compliant with legislation."
           },
           {
             "kind": "paragraph",
@@ -195,8 +251,18 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
             "text": " 18 years of age at the time of application  Canadian citizen or legally entitled to work in Canada  Competent, and of good character  No serious criminal record for which no pardon has been received  No outstanding criminal charges, and must not be the subject of an ongoing criminal investigation  Must be fluent in English*  Successful completion of approved training course for class of licence being sought."
           },
           {
+            "kind": "list",
+            "items": [
+              "Security Services",
+              "Loss Prevention",
+              "Executive Protection",
+              "Patrol Dog Handler",
+              "Alarm Responder"
+            ]
+          },
+          {
             "kind": "paragraph",
-            "text": "o Security Services o Loss Prevention o Executive Protection o Patrol Dog Handler o Alarm Responder  Successful completion of approved training course for baton, if permission to carry a baton is being sought *A note about English language requirements:"
+            "text": " Successful completion of approved training course for baton, if permission to carry a baton is being sought *A note about English language requirements:"
           },
           {
             "kind": "paragraph",
@@ -204,7 +270,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module One: Introduction to the Security Industry, Page 6 Figure 1. 1 Alberta Security Licences Jan-14 Module One: Introduction to the Security Industry, Page 7 An individual wishing to become licensed as a security professional in the province of Alberta within the following license classes: Security Services, Loss Prevention, Executive Protection, Patrol Dog Handler and Alarm Responder must take the following steps:"
+            "text": "Jan-14 Module One: Introduction to the Security Industry, Page 6 Figure 1. 1"
+          }
+        ]
+      },
+      {
+        "heading": "Alberta Security Licences",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Jan-14 Module One: Introduction to the Security Industry, Page 7 An individual wishing to become licensed as a security professional in the province of Alberta within the following license classes: Security Services, Loss Prevention, Executive Protection, Patrol Dog Handler and Alarm Responder must take the following steps:"
           },
           {
             "kind": "list",
@@ -233,7 +308,12 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "Visit www.securityprograms.alberta.ca for application forms and information on licensing."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "IMPORTANT",
+        "body": [
           {
             "kind": "paragraph",
             "text": "You are not permitted to work until you have received your licence."
@@ -244,7 +324,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module One: Introduction to the Security Industry, Page 8 Section 16, Security Services and Investigators Act (SSIA) Refusal of licence application 16(1) The Registrar may refuse to issue a licence or refuse to renew a licence if the Registrar is satisfied that the applicant (a) has contravened or is contravening this Act or the regulations, (b) has not met the requirements of this Act or the regulations, (c) has provided false or misleading information in the application for a licence or renewal of a licence or in any report or information required to be provided under this Act or the regulations, (d) in the case of an application for renewal of a licence, (i) has not complied with the terms or conditions of a licence, or (ii) has not provided a report or information required by this Act, the regulations or the Registrar, (e) in the opinion of the Registrar, is not a fit and proper person to be issued or to continue to hold a licence, or (f) has been charged with a criminal offence."
+            "text": "Jan-14 Module One: Introduction to the Security Industry, Page 8 Section 16, Security Services and Investigators Act (SSIA) Refusal of licence application 16(1) The Registrar may refuse to issue a licence or refuse to renew a licence if the Registrar is satisfied that the applicant (a) has contravened or is contravening this Act or the regulations, (b) has not met the requirements of this Act or the regulations, (c) has provided false or misleading information in the application for a licence or renewal of a licence or in any report or information required to be provided under this Act or the regulations, (d) in the case of an application for renewal of a licence, (i) has not complied with the terms or conditions of a licence, or (ii) has not provided a report or information required by this Act, the regulations or the"
+          }
+        ]
+      },
+      {
+        "heading": "Registrar,",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "(e) in the opinion of the Registrar, is not a fit and proper person to be issued or to continue to hold a licence, or (f) has been charged with a criminal offence."
           },
           {
             "kind": "paragraph",
@@ -284,7 +373,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module One: Introduction to the Security Industry, Page 9 Activity Referr to your coppy of the SSIA. Accordinng to Sectionn 20, what arre the conditions under whichh an Individuual licence mmay be suspended?"
+            "text": "Jan-14 Module One: Introduction to the Security Industry, Page 9"
+          }
+        ]
+      },
+      {
+        "heading": "Activity",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Referr to your coppy of the SSIA. Accordinng to Sectionn 20, what arre the conditions under whichh an Individuual licence mmay be suspended?"
           },
           {
             "kind": "paragraph",
@@ -300,15 +398,33 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": " private detecttive;Ussed under licennce with iSStockphoto®. Alll rights  laaw enforcemment officer;reeserved."
+            "text": "Ussed under licennce with  private detecttive; iSStockphoto®. Alll rights  laaw enforcemment officer; reeserved."
           },
           {
             "kind": "paragraph",
             "text": " protection offficer; or,  seecurity officeer."
+          }
+        ]
+      },
+      {
+        "heading": "Public Complaints",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "The Security Services and Investigators Act allows for complaints against security professionals. A complaint against an individual holding a security licence must be made within 90 days of the occurrence of the alleged incident and in accordance with the following process."
           },
           {
             "kind": "paragraph",
-            "text": "Complaint Process Under the Security Services and Investigators Act Submission of Complaint Complainant submits written complaint to owner of the business or organization employing the security professional who is the subject of the complaint."
+            "text": "Complaint Process Under the Security Services and Investigators Act"
+          }
+        ]
+      },
+      {
+        "heading": "Submission of Complaint",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Complainant submits written complaint to owner of the business or organization employing the security professional who is the subject of the complaint."
           },
           {
             "kind": "paragraph",
@@ -320,11 +436,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Informal Resolution and Mediation With consent of both parties, the employer may attempt to resolve the issue between the security professional and the complainant."
-          },
+            "text": "With consent of both parties, the employer may attempt to resolve the issue between the security professional and the complainant."
+          }
+        ]
+      },
+      {
+        "heading": "Investigation of Complaint",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Investigation of Complaint Organization will provide written acknowledgement of complaint to complainant and licensed security professional within 30 days of receipt of complaint."
+            "text": "Organization will provide written acknowledgement of complaint to complainant and licensed security professional within 30 days of receipt of complaint."
           },
           {
             "kind": "paragraph",
@@ -341,10 +462,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "Compplainants whho remain unnsatisfied aftter review annd decisionby the Regisstrar may submmit, in writing, a request ffor review byy the Directoor of Law Ennforcement aat the office of thee Solicitor General and MMinistry of PPublic Securiity. The Direector will advvise the compplainant, in wwriting, of thee process annd timeline aassociated wwith the revieew. The decission of the Director regarrding the outtcome of thee complaint iis final."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Apppearance",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Apppearancce and CConductfor Security Proofessionnals Apppearance You nnever get a ssecond channce to makee a first impreession – howw many timees have you heardd that expresssion? It is ooften true, annd is somethhing you shoould consideer as you enterr into the seccurity profession. The puublic will immmediately reccognize andd respect – oor not reespect - youin your rolee based on yyour appearaance, and hoow you condduct yourselff."
+            "text": "You nnever get a ssecond channce to makee a first impreession – howw many timees have you heardd that expresssion? It is ooften true, annd is somethhing you shoould consideer as you enterr into the seccurity profession. The puublic will immmediately reccognize andd respect – oor not reespect - youin your rolee based on yyour appearaance, and hoow you condduct yourselff."
           },
           {
             "kind": "paragraph",
@@ -364,8 +490,13 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Sectionn 34, SecurityServices andInvestigatorss Act (SSIA) Uniformms and weapoons 34(1) An individual licAcensee must wwear the uniformm and insignia sspecified in thee regulations foor that class of licenseees."
-          },
+            "text": "Sectionn 34, SecurityServices andInvestigatorss Act (SSIA) Uniformms and weapoons 34(1) An individual licAcensee must wwear the uniformm and insignia sspecified in thee regulations foor that class of"
+          }
+        ]
+      },
+      {
+        "heading": "licenseees.",
+        "body": [
           {
             "kind": "paragraph",
             "text": "(2) Anindividual licennsee shall not hhave in the liceensee’s possesssion any weappons or equipmment except those specified in theregulations orauthorized bythe Registrar."
@@ -376,11 +507,11 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "You may also be asked to cover up piercings or tattoos, which some clients may feel are unprofessional© 2010. iStock # 12247523. Used under licence with in appearance. Even if youriStockphoto®. All rights reserved."
+            "text": "You may also be asked to cover up piercings or tattoos, which some clients may feel are unprofessional iStockphoto®. All rights reserved."
           },
           {
             "kind": "paragraph",
-            "text": "company does not provide specific guidelines, it is in your best interest to portray a professional appearance as follows:"
+            "text": "in appearance. Even if your company does not provide specific guidelines, it is in your best interest to portray a professional appearance as follows:"
           },
           {
             "kind": "paragraph",
@@ -389,14 +520,28 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "It goes without saying that getting the right amount of sleep, eating well, and regular exercise are good for your mental and physical health. Many times, security professionals are called upon to work late-night shifts, or long hours. Taking care of your mind and your body are the best defence against fatigue, and have the added benefit of providing you the strength you need in case you are called upon to defend yourself, or your client(s)."
+          }
+        ]
+      },
+      {
+        "heading": "Conduct",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "A word which has been associated with the military, law enforcement, and the security industry is deportment. Deportment describes the conduct and behaviour of an individual. Another word associated with deportment is demeanour, which describes how an individual responds to other people, or his/her environment. Good deportment is necessary in your interactions with the public, as well as your relationships with your colleagues, supervisor, and other members of your organization. Remember, you are part of a team; helping your team be the best they can will ultimately make you successful and keep you safe on the job."
           },
           {
             "kind": "paragraph",
-            "text": "Conduct A word which has been associated with the military, law enforcement, and the security industry is deportment. Deportment describes the conduct and behaviour of an individual. Another word associated with deportment is demeanour, which describes how an individual responds to other people, or his/her environment. Good deportment is necessary in your interactions with the public, as well as your relationships with your colleagues, supervisor, and other members of your organization. Remember, you are part of a team; helping your team be the best they can will ultimately make you successful and keep you safe on the job."
-          },
+            "text": "Jan-14 Module One: Introduction to the Security Industry, Page 13 6.1 Code of Conduct To ensure program integrity all participants are held to a common standard as it relates to a code of conduct. In developing a common standard that encompasses all aspects of"
+          }
+        ]
+      },
+      {
+        "heading": "licensee conduct, the legislation will ensure consistency in service delivery and",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module One: Introduction to the Security Industry, Page 13 6.1 Code of Conduct To ensure program integrity all participants are held to a common standard as it relates to a code of conduct. In developing a common standard that encompasses all aspects of licensee conduct, the legislation will ensure consistency in service delivery and strengthen the integrity of the program."
+            "text": "strengthen the integrity of the program."
           },
           {
             "kind": "paragraph",
@@ -412,7 +557,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": " Act with honesty and integrity,  Comply with all federal, provincial and municipal laws,  Respect the privacy of others by treating all information received while working as a licensee as confidential, except where disclosure is required as part of such work, by law, or under the Personal Information Protection Act,  Abide by their employer’s code of conduct in addition to the provisions of this code of conduct."
+            "text": " Act with honesty and integrity,  Comply with all federal, provincial and municipal laws,  Respect the privacy of others by treating all information received while working as a"
+          }
+        ]
+      },
+      {
+        "heading": "licensee as confidential, except where disclosure is required as part of such work, by",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "law, or under the Personal Information Protection Act,  Abide by their employer’s code of conduct in addition to the provisions of this code of conduct."
           },
           {
             "kind": "paragraph",
@@ -420,11 +574,20 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "SSIA Policy Manual © Solicitor General of Alberta Jan-14 Module One: Introduction to the Security Industry, Page 14 Discussioon Activityy Whatt types of things would yyou considerr to be gooddeportmentt for a securiity profeessional? Whhat kind of behaviours shhould you avvoid?"
+            "text": "SSIA Policy Manual © Solicitor General of Alberta Jan-14 Module One: Introduction to the Security Industry, Page 14"
           },
           {
             "kind": "paragraph",
-            "text": "Do’sDon’ts Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Jan-14Module OOne: Introductionn to the Securityy Industry, Page 115 Post-Tesst Checck your progrress. How mmuch do yourecall?"
+            "text": "Whatt types of things would yyou considerr to be gooddeportmentt for a securiity profeessional? Whhat kind of behaviours shhould you avvoid?"
+          }
+        ]
+      },
+      {
+        "heading": "Post-Tesst",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Checck your progrress. How mmuch do yourecall?"
           },
           {
             "kind": "list",
@@ -433,10 +596,18 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
             ]
           },
           {
+            "kind": "paragraph",
+            "text": "yeet received yyour licence."
+          },
+          {
             "kind": "list",
             "items": [
               "The RegistraTr may refusee a licence aapplication iff the individuual has beenn charged"
             ]
+          },
+          {
+            "kind": "paragraph",
+            "text": "with a criminawal offence."
           },
           {
             "kind": "list",
@@ -476,18 +647,28 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "As a uniformed security professional, you are distinct amongst the crowd; keep the best practices you have just studied in mind so that you will be noticed for all the right reasons."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "References",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "References Alberta Learning Information Services. (2010). Alberta occupational profiles: Security guard. Retrieved September 8, 2010 from http://alis.alberta.ca/occinfo/Content/RequestAction.asp?aspAction=GetHTMLPro file&format=html&occPro_ID=71003219&SNT_ID=25."
+            "text": "Alberta Learning Information Services. (2010). Alberta occupational profiles: Security guard. Retrieved September 8, 2010 from http://alis.alberta.ca/occinfo/Content/RequestAction.asp?aspAction=GetHTMLPro file&format=html&occPro_ID=71003219&SNT_ID=25."
           },
           {
             "kind": "paragraph",
             "text": "Security Services and Investigators Act, S.A. 2008, c. S-4.7."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Security Services and Investigators Act Policy Manual",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Security Services and Investigators Act Policy Manual Security Services and Investigators Regulation (AR 52/2010)."
+            "text": "Security Services and Investigators Regulation (AR 52/2010)."
           },
           {
             "kind": "paragraph",
@@ -503,11 +684,11 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
     "end": 50,
     "sections": [
       {
-        "heading": "Overview",
+        "heading": "System and Security Professionals",
         "body": [
           {
             "kind": "paragraph",
-            "text": "Module Two: The Canadian Legal System and Security Professionals Security professionals are governed by Canada’s legal system in the same manner as everyone else; the rights you have as an individual are the same rights you are expected to protect when watching out for other persons and their property. This module will examine those rights, as well as the legal authorities and limitations which apply to you in your work as a security professional. You will also look at the application of force in your regular duties and your responsibilities and accountabilities when you do so."
+            "text": "Security professionals are governed by Canada’s legal system in the same manner as everyone else; the rights you have as an individual are the same rights you are expected to protect when watching out for other persons and their property. This module will examine those rights, as well as the legal authorities and limitations which apply to you in your work as a security professional. You will also look at the application of force in your regular duties and your responsibilities and accountabilities when you do so."
           },
           {
             "kind": "paragraph",
@@ -559,7 +740,20 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "a. Gaming and Liquor Act and Regulation b. Trespass to Premises Act c. Petty Trespass Act d. Employment Standards Code and Regulation Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 1 Topiics Chartter of Rightss and the Criiminal Codeof Canada..........................................................3 Use oof Force...................................................................................................................... 17 Addittional Legislaation ........................................................................................................ 220 Concclusion ........................................................................................................................ 225 Referrences ........................................................................................................................ 225 Check Yoour Knowledge Testyour knowleedge of the toopic before sstarting thismodule."
+            "text": "a. Gaming and Liquor Act and Regulation b. Trespass to Premises Act c. Petty Trespass Act d. Employment Standards Code and Regulation Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 1"
+          },
+          {
+            "kind": "paragraph",
+            "text": "Chartter of Rightss and the Criiminal Codeof Canada..........................................................3 Use oof Force...................................................................................................................... 17 Addittional Legislaation ........................................................................................................ 220 Concclusion ........................................................................................................................ 225 Referrences ........................................................................................................................ 225"
+          }
+        ]
+      },
+      {
+        "heading": "Check Yoour Knowledge",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Testyour knowleedge of the toopic before sstarting thismodule."
           },
           {
             "kind": "list",
@@ -599,11 +793,29 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "a. True b. False Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Oct-14Module Twoo: The Canadiann Legal System aand Security Proffessionals, Pagee 2 Charter of Rights and the Criminal Code of Canada The Canadian Charter of Rights and Freedoms The Rights and Freedoms for all Canadians are set out in the 34 sections which form the Charter. Of particular instance to you, as a security professional, are the rights defined in sections 7 through 14. They are as follows:"
+            "text": "a. True b. False Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Oct-14Module Twoo: The Canadiann Legal System aand Security Proffessionals, Pagee 2 Charter of Rights and the Criminal Code of Canada"
+          }
+        ]
+      },
+      {
+        "heading": "The Canadian Charter of Rights and Freedoms",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "The Rights and Freedoms for all Canadians are set out in the 34 sections which form the Charter. Of particular instance to you, as a security professional, are the rights defined in sections 7 through 14. They are as follows:"
           },
           {
             "kind": "paragraph",
-            "text": "Section 7, Section 8, Section 9, Section 10, Section 11, Section 12, Section 13, Section 14 Charter of Rights and Freedoms Life, liberty and security of person"
+            "text": "Section 7, Section 8, Section 9, Section 10, Section 11, Section 12, Section 13, Section 14 Charter of"
+          }
+        ]
+      },
+      {
+        "heading": "Rights and Freedoms",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Life, liberty and security of person"
           },
           {
             "kind": "list",
@@ -660,7 +872,12 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
             "items": [
               "Everyone has the right not to be subjected to any cruel and unusual treatment or punishment."
             ]
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Self-crimination",
+        "body": [
           {
             "kind": "list",
             "items": [
@@ -670,7 +887,12 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "used to incriminate that witness in any other proceedings, except in a prosecution for perjury or for the giving of contradictory evidence."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Interpreter",
+        "body": [
           {
             "kind": "list",
             "items": [
@@ -729,7 +951,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 4 Arrest Arrest is the process of detaining an individual for the purposes of investigating the individual’s possible involvement in a criminal activity. It is important to realize that an individual who has been arrested still has rights, and you must be respectful of those rights. Our justice system calls for criminal suspects to be given a fair trial and until they have been convicted of an offence, we must presume their innocence."
+            "text": "Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 4"
+          }
+        ]
+      },
+      {
+        "heading": "Arrest",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Arrest is the process of detaining an individual for the purposes of investigating the individual’s possible involvement in a criminal activity. It is important to realize that an individual who has been arrested still has rights, and you must be respectful of those rights. Our justice system calls for criminal suspects to be given a fair trial and until they have been convicted of an offence, we must presume their innocence."
           },
           {
             "kind": "paragraph",
@@ -756,10 +987,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "Delivery to peace officer (3) Any one other than a peace officer who arrests a person without warrant shall forthwith deliver the person to a peace officer."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Use of force",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Use of force (4) For greater certainty, a person who is authorized to make an arrest under this section is a person who is authorized by law to do so for the purposes of section 25."
+            "text": "(4) For greater certainty, a person who is authorized to make an arrest under this section is a person who is authorized by law to do so for the purposes of section 25."
           },
           {
             "kind": "paragraph",
@@ -795,7 +1031,7 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Indictable OffenceSection 494(1)(a) Arrest (foundAn indictable offence is one which is considered a serious committing)offence, such as break and enter, or theft of property over $5,000; you will have a closer look at various Criminal Code i.e., Assault, Theft overoffences in the next section of this module."
+            "text": "Indictable OffenceSection 494(1)(a) An indictable offence is one which is considered a serious Arrest (found committing)offence, such as break and enter, or theft of property over $5,000; you will have a closer look at various Criminal Code i.e., Assault, Theft overoffences in the next section of this module."
           },
           {
             "kind": "paragraph",
@@ -871,11 +1107,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "How to Make an Arrest Identify yourself."
-          },
+            "text": "“My name is John. I am the loss prevention worker for Mega"
+          }
+        ]
+      },
+      {
+        "heading": "Mart”",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "“My name is John. I am the loss prevention worker for Mega Mart” Tell the person why you are arresting them."
+            "text": "Tell the person why you are arresting them."
           },
           {
             "kind": "paragraph",
@@ -908,10 +1149,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "You should record all events and information about the individual in your notebook as soon as time permits. You will learn how to properly record information in a later module within this course."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Search and Seizure",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Search and Seizure Some security professionals are tasked with providing access control and crowd protection services in the course of their duties. A common example of this is when persons are assigned to control access at large venues, such as a concert or sporting event. It has become increasingly common to be asked to submit your purse or backpack to a security professional for search prior to entering the facility. A security professional has no power in law to search persons or their property."
+            "text": "Some security professionals are tasked with providing access control and crowd protection services in the course of their duties. A common example of this is when persons are assigned to control access at large venues, such as a concert or sporting event. It has become increasingly common to be asked to submit your purse or backpack to a security professional for search prior to entering the facility. A security professional has no power in law to search persons or their property."
           },
           {
             "kind": "paragraph",
@@ -928,10 +1174,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "If you have arrested an individual in accordance with section 494, you may search the individual if you have reason to believe they are carrying a weapon, have evidence of the offence you witnessed (e.g., if you are working in loss prevention and you witnessed the individual stealing an item from the store), have items suggesting a means of escape, or have stolen property on them. When possible, do not search an individual; instead, wait for the police to arrive, advising them of your concerns and requesting them to perform the search."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Trespassing and Vandalism",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Trespassing and Vandalism Being posted to guard a construction site or other location usually means you are there to protect the property from incidents of trespassing and vandalism, among others. As such, it is important for you to know your rights and responsibilities in responding to these kinds of incidents."
+            "text": "Being posted to guard a construction site or other location usually means you are there to protect the property from incidents of trespassing and vandalism, among others. As such, it is important for you to know your rights and responsibilities in responding to these kinds of incidents."
           },
           {
             "kind": "paragraph",
@@ -940,10 +1191,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "Vandalism is different in that damages to property are occurring. While a trespasser may enter and leave a premises without causing harm, vandals leave behind destruction which is costly to the owner of the property and could potentially cause a hazard to users of the site. Again, the best action to take is to call the police, provide the information and await their arrival. You are within your rights to arrest the responsible person(s), but consider that vandalism is an act of violence, to some degree, and make your decisions with the safety of yourself and others in mind. Sometimes, the best course of action is to continue observing, making comprehensive notes which will later aid the police in catching the individuals responsible for the act."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Criminal Code of Canada",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Criminal Code of Canada The Criminal Code of Canada is an extensive document which defines behaviours considered to be illegal or unlawful acts. The Criminal Code also defines how these illegal behaviours are processed through the criminal court system."
+            "text": "The Criminal Code of Canada is an extensive document which defines behaviours considered to be illegal or unlawful acts. The Criminal Code also defines how these illegal behaviours are processed through the criminal court system."
           },
           {
             "kind": "paragraph",
@@ -955,15 +1211,20 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Summary Conviction Indictable Hybrid (dual) Description:Description:Description:"
+            "text": "Summary Conviction Indictable Hybrid (dual)"
           },
           {
             "kind": "paragraph",
             "text": "Considered to be a “lessSerious offences defined inOffences which include serious offence,”federal law, withboth a summary conviction punishable by jail time,punishments more seriousoffence and an indictable fine, or both.than for summaryoffence; the individual will conviction offences.be prosecuted for only one type of offence."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Examples:Examples:Examples",
+        "body": [
           {
             "kind": "paragraph",
-            "text": " Unlawful assembly Weapon or imitation for Possession of prohibited dangerous purposeweapon  Weapon at public meeting Aggravated assault Public mischief  Indecent acts Theft over $5,000 Failure to stop at the scene of an accident  Causing a disturbance Robbery, with firearm  Criminal harassment  Loitering Robbery, other  Assault (common)  Trespassing at night Break and enter with intent of committing Assault causing bodily  Vagrancy indictable offence in aharm or with a weapon  Take motor vehicledwelling house  Sexual assault without consent  Possession of property  Theft $5,000 or less  Obtain food or lodgingover $5,000 by fraud Possession of  Fraud over $5,000 housebreaking  Obtain transportation by  Mischief endangeringinstruments fraud life  Break and enter with  Arson, disregard forintent of committing an human lifeindictable offence in a non-dwelling house  Arson, damage to property of others Possession of property under $5,000  Possession of counterfeit money Forgery  Utter forged document  Fraud, $5,000 or less  Mischief testamentary instrument or property over $5,000  Mischief, other property  Mischief, data  False alarm of fire A list of these offences with further explanation is provided at the back of this manual as Appendix B: Criminal Code."
+            "text": " Unlawful assembly Weapon or imitation for Possession of prohibited dangerous purposeweapon  Weapon at public meeting Aggravated assault Public mischief  Indecent acts Theft over $5,000 Failure to stop at the scene of an accident  Causing a disturbance Robbery, with firearm  Criminal harassment  Loitering Robbery, other  Assault (common)  Trespassing at night Break and enter with intent of committing Assault causing bodily  Vagrancy indictable offence in aharm or with a weapon  Take motor vehicle dwelling house  Sexual assault without consent  Possession of property  Theft $5,000 or less  Obtain food or lodging over $5,000 by fraud Possession of  Fraud over $5,000 housebreaking  Obtain transportation by  Mischief endangeringinstruments fraud life  Break and enter with  Arson, disregard forintent of committing an human lifeindictable offence in a non-dwelling house  Arson, damage to property of others Possession of property under $5,000  Possession of counterfeit money Forgery  Utter forged document  Fraud, $5,000 or less  Mischief testamentary instrument or property over $5,000  Mischief, other property  Mischief, data  False alarm of fire A list of these offences with further explanation is provided at the back of this manual as Appendix B: Criminal Code."
           },
           {
             "kind": "paragraph",
@@ -1057,8 +1318,13 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 13 Section 265 CC Assault"
-          },
+            "text": "Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 13 Section 265 CC"
+          }
+        ]
+      },
+      {
+        "heading": "Assault",
+        "body": [
           {
             "kind": "list",
             "items": [
@@ -1075,8 +1341,13 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Section 322(1) and 322(2) CC Theft"
-          },
+            "text": "Section 322(1) and 322(2) CC"
+          }
+        ]
+      },
+      {
+        "heading": "Theft",
+        "body": [
           {
             "kind": "list",
             "items": [
@@ -1093,7 +1364,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 14 Retail Theft In the case of retail theft (or shoplifting as it is often called), it is recommended that the offence of theft not be considered complete until the subject taking the property has passed any checkout or till area and has left the store. If a loss prevention worker detains a suspected thief before the individual has left the store, it allows the suspect individual to say he or she was looking for other items and intended to pay for everything once all the items had been found. In this case, any arrest without warrant may be regarded as unlawful."
+            "text": "Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 14"
+          }
+        ]
+      },
+      {
+        "heading": "Retail Theft",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "In the case of retail theft (or shoplifting as it is often called), it is recommended that the offence of theft not be considered complete until the subject taking the property has passed any checkout or till area and has left the store. If a loss prevention worker detains a suspected thief before the individual has left the store, it allows the suspect individual to say he or she was looking for other items and intended to pay for everything once all the items had been found. In this case, any arrest without warrant may be regarded as unlawful."
           },
           {
             "kind": "paragraph",
@@ -1147,8 +1427,13 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Mischief occurs when property is damaged, altered, or destroyed so that it may not be utilized or enjoyed for the purposes it was intended. Behaviours such as vandalism are included in the category of offences known as mischief. The Criminal Code also defines mischief in relation to data. For example, an individual tampering with the data stored on a computer may be committing mischief or an individual breaking into a parked vehicle may be committing mischief. As defined by the Criminal Code, mischief is Section 430 CC Mischief"
-          },
+            "text": "Mischief occurs when property is damaged, altered, or destroyed so that it may not be utilized or enjoyed for the purposes it was intended. Behaviours such as vandalism are included in the category of offences known as mischief. The Criminal Code also defines mischief in relation to data. For example, an individual tampering with the data stored on a computer may be committing mischief or an individual breaking into a parked vehicle may be committing mischief. As defined by the Criminal Code, mischief is Section 430 CC"
+          }
+        ]
+      },
+      {
+        "heading": "Mischief",
+        "body": [
           {
             "kind": "list",
             "items": [
@@ -1165,7 +1450,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 16 Use of Force The most important rule about the use of force in your role as a security professional is to avoid it as much as possible."
+            "text": "Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 16"
+          }
+        ]
+      },
+      {
+        "heading": "Use of Force",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "The most important rule about the use of force in your role as a security professional is to avoid it as much as possible."
           },
           {
             "kind": "paragraph",
@@ -1177,7 +1471,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Escalating an incident to one requiring the application of force is risky, both for your physical well-being, as well as your professional reputation. Module Three will look at use of force tactics which you may need to call upon to protect your own safety, and the safety of others. At this point, we are concerned with what the Criminal Code has to say about the use of force, and how this will apply to you as a security professional."
+            "text": "Escalating an incident to one requiring the application of force is risky, both for your physical well-being, as well as your professional reputation. Module Three will look at"
+          }
+        ]
+      },
+      {
+        "heading": "use of force tactics which you may need to call upon to protect your own safety, and the",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "safety of others. At this point, we are concerned with what the Criminal Code has to say about the use of force, and how this will apply to you as a security professional."
           },
           {
             "kind": "paragraph",
@@ -1254,19 +1557,25 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "In a different setting, you have been posted to the entrance doors to a large soccer stadium. A disturbance breaks out between two apparently intoxicated individuals. A police officer directs you to assist in putting an end to the fight. In this case, it would be appropriate to apply enough force to pull the individuals apart from one another and restrain one of them, pending further instructions from the officer. The individuals involved in the fight are emotionally heated and affected by the alcohol in their system. They may wish to keep fighting, even with you. Don’t let their lack of judgment impact your decision making; use enough appropriate force (in this case, restraining the individuals) to maintain control of the subject. Resorting to hitting, kicking, and inappropriate language will make it difficult for the police to differentiate between the “good guys” and the “bad guys.” You are there to help, not to add to the police officers’ workload."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Use of force techniques are not covered",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Use of force techniques are not covered in this course; it is recommended you take an appropriate course which© 2010. iStock # 6361202. Used under focuses on use of force and personallicence with iStockphoto®. All rights safety.reserved."
+            "text": "in this course; it is recommended you take an appropriate course which licence with iStockphoto®. All rights focuses on use of force and personal reserved."
           },
           {
             "kind": "paragraph",
             "text": "Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 19 Section 27 of the Criminal Code defines how force may be used in the prevention of a criminal act. Again, the force must be reasonable and appropriate to the circumstances."
-          },
-          {
-            "kind": "paragraph",
-            "text": "Section 27 CC Use of force to prevent commission of offence"
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Use of force to prevent commission of offence",
+        "body": [
           {
             "kind": "list",
             "items": [
@@ -1279,11 +1588,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Additional Legislation As you have learned, the job description for a security professional can be quite varied, and opportunities to apply your skills and knowledge are found in many different settings. Some of the duties you can be called upon to perform are rooted in other pieces of legislation. Throughout your career as a security professional, it will not be uncommon for you to be called upon to deal with issues arising from  Gaming and Liquor Act and Regulation  Trespass to Premises Act  Petty Trespass Act  Employment Standards Code and Regulation Let’s look at the common ways in which you will encounter the legislation listed above."
-          },
+            "text": "As you have learned, the job description for a security professional can be quite varied, and opportunities to apply your skills and knowledge are found in many different settings. Some of the duties you can be called upon to perform are rooted in other pieces of legislation. Throughout your career as a security professional, it will not be uncommon for you to be called upon to deal with issues arising from  Gaming and Liquor Act and Regulation  Trespass to Premises Act  Petty Trespass Act  Employment Standards Code and Regulation Let’s look at the common ways in which you will encounter the legislation listed above."
+          }
+        ]
+      },
+      {
+        "heading": "Gaming and Liquor Act",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Gaming and Liquor Act A security professional does not have authority under the Gaming and Liquor Act; however, you may be dispatched to a post where either may be present and tasked with associated duties. Examples are  Sports stadiums  Private functions Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 20 st ProServe: As of January 1, 2010, if your job involves liquor sales, service, or security in Alberta, you must have ProServe training."
+            "text": "A security professional does not have authority under the Gaming and Liquor Act; however, you may be dispatched to a post where either may be present and tasked with associated duties. Examples are  Sports stadiums  Private functions Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 20 st ProServe: As of January 1, 2010, if your job involves liquor sales, service, or security in Alberta, you must have ProServe training."
           },
           {
             "kind": "paragraph",
@@ -1296,14 +1610,28 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "While guarding access to a sports venue, you may be directed to deny entrance to any individual in the possession of alcohol. In this instance, you can refuse to allow them to enter the premises, but you are not authorized to seize the liquor. It is very important for you to communicate to the individual that they do, indeed, have a choice in the matter; however, if they choose not to dispose of the liquor, they are choosing not to enter the venue."
+          }
+        ]
+      },
+      {
+        "heading": "Trespass to Premises Act",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "As you have probably noticed, the potential for you to encounter trespassers while working as a security professional is quite likely. The Act clearly provides authorization for you – as a representative of the owner – to enforce the provisions made under the Act."
           },
           {
             "kind": "paragraph",
-            "text": "Trespass to Premises Act As you have probably noticed, the potential for you to encounter trespassers while working as a security professional is quite likely. The Act clearly provides authorization for you – as a representative of the owner – to enforce the provisions made under the Act."
-          },
+            "text": "Section 2, Trespass to Premises Act"
+          }
+        ]
+      },
+      {
+        "heading": "Trespass",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Section 2, Trespass to Premises Act Trespass 2(1) No person shall trespass on premises with respect to which that person has had notice not to trespass."
+            "text": "2(1) No person shall trespass on premises with respect to which that person has had notice not to trespass."
           },
           {
             "kind": "paragraph",
@@ -1335,11 +1663,29 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "1997 cT-8.5 s5 © Alberta Queen’s Printer, 2004 Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 22 Petty Trespass Act As a security professional, you will also need to be familiar with the offences as defined in the Petty Trespass Act."
+            "text": "1997 cT-8.5 s5 © Alberta Queen’s Printer, 2004 Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 22"
+          }
+        ]
+      },
+      {
+        "heading": "Petty Trespass Act",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "As a security professional, you will also need to be familiar with the offences as defined in the Petty Trespass Act."
           },
           {
             "kind": "paragraph",
-            "text": "Section 2(1), Petty Trespass Act Prohibition 2(1) Every person who (a) without the permission of the owner or occupier of land enters on land when entry is prohibited under section 2.1, or (b) does not leave land immediately after he or she is directed to do so by the owner or occupier of the land or a person authorized by the owner or occupier is guilty of an offence."
+            "text": "Section 2(1), Petty Trespass Act"
+          }
+        ]
+      },
+      {
+        "heading": "Prohibition",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "2(1) Every person who (a) without the permission of the owner or occupier of land enters on land when entry is prohibited under section 2.1, or (b) does not leave land immediately after he or she is directed to do so by the owner or occupier of the land or a person authorized by the owner or occupier is guilty of an offence."
           },
           {
             "kind": "paragraph",
@@ -1347,7 +1693,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Section 2.1, Petty Trespass Act Notice 2.1(1) Entry on land may be prohibited by notice to that effect, and entry is prohibited without any notice on land (a) that is a lawn, garden or land that is under cultivation, (b) that is surrounded by a fence, a natural boundary or a combination of a fence and a natural boundary, or (c) that is enclosed in a manner that indicates the owner’s or occupier’s intention to keep persons off the land or to keep animals on the land."
+            "text": "Section 2.1, Petty Trespass Act"
+          }
+        ]
+      },
+      {
+        "heading": "Notice",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "2.1(1) Entry on land may be prohibited by notice to that effect, and entry is prohibited without any notice on land (a) that is a lawn, garden or land that is under cultivation, (b) that is surrounded by a fence, a natural boundary or a combination of a fence and a natural boundary, or (c) that is enclosed in a manner that indicates the owner’s or occupier’s intention to keep persons off the land or to keep animals on the land."
           },
           {
             "kind": "paragraph",
@@ -1367,15 +1722,29 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "2003 c41 s2 © Alberta Queen’s Printer, 2000 Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 23 Empploymentt Standarrds Codeand Reggulation The EEmploymentt StandardsCode is thestandard byy which empployers in Albberta must administer their eemployee relationships.The informaation presented in this seection is geareed toward yoour employmment as a security professsional ratheer than as legislation youu maybe called uppon to help eenforce."
+            "text": "2003 c41 s2 © Alberta Queen’s Printer, 2000 Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 23"
+          }
+        ]
+      },
+      {
+        "heading": "Empploymentt Standarrds Codeand Reggulation",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "The EEmploymentt StandardsCode is thestandard byy which empployers in Albberta must administer their eemployee relationships.The informaation presented in this seection is geareed toward yoour employmment as a security professsional ratheer than as legislation youu maybe called uppon to help eenforce."
           },
           {
             "kind": "paragraph",
             "text": "As ann employee,you are enttitled to certaain provisionns, such as bbeing paid aat least minimmum wage aand compenssation for ovvertime hourrs worked. Inn essence, thhe Code estabblishes the riights of workkers within thhe provinceof Alberta. PPortions of thhe Code witth whichh you shouldd familiarizeyourself aree contained iin this manual under thee heading Appeendix A."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Post-Tesst",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Post-Tesst Checck your progrress. How mmuch do yourecall?"
+            "text": "Checck your progrress. How mmuch do yourecall?"
           },
           {
             "kind": "list",
@@ -1423,19 +1792,14 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Oct-14Module Two:: The Canadian LLegal System annd Security Profeessionals, Page 224"
-          }
-        ]
-      },
-      {
-        "heading": "Conclusion",
-        "body": [
+          },
           {
             "kind": "paragraph",
             "text": "You are now able to explain the basic legal rights which individuals are entitled to under the Canadian Charter of Rights and Freedoms. Your study of the Criminal Code has shown you what you may or may not do with respect to arresting persons, searching persons or property, and using force to control a situation. More importantly, you should have a better understanding of what is not permitted and the consequences of choosing to exceed those limitations."
           },
           {
             "kind": "paragraph",
-            "text": "References Canadian Charter of Rights and Freedoms, 1982, ss 9 Criminal Code, R.S. 1985, c. C-46 Employment Standards Code, R.S.A. 2000, c. E-9 Petty Trespass Act, R.S.A. 2000, c. P-11 Security Services and Investigators Act, S.A. 2008, c. S-4.7 Trespass to Premises Act, R.S.A. 2000, c. T-7 Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 25"
+            "text": "Canadian Charter of Rights and Freedoms, 1982, ss 9 Criminal Code, R.S. 1985, c. C-46 Employment Standards Code, R.S.A. 2000, c. E-9 Petty Trespass Act, R.S.A. 2000, c. P-11 Security Services and Investigators Act, S.A. 2008, c. S-4.7 Trespass to Premises Act, R.S.A. 2000, c. T-7 Oct-14 Module Two: The Canadian Legal System and Security Professionals, Page 25"
           }
         ]
       }
@@ -1447,11 +1811,11 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
     "end": 87,
     "sections": [
       {
-        "heading": "Overview",
+        "heading": "Procedures",
         "body": [
           {
             "kind": "paragraph",
-            "text": "Module Three: Basic Security Procedures Now that you have been introduced to the security industry, and the various pieces of legislation which affect your work, it is time to look at how you will carry out your duties on a day-to-day basis."
+            "text": "Now that you have been introduced to the security industry, and the various pieces of legislation which affect your work, it is time to look at how you will carry out your duties on a day-to-day basis."
           }
         ]
       },
@@ -1492,7 +1856,20 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "professional Jan-14 Module Three: Basic Security Procedures, Page 1 Topiics Obseervation .........................................................................................................................3 Patrool Skills ....................................................................................................................... 11 Dealing with Subbstance Abussers ...................................................................................... 224 Interaacting with thhe Media ................................................................................................. 226 Traffic Control.................................................................................................................... 226 PostOrders ....................................................................................................................... 229 Startiing a Shift................................................................................................................... 229 Endinng a shift .................................................................................................................... 330 Workking with a PPartner ...................................................................................................... 331 Use oof Force Ressponse .................................................................................................... 331 Concclusion ........................................................................................................................ 337 Referrences ........................................................................................................................ 337 Check Yoour Knowledge Testyour knowleedge of the toopic before sstarting thismodule."
+            "text": "professional Jan-14 Module Three: Basic Security Procedures, Page 1"
+          },
+          {
+            "kind": "paragraph",
+            "text": "Obseervation .........................................................................................................................3 Patrool Skills ....................................................................................................................... 11 Dealing with Subbstance Abussers ...................................................................................... 224 Interaacting with thhe Media ................................................................................................. 226 Traffic Control.................................................................................................................... 226 PostOrders ....................................................................................................................... 229 Startiing a Shift................................................................................................................... 229 Endinng a shift .................................................................................................................... 330 Workking with a PPartner ...................................................................................................... 331 Use oof Force Ressponse .................................................................................................... 331 Concclusion ........................................................................................................................ 337 Referrences ........................................................................................................................ 337"
+          }
+        ]
+      },
+      {
+        "heading": "Check Yoour Knowledge",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Testyour knowleedge of the toopic before sstarting thismodule."
           },
           {
             "kind": "list",
@@ -1532,15 +1909,29 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "a. True b. False Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Jan-14Module Three: BBasic Security Procedures, Pagee 2 Obsservatioon As asecurity professional, yoou will mostlikely work ffor a companny who in tuurn, has beenn hiredto protect ppeople and pproperty whicch the organnization deemms valuable. Essentiallyy, youremployer’s bbusiness isbeing paid too watch oveer those indivviduals and aassets, payinng the sameamount of ccare and atteention to theem as the owwner would.When the assiggnment is paassed alongto you, it becomes yourresponsibility to safeguard personss and pproperty as tthough theyheld great mmeaning foryou."
+            "text": "a. True b. False Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Jan-14Module Three: BBasic Security Procedures, Pagee 2"
+          }
+        ]
+      },
+      {
+        "heading": "Obsservatioon",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "As asecurity professional, yoou will mostlikely work ffor a companny who in tuurn, has beenn hiredto protect ppeople and pproperty whicch the organnization deemms valuable. Essentiallyy, youremployer’s bbusiness isbeing paid too watch oveer those indivviduals and aassets, payinng the sameamount of ccare and atteention to theem as the owwner would.When the assiggnment is paassed alongto you, it becomes yourresponsibility to safeguard personss and pproperty as tthough theyheld great mmeaning foryou."
           },
           {
             "kind": "paragraph",
             "text": "One oof the best sskills for youto develop aas a securityy professionnal will be thaat of being aa comppetent obserrver. Your main goal, aswe have alrready statedd, is to protecct persons and pproperty. Onne way to tell if they havee been harmmed is to knoow what theyy look like, oor whatthey shouldd look like. OOnly then is itt possible foor you to asssess whetherr any damaage or injuryy has occurreed. While thaat may seemm obvious, aand not at alldifficult, thinkabout the amount of daata you takein each day. Do you remmember eveerything you look aat? Could yoou describeevery person you interaacted within aa given day?? As you go about your day, sstart taking nnote of things you see annd at the end of your daay, see how muchh you are able to recall."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Activity",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Activity Overthe next feww minutes, wwe are goingg to play an oobservationgame whichh will test yourskills to vieww and rememmber 24 objeects. The objbjects will beprojected on the screenn for onne minute affter which the image willbe removedd. You will thhen have two minutes too writedown, witha brief description, everyy item you reecall."
+            "text": "Overthe next feww minutes, wwe are goingg to play an oobservationgame whichh will test yourskills to vieww and rememmber 24 objeects. The objbjects will beprojected on the screenn for onne minute affter which the image willbe removedd. You will thhen have two minutes too writedown, witha brief description, everyy item you reecall."
           },
           {
             "kind": "paragraph",
@@ -1573,15 +1964,45 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Noticing Whenn you noticethings, youprobably usse at least twwo of your seenses to proocess the informmation. Youmight thinkthat noticingg involves onnly the visionn, but think aabout a timee whenn you may haave entereda kitchen wwhere somethhing was coooking. You mmight notice the ligght inside thhe oven is onn; but when yyou touch thhe stove, youu feel it is waarm so you knoww somethingis inside, annd using your sense of ssmell helps yyou narrow itt down to applee pie. In thisexample, yoou are actuaally noticing ((picking up information tthrough your sensees) and interrpreting (puttting the infoormation togeether)."
+            "text": "Whenn you noticethings, youprobably usse at least twwo of your seenses to proocess the informmation. Youmight thinkthat noticingg involves onnly the visionn, but think aabout a timee whenn you may haave entereda kitchen wwhere somethhing was coooking. You mmight notice the ligght inside thhe oven is onn; but when yyou touch thhe stove, youu feel it is waarm so you knoww somethingis inside, annd using your sense of ssmell helps yyou narrow itt down to applee pie. In thisexample, yoou are actuaally noticing ((picking up information tthrough your sensees) and interrpreting (puttting the infoormation togeether)."
           },
           {
             "kind": "paragraph",
-            "text": "Discussioon Activityy As aclass, brainsstorm the infformation yoou can gatheer through yoour senses wwhich will help yyou in your dduties as a ssecurity proffessional. Trry to come up with as maany ideas ass possiible, and donn’t forget youur job is to pprotect both ppersons andd property."
+            "text": "As aclass, brainsstorm the infformation yoou can gatheer through yoour senses wwhich will help yyou in your dduties as a ssecurity proffessional. Trry to come up with as maany ideas ass possiible, and donn’t forget youur job is to pprotect both ppersons andd property."
+          }
+        ]
+      },
+      {
+        "heading": "SightSSounddSmellToucchTaste",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Use yyour sensesto Continuually scan tthe area while on pattrol."
           },
           {
             "kind": "paragraph",
             "text": "Be watcchful for chhange, or things thatlook differentt than befoore."
+          },
+          {
+            "kind": "paragraph",
+            "text": " Become ffamiliar withh  Donot use the “normmal” sounds youur sense at your poosting of taaste to  Practice bbeing able tto testt tell whichdirection unkknown sound is ccoming fromm subbstances"
+          },
+          {
+            "kind": "paragraph",
+            "text": " Feeel changess in  NNotice smells such temmperature;heat behind a aas fire, natural gas, waall or door mmay indicatee ggasoline, firee while feeling a cold ddraft pperfume/cologne could indicatee a door or winndow has bbeen openeed  Chhecking dooors and winndows to seee if they aare loccked  Taake care whhen searching baags (e.g., shharp objectss) Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Jan-14Module Three: BBasic Security Procedures, Pagee 7"
+          },
+          {
+            "kind": "paragraph",
+            "text": "Figure 3.1 Observation of persons Jan-14 Module Three: Basic Security Procedures, Page 8"
+          }
+        ]
+      },
+      {
+        "heading": "Interpretation",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Noticcing things iss vital to your role as a security profeessional, butt alone it is insufficient inn perfoorming your jjob well. Youu must be abble to apply tthe informattion you takee in and respoond accordinngly. For exaample, whenn you see flaames and smmell smoke, yyou think about those thinggs and deterrmine there iis fire, and yyou begin maaking decisioons as a respoonse to thatinformation.Likewise, wwhen you aree carrying ouut your dutiees as a securrity professioonal, you muust act basedd on what thhe informatioon is telling yyou."
           },
           {
             "kind": "paragraph",
@@ -1610,10 +2031,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "“Good evvening sir, yoou seem to bbe in a bit off a hurry, is thhere somethhing I can help youwith tonight??” Baseed on his response, youmay have aclearer undderstanding oof the situation, which wouldd help to guiide your deccision to takee action or not."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Recalling",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Recalling During your regular patrol of a warehouse, you notice a trail of muddy footprints leading from the loading dock; the footprints were not there 30 minutes prior. You follow the mud prints around a corner to a corridor of offices. You notice one of the doors is slightly ajar and you can see light coming out from underneath. You hear a banging noise and the sound of things being broken. Based on things you have noticed, you interpret somebody has entered the warehouse without permission and is breaking into the office."
+            "text": "During your regular patrol of a warehouse, you notice a trail of muddy footprints leading from the loading dock; the footprints were not there 30 minutes prior. You follow the mud prints around a corner to a corridor of offices. You notice one of the doors is slightly ajar and you can see light coming out from underneath. You hear a banging noise and the sound of things being broken. Based on things you have noticed, you interpret somebody has entered the warehouse without permission and is breaking into the office."
           },
           {
             "kind": "paragraph",
@@ -1641,15 +2067,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Activity Whatt did you obbserve?"
-          },
-          {
-            "kind": "paragraph",
             "text": "Withoout leaving the training rroom, write ddown as manny things ass you can reccall about thhe buildiing entrancee you came tthrough in order to attennd this class. When everrybody has finishhed, you willcompare annswers as agroup."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Pattrol Skills",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Pattrol Skills Patroolling is makiing an activee survey of tthe personsor property yyou are taskked with proteecting. Whenn you patrol,you are making your prresence knowwn; in manyy cases, the sightof a uniformmed guard issufficient too keep potenntial troublemmakers awayy."
+            "text": "Patroolling is makiing an activee survey of tthe personsor property yyou are taskked with proteecting. Whenn you patrol,you are making your prresence knowwn; in manyy cases, the sightof a uniformmed guard issufficient too keep potenntial troublemmakers awayy."
           },
           {
             "kind": "paragraph",
@@ -1660,12 +2087,61 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
             "text": "Beforre starting yoour shift, maake sure youu are physicaally and menntally preparred to carry out yoour duties. EEverybody has distractioons in their liife and, sommetimes, gettting to work seemms a bit of a cchallenge. Inn order for yyou to be effeective in prootecting perssons and propeerty, you neeed to be ablee to protect yyourself firstt. You give yyourself the bbest chancee of being ready for an incident when you hhave made ssure you aree ready to peerform your dutiess before youur shift beginns."
           },
           {
-            "kind": "paragraph",
-            "text": "o Take care of your health by eating right and exercising regularly o Make sure you get enough sleep o Going to work when you are ill is a hazard to yourself and to those you work with; if you are sick, call your supervisor  Uniform and duty belt?"
+            "kind": "list",
+            "items": [
+              "Take care of your health by eating right and exercising"
+            ]
+          },
+          {
+            "kind": "list",
+            "items": [
+              "Make sure you get enough sleep",
+              "Going to work when you are ill is a hazard to yourself"
+            ]
           },
           {
             "kind": "paragraph",
-            "text": "Physical preparednesso Ensure your clothing is clean, pressed, and properly mended o Make sure your uniform is complete; don’t forget anything, such as your name badge or licence o Check that items on your duty belt are securely fastened, in good working order, and that no items are missing  Keys, notebook, pen, radio, or phone – have them ready  If you have a radio, test to ensure it is working  Post orders – review, discuss with supervisor if required  Deal with distractions prior to starting your shift, or set a time to deal with them after your shift ends, allowing you to Mentalconcentrate on your duties preparedness Get focused on the task at hand  Review your assignment, making a mental list of what you must accomplish and how you will do so When you receive your orders from your employer, you will likely be given instructions as to specific persons or events to watch for. You may be provided with a list of individuals who are permitted to enter, or you may be asked to report certain events, even though they do not appear (to you) to be worrisome. It is also not your job to monitor the specific activities of persons permitted to work on the site. For example, you may be on a construction site where a sub-contractor’s crew is performing an installation. Your job is to be aware of their presence and be observant that their activities are not harming the persons and property you are there to protect, but it is not your job to monitor the length of their breaks or how much work is being done by each individual. Nor is it your job to monitor the quality of their work, unless their activity is causing harm to the people or goods you are there to protect. In that instance, you communicate to them about the damage being done and not about their skills or methods in completing the work."
+            "text": "and to those you work with; if you are sick, call your supervisor  Uniform and duty belt?"
+          }
+        ]
+      },
+      {
+        "heading": "Physical",
+        "body": [
+          {
+            "kind": "list",
+            "items": [
+              "Ensure your clothing is clean, pressed, and properly"
+            ]
+          },
+          {
+            "kind": "list",
+            "items": [
+              "Make sure your uniform is complete; don’t forget"
+            ]
+          },
+          {
+            "kind": "paragraph",
+            "text": "anything, such as your name badge or licence"
+          },
+          {
+            "kind": "list",
+            "items": [
+              "Check that items on your duty belt are securely"
+            ]
+          },
+          {
+            "kind": "paragraph",
+            "text": "fastened, in good working order, and that no items are missing  Keys, notebook, pen, radio, or phone – have them ready  If you have a radio, test to ensure it is working  Post orders – review, discuss with supervisor if required  Deal with distractions prior to starting your shift, or set a time to deal with them after your shift ends, allowing you to concentrate on your duties"
+          }
+        ]
+      },
+      {
+        "heading": "Mental",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "preparedness  Get focused on the task at hand  Review your assignment, making a mental list of what you must accomplish and how you will do so When you receive your orders from your employer, you will likely be given instructions as to specific persons or events to watch for. You may be provided with a list of individuals who are permitted to enter, or you may be asked to report certain events, even though they do not appear (to you) to be worrisome. It is also not your job to monitor the specific activities of persons permitted to work on the site. For example, you may be on a construction site where a sub-contractor’s crew is performing an installation. Your job is to be aware of their presence and be observant that their activities are not harming the persons and property you are there to protect, but it is not your job to monitor the length of their breaks or how much work is being done by each individual. Nor is it your job to monitor the quality of their work, unless their activity is causing harm to the people or goods you are there to protect. In that instance, you communicate to them about the damage being done and not about their skills or methods in completing the work."
           },
           {
             "kind": "paragraph",
@@ -1673,15 +2149,20 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Knowing what to expect during your shift is part of being a well- prepared security professional.© 2010. iStock # 13786328. Used under licence with iStockphoto®."
+            "text": "Knowing what to expect during your shift is part of being a well- prepared security professional."
           },
           {
             "kind": "paragraph",
             "text": "Develop a pattern for your patrol duties; once you have memorized it you will have one less thing to think about which means you can concentrate better on your actual patrolling duties. For example, you might make it your habit to move from the ground floor up through the top floor in your regular patrol of a multi-storey building. Or, if your duties involve checking in with specific persons, you might contact those individuals in the same order each time. No matter what kind of system you work out, be sure to guard against complacency. Being complacent means you make a lot of assumptions based on prior experience, such as “everything looks pretty much the same as last time, so all is well,” or, “the wind has blown that door open a bunch of times in the past, that’s all it is tonight.” It might be that yet again, the wind has caused the door to open, but at least you can move on with the assurance you have done right by your employer and the client."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Patrol by Foot",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Patrol by Foot At some point in your career as a security professional, you will most likely carry out foot patrol. It is the most common method of patrolling, and is the most appropriate method for many of the settings you can expect to work in. Office buildings, retail settings, sport or concert venues, and airports are more suited to patrol by foot than by vehicle."
+            "text": "At some point in your career as a security professional, you will most likely carry out foot patrol. It is the most common method of patrolling, and is the most appropriate method for many of the settings you can expect to work in. Office buildings, retail settings, sport or concert venues, and airports are more suited to patrol by foot than by vehicle."
           },
           {
             "kind": "paragraph",
@@ -1701,35 +2182,64 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": " At night, walk quietly so as not to announce your presence; startling a potential intruder may put you© 2010. iStock # 3423707. Used under licence with iStockphoto®."
+            "text": " At night, walk quietly so as not to announce your presence; startling a potential intruder may put you in an unsafe positionAll rights reserved."
+          }
+        ]
+      },
+      {
+        "heading": "Carrying Out a Basic Patrol",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Bring your radio, notebook, pen, and any other equipment you would #1."
           },
           {
             "kind": "paragraph",
-            "text": "in an unsafe positionAll rights reserved."
+            "text": "normally carry. The purpose of patrol is to look for signs of trouble; you want to be as prepared as possible in case you find what you are looking #1."
           },
           {
             "kind": "paragraph",
-            "text": "Carrying Out a Basic Patrol Bring your radio, notebook, pen, and any other equipment you would #1."
+            "text": "Walk confidently about the property or premises. Be professional as others are watching you. Engage in exchanging quick bits of conversation #2."
           },
           {
             "kind": "paragraph",
-            "text": "normally carry. The purpose of patrol is to look for signs of trouble; you want to be as prepared as possible in case you find what you are looking #1.for."
+            "text": "(e.g., say hello in return if someone greets you) or answering simple questions (e.g., if someone asks where it is okay to park) but do not become engrossed in lengthy conversations. First of all, you are paid to #2."
           },
           {
             "kind": "paragraph",
-            "text": "Walk confidently about the property or premises. Be professional as #2.others are watching you. Engage in exchanging quick bits of conversation (e.g., say hello in return if someone greets you) or answering simple questions (e.g., if someone asks where it is okay to park) but do not #2.become engrossed in lengthy conversations. First of all, you are paid to be protecting persons and property as directed by your employer and second, an ongoing conversation could serve as a distraction to keep you from noticing other activity taking place."
+            "text": "be protecting persons and property as directed by your employer and second, an ongoing conversation could serve as a distraction to keep you from noticing other activity taking place."
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module Three: Basic Security Procedures, Page 14 Follow a consistent route through or around the premises; you should #3.make a routine to ensure you have covered all areas you are responsible for. Be careful, however, not to become so familiar with your route that #3.you stop looking closely enough to notice when things are amiss."
+            "text": "Jan-14 Module Three: Basic Security Procedures, Page 14 Follow a consistent route through or around the premises; you should make a routine to ensure you have covered all areas you are responsible #3."
           },
           {
             "kind": "paragraph",
-            "text": "Check doors and windows as you walk by; if they should normally be #4.locked, ensure they are with each pass of the location."
+            "text": "for. Be careful, however, not to become so familiar with your route that you stop looking closely enough to notice when things are amiss."
           },
           {
             "kind": "paragraph",
-            "text": "Look for signs that something is amiss. People involved in odd behaviour #5.are worth a second glance (e.g., an individual trying to open car doors, moving from one vehicle to the next). Objects or items which appear out #5.of place should be investigated. Use your senses to let you know when something is “not quite right.” In conditions of poor lighting, shine your light into the room or space #6.before entering so that you may see what is there (or not there); it is easy for somebody to hide in the dark and take you by surprise."
+            "text": "Check doors and windows as you walk by; if they should normally be #4."
+          },
+          {
+            "kind": "paragraph",
+            "text": "locked, ensure they are with each pass of the location."
+          },
+          {
+            "kind": "paragraph",
+            "text": "Look for signs that something is amiss. People involved in odd behaviour are worth a second glance (e.g., an individual trying to open car doors, #5."
+          },
+          {
+            "kind": "paragraph",
+            "text": "moving from one vehicle to the next). Objects or items which appear out of place should be investigated. Use your senses to let you know when #5."
+          },
+          {
+            "kind": "paragraph",
+            "text": "something is “not quite right.” In conditions of poor lighting, shine your light into the room or space #6."
+          },
+          {
+            "kind": "paragraph",
+            "text": "before entering so that you may see what is there (or not there); it is easy for somebody to hide in the dark and take you by surprise."
           },
           {
             "kind": "paragraph",
@@ -1737,11 +2247,20 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Contact the police if you find evidence suggesting a criminal act has #8.taken place."
+            "text": "Contact the police if you find evidence suggesting a criminal act has #8."
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module Three: Basic Security Procedures, Page 15 Patrolling for Loss Prevention Loss prevention is the industry term for security professionals tasked with protecting the saleable goods in a retail setting. Stores will utilize different approaches to loss prevention based on their resources and needs; for example, large department stores usually have more revenue to allocate to security whereas a smaller, independent family business may be more limited. The amount of protection should be in keeping with the value of the goods, the ease of access, and the likelihood of theft. Goods which are relatively inexpensive and difficult to access may not require the same level of protection as expensive merchandise displayed in an easily accessed area of the store and may, therefore, be more vulnerable to shoplifting."
+            "text": "Jan-14 Module Three: Basic Security Procedures, Page 15"
+          }
+        ]
+      },
+      {
+        "heading": "Patrolling for Loss Prevention",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Loss prevention is the industry term for security professionals tasked with protecting the saleable goods in a retail setting. Stores will utilize different approaches to loss prevention based on their resources and needs; for example, large department stores usually have more revenue to allocate to security whereas a smaller, independent family business may be more limited. The amount of protection should be in keeping with the value of the goods, the ease of access, and the likelihood of theft. Goods which are relatively inexpensive and difficult to access may not require the same level of protection as expensive merchandise displayed in an easily accessed area of the store and may, therefore, be more vulnerable to shoplifting."
           },
           {
             "kind": "paragraph",
@@ -1757,15 +2276,29 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Loss prevention workers should pay close attention to individuals  Appearing “furtive,” or looking around at fellow shoppers or staff  Looking in the direction of security cameras  Wearing unusually bulky clothes (e.g., a large winter coat on a very warm day)  Carrying large bags or backpacks Jan-14 Module Three: Basic Security Procedures, Page 16 Patrol Using a Vehicle Some employers will provide a vehicle (e.g., car, SUV, bicycle) for you to carry out your patrols. This is more common where a large site is involved, such as a construction site, or perhaps in the parking lot of a large venue. Where the site to be protected is very large, a vehicle brings the advantage of being able to cover a large amount of area quicker than if you were on foot."
+            "text": "Loss prevention workers should pay close attention to individuals  Appearing “furtive,” or looking around at fellow shoppers or staff  Looking in the direction of security cameras  Wearing unusually bulky clothes (e.g., a large winter coat on a very warm day)  Carrying large bags or backpacks Jan-14 Module Three: Basic Security Procedures, Page 16"
+          }
+        ]
+      },
+      {
+        "heading": "Patrol Using a Vehicle",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Some employers will provide a vehicle (e.g., car, SUV, bicycle) for you to carry out your patrols. This is more common where a large site is involved, such as a construction site, or perhaps in the parking lot of a large venue. Where the site to be protected is very large, a vehicle brings the advantage of being able to cover a large amount of area quicker than if you were on foot."
           },
           {
             "kind": "paragraph",
-            "text": "You are also able to respond to events faster when traveling by vehicle and you may be able to All rights reserved."
-          },
+            "text": "You are also able to respond to events faster when traveling by vehicle and you may be able to carry more equipment, such as a All rights reserved."
+          }
+        ]
+      },
+      {
+        "heading": "Controlling Access",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Controlling Access As a security professional, you are acting on the owner’s behalf to monitor and control access to persons or property as directed by your employer. You should receive clear instructions as to who is permitted access and what is granted by allowing that access."
+            "text": "As a security professional, you are acting on the owner’s behalf to monitor and control access to persons or property as directed by your employer. You should receive clear instructions as to who is permitted access and what is granted by allowing that access."
           },
           {
             "kind": "paragraph",
@@ -1789,7 +2322,11 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "This could include the mechanical systems room, vaults, or areas near items of great value, such as a prized piece of art, or the expensive pieces of jewellery in a retail setting. Individuals whoImportant point are permitted to enter areas of controlled access areTake care when usually provided with a means by which to enter. Thislooking at ID; make could include a key, swipe card, ticket, or ID card. Atsure the photo on the certain functions, an individual trying to gain accesscard matches the may be required to present you with an invitation.individual standing Some sites maintain a document listing the names ofbefore you."
+            "text": "This could include the mechanical systems room, vaults, or areas near items of great value, such as a prized piece of art, or the expensive pieces of jewellery in a retail setting. Individuals who Important point are permitted to enter areas of controlled access are Take care when usually provided with a means by which to enter. This looking at ID; make could include a key, swipe card, ticket, or ID card. At sure the photo on the certain functions, an individual trying to gain access card matches the may be required to present you with an invitation."
+          },
+          {
+            "kind": "paragraph",
+            "text": "individual standing Some sites maintain a document listing the names of before you."
           },
           {
             "kind": "paragraph",
@@ -1805,11 +2342,20 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module Three: Basic Security Procedures, Page 18 Surveillance Surveillance is another way of saying you are carrying out patrol duties from a fixed position. In some cases, you may have assistance of closed- circuit television (CCTV) monitors."
+            "text": "Jan-14 Module Three: Basic Security Procedures, Page 18"
+          }
+        ]
+      },
+      {
+        "heading": "Surveillance",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Surveillance is another way of saying you are carrying out patrol duties from a fixed position. In some cases, you may have assistance of closed- circuit television (CCTV) monitors."
           },
           {
             "kind": "paragraph",
-            "text": "Examples where this type of technology is used include banks, office towers, retail stores, and hotels. In some cases, the security professional is posted in a lobby and watches the monitors from that position, while in other settings the monitors are housed in a separate room where a security guard may beiStockphoto®. All rights reserved."
+            "text": "Examples where this type of technology is used include banks, office towers, retail stores, and hotels. In some cases, the security professional is posted in a lobby and watches the monitors from that position, while in other settings the monitors are housed in a separate room where a security guard may be iStockphoto®. All rights reserved."
           },
           {
             "kind": "paragraph",
@@ -1822,10 +2368,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "Video Footage from Labour Disputes You may be required, at some point, to perform surveillance duties which include gathering video footage at a labour dispute. Some picket lines which form as a result of a labour dispute have erupted into violence and conflict between the two sides involved in the bargaining process. Business owners suffer losses when such conflicts escalate to acts of vandalism and individuals may be injured as a result of assault. Video footage of such events is helpful for the investigation and subsequent court proceedings. Images gathered through video-taping should be secured and turned over to your supervisor as soon as possible; keep in mind images taken without an individual’s consent should be used only for the purposes of the investigation. Under no circumstances should you release photos or video footage to the media, or use such material in any other manner (e.g., social networking sites, the Internet)."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Alarms",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Alarms Another form of surveillance is the monitoring of alarms. Most premises have fire alarms on site, and an increasing number of locations have “burglar” or security alarm systems in place. When assuming your post, take time to find out what alarm system(s) might be in place and what procedures must be followed should an alarm be sounded. You should determine the location of the alarm panel and be able to understand any lights, sounds, or other indicators which may be triggered. You should also familiarize yourself with the basic operation of the panel if you are required to operate the system."
+            "text": "Another form of surveillance is the monitoring of alarms. Most premises have fire alarms on site, and an increasing number of locations have “burglar” or security alarm systems in place. When assuming your post, take time to find out what alarm system(s) might be in place and what procedures must be followed should an alarm be sounded. You should determine the location of the alarm panel and be able to understand any lights, sounds, or other indicators which may be triggered. You should also familiarize yourself with the basic operation of the panel if you are required to operate the system."
           },
           {
             "kind": "paragraph",
@@ -1837,7 +2388,7 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "In some cases, you may be instructed to investigate licence with iStockphoto®. All rightsrouted through a security monitoring company – reserved."
+            "text": "In some cases, you may be instructed to investigate the cause of an alarm; for example, some alarms are licence with iStockphoto®. All rights routed through a security monitoring company – reserved."
           },
           {
             "kind": "paragraph",
@@ -1846,31 +2397,40 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "Many large facilities have alarm systems in place to monitor building operation functions, such as the heating/cooling system or water. You may be required to monitor these types of alarms; make sure you have a clear understanding of the procedure you must follow in the event an alarm is activated."
-          },
-          {
-            "kind": "paragraph",
-            "text": "Alarm Responders Many organizations and home owners contract security firms to handle after-hours alarm responses. When an alarm monitoring firm receives notification of an alarm, the call to respond is dispatched to the security company. Your employer may be contracted to respond to alarm calls within a certain time limit; if you are dispatched in response to an alarm, you should:"
-          },
-          {
-            "kind": "paragraph",
-            "text": " Obey all traffic laws when traveling to the location of the alarm; as a security professional you have no special authority to travel at a higher rate of speed or ignore traffic signal devices  Upon arrival at the scene check to see if doors and windows are secure; make note of any which appear to be open, unlocked, or otherwise unsecured  If you see evidence of a break in or other criminal activity, notify the police immediately; document your findings and take care not to displace or destroy"
           }
         ]
       },
       {
-        "heading": "evidence",
+        "heading": "Alarm Responders",
         "body": [
           {
             "kind": "paragraph",
-            "text": " Be continually observant while attending at the premises  In cases where you find the premises not to be secure (e.g., an open or unlocked door or window), notify the police who will advise you if they will attend the scene  Follow protocol for advising the alarm key-holder (usually an employee of the company where the alarm is located) to reset the system  Document events in your notebook and prepare any reports as required Jan-14 Module Three: Basic Security Procedures, Page 20 Control Crowds Groups of people can quickly become crowds when some central feature or activity becomes the focus of everyone’s attention. Even places which are not normally associated with crowds can become congested with people under certain circumstances. Places where you might encounter crowds in the course of your security duties include  Sporting events or concerts  Retail stores (e.g., Boxing Day shopping events or new product release)  Demonstrations or protest rallies  Labour disputes  Emergency scenes Crowd behaviour can be influenced by a multitude of factors, with two of the most common being the emotional status of the crowd, and the presence of leaders."
+            "text": "Many organizations and home owners contract security firms to handle after-hours alarm responses. When an alarm monitoring firm receives notification of an alarm, the call to respond is dispatched to the security company. Your employer may be contracted to respond to alarm calls within a certain time limit; if you are dispatched in response to an alarm, you should:"
           },
           {
             "kind": "paragraph",
-            "text": "Sporting Events or Concerts Events such as these attract large numbers of spectators."
+            "text": " Obey all traffic laws when traveling to the location of the alarm; as a security professional you have no special authority to travel at a higher rate of speed or ignore traffic signal devices  Upon arrival at the scene check to see if doors and windows are secure; make note of any which appear to be open, unlocked, or otherwise unsecured  If you see evidence of a break in or other criminal activity, notify the police immediately; document your findings and take care not to displace or destroy"
           },
           {
             "kind": "paragraph",
-            "text": "Most attendees will generally follow the rules; however, the sheer volume of individuals present at such an event can cause a disturbance amongst the crowd to escalate quite quickly. In addition to the large number of people, other factors which can cause this type of crowd to get out of hand include the availability of alcohol at the© 2010. iStock #4381786. Used under licence with iStockphoto®. All rights reserved."
+            "text": " Be continually observant while attending at the premises  In cases where you find the premises not to be secure (e.g., an open or unlocked door or window), notify the police who will advise you if they will attend the scene  Follow protocol for advising the alarm key-holder (usually an employee of the company where the alarm is located) to reset the system  Document events in your notebook and prepare any reports as required Jan-14 Module Three: Basic Security Procedures, Page 20"
+          },
+          {
+            "kind": "paragraph",
+            "text": "Groups of people can quickly become crowds when some central feature or activity becomes the focus of everyone’s attention. Even places which are not normally associated with crowds can become congested with people under certain circumstances. Places where you might encounter crowds in the course of your security duties include  Sporting events or concerts  Retail stores (e.g., Boxing Day shopping events or new product release)  Demonstrations or protest rallies  Labour disputes  Emergency scenes Crowd behaviour can be influenced by a multitude of factors, with two of the most common being the emotional status of the crowd, and the presence of leaders."
+          }
+        ]
+      },
+      {
+        "heading": "Sporting Events or Concerts",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Events such as these attract large numbers of spectators."
+          },
+          {
+            "kind": "paragraph",
+            "text": "Most attendees will generally follow the rules; however, the sheer volume of individuals present at such an event can cause a disturbance amongst the crowd to escalate quite quickly. In addition to the large number of people, other factors which can cause this type of crowd to get out of hand include the availability of alcohol at the iStockphoto®. All rights reserved."
           },
           {
             "kind": "paragraph",
@@ -1878,31 +2438,50 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Retail Stores In recent years, it has become common for lines to form outside of retail stores in anticipation of a new product release, such as a specific cell phone or video game console. When supplies of the product are anticipated to be limited, hype is often generated causing consumers to line up a day or more in advance so they may be first in line when the product hits the shelves. While the atmosphere usually starts out as somewhat festive, fatigue resulting from the long wait combined with discomfort in the form of hunger or cold (depending on weather) can deflate the spirits of shoppers, potentially leading to altercations with the potential to involve the larger crowd. However, the line outside the store is not usually as concerning as the mob which gathers upon Jan-14 Module Three: Basic Security Procedures, Page 21 the opening of the main doors. This situation is also true of certain shopping days, such as Boxing Day, where large numbers of shoppers come in anticipation of finding deeply discounted merchandise. Retail stores are not well-designed for large crowds; anxious shoppers in close proximity to one another combined with limited supply of goods can lead to commotion, misunderstanding, and an uncontrolled free-for-all."
+            "text": "In recent years, it has become common for lines to form outside of retail stores in anticipation of a new product release, such as a specific cell phone or video game console. When supplies of the product are anticipated to be limited, hype is often generated causing consumers to line up a day or more in advance so they may be first in line when the product hits the shelves. While the atmosphere usually starts out as somewhat festive, fatigue resulting from the long wait combined with discomfort in the form of hunger or cold (depending on weather) can deflate the spirits of shoppers, potentially leading to altercations with the potential to involve the larger crowd. However, the line outside the store is not usually as concerning as the mob which gathers upon Jan-14 Module Three: Basic Security Procedures, Page 21 the opening of the main doors. This situation is also true of certain shopping days, such as Boxing Day, where large numbers of shoppers come in anticipation of finding deeply discounted merchandise. Retail stores are not well-designed for large crowds; anxious shoppers in close proximity to one another combined with limited supply of goods can lead to commotion, misunderstanding, and an uncontrolled free-for-all."
           },
           {
             "kind": "paragraph",
-            "text": "Demonstrations or Protest Rallies Humanitarian and political causes often draw people to come together to show their support or opposition to what is generally perceived (at least by one side of the debate) to be a controversial issue. Individuals in attendance at such events usually have strong feelings which lead them to participate in this type of public gathering, causing the participants to be charged with an emotional energy. Most often, there are representatives of “the other side” of the issue in attendance; while they may be there to simply make their side of the story heard, they may also be there to heckle those who are gathered. While the number of people in attendance may not be significant, the potential for disturbance to occur when emotionally charged individuals are provoked must be considered. It is usually possible to identify leaders in the crowd for both sides of the issue."
-          },
+            "text": "Humanitarian and political causes often draw people to come together to show their support or opposition to what is generally perceived (at least by one side of the debate) to be a controversial issue. Individuals in attendance at such events usually have strong feelings which lead them to participate in this type of public gathering, causing the participants to be charged with an emotional energy. Most often, there are representatives of “the other side” of the issue in attendance; while they may be there to simply make their side of the story heard, they may also be there to heckle those who are gathered. While the number of people in attendance may not be significant, the potential for disturbance to occur when emotionally charged individuals are provoked must be considered. It is usually possible to identify leaders in the crowd for both sides of the issue."
+          }
+        ]
+      },
+      {
+        "heading": "Labour Disputes",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Labour Disputes Striking workers are spouses, parents, students, and other responsible individuals who find themselves in a position where they are unable to work and support their family."
+            "text": "Striking workers are spouses, parents, students, and other responsible individuals who find themselves in a position where they are unable to work and support their family."
           },
           {
             "kind": "paragraph",
             "text": "Emotion generally runs high among such a crowd. Collective agreements often call for worker participation in picket lines; employers often hire non-union labour to meet production demands during a strike, and conflict may occur when the two parties come in contact with one another at the job-site. The term “organized labour” should provide a clue that an individual or group of individuals is rallying the troops to make their case heard."
+          }
+        ]
+      },
+      {
+        "heading": "Emergency Scenes",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "People are, by nature, rather curious, which leads them to check out accident scenes and other locations where emergency personnel are present. For the most part, observers gathered at the scene are just inquisitive and generally not there to make trouble. It can, however, be quite problematic for emergency services workers to deal with the situation at hand when they are overrun with curious onlookers. Appealing to their need for safety and the requirement for emergency crews to have room to work will generally be sufficient in getting the crowd to leave. Sometimes though, persons gathered at the scene may do so because they believe a loved one is at the location of the event, such as a parent responding to a report of a fire at their child’s school. This type of response is generally accompanied by strong emotion, such as fear, making it more challenging to deal with moving the individual away from the scene. They may respond emotionally to your request to leave which could spark additional emotion and the attention of other, similar observers. While no leader is generally apparent, the potential for this type of crowd situation to escalate is very real, and must be considered."
           },
           {
             "kind": "paragraph",
-            "text": "Emergency Scenes People are, by nature, rather curious, which leads them to check out accident scenes and other locations where emergency personnel are present. For the most part, observers gathered at the scene are just inquisitive and generally not there to make trouble. It can, however, be quite problematic for emergency services workers to deal with the situation at hand when they are overrun with curious onlookers. Appealing to their need for safety and the requirement for emergency crews to have room to work will generally be sufficient in getting the crowd to leave. Sometimes though, persons gathered at the scene may do so because they believe a loved one is at the location of the event, such as a parent responding to a report of a fire at their child’s school. This type of response is generally accompanied by strong emotion, such as fear, making it more challenging to deal with moving the individual away from the scene. They may respond emotionally to your request to leave which could spark additional emotion and the attention of other, similar observers. While no leader is generally apparent, the potential for this type of crowd situation to escalate is very real, and must be considered."
+            "text": "Jan-14 Module Three: Basic Security Procedures, Page 22"
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module Three: Basic Security Procedures, Page 22 Strategies for Dealing with a Crowd Dealing with a crowd as a lone security professional will be a challenge, and you will likely not be able to contain an out-of-control crowd on your own. Remain focused on your objective, which is to protect persons and property. This will be easier said than done in some situations. Call for back-up at the first sign of an incident as it can turn from something minor into something quite large."
-          },
+            "text": "Dealing with a crowd as a lone security professional will be a challenge, and you will likely not be able to contain an out-of-control crowd on your own. Remain focused on your objective, which is to protect persons and property. This will be easier said than done in some situations. Call for back-up at the first sign of an incident as it can turn from something minor into something quite large."
+          }
+        ]
+      },
+      {
+        "heading": "Remove the Leaders",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Remove the Leaders One strategy you should keep in mind is to always try to de-escalate (calm down) a crowd situation before it happens. If you notice a crowd beginning to form or you see an individual or individuals encouraging others to join in inappropriate behaviour, step in quickly to remove the leader(s) from the group. Take the individual(s) aside and ask them to stop the behaviour. If they are compliant, take a couple of minutes to thank them for their cooperation and let them return to the group. If they are not compliant, or if they return to the group and resume the problem behaviour, you will need to speak with the individual(s) again. You will need to advise them their behaviour cannot continue and if they choose to do so, they will need to leave the premises. It may not be easy gaining compliance or removing the individual(s) at the root of the problem, but it will be a simpler task than trying to end a fully developed crowd control problem. As always, you will need to use professional communication (which we will discuss in a later module) even if the individual(s) are not cooperative. Resort to non-verbal measures only after exhausting your other options. Be sure to make the appropriate entries into your notebook following the incident."
+            "text": "One strategy you should keep in mind is to always try to de-escalate (calm down) a crowd situation before it happens. If you notice a crowd beginning to form or you see an individual or individuals encouraging others to join in inappropriate behaviour, step in quickly to remove the leader(s) from the group. Take the individual(s) aside and ask them to stop the behaviour. If they are compliant, take a couple of minutes to thank them for their cooperation and let them return to the group. If they are not compliant, or if they return to the group and resume the problem behaviour, you will need to speak with the individual(s) again. You will need to advise them their behaviour cannot continue and if they choose to do so, they will need to leave the premises. It may not be easy gaining compliance or removing the individual(s) at the root of the problem, but it will be a simpler task than trying to end a fully developed crowd control problem. As always, you will need to use professional communication (which we will discuss in a later module) even if the individual(s) are not cooperative. Resort to non-verbal measures only after exhausting your other options. Be sure to make the appropriate entries into your notebook following the incident."
           },
           {
             "kind": "paragraph",
@@ -1914,7 +2493,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module Three: Basic Security Procedures, Page 23 Panic Situations In the case of an emergency, crowds will typically “stampede” as they try to escape the venue. It is extremely difficult to control individuals when this happens; people are primarily concerned with reaching safety and focused primarily on their own well-being."
+            "text": "Jan-14 Module Three: Basic Security Procedures, Page 23"
+          }
+        ]
+      },
+      {
+        "heading": "Panic Situations",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "In the case of an emergency, crowds will typically “stampede” as they try to escape the venue. It is extremely difficult to control individuals when this happens; people are primarily concerned with reaching safety and focused primarily on their own well-being."
           },
           {
             "kind": "paragraph",
@@ -1923,10 +2511,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "Threats and use of force will only increase the level of fear and panic in the crowd."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Dealing with Substance Abusers",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Dealing with Substance Abusers Unfortunately, substance abuse occurs in all our communities and in the course of your work, you will most likely encounter an individual with a drug or alcohol abuse problem."
+            "text": "Unfortunately, substance abuse occurs in all our communities and in the course of your work, you will most likely encounter an individual with a drug or alcohol abuse problem."
           },
           {
             "kind": "paragraph",
@@ -1934,7 +2527,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": " Loitering - hanging around with fellow users, or waiting to buy more drugs  Shoplifting - stealing items to sell in exchange for drugs, stealing necessities because they no longer have a job or the finances to purchase what they need  Creating a disturbance - being drunk or high, and not in control  Trespassing - entering a premises looking for drugs or alcohol, or the money to purchase things  Break and enter (with the intent to steal money or items to use to obtain more drugs or alcohol) Signs and Behaviours There are many indicators which may suggest an individual is abusing drugs or alcohol."
+            "text": " Loitering - hanging around with fellow users, or waiting to buy more drugs  Shoplifting - stealing items to sell in exchange for drugs, stealing necessities because they no longer have a job or the finances to purchase what they need  Creating a disturbance - being drunk or high, and not in control  Trespassing - entering a premises looking for drugs or alcohol, or the money to purchase things  Break and enter (with the intent to steal money or items to use to obtain more drugs or alcohol)"
+          }
+        ]
+      },
+      {
+        "heading": "Signs and Behaviours",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "There are many indicators which may suggest an individual is abusing drugs or alcohol."
           },
           {
             "kind": "paragraph",
@@ -1942,11 +2544,20 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module Three: Basic Security Procedures, Page 24 Physical Behavioural Psychological  Blood shot eyes Poor attendance at work Sudden change in or schoolpersonality or attitude  Pupils larger or smaller than usual Unexplained need for Mood swings, irritability, money; may borrow orangry outbursts  Changes in appetite or steal sleep patterns; sudden Hyperactivity, agitation, weight loss or gain Secretive or suspiciousgiddiness behaviour  Deteriorated physical Lack of motivation appearance, poor Sudden change in  Lethargic groomingfriends, favourite hangouts, hobbies “Spaced out”  Unusual smells on breath, body, or clothing Getting into fights, Fearful, anxious accidents, or illegal  Tremors (shaking), Paranoid for no reason activities slurred speech, poor coordination Adapted from Helpguide (2010) You can see from the table above that dealing with an individual who abuses a substance may not be easy, especially if they are drunk or high. It may not be possible to reason with them, and they may be incapable of understanding or following your instructions. If the person refuses to stop a particular behaviour or leave the premises after you have asked them to, you will need to call the police to intervene. If you come across an individual who appears to be having a health emergency as a result of their drug or alcohol use, call for EMS immediately."
+            "text": "Jan-14 Module Three: Basic Security Procedures, Page 24"
           },
           {
             "kind": "paragraph",
-            "text": "Identify Drug Paraphernalia Drug paraphernalia refers to items which are used to package, make, use, or conceal illegal drugs (Sunshine Coast Health Centre, 2009)."
+            "text": " Blood shot eyes Poor attendance at work Sudden change in or schoolpersonality or attitude  Pupils larger or smaller than usual Unexplained need for Mood swings, irritability, money; may borrow orangry outbursts  Changes in appetite or steal sleep patterns; sudden Hyperactivity, agitation, weight loss or gain Secretive or suspiciousgiddiness behaviour  Deteriorated physical Lack of motivation appearance, poor Sudden change in  Lethargic groomingfriends, favourite  “Spaced out” hangouts, hobbies  Unusual smells on  Fearful, anxious breath, body, or clothing Getting into fights, accidents, or illegal  Paranoid for no reason  Tremors (shaking), activities slurred speech, poor coordination Adapted from Helpguide (2010) You can see from the table above that dealing with an individual who abuses a substance may not be easy, especially if they are drunk or high. It may not be possible to reason with them, and they may be incapable of understanding or following your instructions. If the person refuses to stop a particular behaviour or leave the premises after you have asked them to, you will need to call the police to intervene. If you come across an individual who appears to be having a health emergency as a result of their drug or alcohol use, call for EMS immediately."
+          }
+        ]
+      },
+      {
+        "heading": "Identify Drug Paraphernalia",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Drug paraphernalia refers to items which are used to package, make, use, or conceal illegal drugs (Sunshine Coast Health Centre, 2009)."
           },
           {
             "kind": "paragraph",
@@ -1954,7 +2565,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Items for using drugs can include metal foil, “roach” clips, smoking pipes made of glass or metal, other metal or glass objects such as broken light bulbs, bottle caps, or pop cans. Users of injection drugs will have syringes, spoons (to hold the drug while being heated), and elastics, rubber ties, or surgical tubing which is used to tie the arm and inflate the vein to prepare it for inserting the syringe. Cocaine users will have items such as razor blades, small mirrors or pieces of glass, tiny “coke” spoons, and thin straws (for snorting the drug). Microsoft® Jan-14 Module Three: Basic Security Procedures, Page 25 Interacting with the Media As you are reminded several times throughout this course, your primary duty is to safeguard the persons or property as directed by your employer. On occasion, incidents which attract media attention may occur at your premises. For example, an executive working in an office which is housed in the office building you perform security duties for may be a person of interest during a very public lawsuit. The media may be persistent in their attempts to secure an interview with the individual. Unless you receive instructions stating otherwise from your employer, your job is to treat the media the same as you would any other visitor to the building. Access may only be granted as per the directive given to you by your employer. Failure to gain access to the subject of their intended interview may lead the media to ask you questions. They may want to know if you are familiar with the person they are looking for, or what you may be able to say about that individual. It is not your place to comment, regardless of what you may know. You are being paid to protect the executive from intrusions such as the unsolicited media attention; it is not appropriate, nor is it professional for you to engage in a discussion with the media about this individual."
+            "text": "Items for using drugs can include metal foil, “roach” clips, smoking pipes made of glass or metal, other metal or glass objects such as broken light bulbs, bottle caps, or pop cans. Users of injection drugs will have syringes, spoons (to hold the drug while being heated), and elastics, rubber ties, or surgical tubing which is used to tie the arm and inflate the vein to prepare it for inserting the syringe. Cocaine users will have items such as razor blades, small mirrors or pieces of glass, tiny “coke” spoons, and thin straws (for snorting the drug). Microsoft® Jan-14 Module Three: Basic Security Procedures, Page 25"
+          }
+        ]
+      },
+      {
+        "heading": "Interacting with the Media",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "As you are reminded several times throughout this course, your primary duty is to safeguard the persons or property as directed by your employer. On occasion, incidents which attract media attention may occur at your premises. For example, an executive working in an office which is housed in the office building you perform security duties for may be a person of interest during a very public lawsuit. The media may be persistent in their attempts to secure an interview with the individual. Unless you receive instructions stating otherwise from your employer, your job is to treat the media the same as you would any other visitor to the building. Access may only be granted as per the directive given to you by your employer. Failure to gain access to the subject of their intended interview may lead the media to ask you questions. They may want to know if you are familiar with the person they are looking for, or what you may be able to say about that individual. It is not your place to comment, regardless of what you may know. You are being paid to protect the executive from intrusions such as the unsolicited media attention; it is not appropriate, nor is it professional for you to engage in a discussion with the media about this individual."
           },
           {
             "kind": "paragraph",
@@ -1986,14 +2606,28 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "opinion on the matter and possibly use it against you or the client for whom you are working."
+          }
+        ]
+      },
+      {
+        "heading": "Traffic Control",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Security professionals may be required to direct traffic on private property as directed by their employer and the client; you should not be directing traffic on public roads, unless directed to do so by a police officer. You should advise your supervisor if you are asked to leave your post in order to assist a police officer with traffic control; someone will need to assume your duties."
           },
           {
             "kind": "paragraph",
-            "text": "Traffic Control Security professionals may be required to direct traffic on private property as directed by their employer and the client; you should not be directing traffic on public roads, unless directed to do so by a police officer. You should advise your supervisor if you are asked to leave your post in order to assist a police officer with traffic control; someone will need to assume your duties."
-          },
+            "text": "Manual traffic control is generally required at large venues, such as sporting arenas or shopping malls, or on busy construction sites. Traffic can refer to vehicles (including bicycles), pedestrians, or both. When directing traffic, keep in mind  Your own personal safety  The safety of motorists and pedestrians  Professional deportment  Providing clear direction to both motorist and pedestrian traffic Jan-14 Module Three: Basic Security Procedures, Page 26"
+          }
+        ]
+      },
+      {
+        "heading": "Stayying Safee",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Manual traffic control is generally required at large venues, such as sporting arenas or shopping malls, or on busy construction sites. Traffic can refer to vehicles (including bicycles), pedestrians, or both. When directing traffic, keep in mind  Your own personal safety  The safety of motorists and pedestrians  Professional deportment  Providing clear direction to both motorist and pedestrian traffic Jan-14 Module Three: Basic Security Procedures, Page 26 Stayying Safee Beingg safe should start with yyour appearrance and yoour prepareddness for weeather conditions. Wearring a reflective vest, carrrying a lightted baton orflashlight, aand the use oof a whiistle will helpp ensure youu are seen bby motoristsand pedestrrians. You mmust also takke into cconsiderationn the air temmperature; ifyou will be ddirecting trafffic for an exxtended period of time, ennsure you arre dressed wwarm enoughh during winnter conditionns, includingg wearing a hat and gloves. Inhot weatherr, you shouldd arrange foor a hat to protect you fromthe sun andd ensure youu have accesss to plenty oof water to rremain hydraated."
+            "text": "Beingg safe should start with yyour appearrance and yoour prepareddness for weeather conditions. Wearring a reflective vest, carrrying a lightted baton orflashlight, aand the use oof a whiistle will helpp ensure youu are seen bby motoristsand pedestrrians. You mmust also takke into cconsiderationn the air temmperature; ifyou will be ddirecting trafffic for an exxtended period of time, ennsure you arre dressed wwarm enoughh during winnter conditionns, includingg wearing a hat and gloves. Inhot weatherr, you shouldd arrange foor a hat to protect you fromthe sun andd ensure youu have accesss to plenty oof water to rremain hydraated."
           },
           {
             "kind": "paragraph",
@@ -2005,11 +2639,20 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Usinng Signals Mostdrivers willunderstandthe followingg traffic direcction signalss:"
+            "text": "Mostdrivers willunderstandthe followingg traffic direcction signalss:"
+          }
+        ]
+      },
+      {
+        "heading": "STOPGO",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "iStockphotoo®. All rights resserved."
           },
           {
             "kind": "paragraph",
-            "text": "STOPGO iStockphotto®. All rights rreserved."
+            "text": "iStockphotto®. All rights rreserved."
           },
           {
             "kind": "list",
@@ -2037,7 +2680,20 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "foorward) loong as you wwish them toremain sttopped4. MMaintain palmm extended(indicating sstop) to driveers coming frrom ddirections whhich would ccross paths wwith the car yyou have dirrected to mmove forwardd TURN RTRIGHT OR LEFTPPEDESTRRIAN TRRAFFIC iStockphoto®. All rights rreserved.iStockphotoo®. All rights reserved."
+            "text": "foorward) loong as you wwish them toremain sttopped4. MMaintain palmm extended(indicating sstop) to driveers coming frrom ddirections whhich would ccross paths wwith the car yyou have dirrected to mmove forwardd"
+          }
+        ]
+      },
+      {
+        "heading": "TURN RTRIGHT OR LEFTPPEDESTRRIAN TRRAFFIC",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "iStockphotoo®. All rights reserved."
+          },
+          {
+            "kind": "paragraph",
+            "text": "iStockphoto®. All rights rreserved."
           },
           {
             "kind": "list",
@@ -2065,7 +2721,20 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "approachingfrom other ddirections (indicating theey should sttop while thee driver makesthe turn) Whisstle Signals  One long blasOst – used totell the driveer or pedestrrian to stop  Two short blaTasts – used tto tell the driiver or pedesstrians to prroceed  Short, rapid bSblasts – warnning signal  One final noteOe regardingtraffic controol; emergenccy vehicles hhave right off way over aall other vehiculaar and pedestrian traffic. Assist theirr arrival by bbringing all oother traffic to astop and maintain untilall emergenncy vehicleshave passeed."
+            "text": "approachingfrom other ddirections (indicating theey should sttop while thee driver makesthe turn)"
+          },
+          {
+            "kind": "paragraph",
+            "text": " One long blasOst – used totell the driveer or pedestrrian to stop  Two short blaTasts – used tto tell the driiver or pedesstrians to prroceed  Short, rapid bSblasts – warnning signal  One final noteOe regardingtraffic controol; emergenccy vehicles hhave right off way over aall other vehiculaar and pedestrian traffic. Assist theirr arrival by bbringing all oother traffic to astop and maintain untilall emergenncy vehicleshave passeed."
+          }
+        ]
+      },
+      {
+        "heading": "Post Orders",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "A post order is a document which outlines your duties and responsibilities during your shift. Your employer will provide you with the post order information at the outset of your shift; read them through each time, as there may be changes or updated information which you will need to know in order to carry out your duties as required. As you read through the document, you should note any questions you have or areas where information may be missing or outdated; contact your supervisor to clarify any of these issues at the start of your shift."
           },
           {
             "kind": "paragraph",
@@ -2077,7 +2746,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": " Contact names and numbers for emergency services and personnel  A list of other security personnel located on the site and their respective locations and duties  A description of where the post is located  The hours and duration of the shift  List of individuals/personnel who are permitted access to the site, or areas within the site  How to handle certain tasks, such as receiving deliveries or admitting repair/maintenance personnel  Procedures for patrol, including where patrols are to be conducted and the frequency  Instructions for locking/unlocking doors (e.g., a public building may require all exterior doors to be locked after a certain time)  Instructions in case of a building emergency, such as power outages or equipment failure  Instructions in case of a hazard or threat, such as a fire, flood, accident, or bomb threat  Reporting requirements for incidents, emergencies, and shift end Starting a Shift Ensure you are physically and mentally prepared to carry out your duties before you arrive at your job site. This means you should make sure you have had proper rest, that you are feeling well, and that you have cleared your mind of non-work related distractions; staying focused and safe on the job will help ensure you are able to deal with life outside of work when your shift is done. Check that your uniform is clean and neat and that you have the appropriate and authorized equipment. Make sure you have your notebook and a pen, and test that your radio (if you use one) or cell phone is charged and in working order."
+            "text": " Contact names and numbers for emergency services and personnel  A list of other security personnel located on the site and their respective locations and duties  A description of where the post is located  The hours and duration of the shift  List of individuals/personnel who are permitted access to the site, or areas within the site  How to handle certain tasks, such as receiving deliveries or admitting repair/maintenance personnel  Procedures for patrol, including where patrols are to be conducted and the frequency  Instructions for locking/unlocking doors (e.g., a public building may require all exterior doors to be locked after a certain time)  Instructions in case of a building emergency, such as power outages or equipment failure  Instructions in case of a hazard or threat, such as a fire, flood, accident, or bomb threat  Reporting requirements for incidents, emergencies, and shift end"
+          }
+        ]
+      },
+      {
+        "heading": "Starting a Shift",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Ensure you are physically and mentally prepared to carry out your duties before you arrive at your job site. This means you should make sure you have had proper rest, that you are feeling well, and that you have cleared your mind of non-work related distractions; staying focused and safe on the job will help ensure you are able to deal with life outside of work when your shift is done. Check that your uniform is clean and neat and that you have the appropriate and authorized equipment. Make sure you have your notebook and a pen, and test that your radio (if you use one) or cell phone is charged and in working order."
           },
           {
             "kind": "paragraph",
@@ -2109,7 +2787,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module Three: Basic Security Procedures, Page 30 Working with a Partner You may have the opportunity to work with a partner in your role as a security professional. This is more likely to occur at large sites or venues, or locations where there is a higher than average incidence of criminal activity. Working with a partner is advantageous, particularly where large groups of people are present or when it is likely you will have an interaction with a person suspected of a criminal act. Large crowds can be difficult to control on your own and you are greater risk of not being able to watch each person; a partner may be able to “watch your back” while you interact with the group in front of you. In cases where there is a high potential for crime to occur, having a partner with you provides additional safety should you surprise someone “in the act” of committing a crime."
+            "text": "Jan-14 Module Three: Basic Security Procedures, Page 30"
+          }
+        ]
+      },
+      {
+        "heading": "Working with a Partner",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "You may have the opportunity to work with a partner in your role as a security professional. This is more likely to occur at large sites or venues, or locations where there is a higher than average incidence of criminal activity. Working with a partner is advantageous, particularly where large groups of people are present or when it is likely you will have an interaction with a person suspected of a criminal act. Large crowds can be difficult to control on your own and you are greater risk of not being able to watch each person; a partner may be able to “watch your back” while you interact with the group in front of you. In cases where there is a high potential for crime to occur, having a partner with you provides additional safety should you surprise someone “in the act” of committing a crime."
           },
           {
             "kind": "paragraph",
@@ -2130,10 +2817,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "Your partner is your back-up when things don’t go as expected; take the time to communicate so that when the time comes you are dependent upon one another you are as prepared as possible to deal with the situation."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Use of Force Response",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Use of Force Response A key ability for any security professional is to be able to apply critical thinking to situations as they arise. As stated before, your job is to observe and report; carefully consider whether or not a call for the police to intervene will suffice. Consider the seriousness of the situation before stepping in on your own."
+            "text": "A key ability for any security professional is to be able to apply critical thinking to situations as they arise. As stated before, your job is to observe and report; carefully consider whether or not a call for the police to intervene will suffice. Consider the seriousness of the situation before stepping in on your own."
           },
           {
             "kind": "paragraph",
@@ -2239,11 +2931,24 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module Three: Basic Security Procedures, Page 33 Assess the Behaviour Are verbal and non-verbal tactics resolving the Yes No Carry on Is force resolving the necessary?"
+            "text": "Jan-14 Module Three: Basic Security Procedures, Page 33"
           },
           {
             "kind": "paragraph",
-            "text": "situation without force No Yes Carry on resolving the situation without forceUse only enough force as necessary Stop using force when the subject is no longer resisting or using force Jan-14 Module Three: Basic Security Procedures, Page 34 Excited Delirium There is a rare medical condition which causes individuals to behave in a manner that is very disorderly and violent. The condition is known as excited delirium and is known to occur as a result of the affected individual being restrained, as happens when a person is arrested or detained. While it is likely you will never encounter an individual in a state of excited delirium, it is important for you to be able to recognize the condition as it is an emergency situation and can lead to death. Call for emergency assistance immediately if you believe an individual is in a state of excited delirium."
+            "text": "Is force resolving the necessary?"
+          },
+          {
+            "kind": "paragraph",
+            "text": "resolving the situation without force Use only enough force as necessary Stop using force when the subject is no longer resisting or using force Jan-14 Module Three: Basic Security Procedures, Page 34"
+          }
+        ]
+      },
+      {
+        "heading": "Excited Delirium",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "There is a rare medical condition which causes individuals to behave in a manner that is very disorderly and violent. The condition is known as excited delirium and is known to occur as a result of the affected individual being restrained, as happens when a person is arrested or detained. While it is likely you will never encounter an individual in a state of excited delirium, it is important for you to be able to recognize the condition as it is an emergency situation and can lead to death. Call for emergency assistance immediately if you believe an individual is in a state of excited delirium."
           },
           {
             "kind": "paragraph",
@@ -2255,7 +2960,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module Three: Basic Security Procedures, Page 35 Post-Tesst Checck your progrress. How mmuch do yourecall?"
+            "text": "Jan-14 Module Three: Basic Security Procedures, Page 35"
+          }
+        ]
+      },
+      {
+        "heading": "Post-Tesst",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Checck your progrress. How mmuch do yourecall?"
           },
           {
             "kind": "list",
@@ -2292,19 +3006,23 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "________________________________, and _____________________________________."
+          },
+          {
+            "kind": "paragraph",
+            "text": "The work of a security professional is diverse and challenging; no two shifts will be the same. Developing your observation and reporting skill sets will help you be effective in your duties. You will need to apply these skills to practical situations which occur in the course of your patrol, and to more complicated problems involving traffic, or large crowds. Finally, you will need to use critical thinking and problem solving to determine when – or if – use of force is the best option for a given situation. The best compliment to well-developed observation and reporting skills will be effective communication which you will use throughout your security career. In Module Four, you will learn methods of"
+          },
+          {
+            "kind": "paragraph",
+            "text": "public, clients, and your peers."
           }
         ]
       },
       {
-        "heading": "Conclusion",
+        "heading": "References",
         "body": [
           {
             "kind": "paragraph",
-            "text": "The work of a security professional is diverse and challenging; no two shifts will be the same. Developing your observation and reporting skill sets will help you be effective in your duties. You will need to apply these skills to practical situations which occur in the course of your patrol, and to more complicated problems involving traffic, or large crowds. Finally, you will need to use critical thinking and problem solving to determine when – or if – use of force is the best option for a given situation. The best compliment to well-developed observation and reporting skills will be effective communication which you will use throughout your security career. In Module Four, you will learn methods of verbal and non-verbal communication which will allow you to interact effectively with the public, clients, and your peers."
-          },
-          {
-            "kind": "paragraph",
-            "text": "References Criminal Code, R.S. 1985, c. C-46 Laur, D. (2005). Excited delirium and its correlation to sudden and unexpected death proximal to restraint. Canadian Police Research Centre; Ottawa, ON. Retrieved October 13, 2010 from http://dsp-psd.pwgsc.gc.ca/collection_2008/ps-sp/PS63- 2-2005-2-1E.pdf."
+            "text": "Criminal Code, R.S. 1985, c. C-46 Laur, D. (2005). Excited delirium and its correlation to sudden and unexpected death proximal to restraint. Canadian Police Research Centre; Ottawa, ON. Retrieved October 13, 2010 from http://dsp-psd.pwgsc.gc.ca/collection_2008/ps-sp/PS63- 2-2005-2-1E.pdf."
           },
           {
             "kind": "paragraph",
@@ -2324,11 +3042,11 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
     "end": 106,
     "sections": [
       {
-        "heading": "Overview",
+        "heading": "Security Professionals",
         "body": [
           {
             "kind": "paragraph",
-            "text": "Module Four: Communication for Security Professionals Your ability to successfully perform the responsibilities of a security professional depends, in part, on your communication skills. Working with the public and gaining their cooperation will require you to develop effective verbal and non-verbal communication strategies and subsequently adapt them to the various situations you will encounter."
+            "text": "Your ability to successfully perform the responsibilities of a security professional depends, in part, on your communication skills. Working with the public and gaining their cooperation will require you to develop effective verbal and non-verbal communication strategies and subsequently adapt them to the various situations you will encounter."
           },
           {
             "kind": "paragraph",
@@ -2354,6 +3072,10 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
             "items": [
               "Identify and demonstrate methods of communication which are free from bias,"
             ]
+          },
+          {
+            "kind": "paragraph",
+            "text": "discrimination, or harassment"
           },
           {
             "kind": "list",
@@ -2386,15 +3108,19 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
             "items": [
               "Conduct an effective interview"
             ]
+          },
+          {
+            "kind": "paragraph",
+            "text": "Verbal and Non-Verbal Communication............................................................................ 3 Challenges to Communication ........................................................................................ 10 Communicating with Uncooperative Persons ................................................................. 13 Conducting an Interview.................................................................................................. 15 Conclusion ...................................................................................................................... 19 References ...................................................................................................................... 19 Jan-14 Module Four: Communication for Security Professionals, Page 1"
           }
         ]
       },
       {
-        "heading": "Topics",
+        "heading": "Check Yoour Knowledge",
         "body": [
           {
             "kind": "paragraph",
-            "text": "Verbal and Non-Verbal Communication............................................................................ 3 Challenges to Communication ........................................................................................ 10 Communicating with Uncooperative Persons ................................................................. 13 Conducting an Interview.................................................................................................. 15 Conclusion ...................................................................................................................... 19 References ...................................................................................................................... 19 Jan-14 Module Four: Communication for Security Professionals, Page 1 Check Yoour Knowledge Testyour knowleedge of the toopic before sstarting thismodule."
+            "text": "Testyour knowleedge of the toopic before sstarting thismodule."
           },
           {
             "kind": "list",
@@ -2470,7 +3196,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "The volume oof your voicee also sendss a messagee in addition tto the wordss beeing said. Trry to use a nnormal, convversational vvoice in yourr interactionss on the job. Sppeaking tooquietly sugggests you aree timid; thisis not how yoou want a treespasser orintruder to pperceive youu, as they may not take yoou and yourrole serioussly. On the oother hand, uusing a loudvoice or shhouting is offten perceiveed as threateening or agggressive behhaviour. Thiss Microssoft®may be appromopriate in some circumsttances, for eexample, whhen you are sppeaking to aan individualfrom a distaance, or wheen environmeental noise levelss require youu to raise yoour voice soyou can beheard. It is,however, noot profeessional for yyou to raise yyour voice aabove a convversational vvolume whenn having a face-to-face interraction in a ssetting wheree you are noot competingg with othersources of noisee. Use your cconfident, asssertive tonee of voice toconvey themessage thhat you meann businness rather than escalatiing to screamming and yeelling; you wiill appear moore profeessional and, therefore, mmore worthyy of respect."
+            "text": "The volume oof your voicee also sendss a messagee in addition tto the wordss beeing said. Trry to use a nnormal, convversational vvoice in yourr interactionss on the job. Sppeaking tooquietly sugggests you aree timid; thisis not how yoou want a treespasser orintruder to pperceive youu, as they may not take yoou and yourrole serioussly. On the oother hand, uusing a loudvoice or shhouting is offten perceiveed as threateening or agggressive behhaviour. Thiss"
+          }
+        ]
+      },
+      {
+        "heading": "Microssoft®",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "may be appromopriate in some circumsttances, for eexample, whhen you are sppeaking to aan individualfrom a distaance, or wheen environmeental noise levelss require youu to raise yoour voice soyou can beheard. It is,however, noot profeessional for yyou to raise yyour voice aabove a convversational vvolume whenn having a face-to-face interraction in a ssetting wheree you are noot competingg with othersources of noisee. Use your cconfident, asssertive tonee of voice toconvey themessage thhat you meann businness rather than escalatiing to screamming and yeelling; you wiill appear moore profeessional and, therefore, mmore worthyy of respect."
           },
           {
             "kind": "paragraph",
@@ -2478,11 +3213,32 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Jan-14Module Four:Communicationfor Security Proffessionals, Pagee 4 Visual Visual commuunication is aanother wordd for body lannguage, andd includes Facial exprressions Posture Eye contacct/movement Gestures Taactile Reefers to usinng touch to hhelp conveymeaning, annd includes Handshakees Pat on theback Hugs Voocal Maainly concerrns tone of vvoice, whichcan be chhanged to suuggest A question Disbelief Seriousnesss Excitementt Anger Usse of time, sspace, andimage We communicWcate throughh our respectt for time, sppace, and thrrough the way we preseent ourselvess Being on time vs. beingg late Standing inn another peerson’s “bubble” The way wwe dress Microssoft® Yoou will mostt likely engaage in non-vverbal commmunicationn with otherindividualss before you ever say aa word."
+            "text": "Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Jan-14Module Four:Communicationfor Security Proffessionals, Pagee 4"
           },
           {
             "kind": "paragraph",
-            "text": "A security professional has a very public role; after all, the client would not hire your employer’s company if they were not concerned about unauthorized individuals gaining access to the persons and property you are tasked with protecting. Although you may work a post where the public are accepting of the boundaries, it is© 2010. iStock # 14190754. Used under licence not uncommon for individuals to approachwith iStockphoto®. All rights reserved."
+            "text": "Visual commuunication is aanother wordd for body lannguage, andd includes Facial exprressions Posture Eye contacct/movement Gestures"
+          },
+          {
+            "kind": "paragraph",
+            "text": "Reefers to usinng touch to hhelp conveymeaning, annd includes Handshakees Pat on theback Hugs"
+          },
+          {
+            "kind": "paragraph",
+            "text": "Maainly concerrns tone of vvoice, whichcan be chhanged to suuggest A question Disbelief Seriousnesss Excitementt Anger Usse of time, sspace, andimage We communicWcate throughh our respectt for time, sppace, and thrrough the way we preseent ourselvess Being on time vs. beingg late Standing inn another peerson’s “bubble” The way wwe dress"
+          }
+        ]
+      },
+      {
+        "heading": "Microssoft®",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Yoou will mostt likely engaage in non-vverbal commmunicationn with otherindividualss before you ever say aa word."
+          },
+          {
+            "kind": "paragraph",
+            "text": "A security professional has a very public role; after all, the client would not hire your employer’s company if they were not concerned about unauthorized individuals gaining access to the persons and property you are tasked with protecting. Although you may work a post where the public are accepting of the boundaries, it is not uncommon for individuals to approachwith iStockphoto®. All rights reserved."
           },
           {
             "kind": "paragraph",
@@ -2490,7 +3246,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Then there are the times when you will deal with an individual who is trying to challenge your authority and the boundaries which have been established by your client. Your first tactic should be to use your verbal communication skills (enhanced by appropriate non- verbal communication) to resolve the situation. A method known as LEAPS comes from a communication style known as Verbal Judo (Thompson, 2004) and is intended to be used for gaining cooperation and compliance."
+            "text": "Then there are the times when you will deal with an individual who is trying to challenge your authority and the boundaries which have been established by your client. Your first tactic should be to use your verbal communication skills (enhanced by appropriate non-"
+          }
+        ]
+      },
+      {
+        "heading": "verbal communication) to resolve the situation. A method known as LEAPS comes from",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "a communication style known as Verbal Judo (Thompson, 2004) and is intended to be used for gaining cooperation and compliance."
           },
           {
             "kind": "paragraph",
@@ -2499,14 +3264,28 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "Be an “active listener” while the individual is talking to you."
+          }
+        ]
+      },
+      {
+        "heading": "LISTEN",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Active listening is, quite simply, paying full attention to the speaker. This means you are hearing each word being spoken in addition to paying attention to any non-verbal communication. When you are actively listening, it is obvious to the speaker you are paying attention and, therefore, respected. In some cases, respectfully listening while the speaker presents his or her case may be enough to gain the compliance you seek. Here are some tips for active listening:"
           },
           {
             "kind": "paragraph",
-            "text": "LISTENActive listening is, quite simply, paying full attention to the speaker. This means you are hearing each word being spoken in addition to paying attention to any non-verbal communication. When you are actively listening, it is obvious to the speaker you are paying attention and, therefore, respected. In some cases, respectfully listening while the speaker presents his or her case may be enough to gain the compliance you seek. Here are some tips for active listening:"
-          },
+            "text": " Make eye contact with the speaker  Nod or acknowledge certain points, when appropriate, to show you are paying attention  Do not “tune the speaker out” by looking around or by paying attention to other distractions (e.g., flipping through your notebook, saying hi to other passersby, or looking at your watch)  Do not interrupt; if you did not understand something, wait for the speaker to pause, then ask for clarification Jan-14 Module Four: Communication for Security Professionals, Page 7"
+          }
+        ]
+      },
+      {
+        "heading": "Activity",
+        "body": [
           {
             "kind": "paragraph",
-            "text": " Make eye contact with the speaker  Nod or acknowledge certain points, when appropriate, to show you are paying attention  Do not “tune the speaker out” by looking around or by paying attention to other distractions (e.g., flipping through your notebook, saying hi to other passersby, or looking at your watch)  Do not interrupt; if you did not understand something, wait for the speaker to pause, then ask for clarification Jan-14 Module Four: Communication for Security Professionals, Page 7 Activity Activve listeningexercise You wwill work onthis activitywith a partner. One of yyou will readthe first parragraph beloww while the oother listens;; the listenerr should NOTT be lookingg at this mannual while the speaker is talkingg."
+            "text": "Activve listeningexercise You wwill work onthis activitywith a partner. One of yyou will readthe first parragraph beloww while the oother listens;; the listenerr should NOTT be lookingg at this mannual while the speaker is talkingg."
           },
           {
             "kind": "paragraph",
@@ -2538,31 +3317,72 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "To empathize with otheer people isto try to undderstand thee EMPATHIZEZEsituation froom their perrspective. Thhis is not thee same as being persuaded to feeel the sameway they doo. For example, yyou may be oon duty at ascene wherre a fire is occurring innside a publlic building. AAn individuaal may try crossing thhe perimeterbarrier becaause they beelieve a closse friend maybe inside annd in dangerr. Your orders are to keep all noon-emergenccy personneel from enteriing. You may tell this to tthe individuaal who is trying to gain access and they may iggnore you, oor become upset when yyou prevent them fromentering. Too empathizewith this inddividual, you Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Jan-14Module Four:Communicationfor Security Proffessionals, Pagee 8 may try to imagine how afraid they are feeling about the situation and it might help you understand how his or her judgment is being affected by fear. You would not change your mind about permitting access, nor allow the individual to enter. Instead, you would show empathy by saying “I understand you are probably very worried about your friend and you want to find out if everything is okay. If I let you go inside, I could be putting you in a place of danger, or, I could be putting you in the way of the people who are here to help. Neither of these situations will help your friend. I know it is very hard for you to wait and wonder, but the best way you can help is to wait out here, where it is safe.” It stands to reason, however, that it may be difficult for you to empathize with the speaker. You may encounter an individual who is stealing items for the purpose of selling the goods in exchange for money to buy drugs. This may be very offensive to you and you may struggle to find a way to see the situation from the other person’s perspective. Try not to focus on the motivation (drugs) and instead, view the individual as a person who sees no other options and feels they are in a desperate position. You may find it easier to relate in that way. Again, empathy is not the same as feeling sorry for someone; it is simply trying to figure out why the person is behaving in a certain way so that you can use that understanding to develop an effective communication plan."
+            "text": "To empathize with otheer people isto try to undderstand thee situation froom their perrspective. Thhis is not thee same as"
+          }
+        ]
+      },
+      {
+        "heading": "EMPATHIZEZE",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "being persuaded to feeel the sameway they doo. For example, yyou may be oon duty at ascene wherre a fire is occurring innside a publlic building. AAn individuaal may try crossing thhe perimeterbarrier becaause they beelieve a closse friend maybe inside annd in dangerr. Your orders are to keep all noon-emergenccy personneel from enteriing. You may tell this to tthe individuaal who is trying to gain access and they may iggnore you, oor become upset when yyou prevent them fromentering. Too empathizewith this inddividual, you Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Jan-14Module Four:Communicationfor Security Proffessionals, Pagee 8 may try to imagine how afraid they are feeling about the situation and it might help you understand how his or her judgment is being affected by fear. You would not change your mind about permitting access, nor allow the individual to enter. Instead, you would show empathy by saying “I understand you are probably very worried about your friend and you want to find out if everything is okay. If I let you go inside, I could be putting you in a place of danger, or, I could be putting you in the way of the people who are here to help. Neither of these situations will help your friend. I know it is very hard for you to wait and wonder, but the best way you can help is to wait out here, where it is safe.” It stands to reason, however, that it may be difficult for you to empathize with the speaker. You may encounter an individual who is stealing items for the purpose of selling the goods in exchange for money to buy drugs. This may be very offensive to you and you may struggle to find a way to see the situation from the other person’s perspective. Try not to focus on the motivation (drugs) and instead, view the individual as a person who sees no other options and feels they are in a desperate position. You may find it easier to relate in that way. Again, empathy is not the same as feeling sorry for someone; it is simply trying to figure out why the person is behaving in a certain way so that you can use that understanding to develop an effective communication plan."
           },
           {
             "kind": "paragraph",
-            "text": "Make sure you understand what the other person is saying ASKto you. There is nothing wrong with asking the individual to repeat something you could not hear or to clarify something you do not fully understand. Be polite; the person may already be aggravated by the circumstances and you do not want your questions to add to the individual’s level of frustration. When asking for clarification:"
+            "text": "Make sure you understand what the other person is saying"
+          }
+        ]
+      },
+      {
+        "heading": "ASK",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "to you. There is nothing wrong with asking the individual to repeat something you could not hear or to clarify something you do not fully understand. Be polite; the person may already be aggravated by the circumstances and you do not want your questions to add to the individual’s level of frustration. When asking for clarification:"
           },
           {
             "kind": "paragraph",
-            "text": " Do not make the person feel stupid or inept; try saying “Will you please say that again? I was unable to understand you clearly.”  Be clear as to what you need clarification for; the individual may question whether or not you were even listening if you are not specific as to what information you are asking for."
+            "text": " Do not make the person feel stupid or inept; try saying “Will you please say that again? I was unable to understand you clearly.”  Be clear as to what you need clarification for; the individual may question whether or not you were even"
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module Four: Communication for Security Professionals, Page 9 When you paraphrase, you are taking what the speaker PARAPHRASEsaid and repeating it back using your own words. There are two advantages to doing so; it shows the speaker you were listening, and you are able to double check you have understood correctly. Many times, misunderstandings which occur during communication can lead to greater conflict. Paraphrasing will help minimize this risk."
+            "text": "Jan-14 Module Four: Communication for Security Professionals, Page 9 When you paraphrase, you are taking what the speaker said and repeating it back using your own words. There"
+          }
+        ]
+      },
+      {
+        "heading": "PARAPHRASE",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "are two advantages to doing so; it shows the speaker you were listening, and you are able to double check you have understood correctly. Many times, misunderstandings which occur during communication can lead to greater conflict. Paraphrasing will help minimize this risk."
           },
           {
             "kind": "paragraph",
-            "text": "At the end of the conversation you should summarize what SUMMARIZEhas been discussed, including repeating any action steps which you or the speaker will be taking. For example, if you have denied access to an individual who failed to produce the right ticket to an event, you may summarize as follows:"
+            "text": "At the end of the conversation you should summarize what has been discussed, including repeating any action steps"
+          }
+        ]
+      },
+      {
+        "heading": "SUMMARIZE",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "which you or the speaker will be taking. For example, if you have denied access to an individual who failed to produce the right ticket to an event, you may summarize as follows:"
           },
           {
             "kind": "paragraph",
             "text": "“Just so we are both clear, I am not able to allow you entrance to the floor seating because you do not have the proper ticket. You have told me you have the right ticket but it is with your girlfriend, who is already in the seating area. You are going to move to the side and call your girlfriend on her cell phone and she will meet you here, with your ticket. Once I am able to confirm you have the right ticket, I will admit you to the seating area. Do you understand?” By summarizing, you have made your expectations clear and you have provided options (e.g., get the ticket back from the girlfriend or sit in another area) to the individual. It also provides a polite signal that the matter is no longer up for discussion."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Challenges to Communication",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Challenges to Communication Sometimes, you will need to address challenges which may impact your ability to communicate with another individual. Examples of barriers to effective communication may include differences in language, cultural practices, and physical or cognitive (mental) disability. Do not assume your communication challenges are the result of deliberate behaviour on the part of the person you are attempting to communicate with; the individual may want to cooperate with you and you should give him or her benefit of the doubt before making a judgment about the situation."
+            "text": "Sometimes, you will need to address challenges which may impact your ability to communicate with another individual. Examples of barriers to effective communication may include differences in language, cultural practices, and physical or cognitive (mental) disability. Do not assume your communication challenges are the result of deliberate behaviour on the part of the person you are attempting to communicate with; the individual may want to cooperate with you and you should give him or her benefit of the doubt before making a judgment about the situation."
           },
           {
             "kind": "paragraph",
@@ -2614,15 +3434,24 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module Four: Communication for Security Professionals, Page 11 o Maintain good posture; this shows respect for yourself, and for the other individual."
+            "text": "Jan-14 Module Four: Communication for Security Professionals, Page 11"
+          },
+          {
+            "kind": "list",
+            "items": [
+              "Maintain good posture; this shows respect for yourself, and for the other"
+            ]
+          },
+          {
+            "kind": "list",
+            "items": [
+              "Be attentive; ensure your facial gestures demonstrate you are paying attention.",
+              "Refrain from showing frustration, impatience, or anger; this will only cause the"
+            ]
           },
           {
             "kind": "paragraph",
-            "text": "o Be attentive; ensure your facial gestures demonstrate you are paying attention."
-          },
-          {
-            "kind": "paragraph",
-            "text": "o Refrain from showing frustration, impatience, or anger; this will only cause the speaker to be flustered or upset, which will make effective communication even more difficult."
+            "text": "speaker to be flustered or upset, which will make effective communication even more difficult."
           },
           {
             "kind": "paragraph",
@@ -2641,12 +3470,24 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
             "text": " Use alternative means of communication, where possible."
           },
           {
-            "kind": "paragraph",
-            "text": "o In some cases, it may help to use written communication. For example, an individual with a hearing impairment may be able to communicate with you using written notes."
+            "kind": "list",
+            "items": [
+              "In some cases, it may help to use written communication. For example, an"
+            ]
           },
           {
             "kind": "paragraph",
-            "text": "o Use gestures to help explain; sometimes gestures may help you get your message across. Holding your palm outward toward the individual is generally accepted as a signal to not proceed further. Point at your own ID card then gesture toward the individual to tell them you need to see their ID in order to allow them access."
+            "text": "individual with a hearing impairment may be able to communicate with you using written notes."
+          },
+          {
+            "kind": "list",
+            "items": [
+              "Use gestures to help explain; sometimes gestures may help you get your"
+            ]
+          },
+          {
+            "kind": "paragraph",
+            "text": "message across. Holding your palm outward toward the individual is generally accepted as a signal to not proceed further. Point at your own ID card then gesture toward the individual to tell them you need to see their ID in order to allow them access."
           },
           {
             "kind": "paragraph",
@@ -2658,11 +3499,20 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module Four: Communication for Security Professionals, Page 12 Communicating with Uncooperative Persons Despite your best attempts to utilize respectful, effective communication, it is inevitable you will encounter an individual who does not wish to comply with your direction. Dealing with uncooperative individuals is certainly not pleasant, and will challenge your ability to remain calm and professional. Before you ever encounter such a situation, it will be helpful for you to know your own personal “triggers.” Triggers are attitudes© 2010. iStock # 6095424. Used under licence with or behaviours which frustrate you theiStockphoto®. All rights reserved."
+            "text": "Jan-14 Module Four: Communication for Security Professionals, Page 12"
+          }
+        ]
+      },
+      {
+        "heading": "Communicating with Uncooperative Persons",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Despite your best attempts to utilize respectful, effective communication, it is inevitable you will encounter an individual who does not wish to comply with your direction. Dealing with uncooperative individuals is certainly not pleasant, and will challenge your ability to remain calm and professional. Before you ever encounter such a situation, it will be helpful for you to know your own personal “triggers.” Triggers are attitudes iStockphoto®. All rights reserved."
           },
           {
             "kind": "paragraph",
-            "text": "most and cause you to become impatient."
+            "text": "or behaviours which frustrate you the most and cause you to become impatient."
           },
           {
             "kind": "paragraph",
@@ -2691,14 +3541,23 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "In general, you should deal with an uncooperative individual as you would anyone else – professionally. There are times, however, when an interaction with an uncooperative individual escalates into something more serious."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Hostile or Violent Persons",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Hostile or Violent Persons Sometimes, despite your best efforts to communicate professionally, the situation escalates into something more serious. You should always be observant; paying attention to the individual(s) you are interacting with is important at all times. Signs that a situation may be escalating include:"
+            "text": "Sometimes, despite your best efforts to communicate professionally, the situation escalates into something more serious. You should always be observant; paying attention to the individual(s) you are interacting with is important at all times. Signs that a situation may be escalating include:"
           },
           {
             "kind": "paragraph",
             "text": " Increasing volume of conversation  Non-verbal body language suggesting the individual is becoming agitated or angry  Threat-making  Inappropriate behaviour, such as pounding on a door or trying to remove a barrier You should monitor this type of behaviour, being mindful of other persons in the area. Do not take your attention away from an individual demonstrating hostile behaviour. Call for immediate assistance."
+          },
+          {
+            "kind": "paragraph",
+            "text": "You might try the following:"
           },
           {
             "kind": "paragraph",
@@ -2714,7 +3573,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module Four: Communication for Security Professionals, Page 14 Intoxicated Persons The first step in being able to deal effectively with an intoxicated person is to be able to recognize the signs of alcohol or drug intoxication. Individuals under the influence of a substance may:"
+            "text": "Jan-14 Module Four: Communication for Security Professionals, Page 14"
+          }
+        ]
+      },
+      {
+        "heading": "Intoxicated Persons",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "The first step in being able to deal effectively with an intoxicated person is to be able to recognize the signs of alcohol or drug intoxication. Individuals under the influence of a substance may:"
           },
           {
             "kind": "paragraph",
@@ -2723,10 +3591,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": " Intoxicated persons are unpredictable; continue monitoring to ensure safety for the individual, the public, and yourself  When possible, call for assistance if an intoxicated individual behaves in an unruly manner  Do not antagonize, ridicule, or otherwise harass the individual; speak to them calmly, and without bias, providing clear instructions  Give short, clear directions; give the individual time to respond to your requests  Do not try to reason with the individual; if necessary, call for assistance or police intervention to aid in resolving the situation Remember, it is not your job to enforce the law; your primary duty is to observe and report incidents which occur in the course of your duties. If you do not need to engage uncooperative persons – don’t. But when the time comes when you do need to interact, utilize LEAPS, the best practices you have just read about, and your professional common sense to deal with the situation and bring about the best possible resolution."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Conducting an Interview",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Conducting an Interview If an incident occurs while you are on duty, you will need to document the events in your notebook as well as on reporting forms as instructed by your employer. In addition to your own notes, it may be necessary for you to obtain information from witnesses or other persons at the scene. Typically, you will interview the individual(s) to obtain the information you require. In this section, you will learn best practices and techniques to be used when conducting an interview."
+            "text": "If an incident occurs while you are on duty, you will need to document the events in your notebook as well as on reporting forms as instructed by your employer. In addition to your own notes, it may be necessary for you to obtain information from witnesses or other persons at the scene. Typically, you will interview the individual(s) to obtain the information you require. In this section, you will learn best practices and techniques to be used when conducting an interview."
           },
           {
             "kind": "paragraph",
@@ -2850,7 +3723,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module Four: Communication for Security Professionals, Page 17 Post-Tesst Checck your progrress. How mmuch do yourecall?"
+            "text": "Jan-14 Module Four: Communication for Security Professionals, Page 17"
+          }
+        ]
+      },
+      {
+        "heading": "Post-Tesst",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Checck your progrress. How mmuch do yourecall?"
           },
           {
             "kind": "list",
@@ -2898,10 +3780,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "Address barriers to communication with plain language and patience. Always be watchful for situations which may escalate; when dealing with uncooperative or otherwise disagreeable persons, remain calm, monitoring for the safety of the individual, the public, and you. Finally, be professional when conducting interviews. In the next module, you will learn how to document routine occurrences in addition to specific types of incidents you respond to during your shift of duty."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "References",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "References Thompson, G. (2004). Verbal judo. New York, NY: Harper Collins."
+            "text": "Thompson, G. (2004). Verbal judo. New York, NY: Harper Collins."
           },
           {
             "kind": "paragraph",
@@ -2952,15 +3839,19 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
               "Preserve and protect evidence and a potential crime scene",
               "Prepare for the process of giving testimony in court"
             ]
+          },
+          {
+            "kind": "paragraph",
+            "text": "Notebooks ......................................................................................................................... 3 Statements ...................................................................................................................... 12 Reports............................................................................................................................ 12 Evidence ......................................................................................................................... 19 Preparing for Court.......................................................................................................... 20 Conclusion ...................................................................................................................... 23 References ...................................................................................................................... 23 Jan-14 Module Five: Documentation and Evidence, Page 1"
           }
         ]
       },
       {
-        "heading": "Topics",
+        "heading": "Check Yoour Knowledge",
         "body": [
           {
             "kind": "paragraph",
-            "text": "Notebooks ......................................................................................................................... 3 Statements ...................................................................................................................... 12 Reports............................................................................................................................ 12 Evidence ......................................................................................................................... 19 Preparing for Court.......................................................................................................... 20 Conclusion ...................................................................................................................... 23 References ...................................................................................................................... 23 Jan-14 Module Five: Documentation and Evidence, Page 1 Check Yoour Knowledge Testyour knowleedge of the toopic before sstarting thismodule."
+            "text": "Testyour knowleedge of the toopic before sstarting thismodule."
           },
           {
             "kind": "list",
@@ -3053,11 +3944,19 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
+            "text": " What did you do about it?"
+          },
+          {
+            "kind": "paragraph",
             "text": " Where is the damage or evidence?"
           },
           {
             "kind": "paragraph",
             "text": " Where were all the people who witnessed it?"
+          },
+          {
+            "kind": "paragraph",
+            "text": " Where is the suspect now?"
           },
           {
             "kind": "paragraph",
@@ -3069,6 +3968,10 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
+            "text": " What time did this happen?"
+          },
+          {
+            "kind": "paragraph",
             "text": " When (during the incident) did you arrive? (e.g., before the window was broken)  When did help arrive?"
           },
           {
@@ -3077,7 +3980,7 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Why?  Why did it happen? (e.g., what caused the fight to start?) Do not assume you know why something happened. If you do not know and the witness information cannot explain, write nothing."
+            "text": " Why did it happen? (e.g., what caused the fight to start?) Do not assume you know why something happened. If you do not know and the witness information cannot explain, write nothing."
           },
           {
             "kind": "paragraph",
@@ -3122,10 +4025,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "Patron – “I’ll bring my goddamned dog in here if I want and you ain’t gonna stop me.” This would be an example where the use of inappropriate language in your notebook is acceptable."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Formatting Your Notes",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Formatting Your Notes Employers will generally provide you with a notebook you must use to keep your notes."
+            "text": "Employers will generally provide you with a notebook you must use to keep your notes."
           },
           {
             "kind": "paragraph",
@@ -3134,11 +4042,12 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "You should record your name at the front of the notebook as well as the date you start using the notebook. You should number your notebooks, as you will fill several over the course of your career. Number your first notebook as “1” and all subsequent notebooks as “2, 3, 4” etc. When you have completely filled a notebook, write down the last date for which information is recorded in the front. Keep old (finished) notebooks in a safe place as you may be called to give testimony up to several years after an incident occurs. The front of your notebook should look as follows:"
-          },
-          {
-            "kind": "paragraph",
-            "text": "Jane J. Officer Start: 15SEP2010 End:"
-          },
+          }
+        ]
+      },
+      {
+        "heading": "End",
+        "body": [
           {
             "kind": "paragraph",
             "text": "Notebook #: 1 Start each new notebook in exactly the same manner."
@@ -3149,7 +4058,7 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": " The dateT  The time (useTe the 24 houur clock)  Your locationY  The name ofTyour partner (if applicabble)  Weather condWditions  Special circumSmstances ass advised byy the outgoinng shift or yoour supervisoor Usinng the 244 Hour Cloock The 224 hour clocck (sometimees referred too as militaryy time) is thee preferred foormat for recorrding time inyour noteboook and repoorts. A 24 hoour time clocck starts at 00000 for midnight and endds at 2359. TThe first twodigits represent the houur on a 24 hoour clock annd the laast two digitss represent tthe minutesin the hour.Times priorr to noon (12200) follow the same patternn as non-military time; timmes after nooon continuee number from the 1200 hour.1:00 PM is1300, 2:00PM is 1400,and so on.The 24 hourr clock allowws for clear differrentiation between eventts in the AMand PM."
+            "text": " The dateT  The time (useTe the 24 houur clock)  Your locationY  The name ofTyour partneble) r (if applicab  Weather condWditions  Special circumSmstances ass advised byy the outgoinng shift or yoour supervisoor Usinng the 244 Hour Cloock The 224 hour clocck (sometimees referred too as militaryy time) is thee preferred foormat for recorrding time inyour noteboook and repoorts. A 24 hoour time clocck starts at 00000 for midnight and endds at 2359. TThe first twodigits represent the houur on a 24 hoour clock annd the laast two digitss represent tthe minutesin the hour.Times priorr to noon (12200) follow the same patternn as non-military time; timmes after nooon continuee number from the 1200 hour.1:00 PM is1300, 2:00PM is 1400,and so on.The 24 hourr clock allowws for clear differrentiation between eventts in the AMand PM."
           },
           {
             "kind": "paragraph",
@@ -3157,7 +4066,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "12 hrr 24 hr12 hr24 hr12 hr24 hr12 hr24 hr 12 AMM 00006 AM060012 PMM 12006 PM1800 1 AMM 01007 AM07001 PM13007 PM1900 2 AMM 02008 AM08002 PM14008 PM2000 3 AMM 03009 AM09003 PM15009 PM2100 4 AMM 040010 AMM 10004 PM160010 PM2200 5 AMM 050011 AMM 11005 PM170011 PM2300 Activity Practtice Convvert each of tthe followingg times showwn in 12 houur clock notaation to 24 hoour clock formaat. The first eentry has beeen completeed for you."
+            "text": "12 hrr 24 hr12 hr24 hr12 hr24 hr12 hr24 hr 12 AMM 00006 AM060012 PMM 12006 PM1800 1 AMM 01007 AM07001 PM13007 PM1900 2 AMM 02008 AM08002 PM14008 PM2000 3 AMM 03009 AM09003 PM15009 PM2100 4 AMM 040010 AMM 10004 PM160010 PM2200 5 AMM 050011 AMM 11005 PM170011 PM2300"
+          }
+        ]
+      },
+      {
+        "heading": "Practtice",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Convvert each of tthe followingg times showwn in 12 houur clock notaation to 24 hoour clock formaat. The first eentry has beeen completeed for you."
           },
           {
             "kind": "paragraph",
@@ -3189,11 +4107,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "1228 Reesume post 1249 Caall; advised ssmoke in SWW garbage biin J.O."
-          },
+            "text": "1228 Reesume post 1249 all; advised ssmoke in SWW garbage biin J.O."
+          }
+        ]
+      },
+      {
+        "heading": "Activity",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "SEE garbage binn Activity Notebook entriees Practtice #1 In thee blank notebook templaate provided(below), creeate a notebbook entry baased upon the foollowing account of evennts."
+            "text": "Notebook entriees Practtice #1 In thee blank notebook templaate provided(below), creeate a notebbook entry baased upon the foollowing account of evennts."
           },
           {
             "kind": "paragraph",
@@ -3226,7 +4149,7 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "I INDIA R ROMEO Jan-14 Module Five: Documentation and Evidence, Page 11"
+            "text": "Jan-14 Module Five: Documentation and Evidence, Page 11"
           }
         ]
       },
@@ -3301,10 +4224,19 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": " Give your repGport to your ppartner or aco-worker; aask them toread it over,, checking thhat it is clearr and appearrs complete.."
+          }
+        ]
+      },
+      {
+        "heading": "Discussioon Activityy",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Grouup discussioon The instructor willl divide theclass into three groups aand assign oone of the inncident reporrts (below) too each groupp. As a group, read yourr assigned inncident repoort and discuuss how wellthe report foollows the guidelines yoou have beenn given in thhis module."
           },
           {
             "kind": "paragraph",
-            "text": "Discussioon Activityy Grouup discussioon The instructor willl divide theclass into three groups aand assign oone of the inncident reporrts (below) too each groupp. As a group, read yourr assigned inncident repoort and discuuss how wellthe report foollows the guidelines yoou have beenn given in thhis module."
+            "text": "Then, discuss thee following:"
           },
           {
             "kind": "paragraph",
@@ -3313,6 +4245,10 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": " Iss the report ddetailed enoough? Too deetailed?"
+          },
+          {
+            "kind": "paragraph",
+            "text": " Iss the report ccomplete?"
           },
           {
             "kind": "paragraph",
@@ -3328,11 +4264,37 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
+            "text": "3000 River Avenue Time: 11 AM"
+          }
+        ]
+      },
+      {
+        "heading": "Simpletown, AB",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Prepared by: Jane J. Officer Around lunch on Tuesday I was checking out some new coats at the boutique when a lady came up to me saying something about her purse being taken. They didn’t have any blue coats in my size. Her outfit didn’t match and she was wearing a weird hat with a flower on it. She was a bit kooky looking and I thought she might cry. She was wearing black and white stripe pants, a top with yellow flowers, brown shoes and a floppy hat that had the flower on it like I said. I didn’t see her with a purse. She was about 5’2” which I know because that is how tall my sister is and she had light brown hair like the lady who works in the lotto booth. She had a quiet voice and it was hard to hear so I hoped she wouldn’t cry like it looked like she was gonna because it would be hard to make her talk then. She said some young people came along in the parking lot and asked her for directions to the hamburger place. I think she meant the one where they only have drive- thru which I ate at last weekend. It was early for lunch so I don’t know why the kids wanted to know that. The lady said the boy was asking for directions and a girl came beside her and pulled on her purse and took it away. Then the boy and girl ran away and she thinks they got into a red truck. I don’t know if it was a Ford or a GM because she never said but it was probably a GM because they are pretty popular here. Especially the ones with big wheels. My cousin has one."
+          },
+          {
+            "kind": "paragraph",
             "text": "I told her to wait in the store where I was and I used my cell phone to call police. They said they would send some guy over so I told the lady to just hang out with me until the police came. I kept checking out the store and looking at my watch and after about 15 minutes I figured the cops would be here so I told the lady to follow me back to the security office. The cops still never came for 10 more minutes. I don’t get why it takes them so long. After forever when they got there I just told them to talk to the lady about the purse and then I went to get a coffee to go with my lunch because break was coming right away and I didn’t want to miss it because I needed to get back to my post."
           },
           {
             "kind": "paragraph",
-            "text": "Jane J. Officer Jan-14 Module Five: Documentation and Evidence, Page 14 Report #2 Incident Report Prairie Mall Date: Tues 5OCT2010 3000 River Avenue Time: 1116 Simpletown, AB Prepared by: Jane J. Officer I was approached by Mrs. MEREDITH at 1116 Tuesday morning. She reported her purse had been stolen. I called for the police to attend. The police arrived at 1151 and spoke with Mrs. MEREDITH in the security office."
+            "text": "Jan-14 Module Five: Documentation and Evidence, Page 14 Report #2"
+          },
+          {
+            "kind": "paragraph",
+            "text": "Prairie Mall Date: Tues 5OCT2010 3000 River Avenue Time: 1116"
+          }
+        ]
+      },
+      {
+        "heading": "Simpletown, AB",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Prepared by: Jane J. Officer I was approached by Mrs. MEREDITH at 1116 Tuesday morning. She reported her purse had been stolen. I called for the police to attend. The police arrived at 1151 and spoke with Mrs. MEREDITH in the security office."
           },
           {
             "kind": "paragraph",
@@ -3340,7 +4302,20 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jane J. Officer Jan-14 Module Five: Documentation and Evidence, Page 15 Report #3 Incident Report Prairie Mall Date: Tuesday 5OCT2010 3000 River Avenue Time: 1116 approx Simpletown, AB Prepared by: Jane J. Officer I was on my patrol of the mall on Tuesday and was approached by Mrs. MEREDITH at approximately 1116. She had been entering the mall through the south doors at approximately 1105 and was approached by two youths, one male and one female. The male youth asked her a question. As she was answering, the female youth grabbed the purse from Mrs. MEREDITH’s arm. Mrs. MEREDITH said she was caught off guard and was not able to hold on to her purse. The youth ran away into the parking lot. Mrs."
+            "text": "Jan-14 Module Five: Documentation and Evidence, Page 15 Report #3"
+          },
+          {
+            "kind": "paragraph",
+            "text": "Prairie Mall Date: Tuesday 5OCT2010 3000 River Avenue Time: 1116 approx"
+          }
+        ]
+      },
+      {
+        "heading": "Simpletown, AB",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Prepared by: Jane J. Officer I was on my patrol of the mall on Tuesday and was approached by Mrs. MEREDITH at approximately 1116. She had been entering the mall through the south doors at approximately 1105 and was approached by two youths, one male and one female. The male youth asked her a question. As she was answering, the female youth grabbed the purse from Mrs. MEREDITH’s arm. Mrs. MEREDITH said she was caught off guard and was not able to hold on to her purse. The youth ran away into the parking lot. Mrs."
           },
           {
             "kind": "paragraph",
@@ -3364,7 +4339,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Mrs. Margaret MEREDITH 123 Pine Avenue Simpletown, AB 480-555-1234 Cst. D. TAYLOR Simpletown Police Service 789 Center Street Simpletown, AB 480-777-1234 (office) 480-777-4321 (cell) Jane J. Officer Jan-14 Module Five: Documentation and Evidence, Page 16 When you first begin working for an organization, make sure you understand the reports that are required of you, as well as the frequency, format, and number of copies. Some organizations will ask you to report at the end of every shift; other types of reports may only need to be submitted on a periodic basis. You will need to know which reports must be handed in at which time and how they are to be submitted. Is there a mailbox for you to put your reports in, or should they be faxed or emailed? The report format may refer to handwritten vs. computer generated reports. If your organization makes computers available, the expectation may be you will create your reports using word processing software, or by filling out pre-generated forms which are accessed through the computer."
+            "text": "480-777-1234 (office) 480-777-4321 (cell)"
+          }
+        ]
+      },
+      {
+        "heading": "Jane J. Officer",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Jan-14 Module Five: Documentation and Evidence, Page 16 When you first begin working for an organization, make sure you understand the reports that are required of you, as well as the frequency, format, and number of copies. Some organizations will ask you to report at the end of every shift; other types of reports may only need to be submitted on a periodic basis. You will need to know which reports must be handed in at which time and how they are to be submitted. Is there a mailbox for you to put your reports in, or should they be faxed or emailed? The report format may refer to handwritten vs. computer generated reports. If your organization makes computers available, the expectation may be you will create your reports using word processing software, or by filling out pre-generated forms which are accessed through the computer."
           },
           {
             "kind": "paragraph",
@@ -3373,14 +4357,19 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "It is probably a good idea for you to retain a copy of your final report. If you have written your report on a computer there is likely a folder in which you may store an electronic copy. For handwritten reports, there may be a carbon copy that you are to keep or, you may need to make a photocopy for your own records. Having a copy to refer back to at a later date may be valuable if the original gets lost, or if you need to refresh your memory about a particular incident."
+          }
+        ]
+      },
+      {
+        "heading": "Traffic Collision Reports",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Traffic collisions should, generally, be investigated by the police or a peace officer."
           },
           {
             "kind": "paragraph",
-            "text": "Traffic Collision Reports Traffic collisions should, generally, be investigated by the police or a peace officer."
-          },
-          {
-            "kind": "paragraph",
-            "text": "However, it may be the case where you are present at the scene of a collision during the course of your duties; you should be prepared to record appropriate information for later use during the investigation. In cases where it is not required for the driver to report the accident to police (vehicle damage less than $1,000) it is still a good idea to make notes in case you are called upon to provide information at a later date. Even if the collision does not appear to be serious, it is good practice to collect information and© 2010. iStock #10207168. Used under licence with note it in your records.iStockphoto®. All rights reserved."
+            "text": "However, it may be the case where you are present at the scene of a collision during the course of your duties; you should be prepared to record appropriate information for later use during the investigation. In cases where it is not required for the driver to report the accident to police (vehicle damage less than $1,000) it is still a good idea to make notes in case you are called upon to provide information at a later date. Even if the collision does not appear to be serious, it is good practice to collect information and iStockphoto®. All rights reserved."
           },
           {
             "kind": "paragraph",
@@ -3393,10 +4382,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "You should provide your name and contact number to the drivers at the scene as well as any police or peace officer who may be present. This will allow the parties to contact you if they require additional information."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Mandatory Reports to the Registrar",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Mandatory Reports to the Registrar The Security Services and Investigators Regulation requires individual licensees to file mandatory reports in specified circumstances."
+            "text": "The Security Services and Investigators Regulation requires individual licensees to file mandatory reports in specified circumstances."
           },
           {
             "kind": "paragraph",
@@ -3440,7 +4434,7 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": " Change of name  Change of contact information  Related training completed  Changes to citizenship, immigration, or work permit docvuments Changes to the above information should be reported using the Update of Individual License Form (PS3746) which is available online at www.securityprograms.alberta.ca."
+            "text": " Change of name  Change of contact information  Related training completed  Changes to citizenship, immigration, or work permit docvuments Changes to the above information should be reported using the Update of Individual"
           }
         ]
       },
@@ -3503,10 +4497,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "Trace – this type of evidence includes fingerprints, footprints, and samples on which DNA testing may be performed; it is usually invisible to the naked eye and must be collected by trained experts."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Preparing for Court",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Preparing for Court As you have been learning throughout this module, the information you document in your notebook and in reports may eventually be used in court. If you have kept an accurate, complete notebook and submitted professional quality reports, preparing to testify in court should not be too onerous a task."
+            "text": "As you have been learning throughout this module, the information you document in your notebook and in reports may eventually be used in court. If you have kept an accurate, complete notebook and submitted professional quality reports, preparing to testify in court should not be too onerous a task."
           },
           {
             "kind": "paragraph",
@@ -3518,7 +4517,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "You should spend some time prior to your court date in preparation for your testimony. The subpoena will tell you what incident you are being called to testify about; review your notes and the reports you filed with respect to the event. This will help you to recall the events accurately and will help you feel more ready to Microsoft® answer any questions the prosecution or defence may wish to ask. On the appointed date, arrive at court early to ensure you find a place to park and locate the correct courtroom. This will help prevent you from getting flustered at the last minute as a result of needing to hurry. Re- read your notes again before you enter the court room. The lawyer (most likely the Prosecutor) may speak to you about your testimony. Clarify any questions you may have for the Prosecutor prior to court starting time."
+            "text": "You should spend some time prior to your court date in preparation for your testimony. The subpoena will tell you what incident you are being called to testify about; review your notes and the reports you filed with respect to the event. This will help you to recall the events accurately and will help you feel more ready to"
+          }
+        ]
+      },
+      {
+        "heading": "Microsoft®",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "answer any questions the prosecution or defence may wish to ask. On the appointed date, arrive at court early to ensure you find a place to park and locate the correct courtroom. This will help prevent you from getting flustered at the last minute as a result of needing to hurry. Re- read your notes again before you enter the court room. The lawyer (most likely the Prosecutor) may speak to you about your testimony. Clarify any questions you may have for the Prosecutor prior to court starting time."
           },
           {
             "kind": "paragraph",
@@ -3567,10 +4575,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "As asecurity professional, yoou will alreaddy be comfoortable with sspeaking proofessionally and ddirectly in unnfamiliar situations. Thesse are the saame skills yoou are calledd upon to utilizee in court; reemind yourseelf that courtt attendancee is simply annother respoonsibility for whichh you have aalready beenn prepared."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Post-Testt",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Post-Testt Checck your progrress. How mmuch do yourecall?"
+            "text": "Checck your progrress. How mmuch do yourecall?"
           },
           {
             "kind": "list",
@@ -3639,7 +4652,7 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "References Security Service and Investigators Regulation (AR 52/2010) Jan-14 Module Five: Documentation and Evidence, Page 23"
+            "text": "Security Service and Investigators Regulation (AR 52/2010) Jan-14 Module Five: Documentation and Evidence, Page 23"
           }
         ]
       }
@@ -3651,11 +4664,11 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
     "end": 147,
     "sections": [
       {
-        "heading": "Overview",
+        "heading": "Procedures for Security Professionals",
         "body": [
           {
             "kind": "paragraph",
-            "text": "Module Six: Emergency Response Procedures for Security Professionals Emergency situations are times when you, as a security professional, will be looked upon to bring leadership and direction to the persons involved. In this module, you will learn about the way alarms function to alert you to emergency situations. You will also learn precautions to take and procedures to follow during emergency situations you might typically encounter, such as fire or a bomb threat."
+            "text": "Emergency situations are times when you, as a security professional, will be looked upon to bring leadership and direction to the persons involved. In this module, you will learn about the way alarms function to alert you to emergency situations. You will also learn precautions to take and procedures to follow during emergency situations you might typically encounter, such as fire or a bomb threat."
           }
         ]
       },
@@ -3679,15 +4692,19 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
             "items": [
               "Monitor emergency scene for status changes and advise additional resources as"
             ]
+          },
+          {
+            "kind": "paragraph",
+            "text": "Alarm Systems .................................................................................................................. 3 Responding to Alarms ....................................................................................................... 6 Emergency Scene Management ....................................................................................... 8 Conclusion ...................................................................................................................... 18 References ...................................................................................................................... 18 Jan-14 Module Six: Emergency Response Procedures for Security Professionals, Page 1"
           }
         ]
       },
       {
-        "heading": "Topics",
+        "heading": "Check Yoour Knowledge",
         "body": [
           {
             "kind": "paragraph",
-            "text": "Alarm Systems .................................................................................................................. 3 Responding to Alarms ....................................................................................................... 6 Emergency Scene Management ....................................................................................... 8 Conclusion ...................................................................................................................... 18 References ...................................................................................................................... 18 Jan-14 Module Six: Emergency Response Procedures for Security Professionals, Page 1 Check Yoour Knowledge Testyour knowleedge of the toopic before sstarting thismodule."
+            "text": "Testyour knowleedge of the toopic before sstarting thismodule."
           },
           {
             "kind": "list",
@@ -3727,19 +4744,33 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "a. True b. False Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Jan-14Module Six: Emmergency Response Proceduresfor Security Proffessionals, Pagee 2 Alarm Systems An alarm monitoring system is a series of devices which serves to warn occupants and other individuals that an event outside of the “norm” is taking place. Alarm systems are physically attached within buildings and can monitor for events such as fire or entry by an intruder. There are also alarm systems which monitor for changes in the environment; these are commonly found in large buildings. Most commercial buildings and an increasing number of private homes utilize alarm systems. You should become familiar with the various types of alarm systems you encounter in your role as a security professional. Knowing how to read and respond to the indicators provided by the alarm will help you be more effective in your role."
+            "text": "a. True b. False Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Jan-14Module Six: Emmergency Response Proceduresfor Security Proffessionals, Pagee 2"
           },
           {
             "kind": "paragraph",
-            "text": "Types of Alarms Alarm systems may be used to detect or monitor the following:"
+            "text": "An alarm monitoring system is a series of devices which serves to warn occupants and other individuals that an event outside of the “norm” is taking place. Alarm systems are physically attached within buildings and can monitor for events such as fire or entry by an intruder. There are also alarm systems which monitor for changes in the environment; these are commonly found in large buildings. Most commercial buildings and an increasing number of private homes utilize alarm systems. You should become familiar with the various types of alarm systems you encounter in your role as a security professional. Knowing how to read and respond to the indicators provided by the alarm will help you be more effective in your role."
+          }
+        ]
+      },
+      {
+        "heading": "Types of Alarms",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Alarm systems may be used to detect or monitor the following:"
           },
           {
             "kind": "paragraph",
             "text": " Fire (smoke)  Intruders  Temperature  Humidity  Toxic substances (e.g., carbon monoxide)  Water pressure, water leaks  Pressure  Equipment operation Some alarm systems anticipate emergency events, such as an intruder or fire while other alarms monitor building operations, such as the temperature or humidity. Most buildings with sophisticated operation systems employ personnel for the monitoring of the systems and alarms. During evening or weekend hours, there may be an individual standing by “on call” in case of emergency or other event related to the building’s mechanical systems. Some sophisticated alarm systems are able to notify the building operator to an alarm by phone, or by email. Older systems may not be equipped this way so it will be incumbent upon you to know which systems you are to monitor; you will need to monitor for alarms on a regular basis and contact the appropriate person(s) at the first indication of a problem."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "How Alarms Work",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "How Alarms Work An alarm system is made up of three primary components:"
+            "text": "An alarm system is made up of three primary components:"
           },
           {
             "kind": "list",
@@ -3761,7 +4792,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Panel •Senses•SSends the•Recceives the changes in themmessage fromminforrmation environmeent,thhe sensor toosentt by the such asthhe controltranssmitter and movement,ppanel usinginitiaates a light,hard wires,respponse temperatuure,teelephonesequuence smoke,lines,radio pressuresignals, or using wirelesss teechnology Types of Sennsors Theree are different types of ssensors whicch can be ussed to monittor for eventss. The type of sensor used iss dependentupon the infformation beeing gathereed. For exammple, an intrudder alarm will monitor forr movementor other inddicators of enntry, such ass a change iin the amount of light in a room. Other typees of alarms,such as firee alarms, moonitor for thee preseence of smoke or the inccrease in temmperature wwhich accomppanies a firee."
+            "text": "•Senses•SSends the•Recceives the changes in themmessage fromminforrmation environmeent,thhe sensor toosentt by the such asthhe controltranssmitter and movement,ppanel usinginitiaates a light,hard wires,respponse temperatuure,teelephonesequuence smoke,lines,radio pressuresignals, or sing wirelesss teechnology"
+          }
+        ]
+      },
+      {
+        "heading": "Types of Sennsors",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Theree are different types of ssensors whicch can be ussed to monittor for eventss. The type of sensor used iss dependentupon the infformation beeing gathereed. For exammple, an intrudder alarm will monitor forr movementor other inddicators of enntry, such ass a change iin the amount of light in a room. Other typees of alarms,such as firee alarms, moonitor for thee preseence of smoke or the inccrease in temmperature wwhich accomppanies a firee."
           },
           {
             "kind": "paragraph",
@@ -3797,11 +4837,20 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Mechanical While this type of device does not “sense” information in the same manner as the sensors you have just studied, the fire alarm signal commonly found in schools and other public buildings acts as a sensor. When an individual pulls down on the handle, the movement triggers a response which sets off the alarm bells. Microsoft® Transmitters An alarm transmitter is relatively simple; its main purpose is to relay the information being provided by a sensor to the control panel. Some alarms use telephone wires; for example, the transmitter in some home security systems initiates a phone call to the alarm monitoring company, the police, or even both. Other systems, such as fire or smoke detectors, are hard wired between the sensor and transmitter, allowing the information to be transmitted by an actual physical connection. Wireless systems work Jan-14 Module Six: Emergency Response Procedures for Security Professionals, Page 5 similar to the way you access Wi-Fi Internet service; instead of a router sending an Internet signal to your computer, the alarm transmitter is sending information to the control panel."
+            "text": "Mechanical While this type of device does not “sense” information in the same manner as the sensors you have just studied, the fire alarm signal commonly found in schools and other public buildings acts as a sensor. When an individual pulls down on the handle, the movement triggers a response which sets off the alarm bells. Microsoft®"
           },
           {
             "kind": "paragraph",
-            "text": "Control Panels With respect to an alarm system, a control panel is not necessarily a physical object on which information about the alarm is displayed. Consider the smoke detector you have in your own home. When the alarm senses smoke, the device itself emits the shrill noise which attracts your attention. This is an example of a device where the sensor, transmitter, and “control panel” are all in one unit, in one location. In this example, the control panel is the functional part of the detector which is capable of creating a loud, attention-getting sound."
+            "text": "An alarm transmitter is relatively simple; its main purpose is to relay the information being provided by a sensor to the control panel. Some alarms use telephone wires; for example, the transmitter in some home security systems initiates a phone call to the alarm monitoring company, the police, or even both. Other systems, such as fire or smoke detectors, are hard wired between the sensor and transmitter, allowing the information to be transmitted by an actual physical connection. Wireless systems work Jan-14 Module Six: Emergency Response Procedures for Security Professionals, Page 5 similar to the way you access Wi-Fi Internet service; instead of a router sending an Internet signal to your computer, the alarm transmitter is sending information to the control panel."
+          }
+        ]
+      },
+      {
+        "heading": "Control Panels",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "With respect to an alarm system, a control panel is not necessarily a physical object on which information about the alarm is displayed. Consider the smoke detector you have in your own home. When the alarm senses smoke, the device itself emits the shrill noise which attracts your attention. This is an example of a device where the sensor, transmitter, and “control panel” are all in one unit, in one location. In this example, the control panel is the functional part of the detector which is capable of creating a loud, attention-getting sound."
           },
           {
             "kind": "paragraph",
@@ -3810,10 +4859,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "Sometimes those lights are blinking, sometimes they are dim; in some instances, lights will be green unless an alarm is triggered at which point the light will turn red. There are many different types of control panels and the configuration of lights, drawings, indicators, and sounds on the panel will vary between manufacturers."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Responding to Alarms",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Responding to Alarms If alarms are in place at your work site, make it your business to find out which alarms you are responsible and the required response for each. You will need to know the location of alarms, the subject of each alarm (e.g., what does it monitor?) and the location of control panels. If you are responsible for monitoring building systems, you should confirm the acceptable thresholds (levels) and record them in your notebook for reference."
+            "text": "If alarms are in place at your work site, make it your business to find out which alarms you are responsible and the required response for each. You will need to know the location of alarms, the subject of each alarm (e.g., what does it monitor?) and the location of control panels. If you are responsible for monitoring building systems, you should confirm the acceptable thresholds (levels) and record them in your notebook for reference."
           },
           {
             "kind": "paragraph",
@@ -3829,6 +4883,10 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
+            "text": "Jan-14 Module Six: Emergency Response Procedures for Security Professionals, Page 6 Some other alarms, such as the type which monitor building systems function, may be cause for you to take a different kind of action. You may receive instructions which require you to shut down a process in the event an alarm is signalled; if this is the case, you will receive instruction about how to do so. If you are not shown the procedure, ask at the outset of your shift. The point at which an alarm is being triggered is not the time to be learning an emergency shut-down procedure."
+          },
+          {
+            "kind": "paragraph",
             "text": "You should acquire a basic understanding of the alarm operation for any systems you are required to monitor or respond to. There may be an occasion when you are requested to shut down an alarm or sections of an alarm system to accommodate maintenance work or construction (e.g., powering down the alarm to allow contractor’s to work on the electrical system). You should not shut down any alarm system without clear direction to do so. This may come in the form of your post orders, an additional instruction from your supervisor, or direction from an emergency services representative in the case of an emergency. In a non-emergency setting, you must clarify any requests to adjust or shut down the alarm system with your supervisor before taking any action."
           },
           {
@@ -3837,7 +4895,48 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": " Respond to ALL alarms; often it is the case where a false alarm is triggered. It is your responsibility to check all alarm indicators, but always start with the assumption the alarm is genuine  Contact your supervisor to advise you are leaving your post and to advise about the alarm  Determine the source of the alarm and the appropriate response o False alarm – follow the protocol provided in your post orders; report back to your supervisor o Emergency – follow the protocols provided in your post orders  Manage the scene and persons at the scene in a manner appropriate to the situation o Fires and other emergencies – facilitate orderly evacuation of persons o Robbery or child abduction – seal off exit doors o Building systems failure – remain calm, advise persons to remain patient while the issue is resolved Off-Site Alarm Response In Module Three, you reviewed how alarm systems work and the process for off-site alarm responders. An off-site alarm may well constitute an emergency, but you must still remember to comply with traffic laws on your way to the location; this means you may not travel at a speed greater than the posted limit, and, you must obey all traffic signalling devices, such as stop signs and traffic lights."
+            "text": "When an alarm is triggered:"
+          },
+          {
+            "kind": "paragraph",
+            "text": " Respond to ALL alarms; often it is the case where a false alarm is triggered. It is your responsibility to check all alarm indicators, but always start with the assumption the alarm is genuine  Contact your supervisor to advise you are leaving your post and to advise about the alarm  Determine the source of the alarm and the appropriate response"
+          },
+          {
+            "kind": "list",
+            "items": [
+              "False alarm – follow the protocol provided in your post orders; report back to your"
+            ]
+          },
+          {
+            "kind": "list",
+            "items": [
+              "Emergency – follow the protocols provided in your post orders"
+            ]
+          },
+          {
+            "kind": "paragraph",
+            "text": " Manage the scene and persons at the scene in a manner appropriate to the situation"
+          },
+          {
+            "kind": "list",
+            "items": [
+              "Fires and other emergencies – facilitate orderly evacuation of persons",
+              "Robbery or child abduction – seal off exit doors",
+              "Building systems failure – remain calm, advise persons to remain patient while"
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "Off-Site Alarm Response",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "In Module Three, you reviewed how alarm systems work and the process for off-site alarm responders. An off-site alarm may well constitute an emergency, but you must still remember to comply with traffic laws on your way to the location; this means you may not travel at a speed greater than the posted limit, and, you must obey all traffic signalling devices, such as stop signs and traffic lights."
+          },
+          {
+            "kind": "paragraph",
+            "text": "Jan-14 Module Six: Emergency Response Procedures for Security Professionals, Page 7 Upon arrival at the scene cheeck to see ifdoors and winddows are seccure; make nnote of any wwhich appearr to bee open, unloocked, or otherwise unsecured."
           },
           {
             "kind": "paragraph",
@@ -3854,10 +4953,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "Docuument eventss in your nottebook and pprepare repoorts as requiired."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Emergencyy SceneManageement",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Emergencyy SceneManageement Whenn an emergeency situatioon occurs, yoou will be loooked upon too manage thhe safety andd securrity of the sccene. Emergency servicees personneel may directt you to takee specific actionns. Regardleess of the roole you are reequired to play, remainprofessional. This meanns you mustbe calm, utiilizing your pprofessionalcommunicaations skills aat all times, and ccontinually oobservant. During a crisiss, you are sttill responsibble for the seecurity of thee persoons and propperty you aree assigned tto protect. YYou will likelyy be one of thhe first people to arrive oon scene if,in fact, you aare not the oone to actuaally discoverthe emerrgency. Perssons on the sscene will tuurn to you forr guidance aand you neeed to be Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Jan-14Module Six: Emmergency Response Proceduresfor Security Proffessionals, Pagee 8 prepared to offer assistance. You will need to lead by example; if you struggle to contain yourself during an emergency, you will only hinder the efforts of emergency personnel."
+            "text": "Whenn an emergeency situatioon occurs, yoou will be loooked upon too manage thhe safety andd securrity of the sccene. Emergency servicees personneel may directt you to takee specific actionns. Regardleess of the roole you are reequired to play, remainprofessional. This meanns you mustbe calm, utiilizing your pprofessionalcommunicaations skills aat all times, and ccontinually oobservant. During a crisiss, you are sttill responsibble for the seecurity of thee persoons and propperty you aree assigned tto protect. YYou will likelyy be one of thhe first people to arrive oon scene if,in fact, you aare not the oone to actuaally discoverthe emerrgency. Perssons on the sscene will tuurn to you forr guidance aand you neeed to be Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Jan-14Module Six: Emmergency Response Proceduresfor Security Proffessionals, Pagee 8 prepared to offer assistance. You will need to lead by example; if you struggle to contain yourself during an emergency, you will only hinder the efforts of emergency personnel."
           },
           {
             "kind": "paragraph",
@@ -3866,10 +4970,19 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": " Fires  Bomb threats While the latter is much less common than fire, it is a serious situation and you need to know now – before it happens – how to proceed in the event such a threat occurs."
+          }
+        ]
+      },
+      {
+        "heading": "Fire",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Fire is a common occurrence, if only on a small scale. Regardless of how large or widespread a fire becomes, the impact of smoke and heat upon persons and property can be quite significant. As part of your regular patrols, you should be constantly aware of fire hazards and other indicators which suggest a fire is imminent."
           },
           {
             "kind": "paragraph",
-            "text": "Fire Fire is a common occurrence, if only on a small scale. Regardless of how large or widespread a fire becomes, the impact of smoke and heat upon persons and property can be quite significant. As part of your regular patrols, you should be constantly aware of fire hazards and other indicators which suggest a fire is imminent."
+            "text": "Preventing a fire emergency:"
           },
           {
             "kind": "paragraph",
@@ -3905,7 +5018,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "When a Fire Occurs If you discover a fire has started, you should immediately activate the fire alarm. Check the area for occupants and clear all persons from the building immediately. Closing doors and windows will help keep the fire from spreading to other areas. Carry out any other directives contained in your post orders in the event a fire occurs."
+            "text": "Jan-14 Module Six: Emergency Response Procedures for Security Professionals, Page 9  Make note of occasions when you find stoves or hotplates left on when nobody is around; make note also if you see evidence of candles being used (many facilities do not permit burning of candles – check what the role is at your location). Include these occurrences in your shift report to your supervisor who will follow up with the client."
+          }
+        ]
+      },
+      {
+        "heading": "When a Fire Occurs",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "If you discover a fire has started, you should immediately activate the fire alarm. Check the area for occupants and clear all persons from the building immediately. Closing doors and windows will help keep the fire from spreading to other areas. Carry out any other directives contained in your post orders in the event a fire occurs."
           },
           {
             "kind": "paragraph",
@@ -3927,6 +5049,10 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
               "Remain calm and professional at all times.",
               "Do not shout; you may need to speak louder in order to be heard but try not to"
             ]
+          },
+          {
+            "kind": "paragraph",
+            "text": "escalate to anxious yelling."
           },
           {
             "kind": "list",
@@ -3960,15 +5086,37 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
+            "text": "Jan-14 Module Six: Emergency Response Procedures for Security Professionals, Page 10 Not all fire extinguishers are created equal . . ."
+          },
+          {
+            "kind": "paragraph",
             "text": "While the scope of this course is not meant to be a comprehensive study in fire and fire management, it may be helpful for you to have a basic understanding of fire types, and the appropriate response to each."
           },
           {
             "kind": "paragraph",
-            "text": "Portable fire extinguishers come in several varieties based upon the type of fire they are most suited to putting out. The individuals who purchased and installed the fire extinguishers at your location should have selected equipment most suited to the environment; however, as time goes on, well-meaning individuals may replace equipment, or the original equipment may go missing. Knowing how to read the fire extinguisher itself will be the best indicator as to Microsoft® whether or not the device will be an effective tool in fighting the fire at hand."
+            "text": "Portable fire extinguishers come in several varieties based upon the type of fire they are most suited to putting out. The individuals who purchased and installed the fire extinguishers at your location should have selected equipment most suited to the environment; however, as time goes on, well-meaning individuals may replace equipment, or the original equipment may go missing. Knowing how to read the fire extinguisher itself will be the best indicator as to"
+          }
+        ]
+      },
+      {
+        "heading": "Microsoft®",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "whether or not the device will be an effective tool in fighting the fire at hand."
           },
           {
             "kind": "paragraph",
-            "text": "Ordinary combustibles  Paper, wood, fabric Flammable and combustible liquids  Fuel, oil, paint, grease Electrical fire  Wiring, fuse boxes Metals  Flammable metals such as magnesium and sodium You must use a fire extinguisher which is rated for the type of fire you are dealing with in order to be effective in your efforts."
+            "text": "Ordinary combustibles  Paper, wood, fabric Flammable and combustible liquids  Fuel, oil, paint, grease Electrical fire  Wiring, fuse boxes"
+          }
+        ]
+      },
+      {
+        "heading": "Metals",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": " Flammable metals such as magnesium and sodium You must use a fire extinguisher which is rated for the type of fire you are dealing with in order to be effective in your efforts."
           },
           {
             "kind": "paragraph",
@@ -3984,7 +5132,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "ULL the pin on the extinguisher or remove the safety catch as directed on the unit IM the nozzle at the base of the fire QUEEZE or press the handle WEEP the nozzle from side to side, spraying the contents at the fire Jan-14 Module Six: Emergency Response Procedures for Security Professionals, Page 11 Bomb Threats A bomb threat is a situation wherein you receive notification about the alleged presence of an explosive device at your location. They are uncommon and often they are a hoax."
+            "text": "ULL the pin on the extinguisher or remove the safety catch as directed on the unit IM the nozzle at the base of the fire QUEEZE or press the handle WEEP the nozzle from side to side, spraying the contents at the fire Jan-14 Module Six: Emergency Response Procedures for Security Professionals, Page 11"
+          }
+        ]
+      },
+      {
+        "heading": "Bomb Threats",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "A bomb threat is a situation wherein you receive notification about the alleged presence of an explosive device at your location. They are uncommon and often they are a hoax."
           },
           {
             "kind": "paragraph",
@@ -4000,11 +5157,37 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Some potential reasons for a person to make a bomb threat are:"
+            "text": "Some potential reasons for a person to make a"
           },
           {
             "kind": "paragraph",
-            "text": " Political statement – some individuals use bomb threats in protest of a particular political position Microsoft®  Revenge – a bomb threat creates chaos and disruption; an individual may use a bomb threat as a means of seeking revenge and causing difficulties for the target organization  Eco-terrorism – more frequently, industries and businesses which disrupt the environment as part of their business practice have been targeted with explosives (e.g., gas pipeline explosions)  Activism – special interest groups will capitalize on the attention which comes with a bomb threat Negative media attention has been brought against certain industry sectors in our province, and while it is unlikely you will deal with bomb threats on a frequent basis, you need to have an awareness and alertness toward these types of situations."
+            "text": " Political statement – some individuals use"
+          },
+          {
+            "kind": "paragraph",
+            "text": " Revenge – a bomb threat creates chaos and disruption; an individual may use a bomb threat as a means of seeking revenge and causing difficulties for the target organization  Eco-terrorism – more frequently, industries and businesses which disrupt the environment as part of their business practice have been targeted with explosives (e.g., gas pipeline explosions)  Activism – special interest groups will capitalize on the attention which comes with a"
+          }
+        ]
+      },
+      {
+        "heading": "bomb threat",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Negative media attention has been brought against certain industry sectors in our province, and while it is unlikely you will deal with bomb threats on a frequent basis, you need to have an awareness and alertness toward these types of situations."
+          },
+          {
+            "kind": "paragraph",
+            "text": "Jan-14 Module Six: Emergency Response Procedures for Security Professionals, Page 12"
+          }
+        ]
+      },
+      {
+        "heading": "Bomb threats are usually made by telephone though on occasion, they come via mail or",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "other hand delivery. The RCMP (2010) have developed various guidelines for dealing with a bomb threat which arrives by telephone, as well as a “bomb threat checklist” for gathering information from the caller while the threat is being made. The RCMP also suggest you should learn how to perform an initiate a call trace; they advise finding out how to do so before the time comes when it is required."
           },
           {
             "kind": "paragraph",
@@ -4016,7 +5199,32 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "BOMB THREAT CHECKLIST What time is the bomb going to explode?"
+            "text": "Jan-14 Module Six: Emergency Response Procedures for Security Professionals, Page 13 The RCMP bomb threat checklist is a document which allows you to record answers the caller provides and additional information you gather during the duration of the call. A sample bomb threat checklist based on the RCMP model might look as follows:"
+          }
+        ]
+      },
+      {
+        "heading": "BOMB THREAT CHECKLIST",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "What time is the bomb going to explode?"
+          },
+          {
+            "kind": "paragraph",
+            "text": "What does the bomb look like?"
+          },
+          {
+            "kind": "paragraph",
+            "text": "Where are you calling from?"
+          },
+          {
+            "kind": "paragraph",
+            "text": "Why have you placed the bomb?"
+          },
+          {
+            "kind": "paragraph",
+            "text": "Will you tell me your name?"
           },
           {
             "kind": "paragraph",
@@ -4025,11 +5233,12 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "Clarity ofGood Nasal Lisp: Other:"
-          },
-          {
-            "kind": "paragraph",
-            "text": "voice Manner Emotional Calm Vulgar Other:"
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Manner Emotional Calm Vulgar Other",
+        "body": [
           {
             "kind": "paragraph",
             "text": "Caller’s voice was familiar? Yes No Caller is familiar with area? Why?"
@@ -4041,18 +5250,36 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "After you have finished speaking with the caller, record the details of the call in your notebook, including the date and time of the call, and the exact wording of the threat (or as much as you can recall). Do not speak to anyone else about the call; doing so might incite panic, which will not help the situation."
+          }
+        ]
+      },
+      {
+        "heading": "Written Bomb Threat",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "As with a bomb threat by telephone, you should alert your supervisor and the authorities as soon as possible. Keep any packaging the threat arrived in (e.g., envelope, box) to turn over to police when they arrive."
           },
           {
             "kind": "paragraph",
-            "text": "Written Bomb Threat As with a bomb threat by telephone, you should alert your supervisor and the authorities as soon as possible. Keep any packaging the threat arrived in (e.g., envelope, box) to turn over to police when they arrive."
+            "text": "Jan-14 Module Six: Emergency Response Procedures for Security Professionals, Page 14"
           },
           {
             "kind": "paragraph",
-            "text": "Search If a decision is made to search the premises, you may be called upon to assist based on your familiarity with the location. You will receive direction as far as how to search, where to search, and what to look for. In turn, you may be called upon to provide information to the police about areas which are easily accessed by the public, or areas where critical systems are housed. If you are instructed to form© 2010. iStock # 10160412. Used under licence with part of the search effort, listen carefully toiStockphoto®. All rights reserved."
+            "text": "Your job is to report the bomb threat to your supervisors and/or police in accordance with your post orders. Once this has been taken care of, you should continue your regular duties, but with additional vigilance and watching for suspicious items or behaviours. A decision whether or not to ignore the threat, search for the threat, or evacuate the premises must come from someone other than yourself."
+          }
+        ]
+      },
+      {
+        "heading": "Search",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "If a decision is made to search the premises, you may be called upon to assist based on your familiarity with the location. You will receive direction as far as how to search, where to search, and what to look for. In turn, you may be called upon to provide information to the police about areas which are easily accessed by the public, or areas where critical systems are housed. If you are instructed to form iStockphoto®. All rights reserved."
           },
           {
             "kind": "paragraph",
-            "text": "the instructions provided by the police or the explosives experts – it could save your life!"
+            "text": "part of the search effort, listen carefully to the instructions provided by the police or the explosives experts – it could save your life!"
           },
           {
             "kind": "paragraph",
@@ -4111,6 +5338,10 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
+            "text": "Jan-14 Module Six: Emergency Response Procedures for Security Professionals, Page 15 You will be given instructions about how to proceed. Prevent additional persons from entering the area (unless they are members of the search/investigative effort). Make note of the nearest exits in case a quick evacuation or escape becomes necessary."
+          },
+          {
+            "kind": "paragraph",
             "text": "Best practices for searching  Search the public areas of the premises first; these areas are presumably more accessible to an individual trying to plant a device."
           },
           {
@@ -4148,10 +5379,19 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": " Remain in contact with your supervisor or the lead officer (if instructed to do so) to advise when rooms or areas have been cleared."
+          }
+        ]
+      },
+      {
+        "heading": "Evacuation",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "If you are instructed to assist with an evacuation effort ensure you understand what is being asked and how you are to direct the evacuees. Your assistance will be required to ensure a swift yet orderly exit from the premises for all persons at risk."
           },
           {
             "kind": "paragraph",
-            "text": "Evacuation If you are instructed to assist with an evacuation effort ensure you understand what is being asked and how you are to direct the evacuees. Your assistance will be required to ensure a swift yet orderly exit from the premises for all persons at risk."
+            "text": "Jan-14 Module Six: Emergency Response Procedures for Security Professionals, Page 16 Mostlarge buildinngs/venueshave develooped evacuaation plans too be implemmented in thee caseof emergency; you shouuld ensure yyou are familliar with theplan early oon in your post.Some settinngs, such ass hospitals or office builddings are occcupied by inndividuals mostly familiar with their surrroundings. Inn this case, tthe employeees are familliar with the exit rooutes and yoour assistannce will be mmainly requireed to help keeep people ccalm or for aidingg in the evaccuation of individuals whho are mobillity impaired. Other times, such as whenn you are posted to a larrge sports veenue, your aassistance wwill be requireed to help directt evacuees tto the appropriate exit. YYou will needd to ensure yyou are visibble and be watchhful for panicc behaviourwhich can leead to crowdd stampedinng and potenntial incidentts of traampling. Be aassuring to ffrightened evvacuees beffore the situaation escalaates to panic."
           },
           {
             "kind": "paragraph",
@@ -4164,10 +5404,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "Whenn time allowss, make theappropriateentries in yoour noteboook. Continuemonitoring the crowd and remain alert foor further insstructions froom your supervisor or thhe invesstigators in ccharge of thee scene. If yoou are approoached by mmedia do nott engage with them; be professional, but reefer reporterss to the meddia professioonals responsible for repreesenting thepolice."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Post-Testt",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Post-Testt Checck your progrress. How mmuch do yourecall?"
+            "text": "Checck your progrress. How mmuch do yourecall?"
           },
           {
             "kind": "list",
@@ -4214,23 +5459,19 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "foor unusual iteems to ensuure all possibble locationss are checkeed."
+          },
+          {
+            "kind": "paragraph",
+            "text": "Alarm systems protect persons and property from intruders, fire, environmental emergencies and other undesirable events. An alarm system consists of a sensor, transmitter, and a control panel. It is good practice for you to familiarize yourself with the alarm systems in use at your post; take time to ensure you understand the expectations of you in the event an alarm is triggered. During an emergency, you will be looked to for leadership; remain calm and professional as you deal with the situation and aid persons who may be in danger. For specific emergencies, follow best practices; in some cases, Used under licence with remaining with evacuated persons to await arrival of iStockphoto®. All rights emergency services may be the most helpful option."
           }
         ]
       },
       {
-        "heading": "Conclusion",
+        "heading": "References",
         "body": [
           {
             "kind": "paragraph",
-            "text": "Alarm systems protect persons and property from intruders, fire, environmental emergencies and other undesirable events. An alarm system consists of a sensor, transmitter, and a control panel. It is good practice for you to familiarize yourself with the alarm systems in use at your post; take time to ensure you understand the expectations of you in the event an alarm is triggered. During an emergency, you will be looked to for leadership; remain calm and professional as you deal with the situation and aid persons who may be in danger. For specific emergencies, follow best practices; in some cases,© 2010. iStock # 1862140."
-          },
-          {
-            "kind": "paragraph",
-            "text": "remaining with evacuated persons to await arrival ofUsed under licence with iStockphoto®. All rights emergency services may be the most helpful option.reserved."
-          },
-          {
-            "kind": "paragraph",
-            "text": "References st Banner Engineering. (2010). iKnow guide to sensing (1ed.). Minneapolis, MN: Banner Engineering."
+            "text": "st Banner Engineering. (2010). iKnow guide to sensing (1ed.). Minneapolis, MN: Banner Engineering."
           },
           {
             "kind": "paragraph",
@@ -4250,7 +5491,11 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
         "body": [
           {
             "kind": "paragraph",
-            "text": "Module Seven: Health & Safety for Security Professionals Remaining safe while you are on the job is key to being able to perform your role and responsibilities as a security professional. Your role requires you, at times, to be in situations where there is some degree of risk (e.g., conducting night patrols, working alone for long stretches of time). You must be aware of your surroundings and proactive when it comes to taking precautions with respect to your own safety. After all, you must be safe in order to protect the persons and property as assigned by your employer and the client."
+            "text": "Module Seven: Health & Safety for"
+          },
+          {
+            "kind": "paragraph",
+            "text": "Remaining safe while you are on the job is key to being able to perform your role and responsibilities as a security professional. Your role requires you, at times, to be in situations where there is some degree of risk (e.g., conducting night patrols, working alone for long stretches of time). You must be aware of your surroundings and proactive when it comes to taking precautions with respect to your own safety. After all, you must be safe in order to protect the persons and property as assigned by your employer and the client."
           }
         ]
       },
@@ -4281,15 +5526,19 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "a. Health b. Personal fitness c. Sleep d. Social life"
+          },
+          {
+            "kind": "paragraph",
+            "text": "Personal Safety ................................................................................................................. 3 Identifying Hazards ........................................................................................................... 5 Shift Work.......................................................................................................................... 7 Conclusion ...................................................................................................................... 11 References ...................................................................................................................... 11 Jan-14 Module Seven: Health & Safety for Security Professionals, Page 1"
           }
         ]
       },
       {
-        "heading": "Topics",
+        "heading": "Check Yoour Knowledge",
         "body": [
           {
             "kind": "paragraph",
-            "text": "Personal Safety ................................................................................................................. 3 Identifying Hazards ........................................................................................................... 5 Shift Work.......................................................................................................................... 7 Conclusion ...................................................................................................................... 11 References ...................................................................................................................... 11 Jan-14 Module Seven: Health & Safety for Security Professionals, Page 1 Check Yoour Knowledge Testyour knowleedge of the toopic before sstarting thismodule."
+            "text": "Testyour knowleedge of the toopic before sstarting thismodule."
           },
           {
             "kind": "list",
@@ -4329,7 +5578,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "a. True b. False Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Jan-14Module Seven:Health & Safetyfor Security Proffessionals, Pagee 2 Personal Safety Personal safety begins with your own attitude and your preparedness for the role. Your physical and mental fitness are important to your personal safety even before you step foot on the work site. Use the same method of observing and assessing to determine whether you are fit to perform your duties prior to beginning every shift. If you are overtired, ill, or otherwise incapacitated, you are not only a hazard to yourself, you are a hazard to the persons you are supposed to be protecting and a liability to your employer."
+            "text": "a. True b. False Albertaa Solicitor Generaal and Ministry off Public SecurityAlberta Basicc Security Traininng Jan-14Module Seven:Health & Safetyfor Security Proffessionals, Pagee 2"
+          }
+        ]
+      },
+      {
+        "heading": "Personal safety begins with your own attitude and your preparedness for the role. Your",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "physical and mental fitness are important to your personal safety even before you step foot on the work site. Use the same method of observing and assessing to determine whether you are fit to perform your duties prior to beginning every shift. If you are overtired, ill, or otherwise incapacitated, you are not only a hazard to yourself, you are a hazard to the persons you are supposed to be protecting and a liability to your employer."
           },
           {
             "kind": "paragraph",
@@ -4341,48 +5599,88 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Communication and Safety Develop a habit of communicating with your co-workers or supervisor on a regular basis while on duty. Checking in at the beginning of your shift, before and after breaks, and at the end of your shift lets others know you are at your post and serves to benchmark (establish a standard) your communication patterns. You may call more frequently if time and circumstances permit. Your employer is partially responsible for ensuring your safety, and will appreciate your checking in on a regular basis.Microsoft® You might also communicate with others during the course of your patrols. It may be individuals employed by the same organization as you, or it may be persons who work at various locations within the site. For example, it may become your habit to stop at the information desk each time you patrol the lobby area. There are at least two benefits to regular contact like this:"
-          },
-          {
-            "kind": "paragraph",
-            "text": " You have an opportunity to ask if there are any concerns you should be made aware of  The individual(s) working the desk will come to expect your presence (and more importantly, notice when you do not stop by, which may prompt them to have someone check up on you) Jan-14 Module Seven: Health & Safety for Security Professionals, Page 3 Safety and Your Duties Throughout this course, you have looked at the various situations you may encounter while working as a security professional and identified best practices and strategies for dealing with each. It is impossible to predict all possible situations you will encounter, but one thing common to all sites you will work at is the existence of an associated level of risk. For the purposes of this discussion, we will consider three broad categories of risk:"
-          },
-          {
-            "kind": "paragraph",
-            "text": "Low Medium High Examples of low-riskExamples of medium-riskExamples of high-risk setting:setting:setting:"
-          },
-          {
-            "kind": "paragraph",
-            "text": " Day shift Evening shift Night shift  Posting in a non- Parking lots during Working in area with hazardous locationdaylight hourshigh crime level (e.g., lobby of an office  Construction or Working around large tower) industrial site duringamounts of cash or daylight hoursvaluable goods  Venues with large Working in settings numbers of personswhere there is a risk of presentviolence (e.g., labour dispute)  Parking lot in darkness  Construction or industrial site during hours of darkness  Isolated location  Areas with limited radio or cell phone signal You will need to assess the risk at each site you work. Other factors you should consider when doing a risk assessment include the potential for a risky event to occur (e.g., how likely are you to encounter a fire) and how frequently does the risk happen (e.g., how often do you need to remove trespassers from a construction site during the day?). For example, you might be posted at a medium-risk setting, such© 2010. iStock # 2817450. Used under licence with as a parking lot during daylight hours,iStockphoto®. All rights reserved."
-          },
-          {
-            "kind": "paragraph",
-            "text": "but because it is in an isolated location, it is a popular place for drag racers to gather. At least once a week you must address a group of trespassers and ask them to leave the property. The regular frequency with which you interact with the racers elevates this setting into a potential high risk situation."
-          },
-          {
-            "kind": "paragraph",
-            "text": "Jan-14 Module Seven: Health & Safety for Security Professionals, Page 4"
+            "text": "Develop a habit of communicating with your co-workers or supervisor on a regular basis while on duty. Checking in at the beginning of your shift, before and after breaks, and at the end of your shift lets others know you are at your post and serves to benchmark (establish a standard) your communication patterns. You may call more frequently if time and circumstances permit. Your employer is partially responsible for ensuring your safety, and will appreciate your checking in on a regular basis."
           }
         ]
       },
       {
-        "heading": "Emergency Response",
+        "heading": "Microsoft®",
         "body": [
           {
             "kind": "paragraph",
+            "text": "You might also communicate with others during the course of your patrols. It may be individuals employed by the same organization as you, or it may be persons who work at various locations within the site. For example, it may become your habit to stop at the information desk each time you patrol the lobby area. There are at least two benefits to regular contact like this:"
+          },
+          {
+            "kind": "paragraph",
+            "text": " You have an opportunity to ask if there are any concerns you should be made aware of  The individual(s) working the desk will come to expect your presence (and more importantly, notice when you do not stop by, which may prompt them to have someone check up on you) Jan-14 Module Seven: Health & Safety for Security Professionals, Page 3"
+          },
+          {
+            "kind": "paragraph",
+            "text": "Throughout this course, you have looked at the various situations you may encounter while working as a security professional and identified best practices and strategies for dealing with each. It is impossible to predict all possible situations you will encounter, but one thing common to all sites you will work at is the existence of an associated level of risk. For the purposes of this discussion, we will consider three broad categories of risk:"
+          }
+        ]
+      },
+      {
+        "heading": "Low Medium High",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Examples of low-riskExamples of medium-riskExamples of high-risk setting:setting:setting:"
+          },
+          {
+            "kind": "paragraph",
+            "text": " Day shift Evening shift Night shift  Posting in a non- Parking lots during Working in area with hazardous locationdaylight hourshigh crime level (e.g., lobby of an office  Construction or Working around large tower) industrial site duringamounts of cash or daylight hoursvaluable goods  Venues with large Working in settings numbers of personswhere there is a risk of presentviolence (e.g., labour dispute)  Parking lot in darkness  Construction or industrial site during hours of darkness  Isolated location  Areas with limited radio or cell phone signal You will need to assess the risk at each site you work. Other factors you should consider when doing a risk assessment include the potential for a risky event to occur (e.g., how likely are you to encounter a fire) and how frequently does the risk happen (e.g., how often do you need to remove trespassers from a construction site during the day?). For example, you might be posted at a medium-risk setting, such iStockphoto®. All rights reserved."
+          },
+          {
+            "kind": "paragraph",
+            "text": "as a parking lot during daylight hours, but because it is in an isolated location, it is a popular place for drag racers to gather. At least once a week you must address a group of trespassers and ask them to leave the property. The regular frequency with which you interact with the racers elevates this setting into a potential high risk situation."
+          },
+          {
+            "kind": "paragraph",
+            "text": "Jan-14 Module Seven: Health & Safety for Security Professionals, Page 4"
+          },
+          {
+            "kind": "paragraph",
             "text": "You have already learned about appropriate responses to various emergency situations and have been reminded that maintaining a professional composure by staying calm will provide the most reassurance to individuals at the scene. You have learned about monitoring crowd situations for signs of panic, stampede, and potential trampling of persons. You know to use respectful and polite verbal and non-verbal communications when dealing with angry or difficult persons. Facing an emergency situation simply requires you to utilize all of these skills and best practices at the same time. As you have read in earlier modules your own safety is paramount during times of crisis; if you are injured or otherwise incapacitated you will be unable to perform your duties and assist others in their efforts to get to safety."
+          }
+        ]
+      },
+      {
+        "heading": "Identifying Hazards",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "The Canadian Centre for Occupational Health and Safety (2009) defines a hazard as “any source of potential damage, harm or adverse health effects on something or someone under certain conditions at work.” CCOHS identifies several categories of workplace hazards, examples of each follow:"
           },
           {
             "kind": "paragraph",
-            "text": "Identifying Hazards The Canadian Centre for Occupational Health and Safety (2009) defines a hazard as “any source of potential damage, harm or adverse health effects on something or someone under certain conditions at work.” CCOHS identifies several categories of workplace hazards, examples of each follow:"
+            "text": "Type of hazard Example Potential harm"
           },
           {
             "kind": "paragraph",
-            "text": "Type of hazard Example Potential harm Thing Scaffolding Collapse Substance Smoke Smoke inhalation, death Material Asbestos Cancer Energy source Electricity Electric shock Condition Icy Slip and fall Practice Working at height withoutFalling safety rope Process Chemical transport Accidental tank puncture leading to spillage or explosion There are also hazards associated with the uncontrolled release of energy (CCOHS, 2009):"
+            "text": "Substance Smoke Smoke inhalation, death"
+          }
+        ]
+      },
+      {
+        "heading": "Material Asbestos Cancer",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Energy source Electricity Electric shock Condition Icy Slip and fall Practice Working at height withoutFalling safety rope Process Chemical transport Accidental tank puncture leading to spillage or explosion There are also hazards associated with the uncontrolled release of energy (CCOHS, 2009):"
           },
           {
             "kind": "paragraph",
-            "text": " Object falling from a height (gravitational energy)  Out of control chemical reaction (chemical energy)  Release of pressurized gas or steam (pressure)  Clothing or hair becoming tangled in moving machinery (kinetic energy)  Contact with a fallen power line (electrical energy) Microsoft® Jan-14 Module Seven: Health & Safety for Security Professionals, Page 5 When identifying the potential hazards at a worksite, consider:"
+            "text": " Object falling from a height (gravitational energy)  Out of control chemical reaction (chemical energy)  Release of pressurized gas or steam (pressure)  Clothing or hair becoming tangled in moving machinery (kinetic energy)  Contact with a fallen power line (electrical energy)"
+          }
+        ]
+      },
+      {
+        "heading": "Microsoft®",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Jan-14 Module Seven: Health & Safety for Security Professionals, Page 5 When identifying the potential hazards at a worksite, consider:"
           },
           {
             "kind": "paragraph",
@@ -4430,47 +5728,85 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Shift Work Security patrols are often required during evening and night time hours, leading to the need for shift work amongst security professionals. Some of the most common negative effects of shift work include disruption of the circadian (sleep) rhythm, sleep deprivation, disorders of the gastrointestinal and cardiovascular systems, worsening of existing disorders, and disruption of family and social life (CCOHS, 2007)."
+            "text": "Security patrols are often required during evening and night time hours, leading to the need for shift work amongst security professionals. Some of the most common negative effects of shift work include disruption of the circadian (sleep) rhythm, sleep deprivation, disorders of the gastrointestinal and cardiovascular systems, worsening of existing disorders, and disruption of family and social life (CCOHS, 2007)."
+          }
+        ]
+      },
+      {
+        "heading": "Health and Nutrition",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Shift work disrupts normal social patterns and routines, such as meal time. When shift work causes you to work through or skip regular meals, it affects your health and overall well being. Even though you may not be able to eat dinner with your family each night, you can still adopt eating patterns which will help you combat the negative effects of shift work. The Occupational Health Clinics for Ontario Workers (2005) recommend:"
           },
           {
             "kind": "paragraph",
-            "text": "Health and Nutrition Shift work disrupts normal social patterns and routines, such as meal time. When shift work causes you to work through or skip regular meals, it affects your health and overall well being. Even though you may not be able to eat dinner with your family each night, you can still adopt eating patterns which will help you combat the negative effects of shift work. The Occupational Health Clinics for Ontario Workers (2005) recommend:"
+            "text": " Afternoon workers should have their meal in the middle of the day instead of the middle of their work shift  Night workers should eat lightly throughout the shift and have a moderate breakfast  Relaxing during meals and allow time for digestion  Drinking lots of water  Cutting back on highly salted foods  Reducing foods high in fat  Maintaining regular eating patterns with well-balanced meals (avoid junk food and limit fat intake)  Eating the usual balance of vegetables, fruit, lean meat, poultry, fish, dairy products, grains, and bread  Avoiding excessive use of antacids, tranquilizers and sleeping pills  Minimizing the intake of caffeine and alcohol  Avoiding fast food and vending machines Jan-14 Module Seven: Health & Safety for Security Professionals, Page 7"
+          }
+        ]
+      },
+      {
+        "heading": "Physical Fitness",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Physical fitness routines are often another casualty of shift work. You might normally work out at the time you are heading home from an overnight shift, or your evenings may be spent tending to your responsibilities to home and family, leaving no time for a workout. Fitness contributes to your ability to remain focused and alert on the job; being physically fit aids your energy levels which in turn sustain you through long shifts. Healthy U, an initiative of the Government of Alberta (2010) suggests shift workers try the following strategies for staying alert during late night shifts and maintaining physical fitness:"
           },
           {
             "kind": "paragraph",
-            "text": " Afternoon workers should have their meal in the middle of the day instead of the middle of their work shift  Night workers should eat lightly throughout the shift and have a moderate breakfast  Relaxing during meals and allow time for digestion  Drinking lots of water  Cutting back on highly salted foods  Reducing foods high in fat  Maintaining regular eating patterns with well-balanced meals (avoid junk food and limit fat intake)  Eating the usual balance of vegetables, fruit, lean meat, poultry, fish, dairy products, grains, and bread  Avoiding excessive use of antacids, tranquilizers and sleeping pills  Minimizing the intake of caffeine and alcohol  Avoiding fast food and vending machines Jan-14 Module Seven: Health & Safety for Security Professionals, Page 7 Physical Fitness Physical fitness routines are often another casualty of shift work. You might normally work out at the time you are heading home from an overnight shift, or your evenings may be spent tending to your responsibilities to home and family, leaving no time for a workout. Fitness contributes to your ability to remain focused and alert on the job; being physically fit aids your energy levels which in turn sustain you through long shifts. Healthy U, an initiative of the Government of Alberta (2010) suggests shift workers try the following strategies for staying alert during late night shifts and maintaining physical fitness:"
-          },
-          {
-            "kind": "paragraph",
-            "text": " Try to exercise during breaks© 2010. iStock # 4814915."
-          },
-          {
-            "kind": "paragraph",
-            "text": "Used under licence with  Talk with co-workers while you workiStockphoto®. All rights reserved."
+            "text": " Try to exercise during breaks Used under licence with iStockphoto®. All rights  Talk with co-workers while you work reserved."
           },
           {
             "kind": "paragraph",
             "text": " Try to work with a \"buddy\"  Take short breaks throughout your shift to use the employee lounge, take a walk, shoot hoops in the parking lot, or climb stairs  Don't leave the most tedious or boring tasks to the end of your shift when you will probably feel most sleepy  Exchange ideas with your colleagues on ways to cope with the problems of shift work  It’s a good idea to avoid exercising before going to bed, because exercise raises energy and your body temperature. Make sure you allow three hours to pass between exercising and going to sleep."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Sleep",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Sleep The most obvious affect shift work has on your physical and mental well-being is the disruption to your regular sleep patterns. Despite your family’s best attempts to ensure you are not disturbed and your own good intentions, it is not an easy task to obtain a quality sleep during daylight hours when most of the world is awake. The following suggestions may help you get the rest your body needs:"
+            "text": "The most obvious affect shift work has on your physical and mental well-being is the disruption to your regular sleep patterns. Despite your family’s best attempts to ensure you are not disturbed and your own good intentions, it is not an easy task to obtain a quality sleep during daylight hours when most of the world is awake. The following suggestions may help you get the rest your body needs:"
           },
           {
             "kind": "paragraph",
             "text": " Make sure your family and friends are aware of and considerate of your sleep hours and needs  Ensure you have a comfortable, quiet place to sleep during the day  Air conditioning, telephone answering machines, ear plugs and good window coverings are examples of devices which may improve your sleep  Make time for quiet relaxation before bed to facilitate better sleep (reading, breathing exercises, muscle relaxation techniques, etc.)  Sleep on a set schedule to help establish a routine and to make sleep during the day easier Jan-14 Module Seven: Health & Safety for Security Professionals, Page 8  Avoid strenuous exercise before sleeping as your body's metabolism will remain elevated for several hours afterward, making sleep difficult  If you do not fall asleep after one hour, read a book or listen to quiet music  If sleep still does not come, reschedule your sleeping hours for later in the day Adapted from Occupational Health Clinics for Ontario Workers, Inc., 2005 You will probably go through a process of trial and error until you discover what works best for you, but it will be worth it to get the rest you need. You will stay healthier, feel better, and have more energy for your work and personal life."
+          }
+        ]
+      },
+      {
+        "heading": "Social Life",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Working shifts wreaks havoc with your social life. Even if you are not a person who typically goes out often you will still notice the way shift work infringes upon your personal or relaxation time. All of us require the balance brought to us by our “down time” and the freedom to choose what we want to do. Extended periods of working evening or night shift can cause you to lose contact with family and friends and lead to a feeling of isolation. The Occupational Health Clinics for Ontario Workers (2005) provide the following ideas for maintaining a social life while being engaged in shift work:"
           },
           {
             "kind": "paragraph",
-            "text": "Social Life Working shifts wreaks havoc with your social life. Even if you are not a person who typically goes out often you will still notice the way shift work infringes upon your personal or relaxation time. All of us require the balance brought to us by our “down time” and the freedom to choose what we want to do. Extended periods of working evening or night shift can cause you to lose contact with family and friends and lead to a feeling of isolation. The Occupational Health Clinics for Ontario Workers (2005) provide the following ideas for maintaining a social life while being engaged in shift work:"
+            "text": " Schedule at least one daily meal with your family; this helps to keep communication channels open and promotes good eating habits  Socialize with other shift workers and their families; this helps to minimize the disruption that shift work can have on your social life  Keep in touch with your spouse/partner and children daily  Set time aside for just you and your spouse/partner  Carefully plan family activities; family ties are a precious commodity (plan days off in advance if possible)  Practice stress reduction"
+          }
+        ]
+      },
+      {
+        "heading": "Microsoft®",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": " Use a calendar to schedule events  Try to prioritize tasks and tackle one at a time Working shift work will cause you challenges but working to implement the strategies and ideas you have just studied should help to ease your concerns and protect your health and well being both on and off the job."
           },
           {
             "kind": "paragraph",
-            "text": " Schedule at least one daily meal with your family; this helps to keep communication channels open and promotes good eating habits  Socialize with other shift workers and their families; this helps to minimize the disruption that shift work can have on your social life  Keep in touch with your spouse/partner and children daily  Set time aside for just you and your spouse/partner  Carefully plan family activities; family ties are a precious commodity (plan days off in advance if possible)  Practice stress reduction Microsoft®  Use a calendar to schedule events  Try to prioritize tasks and tackle one at a time Working shift work will cause you challenges but working to implement the strategies and ideas you have just studied should help to ease your concerns and protect your health and well being both on and off the job."
-          },
+            "text": "Jan-14 Module Seven: Health & Safety for Security Professionals, Page 9"
+          }
+        ]
+      },
+      {
+        "heading": "Post-Tesst",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Jan-14 Module Seven: Health & Safety for Security Professionals, Page 9 Post-Tesst Checck your progrress. How mmuch do yourecall?"
+            "text": "Checck your progrress. How mmuch do yourecall?"
           },
           {
             "kind": "list",
@@ -4514,23 +5850,32 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "Shift work can take a toll on your health and well being; combat the effects of shift work by being informed and selecting strategies to maintain your overall wellness."
-          },
-          {
-            "kind": "paragraph",
-            "text": "References Canadian Centre for Occupational Health and Safety. (2009). Hazard and risk. Retrieved October 17, 2010 from http://www.ccohs.ca/oshanswers/hsprograms/hazard_risk.html Canadian Centre for Occupational Health and Safety. (2007). Rotational shiftwork."
-          },
-          {
-            "kind": "paragraph",
-            "text": "Retrieved October 17, 2010 from http://www.ccohs.ca/oshanswers/ergonomics/shiftwrk.html Government of Alberta. (2010). Healthy U: Shift work – Getting enough sleep and physical activity. Retrieved October 17, 2010 from http://www.healthyalberta.com/HealthyPlaces/685.htm Occupational Health Clinics for Ontario Workers, Inc. (2005). Shiftwork: Health effects and solutions. Retrieved October 17, 2010 from http://www.ohcow.on.ca/resources/handbooks/shiftwork/shiftwork.htm Jan-14 Module Seven: Health & Safety for Security Professionals, Page 11 Appendix A: Employment Standards Code"
           }
         ]
       },
       {
-        "heading": "Topics",
+        "heading": "References",
         "body": [
           {
             "kind": "paragraph",
-            "text": "Division 1: Paying Earnings ............................................................................................................. 2 Pay Periods ............................................................................................................................. 2 Payment of Wages, Overtime Pay and General Holiday Pay ................................................. 2 Ways of Paying Earnings ........................................................................................................ 2 Deductions from Earnings ....................................................................................................... 3 Division 3: Hours of Work ................................................................................................................ 3 Hours of Work Confined .......................................................................................................... 3 Notice of Work Times .............................................................................................................. 3 Rest Periods ............................................................................................................................ 4 Days of Rest ............................................................................................................................ 4 Compressed Work Week ......................................................................................................... 4 Division 4: Overtime and Overtime Pay .......................................................................................... 5 Overtime Hours........................................................................................................................ 5 Overtime Pay ........................................................................................................................... 5 Overtime Agreements .............................................................................................................. 5 Division 5: General Holidays and General Holiday Pay .................................................................. 6 General Holidays in Alberta ..................................................................................................... 6 Eligibility for General Holiday Pay ........................................................................................... 6 Resolving Doubts about General Holiday Pay Entitlements ................................................... 7 General Holiday Pay - Not Working on a Normal Work Day ................................................... 7 General Holiday Pay - Working on a Normal Work Day.......................................................... 7 General Holiday Pay - Working on Unscheduled Work Day ................................................... 8 General Holiday during Annual Vacation ................................................................................ 8 Division 6: Vacations and Vacation Pay .......................................................................................... 8 Basic Vacation Entitlement ...................................................................................................... 8 Vacation Entitlements with a Common Anniversary Date ....................................................... 9 When Vacation Pay is to be Paid ............................................................................................ 9 Vacation Pay on Termination of Employment ....................................................................... 10 When Vacation Pay is Considered to be Wages ................................................................... 10 Reductions in Vacation and Vacation Pay ............................................................................ 10 Dec-13 Appendix A: Employment Standards Code, Page 1 Division 1: Paying Earnings Pay Periods Section 7, Employment Standards Code (ESC) Pay periods 7(1) Every employer must establish one or more pay periods for the calculation of wages and overtime pay due to an employee."
+            "text": "Canadian Centre for Occupational Health and Safety. (2009). Hazard and risk. Retrieved October 17, 2010 from http://www.ccohs.ca/oshanswers/hsprograms/hazard_risk.html Canadian Centre for Occupational Health and Safety. (2007). Rotational shiftwork."
+          },
+          {
+            "kind": "paragraph",
+            "text": "Retrieved October 17, 2010 from http://www.ccohs.ca/oshanswers/ergonomics/shiftwrk.html Government of Alberta. (2010). Healthy U: Shift work – Getting enough sleep and physical activity. Retrieved October 17, 2010 from http://www.healthyalberta.com/HealthyPlaces/685.htm Occupational Health Clinics for Ontario Workers, Inc. (2005). Shiftwork: Health effects and solutions. Retrieved October 17, 2010 from http://www.ohcow.on.ca/resources/handbooks/shiftwork/shiftwork.htm Jan-14 Module Seven: Health & Safety for Security Professionals, Page 11"
+          },
+          {
+            "kind": "paragraph",
+            "text": "Division 1: Paying Earnings ............................................................................................................. 2 Pay Periods ............................................................................................................................. 2 Payment of Wages, Overtime Pay and General Holiday Pay ................................................. 2 Ways of Paying Earnings ........................................................................................................ 2 Deductions from Earnings ....................................................................................................... 3 Division 3: Hours of Work ................................................................................................................ 3 Hours of Work Confined .......................................................................................................... 3 Notice of Work Times .............................................................................................................. 3 Rest Periods ............................................................................................................................ 4 Days of Rest ............................................................................................................................ 4 Compressed Work Week ......................................................................................................... 4 Division 4: Overtime and Overtime Pay .......................................................................................... 5 Overtime Hours........................................................................................................................ 5 Overtime Pay ........................................................................................................................... 5 Overtime Agreements .............................................................................................................. 5 Division 5: General Holidays and General Holiday Pay .................................................................. 6 General Holidays in Alberta ..................................................................................................... 6 Eligibility for General Holiday Pay ........................................................................................... 6 Resolving Doubts about General Holiday Pay Entitlements ................................................... 7 General Holiday Pay - Not Working on a Normal Work Day ................................................... 7 General Holiday Pay - Working on a Normal Work Day.......................................................... 7 General Holiday Pay - Working on Unscheduled Work Day ................................................... 8 General Holiday during Annual Vacation ................................................................................ 8 Division 6: Vacations and Vacation Pay .......................................................................................... 8 Basic Vacation Entitlement ...................................................................................................... 8 Vacation Entitlements with a Common Anniversary Date ....................................................... 9 When Vacation Pay is to be Paid ............................................................................................ 9 Vacation Pay on Termination of Employment ....................................................................... 10 When Vacation Pay is Considered to be Wages ................................................................... 10 Reductions in Vacation and Vacation Pay ............................................................................ 10 Dec-13 Appendix A: Employment Standards Code, Page 1 Division 1: Paying Earnings"
+          }
+        ]
+      },
+      {
+        "heading": "Pay Periods",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 7, Employment Standards Code (ESC) Pay periods 7(1) Every employer must establish one or more pay periods for the calculation of wages and overtime pay due to an employee."
           },
           {
             "kind": "paragraph",
@@ -4546,7 +5891,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "1996 cE-10.3 s8 © Alberta Queen’s Printer, 2009 Ways of Paying Earnings Section 11, Employment Standards Code (ESC) Ways of paying earnings 11(1) In this section, “authorized financial institution” means a bank, treasury branch, credit union, loan corporation, trust corporation or other corporation insured under the Canada Deposit Insurance Corporation Act (Canada)."
+            "text": "1996 cE-10.3 s8 © Alberta Queen’s Printer, 2009"
+          }
+        ]
+      },
+      {
+        "heading": "Ways of Paying Earnings",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 11, Employment Standards Code (ESC) Ways of paying earnings 11(1) In this section, “authorized financial institution” means a bank, treasury branch, credit union, loan corporation, trust corporation or other corporation insured under the Canada Deposit Insurance Corporation Act (Canada)."
           },
           {
             "kind": "paragraph",
@@ -4566,7 +5920,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "1996 cE-10.3 s12 © Alberta Queen’s Printer, 2009 Division 3: Hours of Work Hours of Work Confined Section 16, Employment Standards Code (ESC) Hours of work confined 16(1) An employee’s hours of work must be confined within a period of 12 consecutive hours in any one work day, unless (a) an accident occurs, urgent work is necessary to a plant or machinery or other unforeseeable or unpreventable circumstances occur, or (b) the Director issues a permit authorizing extended hours of work."
+            "text": "1996 cE-10.3 s12 © Alberta Queen’s Printer, 2009 Division 3: Hours of Work"
+          }
+        ]
+      },
+      {
+        "heading": "Hours of Work Confined",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 16, Employment Standards Code (ESC) Hours of work confined 16(1) An employee’s hours of work must be confined within a period of 12 consecutive hours in any one work day, unless (a) an accident occurs, urgent work is necessary to a plant or machinery or other unforeseeable or unpreventable circumstances occur, or (b) the Director issues a permit authorizing extended hours of work."
           },
           {
             "kind": "paragraph",
@@ -4574,7 +5937,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "1996 cE-10.3 s16 © Alberta Queen’s Printer, 2009 Notice of Work Times Section 17, Employment Standards Code (ESC) Notice of work times 17(1) Every employer must notify the employees of the time at which work starts and ends by posting notices where they can be seen by the employees, or by any other reasonable method."
+            "text": "1996 cE-10.3 s16 © Alberta Queen’s Printer, 2009"
+          }
+        ]
+      },
+      {
+        "heading": "Notice of Work Times",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 17, Employment Standards Code (ESC) Notice of work times 17(1) Every employer must notify the employees of the time at which work starts and ends by posting notices where they can be seen by the employees, or by any other reasonable method."
           },
           {
             "kind": "paragraph",
@@ -4582,11 +5954,29 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "1996 cE-10.3 s17 © Alberta Queen’s Printer, 2009 Dec-13 Appendix A: Employment Standards Code, Page 3 Rest Periods Section 18, Employment Standards Code (ESC) Rest periods 18 Every employer must allow each employee a total of at least 30 minutes of rest, whether paid or unpaid, during each shift in excess of 5 consecutive hours of work unless (a) an accident occurs, urgent work is necessary or other unforeseeable or unpreventable circumstances occur, (b) different rest provisions are agreed to pursuant to a collective agreement, or (c) it is not reasonable for the employee to take a rest period."
+            "text": "1996 cE-10.3 s17 © Alberta Queen’s Printer, 2009 Dec-13 Appendix A: Employment Standards Code, Page 3"
+          }
+        ]
+      },
+      {
+        "heading": "Rest Periods",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 18, Employment Standards Code (ESC) Rest periods 18 Every employer must allow each employee a total of at least 30 minutes of rest, whether paid or unpaid, during each shift in excess of 5 consecutive hours of work unless (a) an accident occurs, urgent work is necessary or other unforeseeable or unpreventable circumstances occur, (b) different rest provisions are agreed to pursuant to a collective agreement, or (c) it is not reasonable for the employee to take a rest period."
           },
           {
             "kind": "paragraph",
-            "text": "1996 cE-10.3 s18 © Alberta Queen’s Printer, 2009 Days of Rest Section 19, Employment Standards Code (ESC) Days of rest 19(1) Every employer must allow each employee at least (a) one day of rest in each work week, (b) 2 consecutive days of rest in each period of 2 consecutive work weeks, (c) 3 consecutive days of rest in each period of 3 consecutive work weeks, or (d) 4 consecutive days of rest in each period of 4 consecutive work weeks."
+            "text": "1996 cE-10.3 s18 © Alberta Queen’s Printer, 2009"
+          }
+        ]
+      },
+      {
+        "heading": "Days of Rest",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 19, Employment Standards Code (ESC) Days of rest 19(1) Every employer must allow each employee at least (a) one day of rest in each work week, (b) 2 consecutive days of rest in each period of 2 consecutive work weeks, (c) 3 consecutive days of rest in each period of 3 consecutive work weeks, or (d) 4 consecutive days of rest in each period of 4 consecutive work weeks."
           },
           {
             "kind": "paragraph",
@@ -4594,7 +5984,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "1996 cE-10.3 s19 © Alberta Queen’s Printer, 2009 Compressed Work Week Section 20, Employment Standards Code (ESC) Compressed work week 20(1) An employer may require or permit an employee to work a compressed work week, consisting of fewer work days in the work week and more hours of work in a work day paid at the employee’s regular wage rate."
+            "text": "1996 cE-10.3 s19 © Alberta Queen’s Printer, 2009"
+          }
+        ]
+      },
+      {
+        "heading": "Compressed Work Week",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 20, Employment Standards Code (ESC) Compressed work week 20(1) An employer may require or permit an employee to work a compressed work week, consisting of fewer work days in the work week and more hours of work in a work day paid at the employee’s regular wage rate."
           },
           {
             "kind": "paragraph",
@@ -4606,11 +6005,29 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "1996 cE-10.3 s20 © Alberta Queen’s Printer, 2009 Dec-13 Appendix A: Employment Standards Code, Page 4 Division 4: Overtime and Overtime Pay Overtime Hours Section 21, Employment Standards Code (ESC) Overtime hours 21 Overtime hours in respect of a work week are (a) the total of an employee’s hours of work in excess of 8 on each work day in the work week, or (b) an employee’s hours of work in excess of 44 hours in the work week, whichever is greater, and, if the hours in clauses (a) and (b) are the same, the overtime hours are those common hours."
+            "text": "1996 cE-10.3 s20 © Alberta Queen’s Printer, 2009 Dec-13 Appendix A: Employment Standards Code, Page 4 Division 4: Overtime and Overtime Pay"
+          }
+        ]
+      },
+      {
+        "heading": "Overtime Hours",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 21, Employment Standards Code (ESC) Overtime hours 21 Overtime hours in respect of a work week are (a) the total of an employee’s hours of work in excess of 8 on each work day in the work week, or (b) an employee’s hours of work in excess of 44 hours in the work week, whichever is greater, and, if the hours in clauses (a) and (b) are the same, the overtime hours are those common hours."
           },
           {
             "kind": "paragraph",
-            "text": "1996 cE-10.3 s21 © Alberta Queen’s Printer, 2009 Overtime Pay Section 22, Employment Standards Code (ESC) Overtime pay 22(1) An employer must pay an employee overtime pay of at least 1.5 times the employee’s wage rate for overtime hours."
+            "text": "1996 cE-10.3 s21 © Alberta Queen’s Printer, 2009"
+          }
+        ]
+      },
+      {
+        "heading": "Overtime Pay",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 22, Employment Standards Code (ESC) Overtime pay 22(1) An employer must pay an employee overtime pay of at least 1.5 times the employee’s wage rate for overtime hours."
           },
           {
             "kind": "paragraph",
@@ -4618,7 +6035,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "1996 cE-10.3 s22 © Alberta Queen’s Printer, 2009 Overtime Agreements Section 23, Employment Standards Code (ESC) Overtime agreements 23(1) An employee or the majority of a group of employees may enter into an overtime agreement (a) as part of a collective agreement, or (b) if there is no collective agreement, in a written agreement between the employee or group of employees and the employer, that provides that, wholly or partly instead of overtime pay, the employer will provide, and the employee or group of employees will take, time off with pay instead of overtime pay."
+            "text": "1996 cE-10.3 s22 © Alberta Queen’s Printer, 2009"
+          }
+        ]
+      },
+      {
+        "heading": "Overtime Agreements",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 23, Employment Standards Code (ESC) Overtime agreements 23(1) An employee or the majority of a group of employees may enter into an overtime agreement (a) as part of a collective agreement, or (b) if there is no collective agreement, in a written agreement between the employee or group of employees and the employer, that provides that, wholly or partly instead of overtime pay, the employer will provide, and the employee or group of employees will take, time off with pay instead of overtime pay."
           },
           {
             "kind": "paragraph",
@@ -4634,7 +6060,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "1996 cE-10.3 s23 © Alberta Queen’s Printer, 2009 Division 5: General Holidays and General Holiday Pay General Holidays in Alberta Section 25, Employment Standards Code (ESC) General holidays in Alberta 25 The following days are general holidays in Alberta:"
+            "text": "1996 cE-10.3 s23 © Alberta Queen’s Printer, 2009 Division 5: General Holidays and General Holiday Pay"
+          }
+        ]
+      },
+      {
+        "heading": "General Holidays in Alberta",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 25, Employment Standards Code (ESC) General holidays in Alberta 25 The following days are general holidays in Alberta:"
           },
           {
             "kind": "paragraph",
@@ -4642,7 +6077,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "1996 cE-10.3 s25 © Alberta Queen’s Printer, 2009 Eligibility for General Holiday Pay Section 26, Employment Standards Code (ESC) Eligibility for general holiday pay 26(1) An employee is eligible for general holiday pay if the employee has worked for the same employer for 30 work days or more in the 12 months preceding the general holiday."
+            "text": "1996 cE-10.3 s25 © Alberta Queen’s Printer, 2009"
+          }
+        ]
+      },
+      {
+        "heading": "Eligibility for General Holiday Pay",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 26, Employment Standards Code (ESC) Eligibility for general holiday pay 26(1) An employee is eligible for general holiday pay if the employee has worked for the same employer for 30 work days or more in the 12 months preceding the general holiday."
           },
           {
             "kind": "paragraph",
@@ -4682,11 +6126,29 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "1996 cE-10.3 s31 © Alberta Queen’s Printer, 2009 Division 6: Vacations and Vacation Pay Basic Vacation Entitlement Section 34, Employment Standards Code (ESC) Basic vacation entitlement 34 An employee becomes entitled to an annual vacation of at least (a) 2 weeks after each of the first 4 years of employment, and (b) 3 weeks after 5 consecutive years of employment and each year of employment after that, unless section 35 applies."
+            "text": "1996 cE-10.3 s31 © Alberta Queen’s Printer, 2009 Division 6: Vacations and Vacation Pay"
+          }
+        ]
+      },
+      {
+        "heading": "Basic Vacation Entitlement",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 34, Employment Standards Code (ESC) Basic vacation entitlement 34 An employee becomes entitled to an annual vacation of at least (a) 2 weeks after each of the first 4 years of employment, and (b) 3 weeks after 5 consecutive years of employment and each year of employment after that, unless section 35 applies."
           },
           {
             "kind": "paragraph",
-            "text": "1996 cE-10.3 s34 © Alberta Queen’s Printer, 2009 Dec-13 Appendix A: Employment Standards Code, Page 8 Vacation Entitlements with a Common Anniversary Date Section 35, Employment Standards Code (ESC) Vacation entitlements with a common anniversary date 35(1) For the purpose of calculating vacation and vacation pay, an employer may establish a common anniversary date for all employees or a group of them."
+            "text": "1996 cE-10.3 s34 © Alberta Queen’s Printer, 2009 Dec-13 Appendix A: Employment Standards Code, Page 8"
+          }
+        ]
+      },
+      {
+        "heading": "Vacation Entitlements with a Common Anniversary Date",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 35, Employment Standards Code (ESC) Vacation entitlements with a common anniversary date 35(1) For the purpose of calculating vacation and vacation pay, an employer may establish a common anniversary date for all employees or a group of them."
           },
           {
             "kind": "paragraph",
@@ -4710,7 +6172,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "1996 cE-10.3 s41 © Alberta Queen’s Printer, 2009 Dec-13 Appendix A: Employment Standards Code, Page 9 Vacation Pay on Termination of Employment Section 42, Employment Standards Code (ESC) Vacation pay on termination of employment 42(1) If employment terminates before an employee becomes entitled to a first annual vacation, the employer must pay the employee 4% of the employee’s wages earned during the employment."
+            "text": "1996 cE-10.3 s41 © Alberta Queen’s Printer, 2009 Dec-13 Appendix A: Employment Standards Code, Page 9"
+          }
+        ]
+      },
+      {
+        "heading": "Vacation Pay on Termination of Employment",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 42, Employment Standards Code (ESC) Vacation pay on termination of employment 42(1) If employment terminates before an employee becomes entitled to a first annual vacation, the employer must pay the employee 4% of the employee’s wages earned during the employment."
           },
           {
             "kind": "paragraph",
@@ -4722,20 +6193,37 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "1996 cE-10.3 s43 © Alberta Queen’s Printer, 2009 Reductions in Vacation and Vacation Pay Section 44, Employment Standards Code (ESC) Reductions in vacation and vacation pay 44 When an employee is absent from work, an employer may reduce the employee’s vacation and vacation pay in proportion to the number of days the employee was or would normally have been scheduled to work, but did not."
-          },
-          {
-            "kind": "paragraph",
-            "text": "1996 cE-10.3 s44 © Alberta Queen’s Printer, 2009 Dec-13 Appendix A: Employment Standards Code, Page 10 Appendix B: Criminal Code The following are criminal offences you may encounter in your work as a security professional."
+            "text": "1996 cE-10.3 s43 © Alberta Queen’s Printer, 2009"
           }
         ]
       },
       {
-        "heading": "Topics",
+        "heading": "Reductions in Vacation and Vacation Pay",
         "body": [
           {
             "kind": "paragraph",
-            "text": "Common Summary Offences ............................................................................................ 3 Unlawful Assembly..................................................................................................... 3 Weapon at a Public Meeting ...................................................................................... 3 Indecent Acts ............................................................................................................. 4 Trespassing at Night .................................................................................................. 5 Obtain Food or Lodging by Fraud .............................................................................. 5 Obtain Transportation by Fraud ................................................................................. 5 Common Indictable Offences ............................................................................................ 6 Weapon or Imitation for Dangerous Purpose............................................................. 6 Aggravated Assault .................................................................................................... 6 Theft Over $5,000 ...................................................................................................... 6 Robbery with Firearm and Other................................................................................ 7 Possession of Housebreaking Instruments.............................................................. 10 Possession of Property over $5,000 .......................................................................... 7 Fraud over $5,000...................................................................................................... 8 Mischief Endangering Life.......................................................................................... 8 Arson, Disregard for Human Life ............................................................................... 8 Arson, Damage to Property of Others........................................................................ 8 Arson, Damage to Own Property, Threat to Safety of Others.................................... 9 Possession of Counterfeit Money .............................................................................. 9 Common Dual (Hybrid) Offences .................................................................................... 10 Possession of Prohibited Weapon ........................................................................... 10 Public Mischief ......................................................................................................... 10 Criminal Harassment ............................................................................................... 11 Assault Causing Bodily Harm or With a Weapon..................................................... 11 Sexual Assault ......................................................................................................... 11 Theft $5,000 or Less ................................................................................................ 12 Possession of Property under $5,000 ...................................................................... 12 Jan-14 Appendix B: Criminal Code, Page 1 Forgery..................................................................................................................... 13 Utter Forged Document ........................................................................................... 14 Fraud, $5,000 or Less .............................................................................................. 14 Mischief Testamentary Instrument or Property over $5,000 .................................... 15 Mischief, Other Property .......................................................................................... 15 Mischief, Data .......................................................................................................... 16 False Alarm Fire....................................................................................................... 16 Jan-14 Appendix B: Criminal Code, Page 2 Common Summary Offences Unlawful Assembly Section 63, Section 64, Section 65, Criminal Code (CC) Unlawful assembly"
+            "text": "Section 44, Employment Standards Code (ESC) Reductions in vacation and vacation pay 44 When an employee is absent from work, an employer may reduce the employee’s vacation and vacation pay in proportion to the number of days the employee was or would normally have been scheduled to work, but did not."
+          },
+          {
+            "kind": "paragraph",
+            "text": "1996 cE-10.3 s44 © Alberta Queen’s Printer, 2009 Dec-13 Appendix A: Employment Standards Code, Page 10"
+          },
+          {
+            "kind": "paragraph",
+            "text": "The following are criminal offences you may encounter in your work as a security professional."
+          },
+          {
+            "kind": "paragraph",
+            "text": "Common Summary Offences ............................................................................................ 3 Unlawful Assembly..................................................................................................... 3 Weapon at a Public Meeting ...................................................................................... 3 Indecent Acts ............................................................................................................. 4 Trespassing at Night .................................................................................................. 5 Obtain Food or Lodging by Fraud .............................................................................. 5 Obtain Transportation by Fraud ................................................................................. 5 Common Indictable Offences ............................................................................................ 6 Weapon or Imitation for Dangerous Purpose............................................................. 6 Aggravated Assault .................................................................................................... 6 Theft Over $5,000 ...................................................................................................... 6 Robbery with Firearm and Other................................................................................ 7 Possession of Housebreaking Instruments.............................................................. 10 Possession of Property over $5,000 .......................................................................... 7 Fraud over $5,000...................................................................................................... 8 Mischief Endangering Life.......................................................................................... 8 Arson, Disregard for Human Life ............................................................................... 8 Arson, Damage to Property of Others........................................................................ 8 Arson, Damage to Own Property, Threat to Safety of Others.................................... 9 Possession of Counterfeit Money .............................................................................. 9 Common Dual (Hybrid) Offences .................................................................................... 10 Possession of Prohibited Weapon ........................................................................... 10 Public Mischief ......................................................................................................... 10 Criminal Harassment ............................................................................................... 11 Assault Causing Bodily Harm or With a Weapon..................................................... 11 Sexual Assault ......................................................................................................... 11 Theft $5,000 or Less ................................................................................................ 12 Possession of Property under $5,000 ...................................................................... 12 Jan-14 Appendix B: Criminal Code, Page 1 Forgery..................................................................................................................... 13 Utter Forged Document ........................................................................................... 14 Fraud, $5,000 or Less .............................................................................................. 14 Mischief Testamentary Instrument or Property over $5,000 .................................... 15 Mischief, Other Property .......................................................................................... 15 Mischief, Data .......................................................................................................... 16 False Alarm Fire....................................................................................................... 16 Jan-14 Appendix B: Criminal Code, Page 2"
+          }
+        ]
+      },
+      {
+        "heading": "Unlawful Assembly",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 63, Section 64, Section 65, Criminal Code (CC) Unlawful assembly"
           },
           {
             "kind": "list",
@@ -4753,8 +6241,13 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Exception (3) Persons are not unlawfully assembled by reason only that they are assembled to protect the dwelling- house of any one of them against persons who are threatening to break and enter it for the purpose of committing an indictable offence therein."
-          },
+            "text": "(3) Persons are not unlawfully assembled by reason only that they are assembled to protect the dwelling- house of any one of them against persons who are threatening to break and enter it for the purpose of committing an indictable offence therein."
+          }
+        ]
+      },
+      {
+        "heading": "Riot",
+        "body": [
           {
             "kind": "list",
             "items": [
@@ -4788,10 +6281,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "any ammunition or prohibited ammunition while the person is attending or is on the way to attend a public meeting."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Punishment",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Punishment (2) Every person who commits an offence under subsection (1) is guilty of an offence punishable on summary conviction."
+            "text": "(2) Every person who commits an offence under subsection (1) is guilty of an offence punishable on summary conviction."
           },
           {
             "kind": "paragraph",
@@ -4799,7 +6297,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Appendix B: Criminal Code, Page 3 Indecent Acts Section 173, Section 174, Section 175(1), CC Indecent acts"
+            "text": "Jan-14 Appendix B: Criminal Code, Page 3"
+          }
+        ]
+      },
+      {
+        "heading": "Indecent Acts",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 173, Section 174, Section 175(1), CC Indecent acts"
           },
           {
             "kind": "list",
@@ -4810,15 +6317,25 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "(a) in a public place in the presence of one or more persons, or (b) in any place, with intent thereby to insult or offend any person, is guilty of an offence punishable on summary conviction."
+          }
+        ]
+      },
+      {
+        "heading": "Exposure",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "(2) Every person who, in any place, for a sexual purpose, exposes his or her genital organs to a person who is under the age of 16 years is guilty of an offence punishable on summary conviction."
           },
           {
             "kind": "paragraph",
-            "text": "Exposure (2) Every person who, in any place, for a sexual purpose, exposes his or her genital organs to a person who is under the age of 16 years is guilty of an offence punishable on summary conviction."
-          },
-          {
-            "kind": "paragraph",
-            "text": "R.S., 1985, c.C-46, s.173; R.S., 1985, c.19 (3rd Supp.), s 7; 2008, c 6, s.54 Nudity"
-          },
+            "text": "R.S., 1985, c.C-46, s.173; R.S., 1985, c.19 (3rd Supp.), s 7; 2008, c 6, s.54"
+          }
+        ]
+      },
+      {
+        "heading": "Nudity",
+        "body": [
           {
             "kind": "list",
             "items": [
@@ -4831,11 +6348,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Nude (2) For the purposes of this section, a person is nude who is so clad as to offend against public decency or order."
-          },
+            "text": "(2) For the purposes of this section, a person is nude who is so clad as to offend against public decency or order."
+          }
+        ]
+      },
+      {
+        "heading": "Consent of Attorney General",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Consent of Attorney General (3) No proceedings shall be commenced under this section without the consent of the Attorney General."
+            "text": "(3) No proceedings shall be commenced under this section without the consent of the Attorney General."
           },
           {
             "kind": "paragraph",
@@ -4872,10 +6394,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "R.S., c.C-34, s.173 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Obtain Food or Lodging by Fraud",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Obtain Food or Lodging by Fraud Section 364, CC Fraudulently obtaining food, beverage or accommodation"
+            "text": "Section 364, CC Fraudulently obtaining food, beverage or accommodation"
           },
           {
             "kind": "list",
@@ -4886,10 +6413,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "business of providing those things is guilty of an offence punishable on summary conviction."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Presumption",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Presumption (2) In proceedings under this section, evidence that the accused obtained food, a beverage or accommodation at a place that is in the business of providing those things and did not pay for it and (a) made a false or fictitious show or pretence of having baggage, (b) had any false or pretended baggage, (c) surreptitiously removed or attempted to remove his baggage or any material part of it, (d) absconded or surreptitiously left the premises, (e) knowingly made a false statement to obtain credit or time for payment, or (f) offered a worthless cheque, draft or security in payment for the food, beverage or accommodation, is, in the absence of any evidence to the contrary, proof of fraud."
+            "text": "(2) In proceedings under this section, evidence that the accused obtained food, a beverage or accommodation at a place that is in the business of providing those things and did not pay for it and (a) made a false or fictitious show or pretence of having baggage, (b) had any false or pretended baggage, (c) surreptitiously removed or attempted to remove his baggage or any material part of it, (d) absconded or surreptitiously left the premises, (e) knowingly made a false statement to obtain credit or time for payment, or (f) offered a worthless cheque, draft or security in payment for the food, beverage or accommodation, is, in the absence of any evidence to the contrary, proof of fraud."
           },
           {
             "kind": "paragraph",
@@ -4898,10 +6430,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "R.S., 1985, c.C-46, s.364; 1994, c.44, s.23 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Obtain Transportation by Fraud",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Obtain Transportation by Fraud Section 393(1), CC Fraud in relation to fares, etc."
+            "text": "Section 393(1), CC Fraud in relation to fares, etc."
           },
           {
             "kind": "list",
@@ -4919,7 +6456,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Appendix B: Criminal Code, Page 5 Common Indictable Offences Weapon or Imitation for Dangerous Purpose Section 87, CC Pointing a firearm"
+            "text": "Jan-14 Appendix B: Criminal Code, Page 5"
+          }
+        ]
+      },
+      {
+        "heading": "Weapon or Imitation for Dangerous Purpose",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 87, CC Pointing a firearm"
           },
           {
             "kind": "list",
@@ -4930,18 +6476,28 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "whether the firearm is loaded or unloaded."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Punishment",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Punishment (2) Every person who commits an offence under subsection (1) (a) is guilty of an indictable offence and liable to imprisonment for a term not exceeding five years; or (b) is guilty of an offence punishable on summary conviction."
+            "text": "(2) Every person who commits an offence under subsection (1) (a) is guilty of an indictable offence and liable to imprisonment for a term not exceeding five years; or (b) is guilty of an offence punishable on summary conviction."
           },
           {
             "kind": "paragraph",
             "text": "R.S., 1985, c.C-46, s. 87; 1995, c.39, s.139 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Aggravated Assault",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Aggravated Assault Section 268(1), CC Aggravated assault"
+            "text": "Section 268(1), CC Aggravated assault"
           },
           {
             "kind": "list",
@@ -4973,12 +6529,17 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "R.S., 1985, C-46, s.334; 1985, c.27 (1st Supp.), s.43; 1994, c.44, s.20 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
+            "text": "st R.S., 1985, C-46, s.334; 1985, c.27 (1Supp.), s.43; 1994, c.44, s.20 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Appendix B: Criminal Code, Page 6 Robbery with Firearm and Other Section 343, CC Robbery"
-          },
+            "text": "Jan-14 Appendix B: Criminal Code, Page 6"
+          }
+        ]
+      },
+      {
+        "heading": "Robbery",
+        "body": [
           {
             "kind": "list",
             "items": [
@@ -5010,7 +6571,12 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "R.S., 1985, c.C-46, s.354; 1997, c.18, s.23 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Punishment",
+        "body": [
           {
             "kind": "list",
             "items": [
@@ -5019,8 +6585,13 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Appendix B: Criminal Code, Page 7 Fraud over $5,000 Section 380(1)(a), CC Fraud"
-          },
+            "text": "Jan-14 Appendix B: Criminal Code, Page 7 Fraud over $5,000 Section 380(1)(a), CC"
+          }
+        ]
+      },
+      {
+        "heading": "Fraud",
+        "body": [
           {
             "kind": "list",
             "items": [
@@ -5029,23 +6600,33 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "within the meaning of this Act, defrauds the public or any person, whether ascertained or not, of any property, money or valuable security or any service, (a) is guilty of an indictable offence and liable to a term of imprisonment not exceeding fourteen years, where the subject-matter of the offence is a testamentary instrument or the value of the subject-matter of the offence exceeds five thousand dollars; R.S., 1985, c.C-46, s.380; R.S., 1985, c.27 (1st Supp.), s.54; 1994, c.44. s.25; 1997, c.18, s.26; 2004, c.3, s.2; 2011. C.6, s.2 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
+            "text": "within the meaning of this Act, defrauds the public or any person, whether ascertained or not, of any property, money or valuable security or any service, (a) is guilty of an indictable offence and liable to a term of imprisonment not exceeding fourteen years, where the subject-matter of the offence is a testamentary instrument or the value of the subject-matter of the offence exceeds five thousand dollars; st R.S., 1985, c.C-46, s.380; R.S., 1985, c.27 (1Supp.), s.54; 1994, c.44. s.25; 1997, c.18, s.26; 2004, c.3, s.2; 2011. C.6, s.2 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
           },
           {
             "kind": "paragraph",
-            "text": "Mischief Endangering Life Mischief as defined in list of summary offences (above), plus:"
+            "text": "Mischief as defined in list of summary offences (above), plus:"
+          }
+        ]
+      },
+      {
+        "heading": "Punishment",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "430(2) Every one who commits mischief that causes actual danger to life is guilty of an indictable offence and liable to imprisonment for life."
           },
           {
             "kind": "paragraph",
-            "text": "Section 430(2), CC Punishment 430(2) Every one who commits mischief that causes actual danger to life is guilty of an indictable offence and liable to imprisonment for life."
-          },
+            "text": "st R.S., 1985. C.C-46, s.430; R.S., 1985, c.27 (1Supp.), s.57; 1994, c.44, s.28; 2001, c.41. s.12; 2005, c.40, s.3 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
+          }
+        ]
+      },
+      {
+        "heading": "Arson, Disregard for Human Life",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "R.S., 1985. C.C-46, s.430; R.S., 1985, c.27 (1st Supp.), s.57; 1994, c.44, s.28; 2001, c.41. s.12; 2005, c.40, s.3 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
-          },
-          {
-            "kind": "paragraph",
-            "text": "Arson, Disregard for Human Life Section 433, CC Arson — disregard for human life"
+            "text": "Section 433, CC Arson — disregard for human life"
           },
           {
             "kind": "list",
@@ -5060,10 +6641,21 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "R.S., 1985, c.C-46, s.433; 1990, c.15, s.1 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Arson, Damage to Property of Others",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Arson, Damage to Property of Others Section 434, CC Arson — damage to property"
+            "text": "Section 434, CC Arson — damage to property"
+          },
+          {
+            "kind": "list",
+            "items": [
+              "Every person who intentionally or recklessly causes damage by fire or explosion to property that is not"
+            ]
           },
           {
             "kind": "paragraph",
@@ -5080,10 +6672,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "1990, c.15, s.1 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Possession of Counterfeit Money",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Possession of Counterfeit Money Section 450, CC Possession, etc., of counterfeit money"
+            "text": "Section 450, CC Possession, etc., of counterfeit money"
           },
           {
             "kind": "list",
@@ -5101,7 +6698,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Appendix B: Criminal Code, Page 9 Common Dual (Hybrid) Offences Possession of Housebreaking Instruments Section 351(1), CC Possession of break-in instrument"
+            "text": "Jan-14 Appendix B: Criminal Code, Page 9 Common Dual (Hybrid) Offences"
+          }
+        ]
+      },
+      {
+        "heading": "Possession of Housebreaking Instruments",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 351(1), CC Possession of break-in instrument"
           },
           {
             "kind": "list",
@@ -5111,11 +6717,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "instrument suitable for the purpose of breaking into any place, motor vehicle, vault or safe under circumstances that give rise to a reasonable inference that the instrument has been used or is or was intended to be used for such a purpose, (a) is guilty of an indictable offence and liable to imprisonment for a term not exceeding ten years; R.S., c-46, s.351; 1985, c.27 (1st Supp.), s.48; 2008, c.18, s.9 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
-          },
+            "text": "instrument suitable for the purpose of breaking into any place, motor vehicle, vault or safe under circumstances that give rise to a reasonable inference that the instrument has been used or is or was intended to be used for such a purpose, (a) is guilty of an indictable offence and liable to imprisonment for a term not exceeding ten years; st R.S., c-46, s.351; 1985, c.27 (1Supp.), s.48; 2008, c.18, s.9 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
+          }
+        ]
+      },
+      {
+        "heading": "Possession of Prohibited Weapon",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Possession of Prohibited Weapon Section 90(1), CC Carrying concealed weapon"
+            "text": "Section 90(1), CC Carrying concealed weapon"
           },
           {
             "kind": "list",
@@ -5130,10 +6741,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "R.S., 1985, C.C-46, S.90; 1991, c.28, s.6, c.40,ss.4, 35; 1994, c.44, s.6; 1995, c.39, s.139 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Public Mischief",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Public Mischief Section 140(1), CC Public mischief"
+            "text": "Section 140(1), CC Public mischief"
           },
           {
             "kind": "list",
@@ -5147,11 +6763,20 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "R.S., 1985, c.C-46, s.140; R.S., 1985, c.27 (1st Supp.), s.19 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
+            "text": "st R.S., 1985, c.C-46, s.140; R.S., 1985, c.27 (1Supp.), s.19 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Appendix B: Criminal Code, Page 10 Criminal Harassment Section 264(1) and 264(2), CC Criminal harassment"
+            "text": "Jan-14 Appendix B: Criminal Code, Page 10"
+          }
+        ]
+      },
+      {
+        "heading": "Criminal Harassment",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 264(1) and 264(2), CC Criminal harassment"
           },
           {
             "kind": "list",
@@ -5169,7 +6794,7 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "R.S., 1985, c.C-46, s.264; R.S., 1985, c.27 (1st Supp.), s.37; 1993, c.45, s.2; 1997, c.16, s.4, c.17, s.9; 2002, c.13, s.10 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
+            "text": "st R.S., 1985, c.C-46, s.264; R.S., 1985, c.27 (1Supp.), s.37; 1993, c.45, s.2; 1997, c.16, s.4, c.17, s.9; 2002, c.13, s.10 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
           },
           {
             "kind": "paragraph",
@@ -5188,10 +6813,15 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "R.S., 1985, c.C-46, s.267; 1994, c.44, s.17 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "Sexual Assault",
+        "body": [
           {
             "kind": "paragraph",
-            "text": "Sexual Assault Section 271(1), CC Sexual assault"
+            "text": "Section 271(1), CC Sexual assault"
           },
           {
             "kind": "list",
@@ -5205,12 +6835,17 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "R.S., 1985, c.C-46, s.271; R.S., 1985, c.19 (3rd Supp.), s.10; 1994, c.44, s.19; 2012, c.1, s.25 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
+            "text": "rd R.S., 1985, c.C-46, s.271; R.S., 1985, c.19 (3Supp.), s.10; 1994, c.44, s.19; 2012, c.1, s.25 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Appendix B: Criminal Code, Page 11 Theft $5,000 or Less Section 322(1) and 322(2), CC Theft"
-          },
+            "text": "Jan-14 Appendix B: Criminal Code, Page 11 Theft $5,000 or Less Section 322(1) and 322(2), CC"
+          }
+        ]
+      },
+      {
+        "heading": "Theft",
+        "body": [
           {
             "kind": "list",
             "items": [
@@ -5228,7 +6863,12 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           {
             "kind": "paragraph",
             "text": "R.S., c.C-34, s.283 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
-          },
+          }
+        ]
+      },
+      {
+        "heading": "And",
+        "body": [
           {
             "kind": "paragraph",
             "text": "Section 334(b), CC Punishment for theft"
@@ -5239,7 +6879,7 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "R.S., 1985, c.C-46, s.334; R.S., 1985, c.27 (1st Supp.), s.43; 1994, c.44, s.20 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
+            "text": "st R.S., 1985, c.C-46, s.334; R.S., 1985, c.27 (1Supp.), s.43; 1994, c.44, s.20 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
           },
           {
             "kind": "paragraph",
@@ -5259,7 +6899,7 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
     "end": 200,
     "sections": [
       {
-        "heading": "Overview",
+        "heading": "Punishment",
         "body": [
           {
             "kind": "list",
@@ -5273,12 +6913,17 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "R.S., 1985, c.C-46, s.355; R.S., 1985, c.27 (1st Supp.), s.49; 1994, c.44, s.21 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
+            "text": "st R.S., 1985, c.C-46, s.355; R.S., 1985, c.27 (1Supp.), s.49; 1994, c.44, s.21 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
           },
           {
             "kind": "paragraph",
-            "text": "Forgery Section 366(1), 366(2), 366(3), and 366(4), CC Forgery"
-          },
+            "text": "Section 366(1), 366(2), 366(3), and 366(4), CC"
+          }
+        ]
+      },
+      {
+        "heading": "Forgery",
+        "body": [
           {
             "kind": "list",
             "items": [
@@ -5307,7 +6952,16 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Appendix B: Criminal Code, Page 13 Utter Forged Document Section 368(1), CC Use, trafficking or possession of forged document"
+            "text": "Jan-14 Appendix B: Criminal Code, Page 13"
+          }
+        ]
+      },
+      {
+        "heading": "Utter Forged Document",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 368(1), CC Use, trafficking or possession of forged document"
           },
           {
             "kind": "list",
@@ -5325,8 +6979,13 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Fraud, $5,000 or Less Section 380(1), CC (without subsections) Fraud"
-          },
+            "text": "Fraud, $5,000 or Less Section 380(1), CC (without subsections)"
+          }
+        ]
+      },
+      {
+        "heading": "Fraud",
+        "body": [
           {
             "kind": "list",
             "items": [
@@ -5335,20 +6994,30 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "within the meaning of this Act, defrauds the public or any person, whether ascertained or not, of any property, money or valuable security or any service, R.S., 1985, c.C-46, s.380; R.S., 1985, c.27 (1st Supp.), s.54; 1994, c.44, s.25; 1997, c.18, s.26; 2004, c.3, s.2; 2011, c.6, s.2 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
-          },
+            "text": "within the meaning of this Act, defrauds the public or any person, whether ascertained or not, of any property, money or valuable security or any service, st R.S., 1985, c.C-46, s.380; R.S., 1985, c.27 (1Supp.), s.54; 1994, c.44, s.25; 1997, c.18, s.26; 2004, c.3, s.2; 2011, c.6, s.2 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
+          }
+        ]
+      },
+      {
+        "heading": "And",
+        "body": [
           {
             "kind": "paragraph",
             "text": "Section 380(1)(b), CC (b) is guilty (i) of an indictable offence and is liable to imprisonment for a term not exceeding two years, or (ii) of an offence punishable on summary conviction, where the value of the subject-matter of the offence does not exceed five thousand dollars."
           },
           {
             "kind": "paragraph",
-            "text": "R.S., 1985, c.C-46, s.380; R.S., 1985, c.27 (1st Supp.), s.54; 1994, c.44, s.25; 1997, c.18, s.26; 2004, c.3, s.2; 2011, c.6, s.2 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
+            "text": "st R.S., 1985, c.C-46, s.380; R.S., 1985, c.27 (1Supp.), s.54; 1994, c.44, s.25; 1997, c.18, s.26; 2004, c.3, s.2; 2011, c.6, s.2 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Appendix B: Criminal Code, Page 14 Mischief Testamentary Instrument or Property over $5,000 Section 430(1) and 430(1.1), CC Mischief"
-          },
+            "text": "Jan-14 Appendix B: Criminal Code, Page 14 Mischief Testamentary Instrument or Property over $5,000 Section 430(1) and 430(1.1), CC"
+          }
+        ]
+      },
+      {
+        "heading": "Mischief",
+        "body": [
           {
             "kind": "list",
             "items": [
@@ -5365,23 +7034,45 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "R.S., 1985, c.C-46, s.430; R.S., 1985, c.27 (1st Supp.), s.57; 1994, c.44, s.28; 2001, c.41, s.12; 2005, c.40, s.3 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
+            "text": "st R.S., 1985, c.C-46, s.430; R.S., 1985, c.27 (1Supp.), s.57; 1994, c.44, s.28; 2001, c.41, s.12; 2005, c.40, s.3 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
           },
           {
             "kind": "paragraph",
-            "text": "Section 430(3), CC Punishment (3) Every one who commits mischief in relation to property that is a testamentary instrument or the value of which exceeds five thousand dollars R.S., 1985, c.C-46, s.430; R.S., 1985, c.27 (1st Supp.), s.57; 1994, c.44, s.28; 2001, c.41, s.12; 2005, c.40, s.3 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
+            "text": "(3) Every one who commits mischief in relation to property that is a testamentary instrument or the value of which exceeds five thousand dollars st R.S., 1985, c.C-46, s.430; R.S., 1985, c.27 (1Supp.), s.57; 1994, c.44, s.28; 2001, c.41, s.12; 2005, c.40, s.3 © Government of Canada (1985). Criminal Code. Reproduced with permission by Federal Reproduction Law Order."
           },
           {
             "kind": "paragraph",
-            "text": "Mischief, Other Property Section 430(1) (above) defining mischief, and Section 430(4), CC Idem (4) Every one who commits mischief in relation to property, other than property described in subsection (3), (a) is guilty of an indictable offence and liable to imprisonment for a term not exceeding two years; or (b) is guilty of an offence punishable on summary conviction."
+            "text": "Section 430(1) (above) defining mischief, and Section 430(4), CC"
+          }
+        ]
+      },
+      {
+        "heading": "Idem",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "(4) Every one who commits mischief in relation to property, other than property described in subsection (3), (a) is guilty of an indictable offence and liable to imprisonment for a term not exceeding two years; or (b) is guilty of an offence punishable on summary conviction."
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Appendix B: Criminal Code, Page 15 Mischief, Data Section 430(1) defining mischief (above), and Section 430(5.1), CC Offence (5.1) Every one who wilfully does an act or wilfully omits to do an act that it is his duty to do, if that act or omission is likely to constitute mischief causing actual danger to life, or to constitute mischief in relation to property or data, (a) is guilty of an indictable offence and liable to imprisonment for a term not exceeding five years; or (b) is guilty of an offence punishable on summary conviction."
+            "text": "Jan-14 Appendix B: Criminal Code, Page 15"
           },
           {
             "kind": "paragraph",
-            "text": "False Alarm Fire Section 437, CC False alarm of fire"
+            "text": "Section 430(1) defining mischief (above), and Section 430(5.1), CC"
+          },
+          {
+            "kind": "paragraph",
+            "text": "(5.1) Every one who wilfully does an act or wilfully omits to do an act that it is his duty to do, if that act or omission is likely to constitute mischief causing actual danger to life, or to constitute mischief in relation to property or data, (a) is guilty of an indictable offence and liable to imprisonment for a term not exceeding five years; or (b) is guilty of an offence punishable on summary conviction."
+          }
+        ]
+      },
+      {
+        "heading": "False Alarm Fire",
+        "body": [
+          {
+            "kind": "paragraph",
+            "text": "Section 437, CC False alarm of fire"
           },
           {
             "kind": "list",
@@ -5399,7 +7090,19 @@ export const moduleSnippets: Record<string, ModuleSnippet> = {
           },
           {
             "kind": "paragraph",
-            "text": "Jan-14 Appendix B: Criminal Code, Page 16 Appendix C: Forms Table of Contents Guide to Individual Licensing (Individual Licence Application or Renewal) Application for Individual Licence (Applying For or Renewing SSIA Individual Licence) Update to Individual Licence Policy for Complaints (Instructions for Creating and Submitting a Policy for Managing Public Complaints Against Licensed Employees) Incident Report NOTE: Forms are subject to change. When applying for a licence or using a form in the field, students should use the most current version of the forms posted on the Security Program website at www.securityprograms.alberta.ca under the “SSIA Forms & Documents” section."
+            "text": "Jan-14 Appendix B: Criminal Code, Page 16"
+          },
+          {
+            "kind": "paragraph",
+            "text": "Guide to Individual Licensing (Individual Licence Application or Renewal) Application for Individual Licence (Applying For or Renewing SSIA Individual Licence)"
+          },
+          {
+            "kind": "paragraph",
+            "text": "Policy for Complaints (Instructions for Creating and Submitting a Policy for Managing Public Complaints"
+          },
+          {
+            "kind": "paragraph",
+            "text": "NOTE: Forms are subject to change. When applying for a licence or using a form in the field, students should use the most current version of the forms posted on the Security Program website at www.securityprograms.alberta.ca under the “SSIA Forms & Documents” section."
           }
         ]
       }

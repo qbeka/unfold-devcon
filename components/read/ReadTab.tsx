@@ -7,8 +7,8 @@ import { PdfViewer } from "@/components/read/PdfViewer";
 import { useUnfoldStore } from "@/lib/store";
 import { moduleFiveContent, supportedLanguages, translateModuleTitle } from "@/lib/data/moduleFiveContent";
 import { moduleSnippets } from "@/lib/data/moduleSnippets";
-import type { ModuleSnippetBlock } from "@/lib/data/moduleSnippets";
-import { getModuleOverview } from "@/lib/data/moduleTranslations";
+import type { ModuleSnippet, ModuleSnippetBlock } from "@/lib/data/moduleSnippets";
+import { moduleSnippetsTranslated } from "@/lib/data/moduleSnippetsTranslated";
 import { buttonPrimary, eyebrow, helperText, sectionTitle } from "@/lib/ui";
 
 type ReaderView = "manual" | "pdf";
@@ -23,23 +23,25 @@ export function ReadTab() {
   const isModuleFive = selectedModuleId === "module-five";
   const [view, setView] = useState<ReaderView>("manual");
 
+  const englishSnippet = moduleSnippets[selectedModuleId ?? ""] as ModuleSnippet | undefined;
+  const translatedSnippet =
+    language !== "en"
+      ? (moduleSnippetsTranslated[language]?.[selectedModuleId ?? ""] as ModuleSnippet | undefined)
+      : undefined;
+
   const title = useMemo(() => {
     if (isModuleFive) return translateModuleTitle(moduleFiveContent, language);
-    if (language !== "en") {
-      const overview = getModuleOverview(selectedModuleId, language);
-      if (overview) return overview.title;
-    }
+    if (translatedSnippet) return translatedSnippet.title;
     return selectedModule?.title ?? "";
-  }, [isModuleFive, language, selectedModule, selectedModuleId]);
+  }, [isModuleFive, language, selectedModule, translatedSnippet]);
 
   function startFocusedExam() {
     setExamMode("focused");
     setActiveTab("exam");
   }
 
-  const snippet = moduleSnippets[selectedModuleId ?? ""];
-  const pageStart = selectedModule?.pageStart ?? snippet?.start ?? 1;
-  const pageEnd = selectedModule?.pageEnd ?? snippet?.end ?? pageStart;
+  const pageStart = selectedModule?.pageStart ?? englishSnippet?.start ?? 1;
+  const pageEnd = selectedModule?.pageEnd ?? englishSnippet?.end ?? pageStart;
   const langName = supportedLanguages.find((l) => l.code === language)?.label ?? "English";
 
   return (
@@ -86,12 +88,12 @@ export function ReadTab() {
         <PdfViewer startPage={pageStart} endPage={pageEnd} />
       ) : isModuleFive ? (
         <ModuleReader />
-      ) : snippet ? (
+      ) : englishSnippet ? (
         <ExtractedReader
-          snippet={snippet}
+          english={englishSnippet}
+          translated={translatedSnippet}
           languageName={langName}
           languageCode={language}
-          moduleId={selectedModuleId}
           pageStart={pageStart}
           pageEnd={pageEnd}
         />
@@ -103,28 +105,33 @@ export function ReadTab() {
 }
 
 function ExtractedReader({
-  snippet,
+  english,
+  translated,
   languageName,
   languageCode,
-  moduleId,
   pageStart,
   pageEnd
 }: {
-  snippet: { sections: { heading: string; body: ModuleSnippetBlock[] }[] };
+  english: ModuleSnippet;
+  translated?: ModuleSnippet;
   languageName: string;
   languageCode: string;
-  moduleId: string;
   pageStart: number;
   pageEnd: number;
 }) {
   const [translating, setTranslating] = useState(false);
   useEffect(() => {
+    if (languageCode === "en") return;
     setTranslating(true);
     const t = window.setTimeout(() => setTranslating(false), 600);
     return () => window.clearTimeout(t);
-  }, [languageName, moduleId]);
+  }, [languageCode, english.title]);
 
-  const overview = languageCode !== "en" ? getModuleOverview(moduleId, languageCode as any) : undefined;
+  // Pair sections by index. If translated has fewer sections, fall back to English.
+  const sections = english.sections.map((sec, idx) => ({
+    en: sec,
+    de: translated?.sections[idx]
+  }));
 
   return (
     <article className="space-y-12 pb-16">
@@ -139,64 +146,83 @@ function ExtractedReader({
         )}
       </div>
 
-      {overview && (
-        <section className={`rounded-2xl border border-black/10 bg-white p-6 transition ${translating ? "opacity-50" : "opacity-100"}`}>
-          <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-400">
-            {languageName} overview
-          </p>
-          <h2 className="mt-2 text-[22px] font-semibold tracking-tighter2 text-neutral-950">
-            {overview.title}
-          </h2>
-          <p className="mt-3 text-[15px] leading-7 text-neutral-700">{overview.intro}</p>
-          <ul className="mt-4 space-y-1.5 pl-5 text-[14.5px] leading-7 text-neutral-700 marker:text-neutral-300">
-            {overview.bullets.map((b) => (
-              <li key={b} className="list-disc">
-                {b}
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
       <div className={translating ? "opacity-60 transition" : "opacity-100 transition"}>
-        <p className={`text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-400 ${overview ? "mt-2" : ""}`}>
-          {overview ? "Original passages from the manual" : "Extracted content"}
-        </p>
-        <div className="mt-2 space-y-12">
-          {snippet.sections.map((section, idx) => (
-            <section key={idx} className="space-y-4">
-              <header className="space-y-1">
-                <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-400">
-                  Section {idx + 1}
-                </p>
-                <h3 className="text-[20px] font-semibold tracking-tighter2 text-neutral-950">
-                  {section.heading}
-                </h3>
-              </header>
-              <div className="space-y-4">
-                {section.body.map((block, j) => (
-                  <BlockView key={j} block={block} />
-                ))}
-              </div>
-            </section>
+        <div className="space-y-12">
+          {sections.map(({ en, de }, idx) => (
+            <SectionView key={idx} index={idx} en={en} de={de} languageCode={languageCode} />
           ))}
         </div>
       </div>
 
       <p className="border-t border-black/5 pt-6 text-[12px] text-neutral-400">
         Module Five is the fully curated, translatable version used by the exam flow. Other modules
-        show extracted content from the manual.
+        show extracted content from the manual translated to your selected language.
       </p>
     </article>
   );
 }
 
-function BlockView({ block }: { block: ModuleSnippetBlock }) {
+function SectionView({
+  index,
+  en,
+  de,
+  languageCode
+}: {
+  index: number;
+  en: ModuleSnippet["sections"][number];
+  de?: ModuleSnippet["sections"][number];
+  languageCode: string;
+}) {
+  const showSideBySide = languageCode !== "en" && de;
+
+  return (
+    <section className="space-y-4">
+      <header className="space-y-1">
+        <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-neutral-400">
+          Section {index + 1}
+        </p>
+        <h3 className="text-[20px] font-semibold tracking-tighter2 text-neutral-950">
+          {showSideBySide ? de!.heading : en.heading}
+        </h3>
+        {showSideBySide && (
+          <p className="text-[11px] text-neutral-400">Original: {en.heading}</p>
+        )}
+      </header>
+      <div className="space-y-4">
+        {en.body.map((block, j) => {
+          const deBlock = de?.body[j];
+          if (!showSideBySide || !deBlock || deBlock.kind !== block.kind) {
+            return <BlockView key={j} block={block} />;
+          }
+          return (
+            <div key={j} className="grid gap-4 md:grid-cols-2">
+              <div className="rounded-xl border border-black/10 bg-white px-4 py-3">
+                <p className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-400">
+                  English
+                </p>
+                <BlockView block={block} subdued />
+              </div>
+              <div className="rounded-xl border border-black/10 bg-neutral-50 px-4 py-3">
+                <p className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-400">
+                  Translation
+                </p>
+                <BlockView block={deBlock} />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function BlockView({ block, subdued = false }: { block: ModuleSnippetBlock; subdued?: boolean }) {
+  const colour = subdued ? "text-neutral-500" : "text-neutral-700";
   if (block.kind === "paragraph") {
-    return <p className="text-[15px] leading-7 text-neutral-700">{block.text}</p>;
+    return <p className={`text-[14.5px] leading-7 ${colour}`}>{block.text}</p>;
   }
   return (
-    <ul className="space-y-1.5 pl-5 text-[15px] leading-7 text-neutral-700 marker:text-neutral-300">
+    <ul className={`space-y-1.5 pl-5 text-[14.5px] leading-7 ${colour} marker:text-neutral-300`}>
       {block.items.map((item, i) => (
         <li key={i} className="list-disc">
           {item}
