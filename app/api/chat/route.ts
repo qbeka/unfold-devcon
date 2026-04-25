@@ -69,7 +69,8 @@ function buildSystemPrompt(
     `TRAINING CONTEXT:\n${chapterContext.slice(0, 1000)}\n\n` +
     `ACTIVITY:\n${activityPrompt}\n\n` +
     "Reply to the most recent message in the chat. React to what was just said. " +
-    "Stay in character. Do not break the fourth wall or reveal you are AI."
+    "Stay in character. Do not break the fourth wall or reveal you are AI. " +
+    "IMPORTANT: Do NOT prefix your response with your name, a label, or brackets like '[Ben]:'. Just reply naturally."
   );
 }
 
