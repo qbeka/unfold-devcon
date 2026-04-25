@@ -60,7 +60,7 @@ export function ReadTab() {
               onClick={() => setView("manual")}
               type="button"
             >
-              <Layout className="h-3.5 w-3.5" /> Manual
+              <Layout className="h-3.5 w-3.5" /> Simplified
             </button>
             <button
               className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-medium ${
