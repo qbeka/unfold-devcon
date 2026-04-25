@@ -98,7 +98,7 @@ Recommended host: AWS Amplify Hosting.
 - `public/manual/abst-manual.pdf` — original manual
 - `scripts/extract-module-five.mjs` — PDF extraction utility
 
-## Known Limits
+## Known Limits.
 
 - Module Five is the curated learning path. Other modules show recognized activities/concepts only.
 - The official manual is recognized by SHA-256 and mapped to curated content after S3 upload.
