@@ -18,18 +18,18 @@ export function ModuleReader() {
   );
 
   return (
-    <article className="space-y-12 pb-12">
+    <article className="space-y-14 pb-16">
       {sections.map((section) => (
         <section key={section.id} className="space-y-5">
-          <header className="space-y-1.5">
-            <p className="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-slate-400">
+          <header className="space-y-1">
+            <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-400">
               Page {section.page}
             </p>
-            <h2 className="text-[1.6rem] font-semibold tracking-[-0.02em] text-slate-950">
+            <h2 className="text-[22px] font-semibold tracking-tighter2 text-neutral-950">
               {section.heading}
             </h2>
             {section.subheading && (
-              <p className="text-sm leading-7 text-slate-500">{section.subheading}</p>
+              <p className="text-[14px] leading-7 text-neutral-500">{section.subheading}</p>
             )}
           </header>
           <div className="space-y-5">
@@ -39,7 +39,7 @@ export function ModuleReader() {
           </div>
         </section>
       ))}
-      <p className="border-t border-slate-100 pt-6 text-xs text-slate-400">
+      <p className="border-t border-black/5 pt-6 text-[12px] text-neutral-400">
         Source: Alberta Basic Security Training Participant Manual, pages{" "}
         {moduleFiveContent.pageRange.start}–{moduleFiveContent.pageRange.end}.
       </p>
@@ -49,17 +49,13 @@ export function ModuleReader() {
 
 function BlockRenderer({ block }: { block: ContentBlock }) {
   if (block.kind === "paragraph") {
-    return (
-      <p className="text-[0.95rem] leading-7 text-slate-700">
-        {block.text}
-      </p>
-    );
+    return <p className="text-[15px] leading-7 text-neutral-700">{block.text}</p>;
   }
 
   if (block.kind === "list") {
     if (block.style === "ordered") {
       return (
-        <ol className="space-y-2 pl-5 text-[0.95rem] leading-7 text-slate-700 [counter-reset:items]">
+        <ol className="space-y-1.5 pl-5 text-[15px] leading-7 text-neutral-700">
           {block.items.map((item, idx) => (
             <li key={idx} className="list-decimal">
               {item}
@@ -69,7 +65,7 @@ function BlockRenderer({ block }: { block: ContentBlock }) {
       );
     }
     return (
-      <ul className="space-y-2 pl-5 text-[0.95rem] leading-7 text-slate-700">
+      <ul className="space-y-1.5 pl-5 text-[15px] leading-7 text-neutral-700 marker:text-neutral-300">
         {block.items.map((item, idx) => (
           <li key={idx} className="list-disc">
             {item}
@@ -81,22 +77,22 @@ function BlockRenderer({ block }: { block: ContentBlock }) {
 
   if (block.kind === "callout") {
     return (
-      <aside className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4">
-        <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-slate-500">
+      <aside className="rounded-xl border border-black/10 bg-neutral-50 px-5 py-4">
+        <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-500">
           {block.label}
         </p>
-        <p className="mt-2 text-[0.95rem] leading-7 text-slate-700">{block.text}</p>
+        <p className="mt-1.5 text-[14.5px] leading-7 text-neutral-700">{block.text}</p>
       </aside>
     );
   }
 
   if (block.kind === "report") {
     return (
-      <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
-        <figcaption className="border-b border-slate-100 bg-slate-50 px-5 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-slate-500">
+      <figure className="overflow-hidden rounded-xl border border-black/10 bg-white">
+        <figcaption className="border-b border-black/5 bg-neutral-50/80 px-5 py-2.5 text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-500">
           {block.title}
         </figcaption>
-        <div className="space-y-1 px-5 py-4 font-mono text-[0.85rem] leading-6 text-slate-700">
+        <div className="space-y-1 px-5 py-4 font-mono text-[13px] leading-6 text-neutral-700">
           {block.lines.map((line, idx) => (
             <p key={idx}>{line}</p>
           ))}
@@ -108,5 +104,4 @@ function BlockRenderer({ block }: { block: ContentBlock }) {
   return null;
 }
 
-// Re-exported helpers so consumers can compute translated content elsewhere if needed.
 export { translateBlock };

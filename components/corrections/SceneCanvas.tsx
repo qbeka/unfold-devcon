@@ -2,7 +2,7 @@
 
 import { Suspense, useEffect, useMemo, useRef } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { ContactShadows, Environment, Html, useGLTF } from "@react-three/drei";
+import { ContactShadows, Environment, OrbitControls, RoundedBox, Text, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import type { CorrectionSceneData } from "@/lib/types";
@@ -10,175 +10,358 @@ import type { CorrectionSceneData } from "@/lib/types";
 useGLTF.preload("/models/officer.glb");
 useGLTF.preload("/models/citizen.glb");
 
+type SceneVariant = "comparison" | "practice";
+
+export type SceneProps = {
+  playing: boolean;
+  scene: CorrectionSceneData;
+  variant?: SceneVariant;
+  height?: number;
+  caption?: string;
+  highlightSide?: "correct" | "wrong" | null;
+};
+
+// World coordinates of the puddle (front-desk side)
+const PUDDLE_X = 1.4;
+const PUDDLE_Z = 0.7;
+
+// Animation timeline (seconds)
+const T_WALK = 3.4;
+const T_SLIP = 0.9;
+const T_LIE = 3.2;
+const T_RESET = 0.6;
+const T_TOTAL = T_WALK + T_SLIP + T_LIE + T_RESET;
+
 export function SceneCanvas({
   playing,
   scene,
-  height = 480,
-  caption
-}: {
-  playing: boolean;
-  scene: CorrectionSceneData;
-  height?: number;
-  caption?: string;
-}) {
+  variant = "comparison",
+  height = 540,
+  caption,
+  highlightSide = null
+}: SceneProps) {
   return (
     <div
-      className="relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-gradient-to-b from-[#cfe2f3] via-[#a7c4e1] to-[#7d9fc6]"
+      className="relative isolate overflow-hidden rounded-2xl border border-black/10 bg-gradient-to-b from-[#eef2f8] via-[#dde4ee] to-[#bfcadb]"
       style={{ height }}
     >
-      <Canvas shadows camera={{ position: [0, 1.6, 7.4], fov: 36 }}>
+      <Canvas
+        shadows
+        dpr={[1, 2]}
+        gl={{ antialias: true, powerPreference: "high-performance" }}
+        camera={{ position: [5.4, 3.1, 5.6], fov: 38, near: 0.1, far: 80 }}
+      >
         <Suspense fallback={null}>
-          <SceneLighting />
-          <Environment preset="city" />
-          <Diorama
-            position={[-2.6, 0, 0]}
-            tone="correct"
-            playing={playing}
-            text={scene.correctChoice.text}
-            label={scene.correctChoice.label}
+          <color attach="background" args={["#eef2f8"]} />
+          <fog attach="fog" args={["#eef2f8", 16, 28]} />
+
+          <ambientLight intensity={0.7} />
+          <directionalLight
+            castShadow
+            intensity={1.55}
+            position={[5, 8, 4]}
+            shadow-mapSize={[2048, 2048]}
+            shadow-camera-left={-8}
+            shadow-camera-right={8}
+            shadow-camera-top={8}
+            shadow-camera-bottom={-4}
           />
-          <Diorama
-            position={[2.6, 0, 0]}
-            tone="wrong"
-            playing={playing}
-            text={scene.wrongChoice.text}
-            label={scene.wrongChoice.label}
-          />
-          <Divider />
-          <ContactShadows
-            position={[0, -0.65, 0]}
-            opacity={0.45}
-            scale={11}
-            blur={2.4}
-            far={2}
+          <directionalLight intensity={0.35} position={[-6, 3, -3]} color="#cfd9ff" />
+          <Environment preset="apartment" />
+
+          <Lobby />
+          <Puddle />
+          <Officer />
+          <Victim playing={playing} />
+
+          <ContactShadows position={[0, 0.001, 0]} opacity={0.55} scale={18} blur={2.6} far={2.6} />
+
+          <OrbitControls
+            enablePan={false}
+            minDistance={4.6}
+            maxDistance={10}
+            minPolarAngle={0.85}
+            maxPolarAngle={1.4}
+            target={[0, 1, 0]}
           />
         </Suspense>
       </Canvas>
 
+      {variant === "comparison" && <ReportOverlay scene={scene} highlight={highlightSide} />}
+
       {caption && (
-        <div className="pointer-events-none absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-white/95 px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-[0_4px_18px_rgba(15,23,42,0.18)]">
+        <div className="pointer-events-none absolute bottom-3 left-1/2 z-10 -translate-x-1/2 rounded-full bg-white/95 px-4 py-1.5 text-[12px] font-medium text-neutral-700 shadow-soft">
           {caption}
         </div>
       )}
+
+      <div className="pointer-events-none absolute right-3 top-3 z-10 flex items-center gap-1.5 rounded-full bg-white/85 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-neutral-500 shadow-sm">
+        <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500" />
+        Drag to rotate · scroll to zoom
+      </div>
     </div>
   );
 }
 
-function SceneLighting() {
-  return (
-    <>
-      <ambientLight intensity={0.55} />
-      <directionalLight
-        intensity={1.4}
-        position={[5, 7, 5]}
-        castShadow
-        shadow-mapSize={[1024, 1024]}
-      />
-      <directionalLight intensity={0.4} position={[-6, 4, -3]} />
-    </>
-  );
-}
-
-function Diorama({
-  position,
-  tone,
-  playing,
-  text,
-  label
-}: {
-  position: [number, number, number];
-  tone: "correct" | "wrong";
-  playing: boolean;
-  text: string;
-  label: string;
-}) {
-  const isCorrect = tone === "correct";
-  const groundTint = isCorrect ? "#d8e7d2" : "#e7d4cc";
-  const accent = isCorrect ? "#15803d" : "#b91c1c";
-
-  return (
-    <group position={position}>
-      <Stage tint={groundTint} />
-      <CharacterStage playing={playing} tone={tone} />
-      <TimedCallout playing={playing} tone={tone} text={text} label={label} accent={accent} />
-    </group>
-  );
-}
-
-function Stage({ tint }: { tint: string }) {
+function Lobby() {
   return (
     <group>
-      {/* Ground plate */}
-      <mesh receiveShadow position={[0, -0.65, 0]}>
-        <cylinderGeometry args={[2.1, 2.1, 0.18, 48]} />
-        <meshStandardMaterial color={tint} roughness={0.85} />
-      </mesh>
-      {/* Sidewalk */}
-      <mesh position={[0, -0.55, 0.55]}>
-        <boxGeometry args={[3.6, 0.05, 1.0]} />
-        <meshStandardMaterial color="#cccccc" roughness={0.95} />
-      </mesh>
-      {/* Curb */}
-      <mesh position={[0, -0.49, 1.1]}>
-        <boxGeometry args={[3.6, 0.06, 0.12]} />
-        <meshStandardMaterial color="#9ba3ad" roughness={0.9} />
-      </mesh>
-      {/* Storefront wall */}
-      <mesh position={[0, 0.95, -0.95]} castShadow>
-        <boxGeometry args={[3.6, 2.4, 0.18]} />
-        <meshStandardMaterial color="#f5efe5" roughness={0.7} />
-      </mesh>
-      {/* Window */}
-      <mesh position={[0, 1.05, -0.85]}>
-        <boxGeometry args={[2.4, 1.1, 0.06]} />
-        <meshStandardMaterial color="#9bbfd6" emissive="#1d3a52" emissiveIntensity={0.18} roughness={0.4} metalness={0.4} />
-      </mesh>
-      {/* Door */}
-      <mesh position={[1.4, 0.4, -0.85]}>
-        <boxGeometry args={[0.5, 1.1, 0.06]} />
-        <meshStandardMaterial color="#5b3a29" roughness={0.6} />
-      </mesh>
-      {/* Streetlight */}
-      <mesh position={[-1.5, 0.4, 0.95]} castShadow>
-        <cylinderGeometry args={[0.04, 0.04, 2.2, 12]} />
-        <meshStandardMaterial color="#2b2b2b" />
-      </mesh>
-      <mesh position={[-1.5, 1.55, 0.95]}>
-        <sphereGeometry args={[0.12, 16, 16]} />
-        <meshStandardMaterial color="#fff8d6" emissive="#ffe58a" emissiveIntensity={0.6} />
-      </mesh>
+      <MarbleFloor />
+      <FrontDesk />
+      <TimePlaque />
     </group>
   );
 }
 
-function CharacterStage({ playing, tone }: { playing: boolean; tone: "correct" | "wrong" }) {
-  const officerRef = useRef<THREE.Group>(null);
-  const citizenRef = useRef<THREE.Group>(null);
-  const baseY = -0.55;
+function MarbleFloor() {
+  return (
+    <group>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+        <planeGeometry args={[20, 14]} />
+        <meshStandardMaterial color="#e8dfd0" roughness={0.32} metalness={0.12} />
+      </mesh>
+      {/* Vertical tile lines */}
+      {Array.from({ length: 9 }).map((_, i) => (
+        <mesh
+          key={`v-${i}`}
+          position={[-7.2 + i * 1.8, 0.003, 0]}
+          rotation={[-Math.PI / 2, 0, 0]}
+        >
+          <planeGeometry args={[0.014, 14]} />
+          <meshBasicMaterial color="#c5b8a3" transparent opacity={0.45} />
+        </mesh>
+      ))}
+      {/* Horizontal tile lines */}
+      {Array.from({ length: 7 }).map((_, i) => (
+        <mesh
+          key={`h-${i}`}
+          position={[0, 0.004, -5.4 + i * 1.8]}
+          rotation={[-Math.PI / 2, 0, Math.PI / 2]}
+        >
+          <planeGeometry args={[0.014, 20]} />
+          <meshBasicMaterial color="#c5b8a3" transparent opacity={0.45} />
+        </mesh>
+      ))}
+    </group>
+  );
+}
+
+function FrontDesk() {
+  return (
+    <group position={[0, 0, -3.4]}>
+      <RoundedBox args={[7.2, 1.2, 0.7]} radius={0.06} smoothness={3} position={[0, 0.6, 0]} castShadow receiveShadow>
+        <meshStandardMaterial color="#d7c6ad" roughness={0.45} />
+      </RoundedBox>
+      <RoundedBox args={[7.5, 0.18, 0.82]} radius={0.04} smoothness={3} position={[0, 1.28, 0]} castShadow>
+        <meshStandardMaterial color="#1f2125" roughness={0.3} />
+      </RoundedBox>
+      <Text position={[0, 1.55, 0.42]} fontSize={0.2} color="#f8fafc" letterSpacing={0.18}>
+        FRONT DESK
+      </Text>
+      {/* Receptionist (simple stand-in) */}
+      <group position={[1.0, 1.44, -0.05]}>
+        <mesh position={[0, 0.42, 0]} castShadow>
+          <sphereGeometry args={[0.16, 24, 24]} />
+          <meshStandardMaterial color="#d7b99b" />
+        </mesh>
+        <mesh position={[0, 0.06, 0]} castShadow>
+          <boxGeometry args={[0.36, 0.5, 0.18]} />
+          <meshStandardMaterial color="#1f2937" />
+        </mesh>
+      </group>
+      {/* Lamp */}
+      <group position={[-2.2, 1.36, 0.08]}>
+        <mesh>
+          <cylinderGeometry args={[0.05, 0.05, 0.5, 12]} />
+          <meshStandardMaterial color="#9ca3af" metalness={0.4} roughness={0.4} />
+        </mesh>
+        <mesh position={[0, 0.32, 0]}>
+          <coneGeometry args={[0.18, 0.22, 24, 1, true]} />
+          <meshStandardMaterial color="#fef3c7" emissive="#fde68a" emissiveIntensity={0.5} side={THREE.DoubleSide} />
+        </mesh>
+      </group>
+      {/* Plant */}
+      <group position={[-3.4, 1.36, 0.08]}>
+        <mesh>
+          <cylinderGeometry args={[0.18, 0.22, 0.32, 16]} />
+          <meshStandardMaterial color="#475569" />
+        </mesh>
+        <mesh position={[0, 0.36, 0]}>
+          <sphereGeometry args={[0.32, 16, 16]} />
+          <meshStandardMaterial color="#15803d" roughness={0.85} />
+        </mesh>
+      </group>
+    </group>
+  );
+}
+
+function TimePlaque() {
+  return (
+    <group position={[-5.6, 2.7, -3.55]}>
+      <RoundedBox args={[1.1, 0.42, 0.05]} radius={0.04} smoothness={3}>
+        <meshStandardMaterial color="#0a0a0a" />
+      </RoundedBox>
+      <Text position={[0, 0, 0.04]} fontSize={0.22} color="#f8fafc" letterSpacing={0.04}>
+        14:30
+      </Text>
+    </group>
+  );
+}
+
+function Puddle() {
+  // Better water: layered discs with shimmer + ripples
+  const surfaceRef = useRef<THREE.Mesh>(null);
+  const ringRef = useRef<THREE.Mesh>(null);
+  const innerRef = useRef<THREE.Mesh>(null);
+  const ripple1Ref = useRef<THREE.Mesh>(null);
+  const ripple2Ref = useRef<THREE.Mesh>(null);
 
   useFrame(({ clock }) => {
-    const t = playing ? clock.getElapsedTime() : 0;
-    if (officerRef.current) {
-      officerRef.current.position.y = baseY + (playing ? Math.sin(t * 1.6) * 0.015 : 0);
-      officerRef.current.rotation.y = tone === "correct" ? -0.22 : 0.22;
+    const t = clock.getElapsedTime();
+    if (surfaceRef.current) {
+      const mat = surfaceRef.current.material as THREE.MeshPhysicalMaterial;
+      mat.opacity = 0.62 + Math.sin(t * 1.4) * 0.05;
     }
-    if (citizenRef.current) {
-      citizenRef.current.position.y = baseY + (playing ? Math.sin(t * 1.6 + 0.6) * 0.015 : 0);
-      citizenRef.current.rotation.y =
-        tone === "correct" ? 0.22 : 0.22 + (playing ? Math.sin(t * 4.2) * 0.05 : 0);
+    // Animated ripples expanding & fading
+    [ripple1Ref, ripple2Ref].forEach((ref, i) => {
+      if (!ref.current) return;
+      const phase = (t * 0.5 + i * 0.5) % 1; // 0..1
+      const scale = 0.4 + phase * 1.1;
+      ref.current.scale.set(scale, scale, 1);
+      const mat = ref.current.material as THREE.MeshBasicMaterial;
+      mat.opacity = (1 - phase) * 0.35;
+    });
+    if (innerRef.current) {
+      innerRef.current.rotation.z = t * 0.05;
+    }
+    if (ringRef.current) {
+      const mat = ringRef.current.material as THREE.MeshBasicMaterial;
+      mat.opacity = 0.5 + Math.sin(t * 1.8) * 0.08;
     }
   });
 
   return (
-    <>
-      <group ref={officerRef} position={[-0.65, baseY, 0.1]}>
-        <CharacterModel kind="officer" />
-      </group>
-      <group ref={citizenRef} position={[0.7, baseY, 0.05]}>
-        <CharacterModel kind="citizen" />
-      </group>
-    </>
+    <group position={[PUDDLE_X, 0.012, PUDDLE_Z]}>
+      {/* Reflective water surface */}
+      <mesh ref={surfaceRef} rotation={[-Math.PI / 2, 0, 0]}>
+        <circleGeometry args={[1.05, 64]} />
+        <meshPhysicalMaterial
+          color="#7e9cb8"
+          transparent
+          opacity={0.65}
+          roughness={0.05}
+          metalness={0.1}
+          transmission={0.7}
+          thickness={0.4}
+          ior={1.33}
+          reflectivity={0.6}
+          side={THREE.DoubleSide}
+        />
+      </mesh>
+      {/* Darker stain ring */}
+      <mesh ref={ringRef} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.001, 0]}>
+        <ringGeometry args={[0.95, 1.08, 64]} />
+        <meshBasicMaterial color="#5b7794" transparent opacity={0.55} side={THREE.DoubleSide} />
+      </mesh>
+      {/* Inner subtle pattern */}
+      <mesh ref={innerRef} rotation={[-Math.PI / 2, 0, 0]} position={[0.04, 0.002, -0.05]}>
+        <ringGeometry args={[0.18, 0.55, 48]} />
+        <meshBasicMaterial color="#6f8aa8" transparent opacity={0.32} side={THREE.DoubleSide} />
+      </mesh>
+      {/* Ripples */}
+      <mesh ref={ripple1Ref} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.003, 0]}>
+        <ringGeometry args={[0.5, 0.55, 64]} />
+        <meshBasicMaterial color="#ffffff" transparent opacity={0.3} side={THREE.DoubleSide} />
+      </mesh>
+      <mesh ref={ripple2Ref} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.0035, 0]}>
+        <ringGeometry args={[0.5, 0.55, 64]} />
+        <meshBasicMaterial color="#ffffff" transparent opacity={0.3} side={THREE.DoubleSide} />
+      </mesh>
+      {/* "Wet area" label */}
+      <Text
+        position={[0, 0.06, 1.42]}
+        rotation={[-Math.PI / 2, 0, 0]}
+        fontSize={0.16}
+        color="#7f1d1d"
+        anchorX="center"
+      >
+        Wet area · no caution sign
+      </Text>
+    </group>
   );
+}
+
+function Officer() {
+  // Officer GLB stands left near the lobby, slightly turned toward the action.
+  const ref = useRef<THREE.Group>(null);
+  useFrame(({ clock }) => {
+    if (!ref.current) return;
+    const t = clock.getElapsedTime();
+    ref.current.position.y = Math.sin(t * 1.3) * 0.005;
+    ref.current.rotation.y = 1.05; // facing right toward woman
+  });
+  return (
+    <group ref={ref} position={[-2.4, 0, 0.6]}>
+      <CharacterModel kind="officer" />
+    </group>
+  );
+}
+
+function Victim({ playing }: { playing: boolean }) {
+  // Citizen GLB walks from right, slips on the puddle, falls and lies.
+  const ref = useRef<THREE.Group>(null);
+  const startX = 4.0;
+  const slipX = PUDDLE_X + 0.2;
+
+  useFrame(({ clock }) => {
+    if (!ref.current) return;
+    const t = playing ? clock.getElapsedTime() % T_TOTAL : 0;
+
+    let x = startX;
+    let y = 0;
+    let rotX = 0;
+    let bob = 0;
+    const facing = -1.55; // facing left (toward officer)
+
+    if (t < T_WALK) {
+      const p = t / T_WALK;
+      x = THREE.MathUtils.lerp(startX, slipX, easeInOutSine(p));
+      bob = Math.abs(Math.sin(t * 9)) * 0.04;
+    } else if (t < T_WALK + T_SLIP) {
+      const p = (t - T_WALK) / T_SLIP;
+      const ease = p * p;
+      x = THREE.MathUtils.lerp(slipX, slipX - 0.55, ease);
+      rotX = -ease * 1.45;
+      y = ease * 0.06;
+      bob = 0;
+    } else if (t < T_WALK + T_SLIP + T_LIE) {
+      x = slipX - 0.55;
+      rotX = -1.45;
+      y = 0;
+      const sub = (t - T_WALK - T_SLIP) % 0.8;
+      bob = Math.sin(sub * 8) * 0.005;
+    } else {
+      const p = (t - T_WALK - T_SLIP - T_LIE) / T_RESET;
+      const ease = easeInOutSine(p);
+      x = THREE.MathUtils.lerp(slipX - 0.55, startX, ease);
+      rotX = THREE.MathUtils.lerp(-1.45, 0, Math.min(1, p * 2));
+      y = 0;
+      bob = 0;
+    }
+
+    ref.current.position.set(x, y + bob, PUDDLE_Z + 0.05);
+    ref.current.rotation.set(rotX, facing, 0);
+  });
+
+  return (
+    <group ref={ref} position={[startX, 0, PUDDLE_Z + 0.05]} rotation={[0, -1.55, 0]}>
+      <CharacterModel kind="citizen" />
+    </group>
+  );
+}
+
+function easeInOutSine(t: number) {
+  return -(Math.cos(Math.PI * t) - 1) / 2;
 }
 
 function CharacterModel({ kind }: { kind: "officer" | "citizen" }) {
@@ -188,21 +371,18 @@ function CharacterModel({ kind }: { kind: "officer" | "citizen" }) {
 
   useEffect(() => {
     cloned.traverse((node) => {
-      if ((node as THREE.Mesh).isMesh) {
-        const mesh = node as THREE.Mesh;
-        mesh.castShadow = true;
-        mesh.receiveShadow = false;
-      }
+      const mesh = node as THREE.Mesh;
+      if (!mesh.isMesh) return;
+      mesh.castShadow = true;
+      mesh.receiveShadow = false;
     });
 
-    const box = new THREE.Box3().setFromObject(cloned);
-    const size = box.getSize(new THREE.Vector3());
-    const center = box.getCenter(new THREE.Vector3());
-    const targetHeight = 1.55;
-    const scale = size.y > 0 ? targetHeight / size.y : 1;
+    const initialBox = new THREE.Box3().setFromObject(cloned);
+    const initialSize = initialBox.getSize(new THREE.Vector3());
+    const targetHeight = 1.85;
+    const scale = initialSize.y > 0 ? targetHeight / initialSize.y : 1;
     cloned.scale.setScalar(scale);
 
-    // Recompute bounds after scaling so we sit the model on the ground.
     cloned.updateMatrixWorld(true);
     const scaledBox = new THREE.Box3().setFromObject(cloned);
     const scaledCenter = scaledBox.getCenter(new THREE.Vector3());
@@ -214,71 +394,80 @@ function CharacterModel({ kind }: { kind: "officer" | "citizen" }) {
   return <primitive object={cloned} />;
 }
 
-function TimedCallout({
-  playing,
-  tone,
-  text,
-  label,
-  accent
+function ReportOverlay({
+  scene,
+  highlight
 }: {
-  playing: boolean;
-  tone: "correct" | "wrong";
-  text: string;
-  label: string;
-  accent: string;
+  scene: CorrectionSceneData;
+  highlight: "correct" | "wrong" | null;
 }) {
-  const ref = useRef<THREE.Group>(null);
-
-  useFrame(({ clock }) => {
-    if (!ref.current) return;
-    const t = playing ? clock.getElapsedTime() : 0;
-    ref.current.position.y = 1.55 + (playing ? Math.sin(t * 1.4) * 0.02 : 0);
-  });
-
   return (
-    <group ref={ref} position={[0, 1.55, 0.6]}>
-      <Html
-        transform
-        occlude={false}
-        distanceFactor={3.6}
-        position={[0, 0, 0]}
-        style={{ pointerEvents: "none" }}
-      >
-        <div
-          style={{
-            width: 220,
-            background: "white",
-            borderRadius: 14,
-            padding: "10px 14px",
-            boxShadow: "0 10px 30px rgba(15,23,42,0.18)",
-            border: "1px solid rgba(15,23,42,0.06)",
-            fontFamily: "ui-sans-serif, system-ui, -apple-system",
-            color: "#0f172a"
-          }}
-        >
-          <div
-            style={{
-              fontSize: 9,
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              color: accent,
-              fontWeight: 600
-            }}
-          >
-            {label}
-          </div>
-          <div style={{ marginTop: 6, fontSize: 11, lineHeight: 1.4, fontWeight: 500 }}>{text}</div>
-        </div>
-      </Html>
-    </group>
+    <div className="pointer-events-none absolute inset-x-3 top-3 z-10 flex justify-between gap-3">
+      <OverlayCard
+        side="correct"
+        accent="#15803d"
+        label={scene.correctChoice.label}
+        text={scene.correctChoice.text}
+        tags={scene.correctChoice.tags}
+        highlight={highlight === "correct"}
+      />
+      <OverlayCard
+        side="wrong"
+        accent="#b91c1c"
+        label={scene.wrongChoice.label}
+        text={scene.wrongChoice.text}
+        tags={scene.wrongChoice.tags}
+        highlight={highlight === "wrong"}
+      />
+    </div>
   );
 }
 
-function Divider() {
+function OverlayCard({
+  side,
+  accent,
+  label,
+  text,
+  tags,
+  highlight
+}: {
+  side: "correct" | "wrong";
+  accent: string;
+  label: string;
+  text: string;
+  tags: string[];
+  highlight: boolean;
+}) {
   return (
-    <mesh position={[0, 0.4, 0]}>
-      <boxGeometry args={[0.02, 3.2, 0.02]} />
-      <meshStandardMaterial color="#ffffff" emissive="#ffffff" emissiveIntensity={0.4} />
-    </mesh>
+    <div
+      className="relative w-[44%] max-w-[260px] rounded-xl bg-white/98 px-3.5 py-3 ring-1 transition"
+      style={{
+        transform: side === "correct" ? "rotate(-1deg)" : "rotate(1deg)",
+        boxShadow: highlight
+          ? `0 0 0 2px ${accent}, 0 14px 40px -16px rgba(15,23,42,0.30)`
+          : "0 14px 40px -16px rgba(15,23,42,0.20)"
+      }}
+    >
+      <div className="flex items-center gap-1.5">
+        <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ background: accent }} />
+        <span
+          className="text-[10px] font-semibold uppercase tracking-[0.16em]"
+          style={{ color: accent }}
+        >
+          {label}
+        </span>
+      </div>
+      <p className="mt-1.5 text-[12.5px] font-medium leading-[1.45] text-neutral-800">“{text}”</p>
+      <div className="mt-2 flex flex-wrap gap-1">
+        {tags.map((t) => (
+          <span
+            key={t}
+            className="rounded-full bg-black/[0.04] px-1.5 py-[1px] text-[9.5px] font-medium text-neutral-600"
+          >
+            {t}
+          </span>
+        ))}
+      </div>
+    </div>
   );
 }

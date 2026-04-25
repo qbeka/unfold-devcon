@@ -17,21 +17,21 @@ export function TabNav() {
   const setActiveTab = useUnfoldStore((state) => state.setActiveTab);
 
   return (
-    <nav className="flex items-center gap-1 overflow-x-auto">
+    <nav className="flex items-center gap-0.5 overflow-x-auto">
       {tabs.map((tab) => {
         const isActive = activeTab === tab.id;
         return (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`relative whitespace-nowrap rounded-full px-3.5 py-1.5 text-xs font-medium transition ${
-              isActive ? "text-slate-950" : "text-slate-500 hover:text-slate-900"
+            className={`relative whitespace-nowrap rounded-full px-3 py-1.5 text-[12px] font-medium transition ${
+              isActive ? "text-neutral-950" : "text-neutral-500 hover:text-neutral-900"
             }`}
             type="button"
           >
             {tab.label}
             {isActive && (
-              <span className="absolute inset-x-3 -bottom-2 h-px bg-slate-950" aria-hidden />
+              <span className="absolute inset-x-3 -bottom-2 h-px bg-neutral-950" aria-hidden />
             )}
           </button>
         );

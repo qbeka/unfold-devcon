@@ -33,6 +33,8 @@ export type DocumentModuleSummary = {
   sourceRange: string;
   activities: string[];
   concepts: string[];
+  pageStart?: number;
+  pageEnd?: number;
 };
 
 export type DocumentManifest = {

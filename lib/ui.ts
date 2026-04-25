@@ -1,17 +1,20 @@
-export const card =
-  "rounded-[1.25rem] border border-slate-200/80 bg-white";
+export const card = "rounded-2xl border border-black/5 bg-white";
 
 export const buttonPrimary =
-  "inline-flex items-center justify-center rounded-full bg-slate-950 px-4 py-2 text-xs font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50";
+  "inline-flex items-center justify-center gap-1.5 rounded-full bg-black px-3.5 py-2 text-[12px] font-medium text-white transition hover:bg-black/85 disabled:cursor-not-allowed disabled:opacity-40";
 
 export const buttonSecondary =
-  "inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-900 transition hover:border-slate-300 disabled:cursor-not-allowed disabled:opacity-50";
+  "inline-flex items-center justify-center gap-1.5 rounded-full border border-black/10 bg-white px-3.5 py-2 text-[12px] font-medium text-neutral-900 transition hover:border-black/20 disabled:cursor-not-allowed disabled:opacity-40";
 
 export const buttonGhost =
-  "inline-flex items-center justify-center rounded-full px-4 py-2 text-xs font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-slate-950 disabled:cursor-not-allowed disabled:opacity-50";
+  "inline-flex items-center justify-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-medium text-neutral-500 transition hover:bg-black/5 hover:text-neutral-900 disabled:cursor-not-allowed disabled:opacity-40";
 
-export const label = "text-[0.65rem] font-medium uppercase tracking-[0.2em] text-slate-400";
+export const eyebrow =
+  "text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-400";
+export const label = eyebrow;
 
-export const sectionHeading = "text-xl font-semibold tracking-[-0.02em] text-slate-950";
+export const sectionTitle =
+  "text-[26px] font-semibold tracking-tighter2 text-neutral-950";
+export const sectionHeading = sectionTitle;
 
-export const helperText = "text-sm leading-7 text-slate-500";
+export const helperText = "text-[14px] leading-7 text-neutral-500";

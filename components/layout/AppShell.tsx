@@ -20,15 +20,17 @@ export function AppShell() {
   }
 
   return (
-    <div className="min-h-screen bg-[#fafbfc] text-slate-950">
+    <div className="min-h-screen text-neutral-950">
       <TopBar />
-      <main className="mx-auto w-full max-w-5xl px-6 pb-16 pt-6">
-        {activeTab === "read" && <ReadTab />}
-        {activeTab === "exam" && <ExamTab />}
-        {activeTab === "corrections" && <CorrectionsTab />}
-        {activeTab === "discussion" && <DiscussionTab />}
-        {activeTab === "movie" && <MovieTab />}
-        {activeTab === "progress" && <ProgressTab />}
+      <main className="mx-auto w-full max-w-5xl px-6 pb-24 pt-8">
+        <div key={activeTab} className="unfold-fade">
+          {activeTab === "read" && <ReadTab />}
+          {activeTab === "exam" && <ExamTab />}
+          {activeTab === "corrections" && <CorrectionsTab />}
+          {activeTab === "discussion" && <DiscussionTab />}
+          {activeTab === "movie" && <MovieTab />}
+          {activeTab === "progress" && <ProgressTab />}
+        </div>
       </main>
     </div>
   );

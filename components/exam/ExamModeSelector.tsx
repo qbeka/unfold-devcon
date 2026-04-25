@@ -15,38 +15,58 @@ export function ExamModeSelector() {
   const setQuestionCount = useUnfoldStore((state) => state.setQuestionCount);
 
   return (
-    <div className="flex flex-wrap items-center gap-3">
-      <div className="inline-flex items-center gap-0.5 rounded-full border border-slate-200 bg-white p-0.5">
+    <div className="flex flex-wrap items-center gap-2">
+      <Pillset>
         {modes.map((mode) => (
-          <button
+          <PillButton
             key={mode.id}
-            className={`rounded-full px-3 py-1.5 text-xs font-medium transition ${
-              examMode === mode.id ? "bg-slate-950 text-white" : "text-slate-500 hover:text-slate-950"
-            }`}
+            active={examMode === mode.id}
             onClick={() => setExamMode(mode.id)}
-            type="button"
-          >
-            {mode.label}
-          </button>
+            label={mode.label}
+          />
         ))}
-      </div>
+      </Pillset>
 
-      <div className="inline-flex items-center gap-0.5 rounded-full border border-slate-200 bg-white p-0.5">
+      <Pillset>
         {[3, 5].map((count) => (
-          <button
+          <PillButton
             key={count}
-            className={`rounded-full px-3 py-1.5 text-xs font-medium transition ${
-              questionCount === count
-                ? "bg-slate-950 text-white"
-                : "text-slate-500 hover:text-slate-950"
-            }`}
+            active={questionCount === count}
             onClick={() => setQuestionCount(count)}
-            type="button"
-          >
-            {count} questions
-          </button>
+            label={`${count} questions`}
+          />
         ))}
-      </div>
+      </Pillset>
     </div>
+  );
+}
+
+function Pillset({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="inline-flex items-center gap-0.5 rounded-full border border-black/10 bg-white p-0.5">
+      {children}
+    </div>
+  );
+}
+
+function PillButton({
+  active,
+  onClick,
+  label
+}: {
+  active: boolean;
+  onClick: () => void;
+  label: string;
+}) {
+  return (
+    <button
+      className={`rounded-full px-3 py-1.5 text-[12px] font-medium transition ${
+        active ? "bg-neutral-950 text-white" : "text-neutral-500 hover:text-neutral-950"
+      }`}
+      onClick={onClick}
+      type="button"
+    >
+      {label}
+    </button>
   );
 }

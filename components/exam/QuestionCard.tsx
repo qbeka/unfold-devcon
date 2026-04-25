@@ -9,10 +9,10 @@ export function QuestionCard({ question }: { question: ExamQuestion }) {
 
   return (
     <div className="space-y-5">
-      <p className="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-slate-400">
+      <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-400">
         {question.difficulty} · {question.testedConcept}
       </p>
-      <h2 className="text-[1.4rem] font-semibold tracking-[-0.02em] text-slate-950">
+      <h2 className="text-[22px] font-semibold tracking-tighter2 text-neutral-950">
         {question.question}
       </h2>
       <div className="space-y-2">
@@ -21,22 +21,22 @@ export function QuestionCard({ question }: { question: ExamQuestion }) {
           return (
             <button
               key={option}
-              className={`flex w-full items-center justify-between gap-4 rounded-2xl border px-4 py-3 text-left text-sm transition ${
+              className={`group flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-left text-[14px] transition ${
                 isSelected
-                  ? "border-slate-950 bg-slate-950 text-white"
-                  : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
+                  ? "border-neutral-950 bg-neutral-950 text-white"
+                  : "border-black/10 bg-white text-neutral-700 hover:border-black/20"
               }`}
               onClick={() => selectAnswer(option)}
               type="button"
             >
-              <span className="font-medium">{option}</span>
               <span
-                className={`grid h-5 w-5 shrink-0 place-items-center rounded-full border ${
-                  isSelected ? "border-white/40 bg-white" : "border-slate-300"
+                className={`grid h-4 w-4 shrink-0 place-items-center rounded-full border ${
+                  isSelected ? "border-white/40" : "border-neutral-300"
                 }`}
               >
-                {isSelected && <span className="block h-2 w-2 rounded-full bg-slate-950" />}
+                {isSelected && <span className="block h-1.5 w-1.5 rounded-full bg-white" />}
               </span>
+              <span className="font-medium">{option}</span>
             </button>
           );
         })}

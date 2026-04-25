@@ -4,8 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { Mic, MicOff, RotateCcw, Sparkles } from "lucide-react";
 import { SceneCanvas } from "@/components/corrections/SceneCanvas";
 import { useUnfoldStore } from "@/lib/store";
-import { demoCorrectionScene, demoPracticePrompt } from "@/lib/data/demoScene";
 import { buttonPrimary, buttonSecondary } from "@/lib/ui";
+import { cancelSpeech, speak } from "@/lib/speech";
+import { demoCorrectionScene, demoPracticePrompt, factualReport, opinionReport } from "@/lib/data/demoScene";
 
 type SpeechRecognitionLike = {
   start: () => void;
@@ -20,7 +21,7 @@ type SpeechRecognitionLike = {
 
 type Stage = "idle" | "listening" | "wrong" | "correct";
 
-const wrongAdvice = "Try again: Reports cannot include guesses. State only what was observed.";
+const wrongAdvice = "Try again: reports cannot include guesses. State only what you observed.";
 
 export function PracticeScene() {
   const completePractice = useUnfoldStore((state) => state.completePractice);
@@ -28,13 +29,14 @@ export function PracticeScene() {
   const [transcript, setTranscript] = useState("");
   const [attemptCount, setAttemptCount] = useState(0);
   const [error, setError] = useState<string | null>(null);
+  const [listeningElapsed, setListeningElapsed] = useState(0);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const supportsSpeech = useRef<boolean>(false);
+  const transcriptRef = useRef("");
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const Ctor =
-      (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    const Ctor = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (!Ctor) {
       supportsSpeech.current = false;
       return;
@@ -58,22 +60,44 @@ export function PracticeScene() {
     };
   }, []);
 
+  useEffect(() => {
+    transcriptRef.current = transcript;
+  }, [transcript]);
+
+  useEffect(() => {
+    if (stage !== "listening") {
+      setListeningElapsed(0);
+      return;
+    }
+    const start = Date.now();
+    const id = window.setInterval(() => setListeningElapsed(Date.now() - start), 200);
+    return () => window.clearInterval(id);
+  }, [stage]);
+
+  // Narrate the prompt and feedback at the right moments.
+  useEffect(() => {
+    if (stage === "wrong") {
+      void speak({ text: wrongAdvice, rate: 0.95 });
+    } else if (stage === "correct") {
+      void speak({ text: `Excellent. ${demoPracticePrompt.feedback}`, rate: 0.95 });
+    }
+    return () => cancelSpeech();
+  }, [stage]);
+
   function runSimulated() {
     setStage("listening");
     setTranscript("Simulating voice input…");
     window.setTimeout(() => {
-      const sample =
-        attemptCount === 0
-          ? "I think the woman looked upset and probably wanted attention."
-          : "Mrs. Meredith reported her purse was stolen at 1116.";
+      const sample = attemptCount === 0 ? opinionReport : factualReport;
       setTranscript(sample);
       completeAttempt(sample);
-    }, 1500);
+    }, 1700);
   }
 
   function startListening() {
     setError(null);
     setTranscript("");
+    cancelSpeech();
 
     if (!supportsSpeech.current || !recognitionRef.current) {
       runSimulated();
@@ -108,12 +132,6 @@ export function PracticeScene() {
     }
   }
 
-  // Keep latest transcript visible to onend without stale closure.
-  const transcriptRef = useRef("");
-  useEffect(() => {
-    transcriptRef.current = transcript;
-  }, [transcript]);
-
   function stopListening() {
     if (recognitionRef.current) {
       try {
@@ -128,11 +146,7 @@ export function PracticeScene() {
   function completeAttempt(spoken: string) {
     setAttemptCount((count) => {
       const next = count + 1;
-      if (next === 1) {
-        setStage("wrong");
-      } else {
-        setStage("correct");
-      }
+      setStage(next === 1 ? "wrong" : "correct");
       if (!spoken) setTranscript("(no speech detected)");
       return next;
     });
@@ -147,83 +161,86 @@ export function PracticeScene() {
     completePractice(demoPracticePrompt.testedConcept);
   }
 
+  const seconds = (listeningElapsed / 1000).toFixed(1);
   const caption =
     stage === "listening"
-      ? "Listening… speak the line you would put in your incident report."
+      ? `Listening · ${seconds}s — speak the line you would put in your incident report.`
       : stage === "wrong"
       ? wrongAdvice
       : stage === "correct"
-      ? "Excellent. That sentence is objective and source-grounded."
+      ? "Excellent. Objective, time-stamped, and factual."
       : "Press the microphone, then describe what you would write.";
 
   return (
     <div className="space-y-5">
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <div className="max-w-md">
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-slate-400">
-            Interactive practice · voice
-          </p>
-          <h2 className="mt-2 text-lg font-semibold text-slate-950">{demoPracticePrompt.title}</h2>
-          <p className="mt-2 text-sm leading-6 text-slate-500">{demoPracticePrompt.prompt}</p>
-        </div>
-        <div className="flex items-center gap-1.5">
-          {stage !== "listening" && stage !== "correct" && (
-            <button className={buttonPrimary} onClick={startListening} type="button">
-              <Mic className="mr-1.5 h-3.5 w-3.5" />
-              {attemptCount === 0 ? "Speak your sentence" : "Try again"}
-            </button>
-          )}
-          {stage === "listening" && (
-            <button className={buttonSecondary} onClick={stopListening} type="button">
-              <MicOff className="mr-1.5 h-3.5 w-3.5" />
-              Stop
-            </button>
-          )}
-          {stage === "correct" && (
-            <button className={buttonPrimary} onClick={finish} type="button">
-              <Sparkles className="mr-1.5 h-3.5 w-3.5" />
-              Complete practice
-            </button>
-          )}
-        </div>
+      <div className="rounded-xl border border-black/10 bg-white p-5">
+        <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-400">
+          {demoPracticePrompt.title}
+        </p>
+        <p className="mt-2 text-[14.5px] leading-7 text-neutral-700">{demoPracticePrompt.prompt}</p>
+      </div>
+
+      <div className="flex flex-wrap items-center justify-end gap-2">
+        {stage !== "listening" && stage !== "correct" && (
+          <button className={buttonPrimary} onClick={startListening} type="button">
+            <Mic className="h-3.5 w-3.5" />
+            {attemptCount === 0 ? "Speak your sentence" : "Try again"}
+          </button>
+        )}
+        {stage === "listening" && (
+          <button className={buttonSecondary} onClick={stopListening} type="button">
+            <MicOff className="h-3.5 w-3.5" />
+            Stop
+          </button>
+        )}
+        {stage === "correct" && (
+          <button className={buttonPrimary} onClick={finish} type="button">
+            <Sparkles className="h-3.5 w-3.5" />
+            Complete practice
+          </button>
+        )}
       </div>
 
       <SceneCanvas
         playing={stage === "listening" || stage === "correct"}
         scene={demoCorrectionScene}
+        variant="practice"
         caption={caption}
-        height={420}
+        height={460}
       />
 
-      <div className="rounded-2xl border border-slate-200 bg-white p-4">
-        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-slate-400">
+      <div className="rounded-xl border border-black/10 bg-white p-4">
+        <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-400">
           What you said
         </p>
-        <p className="mt-2 min-h-[1.5rem] text-sm text-slate-700">{transcript || "—"}</p>
+        <p className="mt-2 min-h-[1.5rem] text-[14px] leading-6 text-neutral-700">
+          {transcript || "—"}
+        </p>
 
         {stage === "wrong" && (
-          <div className="mt-3 flex items-center justify-between rounded-xl bg-amber-50 px-3 py-2 text-sm text-amber-900">
+          <div className="mt-3 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-amber-50 px-3 py-2 text-[13px] text-amber-900">
             <span>{wrongAdvice}</span>
             <button className={buttonSecondary} onClick={tryAgain} type="button">
-              <RotateCcw className="mr-1.5 h-3.5 w-3.5" />
+              <RotateCcw className="h-3.5 w-3.5" />
               Try again
             </button>
           </div>
         )}
 
         {stage === "correct" && (
-          <div className="mt-3 rounded-xl bg-emerald-50 px-3 py-2 text-sm text-emerald-900">
-            {demoPracticePrompt.feedback}
+          <div className="mt-3 rounded-lg bg-emerald-50 px-3 py-2 text-[13px] text-emerald-900">
+            Suggested sentence: “{factualReport}”
           </div>
         )}
 
         {error && (
-          <div className="mt-3 rounded-xl bg-red-50 px-3 py-2 text-sm text-red-900">{error}</div>
+          <div className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-[13px] text-red-900">{error}</div>
         )}
 
         {!supportsSpeech.current && (
-          <p className="mt-3 text-xs text-slate-400">
-            Voice mode falls back to a simulated input on browsers without speech recognition.
+          <p className="mt-3 text-[11px] text-neutral-400">
+            This browser does not support speech recognition. Voice input falls back to a simulated
+            transcript for the demo.
           </p>
         )}
       </div>

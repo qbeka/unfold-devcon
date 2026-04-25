@@ -6,7 +6,7 @@ import { ExamModeSelector } from "@/components/exam/ExamModeSelector";
 import { OpenBookPanel } from "@/components/exam/OpenBookPanel";
 import { QuestionCard } from "@/components/exam/QuestionCard";
 import { useUnfoldStore } from "@/lib/store";
-import { buttonPrimary, buttonGhost, label, sectionHeading, helperText } from "@/lib/ui";
+import { buttonPrimary, buttonGhost, eyebrow, sectionTitle, helperText } from "@/lib/ui";
 
 export function ExamTab() {
   const examMode = useUnfoldStore((state) => state.examMode);
@@ -35,7 +35,7 @@ export function ExamTab() {
             onClick={() => setCurrentQuestionIndex(currentQuestionIndex - 1)}
             type="button"
           >
-            <ArrowLeft className="mr-1 h-3.5 w-3.5" /> Previous
+            <ArrowLeft className="h-3.5 w-3.5" /> Previous
           </button>
           <button
             className={buttonGhost}
@@ -43,7 +43,7 @@ export function ExamTab() {
             onClick={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
             type="button"
           >
-            Next <ArrowRight className="ml-1 h-3.5 w-3.5" />
+            Next <ArrowRight className="h-3.5 w-3.5" />
           </button>
         </div>
         <button
@@ -62,19 +62,23 @@ export function ExamTab() {
   return (
     <div className="space-y-8">
       <header className="space-y-3">
-        <p className={label}>Exam</p>
-        <h1 className={sectionHeading}>Module Five practice</h1>
+        <p className={eyebrow}>Exam</p>
+        <h1 className={sectionTitle}>Module Five practice</h1>
         <p className={helperText}>
-          Question {currentQuestionIndex + 1} of {examQuestions.length}. Choose an answer, then
-          submit. Wrong answers route through a 3D correction.
+          Question {currentQuestionIndex + 1} of {examQuestions.length}. Wrong answers route through
+          a 3D correction scene.
         </p>
         <ExamModeSelector />
       </header>
 
-      <div className={examMode === "open_book" ? "grid gap-6 lg:grid-cols-[1fr_22rem]" : ""}>
-        {questionPanel}
-        {examMode === "open_book" && <OpenBookPanel />}
-      </div>
+      {examMode === "open_book" ? (
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_22rem]">
+          {questionPanel}
+          <OpenBookPanel />
+        </div>
+      ) : (
+        questionPanel
+      )}
     </div>
   );
 }

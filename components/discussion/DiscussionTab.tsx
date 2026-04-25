@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { Send } from "lucide-react";
-import { buttonGhost, helperText, label, sectionHeading } from "@/lib/ui";
+import { eyebrow, helperText, sectionTitle } from "@/lib/ui";
 
 const goals = [
   "Identify personal opinion",
-  "Check if the report includes who, what, where, when, why, and how",
-  "Check if important information is missing",
-  "Decide which report is more useful for an investigation"
+  "Check who, what, where, when, why, how",
+  "Spot missing details",
+  "Decide which report is more useful"
 ];
 
 const messages = [
@@ -16,7 +16,7 @@ const messages = [
     author: "Priya",
     role: "ESL learner",
     message:
-      "I understand that the report should explain what happened, but I am not sure when a description becomes an opinion."
+      "I understand the report should explain what happened, but I am not sure when a description becomes an opinion."
   },
   {
     author: "Daniel",
@@ -30,52 +30,51 @@ export function DiscussionTab() {
   const [draft, setDraft] = useState("");
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       <header className="space-y-3">
-        <p className={label}>Discussion</p>
-        <h1 className={sectionHeading}>AI class discussion</h1>
+        <p className={eyebrow}>Discussion</p>
+        <h1 className={sectionTitle}>AI class discussion</h1>
         <p className={helperText}>
           Compare incident reports and decide which one better follows the manual&apos;s guidelines.
-          Lawrence&apos;s live discussion logic plugs into this surface.
         </p>
       </header>
 
-      <div className="grid gap-6 lg:grid-cols-[1fr_18rem]">
-        <section className="space-y-4">
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
+        <section className="space-y-3">
           {messages.map((msg) => (
-            <article key={msg.author} className="rounded-2xl border border-slate-200 bg-white p-4">
+            <article key={msg.author} className="rounded-xl border border-black/10 bg-white p-4">
               <div className="flex items-baseline gap-2">
-                <p className="text-sm font-semibold text-slate-950">{msg.author}</p>
-                <p className="text-xs text-slate-400">{msg.role}</p>
+                <p className="text-[13px] font-medium text-neutral-950">{msg.author}</p>
+                <p className="text-[11px] text-neutral-400">{msg.role}</p>
               </div>
-              <p className="mt-2 text-sm leading-6 text-slate-600">{msg.message}</p>
+              <p className="mt-1.5 text-[14px] leading-6 text-neutral-700">{msg.message}</p>
             </article>
           ))}
-          <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5">
+          <div className="flex items-center gap-1 rounded-full border border-black/10 bg-white px-2 py-1">
             <input
-              className="min-w-0 flex-1 bg-transparent px-1 py-1.5 text-sm outline-none placeholder:text-slate-400"
+              className="min-w-0 flex-1 bg-transparent px-3 py-1.5 text-[13px] outline-none placeholder:text-neutral-400"
               placeholder="Add to the discussion…"
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
             />
             <button
-              className="grid h-8 w-8 place-items-center rounded-full bg-slate-950 text-white"
+              className="grid h-7 w-7 place-items-center rounded-full bg-neutral-950 text-white"
               type="button"
               onClick={() => setDraft("")}
             >
-              <Send className="h-3.5 w-3.5" />
+              <Send className="h-3 w-3" />
             </button>
           </div>
         </section>
 
-        <aside className="space-y-4">
+        <aside className="space-y-3">
           <SidebarBox title="Goals" items={goals} />
           <SidebarBox
             title="Summary"
             items={[
               "Objective facts are stronger than guesses.",
-              "Reports require clear, relevant details.",
-              "Next: practice removing opinion from sentences."
+              "Reports require relevant details.",
+              "Next: practice removing opinion."
             ]}
           />
           <SidebarBox
@@ -90,9 +89,9 @@ export function DiscussionTab() {
 
 function SidebarBox({ items, title }: { items: string[]; title: string }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-4">
-      <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-slate-400">{title}</p>
-      <ul className="mt-3 space-y-1.5 text-sm leading-6 text-slate-600">
+    <div className="rounded-xl border border-black/10 bg-white p-4">
+      <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-400">{title}</p>
+      <ul className="mt-2 space-y-1 text-[13px] leading-6 text-neutral-700">
         {items.map((item) => (
           <li key={item}>· {item}</li>
         ))}

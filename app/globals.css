@@ -5,6 +5,12 @@
 :root {
   color-scheme: light;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --bg: #fafafa;
+  --ink: #0a0a0a;
+  --muted: #737373;
+  --line: rgba(0, 0, 0, 0.06);
+  --line-strong: rgba(0, 0, 0, 0.10);
 }
 
 * {
@@ -13,14 +19,16 @@
 
 html {
   scroll-behavior: smooth;
+  text-size-adjust: 100%;
 }
 
 body {
   min-height: 100vh;
   margin: 0;
-  background: #fafbfc;
-  color: #0f172a;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  background: var(--bg);
+  color: var(--ink);
+  font-feature-settings: "ss01", "cv01", "cv02", "cv11";
+  letter-spacing: -0.005em;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -35,23 +43,56 @@ textarea {
     border-color 160ms var(--ease-out),
     color 160ms var(--ease-out),
     opacity 160ms var(--ease-out),
-    transform 160ms var(--ease-out);
+    transform 160ms var(--ease-out),
+    box-shadow 160ms var(--ease-out);
 }
 
-button:active:not(:disabled),
+button:not(:disabled):active,
 a[role="button"]:active {
-  transform: scale(0.98);
+  transform: scale(0.985);
 }
 
 ::selection {
-  background: rgba(15, 23, 42, 0.12);
-  color: #0f172a;
+  background: rgba(0, 0, 0, 0.10);
+  color: inherit;
+}
+
+/* Subtle overall scrollbar polish */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.18);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 mark.unfold-highlight {
-  background: linear-gradient(180deg, transparent 60%, rgba(250, 204, 21, 0.45) 60%);
+  background: linear-gradient(180deg, transparent 60%, rgba(250, 204, 21, 0.42) 60%);
   color: inherit;
   padding: 0 0.05em;
+}
+
+/* Soft fade-in for tab content */
+.unfold-fade {
+  animation: unfold-fade-in 240ms var(--ease-out-expo) both;
+}
+
+@keyframes unfold-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

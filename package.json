@@ -19,6 +19,7 @@
     "@aws-sdk/s3-request-presigner": "^3.1037.0",
     "@react-three/drei": "9.122.0",
     "@react-three/fiber": "8.18.0",
+    "geist": "^1.7.0",
     "lucide-react": "latest",
     "next": "14.2.35",
     "pdfjs-dist": "^5.6.205",

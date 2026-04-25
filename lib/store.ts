@@ -1,6 +1,7 @@
 "use client";
 
 import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 import { defaultProgress } from "@/lib/data/demoProgress";
 import { demoQuestions, sceneQuestionId } from "@/lib/data/demoQuestions";
 import { demoCorrectionScene } from "@/lib/data/demoScene";
@@ -45,6 +46,7 @@ type UnfoldStore = {
   setSelectedModuleId: (moduleId: string) => void;
   setLanguage: (language: LanguageCode) => void;
   confirmLanguage: () => void;
+  returnToUpload: () => void;
   setExamMode: (examMode: ExamMode) => void;
   setQuestionCount: (questionCount: number) => void;
   setCurrentQuestionIndex: (index: number) => void;
@@ -93,90 +95,120 @@ const initialState = {
   progress: defaultProgress
 };
 
-export const useUnfoldStore = create<UnfoldStore>((set, get) => ({
-  ...initialState,
-  setDocumentStatus: (documentStatus) => set({ documentStatus, processingError: undefined }),
-  setDocumentReady: (documentManifest) =>
-    set({
-      documentManifest,
-      documentStatus: "ready",
-      selectedModuleId: documentManifest.modules[0]?.id ?? "module-five",
-      activeTab: "read",
-      processingError: undefined,
-      needsLanguageChoice: true
-    }),
-  setProcessingError: (processingError) => set({ processingError, documentStatus: "error" }),
-  setActiveTab: (activeTab) => set({ activeTab }),
-  setSelectedModuleId: (selectedModuleId) =>
-    set({
-      selectedModuleId,
-      selectedSectionId:
-        selectedModuleId === "module-five" ? "report-writing-guidelines" : "module-overview",
-      activeTab: "read"
-    }),
-  setLanguage: (language) => set({ language }),
-  confirmLanguage: () => set({ needsLanguageChoice: false }),
-  setExamMode: (examMode) => set({ examMode }),
-  setQuestionCount: (questionCount) =>
-    set({
-      questionCount,
-      examQuestions: shuffleQuestions(questionCount),
-      currentQuestionIndex: 0,
-      selectedAnswer: undefined,
-      submittedQuestionIds: [],
-      attempts: []
-    }),
-  setCurrentQuestionIndex: (currentQuestionIndex) =>
-    set({ currentQuestionIndex, selectedAnswer: undefined }),
-  selectAnswer: (selectedAnswer) => set({ selectedAnswer }),
-  submitAnswer: () => {
-    const state = get();
-    const question = state.examQuestions[state.currentQuestionIndex];
-
-    if (!question || !state.selectedAnswer) return;
-
-    const correct = gradeAnswer(question, state.selectedAnswer);
-    const attempt: AnswerAttempt = {
-      questionId: question.id,
-      selectedAnswer: state.selectedAnswer,
-      correct,
-      weakConcept: correct ? undefined : question.testedConcept
-    };
-
-    set({
-      attempts: [...state.attempts, attempt],
-      submittedQuestionIds: Array.from(new Set([...state.submittedQuestionIds, question.id])),
-      latestWrongQuestionId: correct ? state.latestWrongQuestionId : question.id,
-      activeCorrectionScene:
-        !correct && question.id === sceneQuestionId ? demoCorrectionScene : state.activeCorrectionScene,
-      progress: correct
-        ? {
-            ...state.progress,
-            readinessScore: Math.min(100, state.progress.readinessScore + 1)
-          }
-        : addWeakArea(state.progress, question.testedConcept)
-    });
-  },
-  openCorrectionScene: () => {
-    const state = get();
-    if (state.latestWrongQuestionId === sceneQuestionId) {
-      set({ activeCorrectionScene: demoCorrectionScene, activeTab: "corrections" });
-      return;
-    }
-    set({ activeTab: "corrections" });
-  },
-  completePractice: (testedConcept) =>
-    set((state) => ({
-      progress: completePracticeProgress(state.progress, testedConcept),
-      activeTab: "progress"
-    })),
-  resetDemo: () =>
-    set({
+export const useUnfoldStore = create<UnfoldStore>()(
+  persist(
+    (set, get) => ({
       ...initialState,
-      examQuestions: shuffleQuestions(initialQuestionCount),
-      documentManifest: skipUpload ? demoManifest : undefined,
-      documentStatus: skipUpload ? "ready" : "empty",
-      needsLanguageChoice: false,
-      progress: { ...defaultProgress }
-    })
-}));
+      setDocumentStatus: (documentStatus) => set({ documentStatus, processingError: undefined }),
+      setDocumentReady: (documentManifest) =>
+        set((state) => ({
+          documentManifest,
+          documentStatus: "ready",
+          selectedModuleId: documentManifest.modules[0]?.id ?? "module-five",
+          activeTab: "read",
+          processingError: undefined,
+          needsLanguageChoice: state.documentManifest?.documentId !== documentManifest.documentId
+            ? true
+            : state.needsLanguageChoice
+        })),
+      setProcessingError: (processingError) => set({ processingError, documentStatus: "error" }),
+      setActiveTab: (activeTab) => set({ activeTab }),
+      setSelectedModuleId: (selectedModuleId) =>
+        set({
+          selectedModuleId,
+          selectedSectionId:
+            selectedModuleId === "module-five" ? "report-writing-guidelines" : "module-overview",
+          activeTab: "read"
+        }),
+      setLanguage: (language) => set({ language }),
+      confirmLanguage: () => set({ needsLanguageChoice: false }),
+      returnToUpload: () =>
+        set({
+          documentStatus: "empty",
+          documentManifest: undefined,
+          processingError: undefined,
+          needsLanguageChoice: false,
+          activeTab: "read"
+        }),
+      setExamMode: (examMode) => set({ examMode }),
+      setQuestionCount: (questionCount) =>
+        set({
+          questionCount,
+          examQuestions: shuffleQuestions(questionCount),
+          currentQuestionIndex: 0,
+          selectedAnswer: undefined,
+          submittedQuestionIds: [],
+          attempts: []
+        }),
+      setCurrentQuestionIndex: (currentQuestionIndex) =>
+        set({ currentQuestionIndex, selectedAnswer: undefined }),
+      selectAnswer: (selectedAnswer) => set({ selectedAnswer }),
+      submitAnswer: () => {
+        const state = get();
+        const question = state.examQuestions[state.currentQuestionIndex];
+
+        if (!question || !state.selectedAnswer) return;
+
+        const correct = gradeAnswer(question, state.selectedAnswer);
+        const attempt: AnswerAttempt = {
+          questionId: question.id,
+          selectedAnswer: state.selectedAnswer,
+          correct,
+          weakConcept: correct ? undefined : question.testedConcept
+        };
+
+        set({
+          attempts: [...state.attempts, attempt],
+          submittedQuestionIds: Array.from(new Set([...state.submittedQuestionIds, question.id])),
+          latestWrongQuestionId: correct ? state.latestWrongQuestionId : question.id,
+          activeCorrectionScene:
+            !correct && question.id === sceneQuestionId ? demoCorrectionScene : state.activeCorrectionScene,
+          progress: correct
+            ? {
+                ...state.progress,
+                readinessScore: Math.min(100, state.progress.readinessScore + 1)
+              }
+            : addWeakArea(state.progress, question.testedConcept)
+        });
+      },
+      openCorrectionScene: () => {
+        const state = get();
+        if (state.latestWrongQuestionId === sceneQuestionId) {
+          set({ activeCorrectionScene: demoCorrectionScene, activeTab: "corrections" });
+          return;
+        }
+        set({ activeTab: "corrections" });
+      },
+      completePractice: (testedConcept) =>
+        set((state) => ({
+          progress: completePracticeProgress(state.progress, testedConcept),
+          activeTab: "progress"
+        })),
+      resetDemo: () =>
+        set({
+          ...initialState,
+          examQuestions: shuffleQuestions(initialQuestionCount),
+          documentManifest: skipUpload ? demoManifest : undefined,
+          documentStatus: skipUpload ? "ready" : "empty",
+          needsLanguageChoice: false,
+          progress: { ...defaultProgress }
+        })
+    }),
+    {
+      name: "unfold-state-v1",
+      storage: createJSONStorage(() => (typeof window !== "undefined" ? window.localStorage : ({} as Storage))),
+      // Only persist what we need to restore the upload + language state.
+      partialize: (state) => ({
+        documentStatus: state.documentStatus,
+        documentManifest: state.documentManifest,
+        selectedModuleId: state.selectedModuleId,
+        selectedSectionId: state.selectedSectionId,
+        language: state.language,
+        needsLanguageChoice: state.needsLanguageChoice,
+        progress: state.progress,
+        attempts: state.attempts,
+        submittedQuestionIds: state.submittedQuestionIds
+      })
+    }
+  )
+);
